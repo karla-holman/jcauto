@@ -14,16 +14,16 @@ development:
   encoding: utf8
   database: project_development
   pool: 5
-  username: 
-  password:
+  username: postgres
+  password: r@yz0@r
 
 test: &TEST
   adapter: postgresql
   encoding: utf8
   database: project_test
   pool: 5
-  username: 
-  password:
+  username: postgres
+  password: r@yz0@r
 
 production:
   adapter: postgresql
