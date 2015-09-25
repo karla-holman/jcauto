@@ -1,0 +1,2 @@
+class JcautohomeController < ApplicationController
+end

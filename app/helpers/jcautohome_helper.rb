@@ -1,0 +1,2 @@
+module JcautohomeHelper
+end
