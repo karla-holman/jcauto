@@ -46,3 +46,21 @@ body {
 div.row {
 	padding: 20px 0px;
 }
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: #EEEEEE;
+}
+
+header.header-container{
+	background-color: #DEDEDD;
+}
+
+#header-logo {
+	position: absolute;
+	left: 45%;
+	top: -60px;
+}
