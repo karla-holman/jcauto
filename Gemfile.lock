@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/karla-holman/my_spree_wishlist.git
+  revision: c15b8d7612a9f84d2e3397c5020f8e9b805c45ee
+  specs:
+    spree_wishlist (2.2.0)
+      spree_core (~> 3.0.4)
+
+GIT
   remote: git://github.com/spree/spree_auth_devise.git
   revision: 2e8e08759c4d51bb94065478aee53546d0f05f98
   branch: 3-0-stable
@@ -17,12 +24,6 @@ GIT
   specs:
     spree_gateway (3.0.0.beta)
       spree_core (~> 3.0.0)
-
-PATH
-  remote: C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/spree_wishlist-2.2.0
-  specs:
-    spree_wishlist (2.2.0)
-      spree_core (~> 3.0.4)
 
 GEM
   remote: https://rubygems.org/
