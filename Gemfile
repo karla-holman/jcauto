@@ -53,7 +53,8 @@ group :development, :test do
 end
 
 
-gem 'spree', '3.0.4'
+# gem 'spree', '3.0.4'
+gem 'spree', github: 'karla-holman/spree_jcauto'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
