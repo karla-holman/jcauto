@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

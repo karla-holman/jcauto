@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/karla-holman/bootstrap-sass-jcauto.git
+  revision: fc8e186a0c76f7024fb066373613cfd133a79e0b
+  specs:
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
+
+GIT
   remote: git://github.com/karla-holman/my_spree_wishlist.git
   revision: c15b8d7612a9f84d2e3397c5020f8e9b805c45ee
   specs:
@@ -131,7 +139,7 @@ GEM
       activerecord (>= 3.0)
     addressable (2.3.8)
     arel (6.0.3)
-    autoprefixer-rails (6.0.2)
+    autoprefixer-rails (6.0.3)
       execjs
       json
     awesome_nested_set (3.0.2)
@@ -140,9 +148,6 @@ GEM
     bcrypt (3.1.10-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.5.1)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.3.0)
     builder (3.2.2)
     byebug (6.0.2)
     camertron-eprun (1.1.0)
@@ -348,7 +353,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass!
   byebug
   coffee-rails (~> 4.1.0)
   coffee-script-source (= 1.8.0)
