@@ -27,3 +27,13 @@ $("img").mouseenter(function(event){
 	$(this).attr("src", hover_src);*/
 
 });
+
+/* Handle Buttons */
+
+// Change to red on hover
+function toggleNeon(button_hovered, path) {
+	console.log(path);
+	console.log("OLD: " + $(button_hovered).css("background-image"));
+	$(button_hovered).css("background-image", "url(" + path + ")");
+	console.log("NEW: " + $(button_hovered).css("background-image"));
+}
