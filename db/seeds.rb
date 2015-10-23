@@ -786,3 +786,6 @@ Spree::Taxon.create :name => "Vacuum delay Nox Valve, California", :parent_id =>
 
 # Memorabilia
 # No Taxons
+
+# Add a test product
+Spree::Product.create :name => "Test Product", :description => "This is the best product.", :available_on => "2015-10-02 00:00:00"
