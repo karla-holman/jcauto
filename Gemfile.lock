@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/karla-holman/bootstrap-sass-jcauto.git
-  revision: b0d8a6c7cd75fdc78db98538417e53a05d82d193
-  specs:
-    bootstrap-sass (3.3.5.1)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.3.0)
-
-GIT
   remote: git://github.com/karla-holman/my_spree_wishlist.git
   revision: c15b8d7612a9f84d2e3397c5020f8e9b805c45ee
   specs:
@@ -14,8 +6,34 @@ GIT
       spree_core (~> 3.0.4)
 
 GIT
-  remote: git://github.com/karla-holman/spree_jcauto.git
-  revision: 0aabcb820110409c4bd0f817eadfb065b68150d6
+  remote: git://github.com/spree/spree_auth_devise.git
+  revision: 2e8e08759c4d51bb94065478aee53546d0f05f98
+  branch: 3-0-stable
+  specs:
+    spree_auth_devise (3.0.0)
+      devise (~> 3.4.1)
+      devise-encryptable (= 0.1.2)
+      json
+      multi_json
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree/spree_gateway.git
+  revision: 7301dc7c84c05b46427bf5003eda13ca64a48d7c
+  branch: 3-0-stable
+  specs:
+    spree_gateway (3.0.0.beta)
+      spree_core (~> 3.0.0)
+
+PATH
+  remote: C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1
+  specs:
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
+
+PATH
+  remote: C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto
   specs:
     spree (3.0.4)
       spree_api (= 3.0.4)
@@ -71,26 +89,6 @@ GIT
       sprockets-rails (~> 2.2)
     spree_sample (3.0.4)
       spree_core (= 3.0.4)
-
-GIT
-  remote: git://github.com/spree/spree_auth_devise.git
-  revision: 2e8e08759c4d51bb94065478aee53546d0f05f98
-  branch: 3-0-stable
-  specs:
-    spree_auth_devise (3.0.0)
-      devise (~> 3.4.1)
-      devise-encryptable (= 0.1.2)
-      json
-      multi_json
-      spree_core (~> 3.0.0)
-
-GIT
-  remote: git://github.com/spree/spree_gateway.git
-  revision: 7301dc7c84c05b46427bf5003eda13ca64a48d7c
-  branch: 3-0-stable
-  specs:
-    spree_gateway (3.0.0.beta)
-      spree_core (~> 3.0.0)
 
 GEM
   remote: https://rubygems.org/

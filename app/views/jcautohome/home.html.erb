@@ -1,33 +1,31 @@
-<div class="header-img">
-
-</div>
-<div class="bar-image">
-   
-</div>
-
-<div class="container">
-	<div class="row text-center">
-		<h1>Welcome to JC Auto Restoration</h1>
-		<div class="col-md-4">
-			<%= image_tag "gauge/calendar.png", onmouseover: "this.src='#{asset_path('gauge/calendar-hover.png')}'", onmouseout: "this.src='#{asset_path('gauge/calendar.png')}'", class:"icon" %>
-			<h3>Parts Retail</h3>
-			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
-			<%= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" %>
-		</div>
-		<div class="col-md-4">
-			<%= image_tag "gauge/Search.png", onmouseover: "this.src='#{asset_path('gauge/Search-hover.png')}'", onmouseout: "this.src='#{asset_path('gauge/Search.png')}'", class:"icon" %>
-			<h3>Restoration Services</h3>
-			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
-			<%= button_tag "Services", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" %>
-		</div>
-		<div class="col-md-4">
-			<%= image_tag "gauge/Settings.png", onmouseover: "this.src='#{asset_path('gauge/Settings-hover.png')}'", onmouseout: "this.src='#{asset_path('gauge/Settings.png')}'", class:"icon" %>
-			<h3>MoPar Community</h3>
-			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
-			<%= button_tag "Learn More", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" %>
+<div class="container-odd">
+	<div class="container">
+		<div class="row text-center">
+			<h1>Welcome to JC Auto Restoration</h1>
+			<div class="col-md-4">
+				<%= image_tag "vintage/Calendar.png", onmouseover: "this.src='#{asset_path('vintage/Calendar-hover.png')}'", onmouseout: "this.src='#{asset_path('vintage/Calendar.png')}'", class:"icon" %>
+				<h3>Parts Retail</h3>
+				<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
+				<%= button_tag "Find Parts >", class: "btn btn-text" %>
+				
+			</div>
+			<div class="col-md-4">
+				<%= image_tag "vintage/Search.png", onmouseover: "this.src='#{asset_path('vintage/Search-hover.png')}'", onmouseout: "this.src='#{asset_path('vintage/Search.png')}'", class:"icon" %>
+				<h3>Restoration Services</h3>
+				<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
+				<%= button_tag "Services >", class:"btn btn-text" %>
+			</div>
+			<div class="col-md-4">
+				<%= image_tag "vintage/Settings.png", onmouseover: "this.src='#{asset_path('vintage/Settings-hover.png')}'", onmouseout: "this.src='#{asset_path('vintage/Settings.png')}'", class:"icon" %>
+				<h3>MoPar Community</h3>
+				<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
+				<%= button_tag "Learn More >", class:"btn btn-text" %>
+			</div>
 		</div>
 	</div>
 </div>
+
+<!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <%= javascript_include_tag "image-hover.js" %>
