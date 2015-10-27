@@ -1,0 +1,187 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<h3>The Shop</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+			</p>
+		</div><!-- End Column 1 -->
+		<div class="col-md-6">
+			<%= image_tag "Shop Image.jpg" %>
+		</div>
+	</div><!-- End Row -->
+</div>
+
+<div class="image-background" id="shop">
+	<%= image_tag "Shop Image.jpg", style: "width: 100%; visibility: hidden;" %>
+</div>
+
+<div class="container">
+	<div class="row text-center">
+		<div class="col-md-3" style="text-align: left">
+			<h3>Why JC Auto</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</div>
+		<div class= "col-md-3" >
+			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+			<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
+			<h3>Customer Service</h3>
+			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. Check out our online inventory for a vast supply of parts and memorabilia.</p>
+			<!-- Change Tech image on hover -->
+			<%= button_tag "Find Parts >", class: "btn btn-text", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
+			
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech2.png", class:"icon", id:"tech2" %>
+			<h3>Our History</h3>
+			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
+			<!-- Change Tech image on hover -->
+			<%= button_tag "Services >", class:"btn btn-text", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/Tech2-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/Tech2.png')}'" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech3.png", class:"icon", id:"tech3" %>
+			<h3>Our Work</h3>
+			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
+			<%= button_tag "Learn More >", class:"btn btn-text", onmouseover: "document.getElementById('tech3').src='#{asset_path('master/Tech3-hover.png')}'", onmouseout: "document.getElementById('tech3').src='#{asset_path('master/Tech3.png')}'" %>
+		</div>
+	</div>
+</div>
+
+<div class="container-yellow">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-md-12">
+				<h1>Who We Are</h1>
+			</div>
+			<div class="col-md-3 col-md-offset-3">
+				<%= image_tag "people/jeff.png", class:"icon" %>
+				<h3>Jeff Carter</h3>
+				<h4>Owner</h4>
+				<p>Jeff has been in the industry since the young age of 12</p>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "people/lisa.png", class:"icon" %>
+				<h3>Lisa Peterson</h3>
+				<h4>Co-Owner</h4>
+				<p>Jeff has been in the industry since the young age of 12</p>
+			</div>
+			<div class="clearfix visible-md-block visible-lg-block"></div>
+			<div class="col-md-3">
+				<%= image_tag "people/lisa.png", class:"icon" %>
+				<h3>Lisa Peterson</h3>
+				<h4>Co-Owner</h4>
+				<p>Jeff has been in the industry since the young age of 12</p>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "people/lisa.png", class:"icon" %>
+				<h3>Lisa Peterson</h3>
+				<h4>Co-Owner</h4>
+				<p>Jeff has been in the industry since the young age of 12</p>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "people/lisa.png", class:"icon" %>
+				<h3>Lisa Peterson</h3>
+				<h4>Co-Owner</h4>
+				<p>Jeff has been in the industry since the young age of 12</p>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "people/lisa.png", class:"icon" %>
+				<h3>Lisa Peterson</h3>
+				<h4>Co-Owner</h4>
+				<p>Jeff has been in the industry since the young age of 12</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row text-center">
+		<div class="col-md-3" style="text-align: left">
+			<h3>Our Cars</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "Shop Image.jpg", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "Shop Image.jpg", class: "icon" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "Shop Image.jpg", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "Shop Image.jpg", class: "icon" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "Shop Image.jpg", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "Shop Image.jpg", class: "icon" %>
+		</div>
+	</div>
+</div>
+
+<div class="image-background" id="cars">
+	<%= image_tag "Car Image.jpg", style: "width: 100%; visibility: hidden;" %>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>Connect With Us</h1>
+		</div>
+		<div class="col-md-3">
+			<h3>Send us a Message</h3>
+			<p>Have a question or comment? Let us know!</p>
+			<form>
+				<div class="form-group">
+					<label for="customerName">Full name</label>
+					<input type="name" class="form-control" id="customerName" placeholder="Name">
+				</div>
+				<div class="form-group">
+					<label for="customerEmail">Email address</label>
+					<input type="email" class="form-control" id="customerEmail" placeholder="Email">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-3">
+			<h3>Find Us at a Show</h3>
+			<p>
+				We love a good car show, and it gives us a great opportunity to meet other people who are passionate about MoPars.
+			</p>
+			<p>
+				Here is a list of shows we'll be attending over the next couple of months. Drop by our booth and say hello!
+			</p>
+			<%= button_tag "Upcoming Shows >", class:"btn btn-text", style:"text-align: left" %>
+		</div>
+		<div class="col-md-3">
+			<h3>Visit the Shop</h3>
+			<p>
+				Drop by any time we are open from 8am to 5pm, Monday through Friday. Come check out some of the projects we are working on up close and get a look at our inventory.
+			</p>
+			<p>
+				<strong>Our location:</strong>
+			</p>
+			<p>
+				20815 52nd Ave W, Suite 2
+				Lynnwood, WA 98036
+			</p>
+		</div>
+		<div class="col-md-3">
+			<h3>Start a Project</h3>
+			<p>Have a project in mind? Need help getting started? Let us get you on your way!</p>
+			<ul style="font-family: 'Open Sans'">
+				<li><%= link_to "Find Parts", root_path %></li>
+				<li><%= link_to "Learn About Services", root_path %></li>
+				<li><%= link_to "Get a Gift Card", root_path %></li>
+				<li><%= link_to "Start a Wish List", root_path %></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<%= javascript_include_tag "image-hover.js" %>
+</body>
+</div>

@@ -37,3 +37,13 @@ function toggleNeon(button_hovered, path) {
 	$(button_hovered).css("background-image", "url(" + path + ")");
 	console.log("NEW: " + $(button_hovered).css("background-image"));
 }
+
+window.onscroll = function() {
+
+	if ( $(window).scrollTop() == 0 ) {
+		$('#secondNav').removeClass("affix");
+	}
+	else {
+		$('#secondNav').addClass("affix");
+	}
+};
