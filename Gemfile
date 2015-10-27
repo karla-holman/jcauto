@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 
-gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
-# gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
+# gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
+gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -56,8 +56,8 @@ end
 
 
 # gem 'spree', '3.0.4'
-gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
-# gem 'spree', github: 'karla-holman/spree_jcauto'
+# gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
+gem 'spree', github: 'karla-holman/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
