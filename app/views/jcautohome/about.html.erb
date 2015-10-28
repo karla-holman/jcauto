@@ -1,7 +1,22 @@
+<div class="container-yellow" id="tertiaryNav">
+	<div class="container text-center">
+		<ul class="nav nav-pills nav-justified">
+			<li role="presentation"><a href="#shop">The Shop</a></li>
+			<li role="presentation"><a href="#why">Why JC Auto</a></li>
+			<li role="presentation"><a href="#who">Who We Are</a></li>
+			<li role="presentation"><a href="#cars">Our Cars</a></li>
+			<li role="presentation"><a href="#connect">Connect With Us</a></li>
+		</ul>
+	</div>
+</div>
+
+<a name="shop">
 <div class="container">
 	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1>The Shop</h1>
+		</div>
 		<div class="col-md-6">
-			<h3>The Shop</h3>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 			</p>
@@ -16,15 +31,16 @@
 	<%= image_tag "Shop Image.jpg", style: "width: 100%; visibility: hidden;" %>
 </div>
 
+<a name="why">
 <div class="container">
 	<div class="row text-center">
-		<div class="col-md-3" style="text-align: left">
-			<h3>Why JC Auto</h3>
-			<p>
+		<div class="col-md-12">
+			<h1>Why JC Auto</h1>
+			<p class="intro">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 		</div>
-		<div class= "col-md-3" >
+		<div class= "col-md-4" >
 			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
 			<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
 			<h3>Customer Service</h3>
@@ -33,14 +49,14 @@
 			<%= button_tag "Find Parts >", class: "btn btn-text", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
 			
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<%= image_tag "master/Tech2.png", class:"icon", id:"tech2" %>
 			<h3>Our History</h3>
 			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
 			<!-- Change Tech image on hover -->
 			<%= button_tag "Services >", class:"btn btn-text", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/Tech2-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/Tech2.png')}'" %>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<%= image_tag "master/Tech3.png", class:"icon", id:"tech3" %>
 			<h3>Our Work</h3>
 			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
@@ -49,6 +65,7 @@
 	</div>
 </div>
 
+<a name="who">
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center">
@@ -96,25 +113,30 @@
 	</div>
 </div>
 
+<a name="cars">
 <div class="container">
 	<div class="row text-center">
-		<div class="col-md-3" style="text-align: left">
-			<h3>Our Cars</h3>
-			<p>
+		<div class="col-md-12">
+			<h1>Our Cars</h1>
+			<p class="intro">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 		</div>
 		<div class="col-md-3">
-			<%= image_tag "Shop Image.jpg", class: "icon", style: "margin-bottom: 20px" %>
-			<%= image_tag "Shop Image.jpg", class: "icon" %>
+			<%= image_tag "cars/Car-20.png", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "cars/Car-20.png", class: "icon" %>
 		</div>
 		<div class="col-md-3">
-			<%= image_tag "Shop Image.jpg", class: "icon", style: "margin-bottom: 20px" %>
-			<%= image_tag "Shop Image.jpg", class: "icon" %>
+			<%= image_tag "cars/Car-20.png", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "cars/Car-20.png", class: "icon" %>
 		</div>
 		<div class="col-md-3">
-			<%= image_tag "Shop Image.jpg", class: "icon", style: "margin-bottom: 20px" %>
-			<%= image_tag "Shop Image.jpg", class: "icon" %>
+			<%= image_tag "cars/Car-20.png", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "cars/Car-20.png", class: "icon" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "cars/Car-20.png", class: "icon", style: "margin-bottom: 20px" %>
+			<%= image_tag "cars/Car-20.png", class: "icon" %>
 		</div>
 	</div>
 </div>
@@ -123,6 +145,7 @@
 	<%= image_tag "Car Image.jpg", style: "width: 100%; visibility: hidden;" %>
 </div>
 
+<a name="connect">
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center">
