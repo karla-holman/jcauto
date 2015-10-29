@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="row text-center">
+		<h1>Browse by Part Category</h1>
+		<% @part_groups_taxon_children.each do |group| %>
+	
+			<div class= "col-md-2" >
+				<%= image_tag "cars/Car-20.png", class:"icon" %>
+				<p><%= group.name %></p>
+			</div>
+
+		<% end %>
+	</div>
+</div>
+
+<div class="container-yellow">
+	<div class="container">
+		<div class="row text-center">
+			<h1>Browse by Body Type</h1>
+			<% @body_types_taxon_children.each do |body| %>
+			<div class="col-md-3">
+				<%= image_tag "cars/Car-20.png", class:"icon" %>
+				<%= link_to body.name, "/", class: "button-link" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row text-center">
+		<h1>Features and Deals</h1>
+		<% if @featured_taxon_children.length == 0 %>
+			<h3>There are no featured products at this time. Please check back soon!</h3>
+		<% else %>
+			<% @featured_taxon_children.each do |featured| %>
+			<div class="col-md-3">
+				<%= image_tag "cars/Car-20.png", class:"icon" %>
+				<%= link_to featured.name, "/", class: "button-link" %>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div class="container-yellow">
+	<div class="container">
+		<div class="row text-center">
+			<h1>New Part Listings</h1>
+			<p class="intro">
+				Couldn't find something before? Check back here to see if we've picked up any parts you need!
+			</p>
+			<% if @new_taxon_children.length == 0 %>
+				<h3>There are no new products at this time. Please check back soon!</h3>
+			<% else %>
+				<% @new_taxon_children.each do |new_prod| %>
+				<div class="col-md-3">
+					<%= image_tag "cars/Car-20.png", class:"icon" %>
+					<%= link_to new_prod.name, "/", class: "button-link" %>
+				</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->

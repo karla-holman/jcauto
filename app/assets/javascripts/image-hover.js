@@ -38,12 +38,17 @@ function toggleNeon(button_hovered, path) {
 	console.log("NEW: " + $(button_hovered).css("background-image"));
 }
 
+// Add checkered background to affixed nav
 window.onscroll = function() {
 
 	if ( $(window).scrollTop() == 0 ) {
 		$('#secondNav').removeClass("affix");
+		//$('#tertiaryNav').removeClass("affix");
+		$('#nav').removeClass("affix");
 	}
 	else {
 		$('#secondNav').addClass("affix");
+		//$('#tertiaryNav').addClass("affix");
+		$('#nav').addClass("affix");
 	}
 };
