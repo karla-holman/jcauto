@@ -1,23 +1,49 @@
+<!-- Part Group -->
 <div class="container">
 	<div class="row text-center">
 		<h1>Browse by Part Category</h1>
-		<% @part_groups_taxon_children.each do |group| %>
-	
-			<div class= "col-md-2" >
-				<%= image_tag "cars/Car-20.png", class:"icon" %>
-				<p><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></p>
-			</div>
 
-		<% end %>
+		<!-- Use buttons on large devices -->
+		<div class="hidden-xs">
+			<% counter = 1 %>
+			<% @part_groups_taxon_children.each do |group| %>
+				
+				<div class= "col-sm-6 col-md-2" style="margin-bottom: 20px;" >
+					<%= link_to group.name, class: "button-link" do %><%= image_tag "cars/Car-20.png", class:"icon" %><% end %>
+					<p><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></p>
+				</div>
+
+				<!-- Add row breaks -->
+				<% if counter % 6 == 0 %>
+				<div class="clearfix hidden-xs-block"></div>
+				<% end %>
+				<% counter += 1 %>
+
+			<% end %>
+		</div>
+
+		<!-- Use dropdown on mobile -->
+		<div class="dropdown visible-xs text-left col-xs-12">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false" style="width: 100%">
+				Select Part Category
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="left: 20px; right: 20px">
+				<% @part_groups_taxon_children.each do |group| %>
+					<li><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 </div>
 
+<!-- Body Type -->
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center">
 			<h1>Browse by Body Type</h1>
 			<% @body_types_taxon_children.each do |body| %>
-			<div class="col-md-3">
+			<div class="col-sm-6 col-md-3">
 				<%= image_tag "cars/Car-20.png", class:"icon" %>
 				<%= link_to body.name, spree.nested_taxons_path(body.permalink), class: "button-link" %>
 			</div>
@@ -26,6 +52,7 @@
 	</div>
 </div>
 
+<!-- Featured Products -->
 <div class="container">
 	<div class="row text-center">
 		<h1>Features and Deals</h1>
@@ -42,6 +69,7 @@
 	</div>
 </div>
 
+<!-- New Part Listings -->
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center">
