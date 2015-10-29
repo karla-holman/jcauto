@@ -5,7 +5,7 @@
 	
 			<div class= "col-md-2" >
 				<%= image_tag "cars/Car-20.png", class:"icon" %>
-				<p><%= group.name %></p>
+				<p><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></p>
 			</div>
 
 		<% end %>
@@ -19,7 +19,7 @@
 			<% @body_types_taxon_children.each do |body| %>
 			<div class="col-md-3">
 				<%= image_tag "cars/Car-20.png", class:"icon" %>
-				<%= link_to body.name, "/", class: "button-link" %>
+				<%= link_to body.name, spree.nested_taxons_path(body.permalink), class: "button-link" %>
 			</div>
 			<% end %>
 		</div>
@@ -35,7 +35,7 @@
 			<% @featured_taxon_children.each do |featured| %>
 			<div class="col-md-3">
 				<%= image_tag "cars/Car-20.png", class:"icon" %>
-				<%= link_to featured.name, "/", class: "button-link" %>
+				<%= link_to featured.name, spree.nested_taxons_path(featured.permalink), class: "button-link" %>
 			</div>
 			<% end %>
 		<% end %>
@@ -55,7 +55,7 @@
 				<% @new_taxon_children.each do |new_prod| %>
 				<div class="col-md-3">
 					<%= image_tag "cars/Car-20.png", class:"icon" %>
-					<%= link_to new_prod.name, "/", class: "button-link" %>
+					<%= link_to new_prod.name, spree.nested_taxons_path(new_prod.permalink), class: "button-link" %>
 				</div>
 				<% end %>
 			<% end %>
