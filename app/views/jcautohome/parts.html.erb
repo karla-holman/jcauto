@@ -9,7 +9,7 @@
 			<% @part_groups_taxon_children.each do |group| %>
 				
 				<div class= "col-sm-6 col-md-2" style="margin-bottom: 20px;" >
-					<%= link_to group.name, class: "button-link" do %><%= image_tag "cars/Car-20.png", class:"icon" %><% end %>
+					<%= link_to group.name, class: "button-link" do %><%= image_tag group.image_path, class:"icon" %><% end %>
 					<p><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></p>
 				</div>
 
@@ -44,7 +44,7 @@
 			<h1>Browse by Body Type</h1>
 			<% @body_types_taxon_children.each do |body| %>
 			<div class="col-sm-6 col-md-3">
-				<%= image_tag "cars/Car-20.png", class:"icon" %>
+				<%= image_tag body.image_path, class:"icon" %>
 				<%= link_to body.name, spree.nested_taxons_path(body.permalink), class: "button-link" %>
 			</div>
 			<% end %>
@@ -57,7 +57,7 @@
 	<div class="row text-center">
 		<h1>Features and Deals</h1>
 		<% if @featured_taxon_children.length == 0 %>
-			<h3>There are no featured products at this time. Please check back soon!</h3>
+			<p>There are no featured products at this time. Please check back soon!</p>
 		<% else %>
 			<% @featured_taxon_children.each do |featured| %>
 			<div class="col-md-3">
@@ -78,7 +78,7 @@
 				Couldn't find something before? Check back here to see if we've picked up any parts you need!
 			</p>
 			<% if @new_taxon_children.length == 0 %>
-				<h3>There are no new products at this time. Please check back soon!</h3>
+				<p>There are no new products at this time. Please check back soon!</p>
 			<% else %>
 				<% @new_taxon_children.each do |new_prod| %>
 				<div class="col-md-3">
