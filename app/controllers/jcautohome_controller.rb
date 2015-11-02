@@ -4,7 +4,7 @@ class JcautohomeController < ApplicationController
 	end
 
 	def about
-
+		@our_cars = OurCar.all
 	end
 
 	def community

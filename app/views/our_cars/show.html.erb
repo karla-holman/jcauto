@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1><%= @our_car.name %></h1>
+			<p class="intro"><%= @our_car.description %></p>
+		</div>
+		<% images = @our_car.our_car_images %>
+		<% if images.length == 1 %>
+			<% col_width = 12 %>
+		<% else %>
+			<%  col_width = 6 %>
+		<% end %>
+		<% images.each do |image| %>
+		<div class="col-md-<%=col_width%>">
+			<%= image_tag image.image_path, style: "width: 100%" %>
+			<p class = "caption"><%= image.description %></p>
+		</div>
+		<% end %>
+	</div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<!-- 
+<%= link_to 'Edit', edit_our_car_path(@our_car) %> |
+<%= link_to 'Back', our_cars_path %>
+-->

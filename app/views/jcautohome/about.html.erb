@@ -122,10 +122,12 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 		</div>
+		<% @our_cars.each do |car| %>
 		<div class="col-md-3">
-			<%= image_tag "cars/Car-20.png", class: "icon", style: "margin-bottom: 20px" %>
-			<%= image_tag "cars/Car-20.png", class: "icon" %>
+			<%= image_tag car.thumb, class: "icon", style: "margin-bottom: 20px" %>
+			<%= link_to car.name, car, class: "button-link" %>
 		</div>
+		<% end %>
 		<div class="col-md-3">
 			<%= image_tag "cars/Car-20.png", class: "icon", style: "margin-bottom: 20px" %>
 			<%= image_tag "cars/Car-20.png", class: "icon" %>
