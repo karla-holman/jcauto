@@ -4,14 +4,21 @@
 			<h1><%= @our_car.name %></h1>
 			<p class="intro"><%= @our_car.description %></p>
 		</div>
+
 		<% images = @our_car.our_car_images %>
 		<% first = true %>
+
+		<!-- Main Gallery Image -->
 		<div class="col-md-12">
-			<%= image_tag "arrow-02.png", class: "gallery-arrow-left", alt: "previous", id: "previous" %>
+			<%= link_to "/", class: "gallery-arrow-left" do %>
+				<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
+			<% end %>
 			<div class="gallery_container">
 				<%= image_tag images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", id:"gallery_main" %>
 			</div>
-			<%= image_tag "arrow-01.png", class: "gallery-arrow-right", alt: "previous", id: "next" %>
+			<%= link_to "/", class: "gallery-arrow-right" do %>
+				<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
+			<% end %>
 		</div>	
 
 		<div class="col-xs-12 col-md-12">
@@ -19,11 +26,12 @@
 				<p><%= images[0].description %></p>
 			</div>
 		</div>
+	</div><!-- row -->
 
-	</div>
+	<!-- Thumbnails -->
 	<div class="row row-centered" style="margin-top: -50px">
 		<% images.each do |image| %>
-			<div class="col-xs-6 col-sm-4 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery">
 				<a href=<%'#{asset_path(image.image_path)}' %>>
 					<%= image_tag "thumbs/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path(image.image_path)}" } %>
 				</a>
@@ -35,9 +43,32 @@
 	</div><!-- row -->
 </div>
 
-<p id="notice"><%= notice %></p>
+<div class="container-yellow">
+	<div class="container">
+		<div class="row text-center row-centered">
+			<div class="col-md-12">
+				<h1>Check out Our Other Cars</h1>
+				<p class="intro">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				</p>
+			</div>
+
+			<% @our_cars.each do |car| %>
+				<% if car === @our_car %>
+					<!-- Do not list car on its own page -->
+				<% else %>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+						<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+						<%= link_to car.name, car, class: "button-link" %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
 <!-- 
+<p id="notice"><%= notice %></p>
 <%= link_to 'Edit', edit_our_car_path(@our_car) %> |
 <%= link_to 'Back', our_cars_path %>
 -->

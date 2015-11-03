@@ -41,15 +41,25 @@ function toggleNeon(button_hovered, path) {
 // Add checkered background to affixed nav
 window.onscroll = function() {
 
+	// Calculate offset for tertiary navigation
+	var header_offset = $('.header-img').offset();
+	var tertiary_offset = header_offset.top + $('.header-img').height() - 150;
+
+	// If screen anywhere but top of document, affix navs
 	if ( $(window).scrollTop() == 0 ) {
 		$('#secondNav').removeClass("affix");
-		//$('#tertiaryNav').removeClass("affix");
 		$('#nav').removeClass("affix");
 	}
 	else {
 		$('#secondNav').addClass("affix");
-		//$('#tertiaryNav').addClass("affix");
 		$('#nav').addClass("affix");
+	}
+
+	if ( $(window).scrollTop() > tertiary_offset) {
+		$('#tertiaryNav').addClass("affix");
+	}
+	else {
+		$('#tertiaryNav').removeClass("affix");
 	}
 };
 
@@ -59,7 +69,8 @@ window.onscroll = function() {
 $("#imageGallery a").click(function(event) {
 	event.preventDefault();
 
-	advanceGallery($(".thumb_selected"), $(this).children("img:first"));
+	console.log($(this));
+	advanceGallery($(".thumb_selected"), $(this).closest("div"));
 });
 
 // click on left arrow

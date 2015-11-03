@@ -11,6 +11,7 @@ class OurCarsController < ApplicationController
   # GET /our_cars/1.json
   def show
     @our_car = OurCar.find_by_id(params[:id])
+    @our_cars = OurCar.all()
   end
 
   # GET /our_cars/new
