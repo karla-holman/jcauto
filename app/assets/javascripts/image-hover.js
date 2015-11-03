@@ -52,3 +52,25 @@ window.onscroll = function() {
 		$('#nav').addClass("affix");
 	}
 };
+
+// Image Gallery
+$("#imageGallery a").click(function(event) {
+	// Prevent HTML href from being followed
+	event.preventDefault();
+
+	// Get image link
+	imgHref = $(this).children("img:first").attr("data-path");
+
+	// Get image caption from alt text
+	var imgCaption = $(this).children("img:first").attr("alt");
+
+	// update main gallery image
+	$("#gallery_main").attr("src", imgHref);
+
+	$("#caption p").text(imgCaption);
+
+	// change selected thumbnail
+	$(".thumb_selected").removeClass("thumb_selected");
+	$(this).children().addClass("thumb_selected");
+
+});

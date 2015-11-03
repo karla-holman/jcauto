@@ -11,3 +11,6 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( image-hover.js )
+Rails.application.config.assets.precompile += %w( galleria-1.4.2.min.js )
+Rails.application.config.assets.precompile += %w( galleria.classic.min.js )
+# Rails.application.config.assets.precompile += %w( jquery.tmpl.min.js )

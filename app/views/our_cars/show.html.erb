@@ -1,22 +1,33 @@
 <div class="container">
-	<div class="row">
+	<div class="row row-centered">
 		<div class="col-md-12 text-center">
 			<h1><%= @our_car.name %></h1>
 			<p class="intro"><%= @our_car.description %></p>
 		</div>
 		<% images = @our_car.our_car_images %>
-		<% if images.length == 1 %>
-			<% col_width = 12 %>
-		<% else %>
-			<%  col_width = 6 %>
-		<% end %>
-		<% images.each do |image| %>
-		<div class="col-md-<%=col_width%>">
-			<%= image_tag image.image_path, style: "width: 100%" %>
-			<p class = "caption"><%= image.description %></p>
+		<% first = true %>
+		<div class="col-md-12">
+			<div class="gallery_container">
+				<%= image_tag images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", id:"gallery_main" %>
+			</div>
+			<div id="caption">
+				<p><%= images[0].description %></p>
+			</div>
 		</div>
-		<% end %>
-	</div>
+		<% images.each do |image| %>
+		<div class="col-xs-6 col-sm-4 col-md-2 col-centered" id="imageGallery">
+			<a href=<%'#{asset_path(image.image_path)}' %>>
+				<!-- Set first thumb as selected -->
+				<% if first %>
+				<%= image_tag "thumbs/" + image.image_path, alt: image.description, class: "icon thumb_selected", :data => { :path => "#{asset_path(image.image_path)}" } %>
+				<% first = false %>
+				<% else %>
+				<%= image_tag "thumbs/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path(image.image_path)}" } %>
+				<% end %>
+			</a>
+		</div>
+		<% end %>			
+	</div><!-- row -->
 </div>
 
 <p id="notice"><%= notice %></p>
