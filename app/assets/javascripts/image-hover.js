@@ -53,24 +53,81 @@ window.onscroll = function() {
 	}
 };
 
-// Image Gallery
+/*********** Image Gallery ***********/
+
+// Click on thumb to select image
 $("#imageGallery a").click(function(event) {
-	// Prevent HTML href from being followed
 	event.preventDefault();
 
+	advanceGallery($(".thumb_selected"), $(this).children("img:first"));
+});
+
+// click on left arrow
+$("#previous").click(function(event) {
+	event.preventDefault();
+
+	// get currently selected thumbnail (div)
+	$current = $(".thumb_selected"); // div
+
+	// Check to see if this is the first image
+	if ($current.find("img").attr("src") === $current.parent().children("div:first-child").find("img").attr("src")) {
+		console.log("First");
+		// If first image, previous loops to last image
+		$previous = $current.parent().children("div:last-child");
+	} else {
+		// otherwise get previous image
+		console.log("Not first");
+		$previous = $current.prev();
+	}
+
+	advanceGallery($current, $previous);
+});
+
+// click on right arrow
+$("#next").click(function(event) {
+	event.preventDefault();
+
+	// get currently selected thumbnail (div)
+	$current = $(".thumb_selected");
+
+	// Check to see if this is the last image
+	if ($current.find("img").attr("src") === $current.parent().children("div:last-child").find("img").attr("src")) {
+		console.log("Last");
+		$next = $current.parent().children("div:first-child");
+	} else {
+		console.log("Not Last");
+		$next = $current.next();
+	}
+
+	advanceGallery($current, $next);
+});
+
+// move gallery from current (div) to next (div)
+function advanceGallery(current, next) {
+
 	// Get image link
-	imgHref = $(this).children("img:first").attr("data-path");
+	imgHref = next.find("img").attr("data-path");
 
 	// Get image caption from alt text
-	var imgCaption = $(this).children("img:first").attr("alt");
+	var imgCaption = next.find("img").attr("alt");
 
-	// update main gallery image
-	$("#gallery_main").attr("src", imgHref);
+	// Fade out current image
+	$('.gallery_container').fadeToggle(400, function(){
+		current.removeClass("thumb_selected");
+		updateGallery(imgHref, imgCaption);
+	});
 
-	$("#caption p").text(imgCaption);
+	next.closest("div").addClass("thumb_selected");
 
-	// change selected thumbnail
-	$(".thumb_selected").removeClass("thumb_selected");
-	$(this).children().addClass("thumb_selected");
+	$('.gallery_container').fadeToggle(400);
+}
 
-});
+// Update main gallery image and caption
+function updateGallery(new_src, new_caption){
+	console.log("Setting new src to " + new_src);
+	console.log("Setting new caption to " + new_caption);
+
+	$("#gallery_main").attr("src", new_src);
+
+	$("#caption p").text(new_caption);
+}
