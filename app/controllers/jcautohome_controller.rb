@@ -1,21 +1,24 @@
 class JcautohomeController < ApplicationController
 	def home
-
+		@page = "home"
 	end
 
 	def about
+		@page = "about"
 		@our_cars = OurCar.all
 	end
 
 	def community
-
+		@page = "community"
 	end
 
 	def gallery
-
+		@page = "gallery"
 	end
 
 	def parts
+		@page = "parts"
+		
 		# Get all taxonomies
 		@taxonomies = Spree::Taxonomy.includes(root: :children)
 

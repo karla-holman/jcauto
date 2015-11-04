@@ -123,11 +123,18 @@ function advanceGallery(current, next) {
 	var imgCaption = next.find("img").attr("alt");
 
 	// Fade out current image
-	$('.gallery_container img').fadeToggle(400, function(){
+	$('.gallery_container img:first-child').fadeToggle(400, function(){
 
 		current.removeClass("thumb_selected");
 		updateGallery(imgHref, imgCaption);
-	}).fadeToggle(800);
+
+		// Display placeholder to prevent div collapse
+		$('#placeholder').css("display", "inline");
+
+	}).delay(200).fadeToggle( { duration: 400, start: function() {
+		// Hide placeholder when image starts fading in
+		$('#placeholder').css("display", "none");
+	}});
 
 	next.closest("div").addClass("thumb_selected");
 }

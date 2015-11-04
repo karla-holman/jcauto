@@ -15,16 +15,16 @@
 			<% end %>
 			<div class="gallery_container">
 				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", id:"gallery_main" %>
+
+				<!-- Placeholder to prevent div from collapsing on fade out -->
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", id: "placeholder" %>
 			</div>
 			<%= link_to "/", class: "gallery-arrow-right" do %>
 				<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
 			<% end %>
 		</div>	
-
-		<div class="col-xs-12 col-md-12">
-			<div id="caption">
-				<p><%= images[0].description %></p>
-			</div>
+		<div class="col-xs-12 col-md-12" id="caption">
+			<p><%= images[0].description %></p>
 		</div>
 	</div><!-- row -->
 
@@ -59,6 +59,7 @@
 				<% else %>
 					<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
 						<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+						<div class="clearfix visible-xs"></div>
 						<%= link_to car.name, car, class: "button-link" %>
 					</div>
 				<% end %>
