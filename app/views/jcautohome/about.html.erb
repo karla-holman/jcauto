@@ -18,13 +18,13 @@
 		<div class="col-md-12 text-center">
 			<h1>The Shop</h1>
 		</div>
-		<div class="col-md-6">
+		<div class="col-sm-6 col-md-6">
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
 			</p>
 		</div><!-- End Column 1 -->
-		<div class="col-md-6">
-			<%= image_tag "Shop Image.jpg" %>
+		<div class="col-sm-6 col-md-6">
+			<%= image_tag "Shop Image.jpg", style: "width: 100%" %>
 		</div>
 	</div><!-- End Row -->
 </div>
@@ -42,7 +42,7 @@
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in repre henderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 			</p>
 		</div>
-		<div class= "col-md-4" >
+		<div class= "col-sm-4 col-md-4" >
 			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
 			<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
 			<h3>Customer Service</h3>
@@ -51,14 +51,14 @@
 			<%= button_tag "Find Parts >", class: "btn btn-text", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
 			
 		</div>
-		<div class="col-md-4">
+		<div class="col-sm-4 col-md-4">
 			<%= image_tag "master/Tech2.png", class:"icon", id:"tech2" %>
 			<h3>Our History</h3>
 			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
 			<!-- Change Tech image on hover -->
 			<%= button_tag "Services >", class:"btn btn-text", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/Tech2-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/Tech2.png')}'" %>
 		</div>
-		<div class="col-md-4">
+		<div class="col-sm-4 col-md-4">
 			<%= image_tag "master/Tech3.png", class:"icon", id:"tech3" %>
 			<h3>Our Work</h3>
 			<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
@@ -87,25 +87,25 @@
 				<p>Jeff has been in the industry since the young age of 12</p>
 			</div>
 			<div class="clearfix visible-md-block visible-lg-block"></div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
 				<%= image_tag "people/lisa.png", class:"icon-retro-tri" %>
 				<h3>Lisa Peterson</h3>
 				<h4>Co-Owner</h4>
 				<p>Jeff has been in the industry since the young age of 12</p>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
 				<%= image_tag "people/lisa.png", class:"icon-retro-tri" %>
 				<h3>Lisa Peterson</h3>
 				<h4>Co-Owner</h4>
 				<p>Jeff has been in the industry since the young age of 12</p>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
 				<%= image_tag "people/lisa.png", class:"icon-retro-tri" %>
 				<h3>Lisa Peterson</h3>
 				<h4>Co-Owner</h4>
 				<p>Jeff has been in the industry since the young age of 12</p>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-3">
+			<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
 				<%= image_tag "people/lisa.png", class:"icon-retro-tri" %>
 				<h3>Lisa Peterson</h3>
 				<h4>Co-Owner</h4>
@@ -128,6 +128,7 @@
 		<% @our_cars.each do |car| %>
 		<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
 			<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+			<div class="clearfix visible-xs"></div>
 			<%= link_to car.name, car, class: "button-link" %>
 		</div>
 		<% end %>
@@ -144,7 +145,7 @@
 		<div class="col-md-12 text-center">
 			<h1>Connect With Us</h1>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<h3>Send us a Message</h3>
 			<p>Have a question or comment? Let us know!</p>
 			<form>
@@ -159,7 +160,7 @@
 				<button type="submit" class="btn btn-default">Submit</button>
 			</form>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<h3>Find Us at a Show</h3>
 			<p>
 				We love a good car show, and it gives us a great opportunity to meet other people who are passionate about MoPars.
@@ -169,7 +170,8 @@
 			</p>
 			<%= button_tag "Upcoming Shows >", class:"btn btn-text", style:"text-align: left" %>
 		</div>
-		<div class="col-md-3">
+		<div class="clearfix visible-sm"></div>
+		<div class="col-sm-6 col-md-3">
 			<h3>Visit the Shop</h3>
 			<p>
 				Drop by any time we are open from 8am to 5pm, Monday through Friday. Come check out some of the projects we are working on up close and get a look at our inventory.
@@ -182,7 +184,7 @@
 				Lynnwood, WA 98036
 			</p>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<h3>Start a Project</h3>
 			<p>Have a project in mind? Need help getting started? Let us get you on your way!</p>
 			<ul style="font-family: 'Open Sans'">

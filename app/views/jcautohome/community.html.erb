@@ -1,10 +1,12 @@
 <div class="container-yellow" id="tertiaryNav">
-	<div class="container text-center">
-		<ul class="nav nav-pills nav-justified">
-			<li role="presentation"><a href="#community">MoPar Community</a></li>
-			<li role="presentation"><a href="#social">Social</a></li>
-			<li role="presentation"><a href="#friend">Invite a Friend</a></li>
-		</ul>
+	<div class="container text-center" style="padding-left: 0;">
+      	<div class="container">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#community">Community</a></li>
+				<li role="presentation"><a href="#social">Social</a></li>
+				<li role="presentation"><a href="#friend">Invite a Friend</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -14,7 +16,7 @@
 		<div class="col-md-12">
 			<h1>Welcome to Our MoPar Community</h1>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<%= image_tag "master/Tech.png", id: "Tech1" %>
 			<h3>Discussion Forum</h3>
 			<p>
@@ -22,7 +24,7 @@
 			</P>
 			<%= button_tag "Join the Conversation >", class: "btn btn-text", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<%= image_tag "master/Tech.png", id: "Tech2" %>
 			<h3>Your Stories</h3>
 			<p>
@@ -30,7 +32,7 @@
 			</P>
 			<%= button_tag "Your Stories >", class: "btn btn-text", onmouseover:"document.getElementById('tech2').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech2').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<%= image_tag "master/Tech.png", id: "Tech3" %>
 			<h3>JC Auto Blog</h3>
 			<p>
@@ -38,7 +40,7 @@
 			</P>
 			<%= button_tag "Blog >", class: "btn btn-text", onmouseover:"document.getElementById('tech3').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech3').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
-		<div class="col-md-3">
+		<div class="col-sm-6 col-md-3">
 			<%= image_tag "master/Tech.png", id: "Tech4" %>
 			<h3>MoPar Ladies</h3>
 			<p>
@@ -94,21 +96,22 @@
 				Know someone who is interested in cars? Help them get the parts and services they need for a project! 
 			</p>
 		</div>
-		<div class="col-md-2">
+		<div class="col-sm-4 col-md-2">
 			<%= image_tag "master/Tech.png", class:"icon" %>
 			<%= button_tag "Gift Cards >", class:"btn btn-text" %>
 		</div>
-		<div class="col-md-4">
+		<div class="col-sm-8 col-md-4">
 			<h3>Get a gift card</h3>
 			<p>
 				Gift cards at JC Auto are good for parts and services! You can get a gift card for any amount you specify. You will get a receipt and the gift card will be delivered to the email address you choose. No email address? Print a copy of the gift card instead.
 			</p>
 		</div>
-		<div class="col-md-2">
+		<div class="clearfix visible-sm"></div>
+		<div class="col-sm-4 col-md-2">
 			<%= image_tag "master/Tech.png", class:"icon" %>
 			<%= button_tag "Wish Lists >", class:"btn btn-text" %>
 		</div>
-		<div class="col-md-4">
+		<div class="col-sm-8 col-md-4">
 			<h3>Make a Wish List</h3>
 			<p>
 				Gift cards at JC Auto are good for parts and services! You can get a gift card for any amount you specify. You will get a receipt and the gift card will be delivered to the email address you choose. No email address? Print a copy of the gift card instead.

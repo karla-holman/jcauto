@@ -14,7 +14,7 @@
 				<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
 			<% end %>
 			<div class="gallery_container">
-				<%= image_tag images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", id:"gallery_main" %>
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", id:"gallery_main" %>
 			</div>
 			<%= link_to "/", class: "gallery-arrow-right" do %>
 				<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
@@ -32,8 +32,8 @@
 	<div class="row row-centered" style="margin-top: -50px">
 		<% images.each do |image| %>
 			<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery">
-				<a href=<%'#{asset_path(image.image_path)}' %>>
-					<%= image_tag "thumbs/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path(image.image_path)}" } %>
+				<a href=<%'#{asset_path("cars/" + image.image_path)}' %>>
+					<%= image_tag "thumbs/cars/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("cars/" + image.image_path)}" } %>
 				</a>
 				<% if first %>
 					<% first = false %>

@@ -123,14 +123,13 @@ function advanceGallery(current, next) {
 	var imgCaption = next.find("img").attr("alt");
 
 	// Fade out current image
-	$('.gallery_container').fadeToggle(400, function(){
+	$('.gallery_container img').fadeToggle(400, function(){
+
 		current.removeClass("thumb_selected");
 		updateGallery(imgHref, imgCaption);
-	});
+	}).fadeToggle(800);
 
 	next.closest("div").addClass("thumb_selected");
-
-	$('.gallery_container').fadeToggle(400);
 }
 
 // Update main gallery image and caption
