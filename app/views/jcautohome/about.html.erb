@@ -27,7 +27,7 @@
 
 		<!-- Main Gallery Image -->
 		<% images.each do |image| %>
-		<div class="col-md-4">
+		<div class="col-xs-12 col-sm-4 col-md-4">
 			<!-- div class="gallery_auto"-->
 					<%= image_tag image, style: "width: 100%", id:"gallery_main" %>
 			<!-- /div -->
@@ -178,7 +178,7 @@
 			<p>
 				Here is a list of shows we'll be attending over the next couple of months. Drop by our booth and say hello!
 			</p>
-			<%= button_tag "Upcoming Shows >", class:"btn btn-text", style:"text-align: left" %>
+			<%= link_to "Upcoming Shows >", "/", class:"button-link" %>
 		</div>
 		<div class="clearfix visible-sm"></div>
 		<div class="col-sm-6 col-md-3">
@@ -197,7 +197,7 @@
 		<div class="col-sm-6 col-md-3">
 			<h3>Start a Project</h3>
 			<p>Have a project in mind? Need help getting started? Let us get you on your way!</p>
-			<ul style="font-family: 'Open Sans'">
+			<ul class="mopar-list" style="font-family: 'Open Sans'">
 				<li><%= link_to "Find Parts", root_path %></li>
 				<li><%= link_to "Learn About Services", root_path %></li>
 				<li><%= link_to "Get a Gift Card", root_path %></li>
