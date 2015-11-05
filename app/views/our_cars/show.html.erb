@@ -8,21 +8,25 @@
 		<% images = @our_car.our_car_images %>
 		<% first = true %>
 
+		<div id="mobile-gallery">
+			<div class="gallery_container_mobile">
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+			</div>
+		</div>
+
 		<!-- Main Gallery Image -->
-		<div class="col-md-12">
+		<div class="col-md-12 gallery_container">
 			<%= link_to "/", class: "gallery-arrow-left" do %>
 				<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
 			<% end %>
-			<div class="gallery_container">
-				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", id:"gallery_main" %>
-
-				<!-- Placeholder to prevent div from collapsing on fade out -->
-				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", id: "placeholder" %>
-			</div>
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
 			<%= link_to "/", class: "gallery-arrow-right" do %>
 				<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
 			<% end %>
-		</div>	
+		</div>
+
 		<div class="col-xs-12 col-md-12" id="caption">
 			<p><%= images[0].description %></p>
 		</div>
@@ -31,7 +35,7 @@
 	<!-- Thumbnails -->
 	<div class="row row-centered" style="margin-top: -50px">
 		<% images.each do |image| %>
-			<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery">
+			<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
 				<a href=<%'#{asset_path("cars/" + image.image_path)}' %>>
 					<%= image_tag "thumbs/cars/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("cars/" + image.image_path)}" } %>
 				</a>

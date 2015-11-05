@@ -16,37 +16,38 @@
 		<div class="col-md-12">
 			<h1>Welcome to Our MoPar Community</h1>
 		</div>
-		<div class="col-sm-6 col-md-3">
+		<div class="col-sm-6 col-md-6 col-lg-3">
 			<%= image_tag "master/Tech.png", id: "Tech1" %>
 			<h3>Discussion Forum</h3>
 			<p>
 				Have a project question? Submit it to the customers of JC Auto for answers! We will try to jump in the discussion and help when we can.
 			</P>
-			<%= button_tag "Join the Conversation >", class: "btn btn-text", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
+			<%= link_to "Join the Conversation >", "/", class: "button-link", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
-		<div class="col-sm-6 col-md-3">
+		<div class="col-sm-6 col-md-6 col-lg-3">
 			<%= image_tag "master/Tech.png", id: "Tech2" %>
 			<h3>Your Stories</h3>
 			<p>
-				Want to learn about projects that other customers are working on? Or maybe you have a project of your own that you would like to share. Check out some great stories here, or post your own.
+				Want to learn about projects that other customers are working on? Check out some great stories here, or share your own great project.
 			</P>
-			<%= button_tag "Your Stories >", class: "btn btn-text", onmouseover:"document.getElementById('tech2').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech2').src='#{asset_path('master/Tech.png')}'" %>
+			<%= link_to "Your Stories >", "/", class: "button-link", onmouseover:"document.getElementById('tech2').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech2').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
-		<div class="col-sm-6 col-md-3">
+		<div class="clearfix visible-md visible-sm"></div>
+		<div class="col-sm-6 col-md-6 col-lg-3">
 			<%= image_tag "master/Tech.png", id: "Tech3" %>
 			<h3>JC Auto Blog</h3>
 			<p>
-				Every day brings a new project or challenge to the JC Auto team, and we want to share what we learn and see. Find out what goes on at the shop on our blog.
+				Every day brings a new project or challenge to the JC Auto team, and we want to share what we learn and see. Find out what goes on at the shop.
 			</P>
-			<%= button_tag "Blog >", class: "btn btn-text", onmouseover:"document.getElementById('tech3').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech3').src='#{asset_path('master/Tech.png')}'" %>
+			<%= link_to "Blog >", "/", class: "button-link", onmouseover:"document.getElementById('tech3').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech3').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
-		<div class="col-sm-6 col-md-3">
+		<div class="col-sm-6 col-md-6 col-lg-3">
 			<%= image_tag "master/Tech.png", id: "Tech4" %>
 			<h3>MoPar Ladies</h3>
 			<p>
-				We know there are many ladies out there who appreciate the experience of life around cars. Connect with other ladies here, and find resources for fashion, trends, and tips.
+				We know there are many ladies out there who appreciate the experience of life around cars. Find resources for fashion, trends, and tips.
 			</P>
-			<%= button_tag "Ladies' Garage >", class: "btn btn-text", onmouseover:"document.getElementById('tech4').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech4').src='#{asset_path('master/Tech.png')}'" %>
+			<%= link_to "Join the Conversation >", "/", class: "button-link", onmouseover:"document.getElementById('tech4').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech4').src='#{asset_path('master/Tech.png')}'" %>
 		</div>
 	</div><!-- End Row -->
 </div>

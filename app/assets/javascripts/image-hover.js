@@ -65,8 +65,10 @@ window.onscroll = function() {
 
 /*********** Image Gallery ***********/
 
+/* Gallery Events */
+
 // Click on thumb to select image
-$("#imageGallery a").click(function(event) {
+$("#imageGallery_thumb a").click(function(event) {
 	event.preventDefault();
 
 	console.log($(this));
@@ -77,6 +79,53 @@ $("#imageGallery a").click(function(event) {
 $("#previous").click(function(event) {
 	event.preventDefault();
 
+	advancePrevious(false);
+});
+
+// click on right arrow
+$("#next").click(function(event) {
+	event.preventDefault();
+
+	advanceNext(false);
+});
+
+// Swipe Left Event
+$( "#mobile-gallery" ).on("swipeleft",function(){
+  	console.log("Swipe left");
+	event.preventDefault();
+
+	advanceNext(true);
+});
+
+// Swipe Right Event
+$( "#mobile-gallery" ).on("swiperight",function(){
+  	console.log("Swipe left");
+	event.preventDefault();
+
+	advancePrevious(true);
+});
+
+$( window ).on( "swipe", function( event ) { console.log('other swipe'); } )
+
+/* Helper functions */
+
+function advanceNext(mobile){
+	// get currently selected thumbnail (div)
+	$current = $(".thumb_selected");
+
+	// Check to see if this is the last image
+	if ($current.find("img").attr("src") === $current.parent().children("div:last-child").find("img").attr("src")) {
+		console.log("Last");
+		$next = $current.parent().children("div:first-child");
+	} else {
+		console.log("Not Last");
+		$next = $current.next();
+	}
+	// Advance main image for non-mobile
+	advanceGallery($current, $next, mobile);
+}
+
+function advancePrev(mobile){
 	// get currently selected thumbnail (div)
 	$current = $(".thumb_selected"); // div
 
@@ -91,30 +140,12 @@ $("#previous").click(function(event) {
 		$previous = $current.prev();
 	}
 
-	advanceGallery($current, $previous);
-});
+	advanceGallery($current, $previous, mobile);
+}
 
-// click on right arrow
-$("#next").click(function(event) {
-	event.preventDefault();
-
-	// get currently selected thumbnail (div)
-	$current = $(".thumb_selected");
-
-	// Check to see if this is the last image
-	if ($current.find("img").attr("src") === $current.parent().children("div:last-child").find("img").attr("src")) {
-		console.log("Last");
-		$next = $current.parent().children("div:first-child");
-	} else {
-		console.log("Not Last");
-		$next = $current.next();
-	}
-
-	advanceGallery($current, $next);
-});
 
 // move gallery from current (div) to next (div)
-function advanceGallery(current, next) {
+function advanceGallery(current, next, mobile) {
 
 	// Get image link
 	imgHref = next.find("img").attr("data-path");
@@ -122,33 +153,44 @@ function advanceGallery(current, next) {
 	// Get image caption from alt text
 	var imgCaption = next.find("img").attr("alt");
 
+	var $gallery_main;
+	var $gallery_placeholder;
+
+	if (mobile) {
+		$gallery_main = $('.gallery_container_mobile img.gallery_main');
+		$gallery_placeholder =  $('.gallery_container_mobile img.placeholder')
+	}
+	else {
+		$gallery_main = $('.gallery_container img.gallery_main');
+		$gallery_placeholder =  $('.gallery_container img.placeholder')
+	}
+
 	// Fade out current image
-	$('.gallery_container img:first-child').fadeToggle(400, function(){
+	$gallery_main.fadeToggle(400, function(){
 
 		current.removeClass("thumb_selected");
-		updateGallery(imgHref, imgCaption);
+		updateGallery(imgHref, imgCaption, $gallery_main);
 
 		// Display placeholder to prevent div collapse
-		$('#placeholder').css("display", "inline");
+		$gallery_placeholder.css("display", "inline");
 
 	}).delay(200).fadeToggle( { duration: 400, start: function() {
 		// Hide placeholder when image starts fading in
-		$('#placeholder').css("display", "none");
+		$gallery_placeholder.css("display", "none");
 	}});
 
 	next.closest("div").addClass("thumb_selected");
 }
 
 // Update main gallery image and caption
-function updateGallery(new_src, new_caption){
+function updateGallery(new_src, new_caption, gallery_main){
 	console.log("Setting new src to " + new_src);
 	console.log("Setting new caption to " + new_caption);
 
-	$("#gallery_main").attr("src", new_src);
+	gallery_main.attr("src", new_src);
 
 	$("#caption p").text(new_caption);
 }
-
 
 // Handle automatic slide shows
 /* $(document).ready(function(){
