@@ -148,3 +148,15 @@ function updateGallery(new_src, new_caption){
 
 	$("#caption p").text(new_caption);
 }
+
+
+// Handle automatic slide shows
+/* $(document).ready(function(){
+	$(".gallery_auto > div:gt(0)").hide();
+
+	setInterval(function() { 
+		console.log("loop");
+		console.log($(".gallery_auto").first().first().attr("src"));
+		$(".gallery_auto > div:first").fadeOut(1000).next().fadeIn(1000).end().appendTo('.gallery_auto');
+	}, 3000); 
+});*/ 

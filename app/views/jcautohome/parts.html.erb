@@ -1,3 +1,16 @@
+<div class="container-yellow" id="tertiaryNav">
+	<div class="container text-center">
+      	<div class="container">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#part">Browse By Part Category</a></li>
+				<li role="presentation"><a href="#body">Browse By Body Type</a></li>
+				<li role="presentation"><a href="#feature">Features and Deals</a></li>
+				<li role="presentation"><a href="#new">New Part Listings</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <div class="container-yellow">
 	<div class="container">
 		<div class="row" style="margin: 0">
@@ -28,7 +41,9 @@
 		</div>
 	</div>
 </div>
+
 <!-- Part Group -->
+<a name="part">
 <div class="container">
 	<div class="row text-center row-centered">
 		<h1>Browse by Part Category</h1>
@@ -73,6 +88,7 @@
 </div>
 
 <!-- Body Type -->
+<a name="body">
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center row-centered">
@@ -87,7 +103,12 @@
 	</div>
 </div>
 
+<div class="image-background" id="the_parts">
+	<%= image_tag "The Parts.jpg", style: "width: 100%; visibility: hidden;" %>
+</div>
+
 <!-- Featured Products -->
+<a name="feature">
 <div class="container">
 	<div class="row text-center">
 		<h1>Features and Deals</h1>
@@ -105,6 +126,7 @@
 </div>
 
 <!-- New Part Listings -->
+<a name="new">
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center">
