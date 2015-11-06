@@ -72,7 +72,16 @@ $("#imageGallery_thumb a").click(function(event) {
 	event.preventDefault();
 
 	console.log($(this));
-	advanceGallery($(".thumb_selected"), $(this).closest("div"));
+
+	// If regular gallery hidde, use mobile view
+	if($('.gallery_container').css("display") === "none") {
+		advanceGallery($(".thumb_selected"), $(this).closest("div"), true);
+	}
+	// Otherwise use regular gallery
+	else {
+		advanceGallery($(".thumb_selected"), $(this).closest("div"), false);
+	}
+	
 });
 
 // click on left arrow
@@ -89,8 +98,22 @@ $("#next").click(function(event) {
 	advanceNext(false);
 });
 
+// click on left arrow
+$("#mobile-left").click(function(event) {
+	event.preventDefault();
+
+	advancePrev(true);
+});
+
+// click on right arrow
+$("#mobile-right").click(function(event) {
+	event.preventDefault();
+
+	advanceNext(true);
+});
+
 // Swipe Left Event
-$( "#mobile-gallery" ).on("swipeleft",function(){
+$( ".gallery_container_mobile" ).on("swipeleft",function(){
   	console.log("Swipe left");
 	event.preventDefault();
 
@@ -98,8 +121,8 @@ $( "#mobile-gallery" ).on("swipeleft",function(){
 });
 
 // Swipe Right Event
-$( "#mobile-gallery" ).on("swiperight",function(){
-  	console.log("Swipe left");
+$( ".gallery_container_mobile" ).on("swiperight",function(){
+  	console.log("Swipe right");
 	event.preventDefault();
 
 	advancePrevious(true);
