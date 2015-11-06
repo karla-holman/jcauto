@@ -95,7 +95,8 @@
 			<h4>Co-Owner</h4>
 			<p>Jeff has been in the industry since the young age of 12</p>
 		</div>
-		<div class="clearfix visible-md-block visible-lg-block"></div>
+		<div class="clearfix visible-sm visible-md-block visible-lg-block"></div>
+		<div class="spacer visible-sm visible-md visible-lg"></div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
 			<%= image_tag "people/lisa.png", class:"icon-retro-tri" %>
 			<h3>Lisa Peterson</h3>
@@ -134,11 +135,26 @@
 				</p>
 			</div>
 
-			<% @our_cars.each do |car| %>
+			<% @our_cars.each_with_index do |car, index| %>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
 				<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
 				<div class="clearfix visible-xs"></div>
 				<%= link_to car.name, car, class: "button-link" %>
+
+				<!-- Add break to right location -->
+				<% if index === 1 %>
+					<!-- handle sm screen -->
+					<div class="clearfix visible-sm"></div>
+					<div class="spacer visible-sm"></div>
+				<% elsif index === 2 %>
+					<!-- handle md and lg screen -->
+					<div class="clearfix visible-md visible-lg"></div>
+					<div class="spacer visible-md visible-lg"></div>
+				<% elsif index === 3 %>
+					<!-- handle sm screen -->
+					<div class="clearfix visible-sm"></div>
+					<div class="spacer visible-sm"></div>
+				<% end %>
 			</div>
 			<% end %>
 		</div>
