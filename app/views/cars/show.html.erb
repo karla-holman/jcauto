@@ -1,0 +1,98 @@
+<div class="container">
+	<div class="row row-centered">
+		<div class="col-md-12 text-center">
+			<h1><%= @car.name %></h1>
+			<p class="intro"><%= @car.description %></p>
+		</div>
+
+		<% images = @car.car_images %>
+		<% first = true %>
+
+
+		<div class="gallery_container_mobile" style="position: relative; top: 0; left:0;">
+			<%= link_to "/", class: "gallery-arrow-left", id: "mobile-left" do %>
+
+			<% end %>
+			<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
+			<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+			<%= link_to "/", class: "gallery-arrow-right", id: "mobile-right" do %>
+
+			<% end %>
+		</div>
+
+		<!-- Main Gallery Image -->
+		<div class="col-md-12 gallery_container">
+			<%= link_to "/", class: "gallery-arrow-left" do %>
+				<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
+			<% end %>
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
+				<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+			<%= link_to "/", class: "gallery-arrow-right" do %>
+				<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
+			<% end %>
+		</div>
+
+		<div class="col-xs-12 col-md-12" id="caption">
+			<p><%= images[0].description %></p>
+		</div>
+	</div><!-- row -->
+
+	<!-- Thumbnails -->
+	<div class="row row-centered" style="margin-top: -50px">
+		<% images.each do |image| %>
+			<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
+				<a href=<%'#{asset_path("cars/" + image.image_path)}' %>>
+					<%= image_tag "thumbs/cars/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("cars/" + image.image_path)}" } %>
+				</a>
+				<% if first %>
+					<% first = false %>
+				<% end %>
+			</div>
+		<% end %>			
+	</div><!-- row -->
+</div>
+
+<div class="container-yellow">
+	<div class="container">
+		<div class="row text-center row-centered">
+			<div class="col-md-12">
+				<h1>Check out Our Other <%= @is_our_car ? "Cars" : "Projects" %></h1>
+				<p class="intro">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				</p>
+			</div>
+
+			<% @cars.each_with_index do |car, index| %>
+				<% if car === @our_car %>
+					<!-- Do not list car on its own page -->
+				<% else %>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+						<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+						<div class="clearfix visible-xs"></div>
+						<%= link_to car.name, car, class: "button-link" %>
+						<!-- Add break to right location -->
+						<% if index === 1 %>
+							<!-- handle sm screen -->
+							<div class="clearfix visible-sm"></div>
+							<div class="spacer visible-sm"></div>
+						<% elsif index === 2 %>
+							<!-- handle md and lg screen -->
+							<div class="clearfix visible-md visible-lg"></div>
+							<div class="spacer visible-md visible-lg"></div>
+						<% elsif index === 3 %>
+							<!-- handle sm screen -->
+							<div class="clearfix visible-sm"></div>
+							<div class="spacer visible-sm"></div>
+						<% end %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<!-- 
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
+-->

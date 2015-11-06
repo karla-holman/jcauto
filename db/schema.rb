@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151102173759) do
+ActiveRecord::Schema.define(version: 20151106200500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "car_images", force: :cascade do |t|
+    t.integer  "car_id"
+    t.text     "image_path"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "car_images", ["car_id"], name: "index_car_images_on_car_id", using: :btree
+
+  create_table "cars", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.text     "thumb"
+    t.boolean  "our_car"
+    t.boolean  "current"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -30,24 +50,6 @@ ActiveRecord::Schema.define(version: 20151102173759) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
-
-  create_table "our_car_images", force: :cascade do |t|
-    t.integer  "our_car_id"
-    t.text     "image_path"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "our_car_images", ["our_car_id"], name: "index_our_car_images_on_our_car_id", using: :btree
-
-  create_table "our_cars", force: :cascade do |t|
-    t.text     "name"
-    t.text     "description"
-    t.text     "thumb"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "spree_addresses", force: :cascade do |t|
     t.string   "firstname"

@@ -19,26 +19,28 @@
 				There is always a lot going on at the shop! Check back regulary to see how these projects are going.
 			</p>
 		</div>
-		<div class="col-md-3">
-			<%= image_tag "cars/Car-20.png", class: "icon" %>
-			<p>1958 Chrysler 300D</p>
-			<%= link_to "More Pictures", "/", class: "button-link" %>
+		<% @current_projects.each_with_index do |car, index| %>
+		<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+			<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+			<div class="clearfix visible-xs"></div>
+			<%= link_to car.name, car, class: "button-link" %>
+
+			<!-- Add break to right location -->
+			<% if index === 1 %>
+				<!-- handle sm screen -->
+				<div class="clearfix visible-sm"></div>
+				<div class="spacer visible-sm"></div>
+			<% elsif index === 2 %>
+				<!-- handle md and lg screen -->
+				<div class="clearfix visible-md visible-lg"></div>
+				<div class="spacer visible-md visible-lg"></div>
+			<% elsif index === 3 %>
+				<!-- handle sm screen -->
+				<div class="clearfix visible-sm"></div>
+				<div class="spacer visible-sm"></div>
+			<% end %>
 		</div>
-		<div class="col-md-3">
-			<%= image_tag "cars/Car-20.png", class: "icon" %>
-			<p>1958 Chrysler 300D</p>
-			<%= link_to "More Pictures", "/", class: "button-link" %>
-		</div>
-		<div class="col-md-3">
-			<%= image_tag "cars/Car-20.png", class: "icon" %>
-			<p>1958 Chrysler 300D</p>
-			<%= link_to "More Pictures", "/", class: "button-link" %>
-		</div>
-		<div class="col-md-3">
-			<%= image_tag "cars/Car-20.png", class: "icon" %>
-			<p>1958 Chrysler 300D</p>
-			<%= link_to "More Pictures", "/", class: "button-link" %>
-		</div>
+		<% end %>
 	</div>
 </div>
 
@@ -52,26 +54,28 @@
 					There is always a lot going on at the shop! Check back regulary to see how these projects are going.
 				</p>
 			</div>
-			<div class="col-md-3">
-				<%= image_tag "cars/Car-20.png", class: "icon" %>
-				<p>1958 Chrysler 300D</p>
-				<%= link_to "More Pictures", "/", class: "button-link" %>
+			<% @past_projects.each_with_index do |car, index| %>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+				<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+				<div class="clearfix visible-xs"></div>
+				<%= link_to car.name, car, class: "button-link" %>
+
+				<!-- Add break to right location -->
+				<% if index === 1 %>
+					<!-- handle sm screen -->
+					<div class="clearfix visible-sm"></div>
+					<div class="spacer visible-sm"></div>
+				<% elsif index === 2 %>
+					<!-- handle md and lg screen -->
+					<div class="clearfix visible-md visible-lg"></div>
+					<div class="spacer visible-md visible-lg"></div>
+				<% elsif index === 3 %>
+					<!-- handle sm screen -->
+					<div class="clearfix visible-sm"></div>
+					<div class="spacer visible-sm"></div>
+				<% end %>
 			</div>
-			<div class="col-md-3">
-				<%= image_tag "cars/Car-20.png", class: "icon" %>
-				<p>1958 Chrysler 300D</p>
-				<%= link_to "More Pictures", "/", class: "button-link" %>
-			</div>
-			<div class="col-md-3">
-				<%= image_tag "cars/Car-20.png", class: "icon" %>
-				<p>1958 Chrysler 300D</p>
-				<%= link_to "More Pictures", "/", class: "button-link" %>
-			</div>
-			<div class="col-md-3">
-				<%= image_tag "cars/Car-20.png", class: "icon" %>
-				<p>1958 Chrysler 300D</p>
-				<%= link_to "More Pictures", "/", class: "button-link" %>
-			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
@@ -102,7 +106,7 @@
 			</ul>
 		</div>
 		<div class="col-md-9">
-			<%= image_tag "Car Image.jpg" %>
+			<%= image_tag "Car Image.jpg", style: "width: 100%" %>
 		</div>
 	</div>
 </div>

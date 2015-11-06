@@ -5,7 +5,7 @@ class JcautohomeController < ApplicationController
 
 	def about
 		@page = "about"
-		@our_cars = OurCar.all
+		@our_cars = Car.where(our_car: true)
 	end
 
 	def community
@@ -14,6 +14,8 @@ class JcautohomeController < ApplicationController
 
 	def gallery
 		@page = "gallery"
+		@current_projects = Car.where("our_car = ? AND current = ?", false, true)
+		@past_projects = Car.where("our_car = ? AND current = ?", false, false)
 	end
 
 	def parts
