@@ -70,25 +70,29 @@ window.onscroll = function() {
 // Click on thumb to select image
 $("#imageGallery_thumb a").click(function(event) {
 	event.preventDefault();
+	var $clicked_a = $(this);
 
-	console.log($(this));
-
-	// If regular gallery hidde, use mobile view
-	if($('.gallery_container').css("display") === "none") {
-		advanceGallery($(".thumb_selected"), $(this).closest("div"), true);
-	}
-	// Otherwise use regular gallery
-	else {
-		advanceGallery($(".thumb_selected"), $(this).closest("div"), false);
-	}
+	click_thumb_link($clicked_a);
 	
 });
 
+function click_thumb_link(clicked_a){
+	console.log(clicked_a);
+
+	// If regular gallery hidde, use mobile view
+	if($('.gallery_container').css("display") === "none") {
+		advanceGallery($(".thumb_selected"), clicked_a.closest("div"), true);
+	}
+	// Otherwise use regular gallery
+	else {
+		advanceGallery($(".thumb_selected"), clicked_a.closest("div"), false);
+	}
+}
 // click on left arrow
 $("#previous").click(function(event) {
 	event.preventDefault();
 
-	advancePrevious(false);
+	advancePrev(false);
 });
 
 // click on right arrow
@@ -225,3 +229,53 @@ function updateGallery(new_src, new_caption, gallery_main){
 		$(".gallery_auto > div:first").fadeOut(1000).next().fadeIn(1000).end().appendTo('.gallery_auto');
 	}, 3000); 
 });*/ 
+
+
+/****** EVENTS *******/
+
+$("#events a").click(function(event) {
+	event.preventDefault();
+
+	// Fade thumbnails out
+	$("span#thumbs").fadeToggle();
+	$("span#thumbs").empty();
+
+	// Get new array of thumbs from event object
+	var string_images = $(this).attr("data-images").toString();
+	console.log(string_images);
+
+	var image_array = JSON.parse(string_images);
+
+	// Loop through each thumbnail and add to span
+	for(var i = 0; i < image_array.length; i++){
+		// Containing div
+		var $new_div = $('<div id="imageGallery_thumb" class="col-xs-2 col-sm-2 col-md-2 col-centered" >');
+
+		// Link to image
+		var $new_link = $('<a></a>');
+
+		// Image
+		var $new_image;
+
+		$new_link.attr("href", image_array[i]);
+		$new_image = $('<img class="icon">');
+		$new_image.attr("src", image_array[i]);
+		$new_image.attr("data-path", image_array[i]);
+		$new_link.append($new_image);
+		$new_link.on("click", function(event){
+			event.preventDefault();
+			var $clicked_a = $(this);
+
+			click_thumb_link($clicked_a);
+		});
+		$new_div.append($new_link);
+		$("span#thumbs").append($new_div);
+
+		if(i==0){
+			// select first image and update main gallery
+			click_thumb_link($new_link);
+		}
+	}
+
+	$("span#thumbs").fadeToggle();
+});

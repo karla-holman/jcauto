@@ -81,8 +81,8 @@
 </div>
 
 <a name="events">
-<div class="container text-center">
-	<div class="row">
+<div class="container">
+	<div class="row row-centered">
 		<div class="col-md-12 text-center">
 			<h1>Events</h1>
 			<p class="intro">
@@ -91,24 +91,64 @@
 		</div>
 		<div class="col-md-3">
 			<h3>Select Event</h3>
-			<ul>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
-				<li>Event one<br>September 21, 2015</li>
+			<hr>
+			<ul class="mopar-list" id="events">
+				<% @past_events.each do |event| %>
+					<% image_array = "[" %>
+					<% event.event_images.each do |image| %>
+						<% image_array += '"' + "#{asset_path("cars/" + image.image_path)}" + '",' %>
+					<% end %>
+					<% image_array.chomp!(",") %>
+					<% image_array += "]" %>
+					<li><%= link_to event.name, event, :data => { :images => image_array } %><br><%= event.event_date.strftime("%a, %B %e, %Y") %></li>
+				<% end %>
 			</ul>
 		</div>
-		<div class="col-md-9">
-			<%= image_tag "Car Image.jpg", style: "width: 100%" %>
+
+		<% images = @past_events.first.event_images %>
+		<% first = true %>
+
+		<!-- Full Mobile Gallery -->
+		<div class="gallery_container_mobile" style="position: relative; top: 0; left:0;">
+			<%= link_to "/", class: "gallery-arrow-left", id: "mobile-left" do %>
+
+			<% end %>
+			<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
+			<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+			<%= link_to "/", class: "gallery-arrow-right", id: "mobile-right" do %>
+
+			<% end %>
 		</div>
-	</div>
+
+		<!-- Main Gallery Image -->
+		<div class="col-md-9 col-centered">
+			<div class="gallery_container">
+				<%= link_to "/", class: "gallery-arrow-left" do %>
+					<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
+				<% end %>
+					<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
+					<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+				<%= link_to "/", class: "gallery-arrow-right" do %>
+					<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
+				<% end %>
+			</div><!-- Gallery -->
+			<p><%= images[0].description %></p>
+
+
+			<span id="thumbs">
+			<% images.each do |image| %>
+				<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
+					<a href= <%= "#{asset_path('cars/' + image.image_path)}" %> >
+						<%= image_tag "thumbs/cars/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("cars/" + image.image_path)}" } %>
+					</a>
+					<% if first %>
+						<% first = false %>
+					<% end %>
+				</div>
+			<% end %>	
+			</span>	
+		</div><!-- Column -->
+	</div><!-- Row -->
 </div>
 
 <!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->

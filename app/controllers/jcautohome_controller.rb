@@ -16,6 +16,8 @@ class JcautohomeController < ApplicationController
 		@page = "gallery"
 		@current_projects = Car.where("our_car = ? AND current = ?", false, true)
 		@past_projects = Car.where("our_car = ? AND current = ?", false, false)
+
+		@past_events = Event.where("event_date < ?", Date.today).order("event_date ASC")
 	end
 
 	def parts
