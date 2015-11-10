@@ -43,9 +43,10 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'about' => 'jcautohome#about'
-  get 'community' => 'jcautohome#community'
   get 'gallery' => 'jcautohome#gallery'
   get 'parts' => 'jcautohome#parts'
+  get 'services' => 'jcautohome#services'
+  get 'community' => 'jcautohome#community'
   get 'contact' => 'jcautohome#contact'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

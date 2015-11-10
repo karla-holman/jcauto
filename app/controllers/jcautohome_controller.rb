@@ -8,10 +8,6 @@ class JcautohomeController < ApplicationController
 		@our_cars = Car.where(our_car: true)
 	end
 
-	def community
-		@page = "community"
-	end
-
 	def gallery
 		@page = "gallery"
 		@current_projects = Car.where("our_car = ? AND current = ?", false, true)
@@ -59,6 +55,14 @@ class JcautohomeController < ApplicationController
 		@new_taxon_children = @new_taxon.children
 
 
+	end
+
+	def services
+		@page = "services"
+	end
+
+	def community
+		@page = "community"
 	end
 
 	def contact

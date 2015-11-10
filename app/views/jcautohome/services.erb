@@ -1,0 +1,101 @@
+<div class="container-yellow" id="tertiaryNav">
+	<div class="container text-center">
+      	<div class="container">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#browse">Browse Services</a></li>
+				<li role="presentation"><a href="#quote">Get a Quote</a></li>
+				<li role="presentation"><a href="#how">How to Guide</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<a name="browse">
+<div class="container">
+	<div class="row text-center">
+		<h1>Browse Services</h1>
+		<p class="intro">
+			We offer a variety of services. Click on a link below to find pricing options.
+		</p>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+			<h3>Instrument Cluster Restoration</h3>
+			<p>Including A, B, and E-body</p>
+			<%= link_to "See Prices", "/", class: "button-link" %>
+		</div>
+	</div>
+</div>
+
+<!-- Contact -->
+<a name="quote">
+<div class="container-yellow">
+	<div class="container">
+		<div class="row row-centered">
+			<h1>Get a Quote</h1>
+			<p class="intro">Tell us about your project and the work you'd like done. We'll be in touch soon to discuss pricing.</p>
+			<form>
+				<div class="col-md-6">
+					<div class="form-group">
+						<!-- <label for="customerName">Full name</label> -->
+						<input type="name" class="form-control" id="customerName" placeholder="Name">
+					</div>
+					<div class="form-group">
+						<!-- <label for="customerName">Full name</label> -->
+						<input type="phone" class="form-control" id="customerPhone" placeholder="Phone Number" >
+					</div>
+					<div class="form-group">
+						<!-- <label for="customerEmail">Email address</label> -->
+						<input type="email" class="form-control" id="customerEmail" placeholder="Email" >
+					</div>
+					<div class="form-group">
+						<!-- <label for="customerEmail">Email address</label> -->
+						<input type="text" class="form-control" id="customerCar" placeholder="Motorcar Make and Model" >
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<!-- <label for="partDescription">Tell us about the part</label> -->
+						<textarea class="form-control" id="message" placeholder="Services Requested" rows="5" style="height: 150px;"></textarea>
+					</div>
+					<div class="form-group">
+						<button type="button" class="btn btn-default">Add Images</button>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-default">Submit Form</button>
+				</div>
+			</form>
+		</div><!-- Row -->
+	</div><!-- Container -->
+</div><!-- Yellow -->
+
+<a name="how">
+<div class="container">
+	<div class="row text-center">
+		<h1>JC's How to Guide</h1>
+		<p class="intro">
+			We can make sure your gauges and parts are restored to their original beauty, but sometimes you need to get hands-on to take it from there. Here is all the information you'll need to keep your project moving forward.
+		</p>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+			<h3>Electroluminescent Gauges</h3>
+			<%= link_to "Learn More", "/", class: "button-link" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+			<h3>Working With Instrument Clusters</h3>
+			<%= link_to "Learn More", "/", class: "button-link" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+			<h3>Packaging and Shipping Parts</h3>
+			<%= link_to "Learn More", "/", class: "button-link" %>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+			<h3>Electrical and Wiring</h3>
+			<%= link_to "Learn More", "/", class: "button-link" %>
+		</div>
+	</div>
+</div>
+<!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->
