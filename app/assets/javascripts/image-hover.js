@@ -63,6 +63,27 @@ window.onscroll = function() {
 	}
 };
 
+/* Handle tertiary nav scroll */
+$("#tertiaryNav a").click(function(event){
+	event.preventDefault();
+
+	name = $(this).attr("href").replace("#", "");;
+	console.log("Name: " + name);
+	aTag = $("a[name='"+ name + "']");
+	console.log("link: " + aTag.attr("name"));
+
+	if (window.innerWidth < 830) {
+		$('html, body').animate({
+			scrollTop: $(aTag).offset().top + 20
+		}, 2000);
+	}
+	else {
+		$('html, body').animate({
+			scrollTop: $(aTag).offset().top - 130
+		}, 2000);
+	}
+})
+
 /*********** Image Gallery ***********/
 
 /* Gallery Events */
@@ -242,6 +263,9 @@ $("#events a").click(function(event) {
 
 	// Get new array of thumbs from event object
 	var string_images = $(this).attr("data-images").toString();
+	var name = $(this).attr("data-name").toString();
+	var date = $(this).attr("data-date").toString();
+	var description = $(this).attr("data-description").toString();
 	console.log(string_images);
 
 	var image_array = JSON.parse(string_images);
@@ -278,4 +302,23 @@ $("#events a").click(function(event) {
 	}
 
 	$("span#thumbs").fadeToggle();
+
+
+	// Handle description
+	$("#name").text(name);
+	$("#date").text(date);
+	$("#description").text(description);
+
+	if($('.gallery_container').css("display") === "none") {
+		$('html, body').animate({
+            scrollTop: $(".gallery_container_mobile").offset().top
+        }, 2000);
+	}
+	// Otherwise use regular gallery
+	else {
+		$('html, body').animate({
+			scrollTop: $(".gallery_container").offset().top - 150
+		}, 2000);
+	}
+
 });

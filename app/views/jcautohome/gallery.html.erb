@@ -89,21 +89,31 @@
 				When we aren't in the shop we still want to be around cars! We've had the opportunity to attend many car shows and events. Here are some pictures from our adventures.
 			</p>
 		</div>
-		<div class="col-md-3">
-			<h3>Select Event</h3>
+		<div class="col-md-12 text-center">
 			<hr>
-			<ul class="mopar-list" id="events">
-				<% @past_events.each do |event| %>
-					<% image_array = "[" %>
-					<% event.event_images.each do |image| %>
-						<% image_array += '"' + "#{asset_path("cars/" + image.image_path)}" + '",' %>
-					<% end %>
-					<% image_array.chomp!(",") %>
-					<% image_array += "]" %>
-					<li><%= link_to event.name, event, :data => { :images => image_array } %><br><%= event.event_date.strftime("%a, %B %e, %Y") %></li>
-				<% end %>
-			</ul>
+
+			<h3>Select Event</h3>
 		</div>
+		<!-- List all past events -->
+		<% @past_events.each do |event| %>
+		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-centered" id="events">
+			<% image_array = "[" %>
+			<% event.event_images.each do |image| %>
+				<% image_array += '"' + "#{asset_path("cars/" + image.image_path)}" + '",' %>
+			<% end %>
+			<% image_array.chomp!(",") %>
+			<% image_array += "]" %>
+			<%= link_to event, :data => { :images => image_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link", style: "font-size: 0.8em" do %><br>
+				<%= image_tag event.thumb, class:"icon" %>
+				<div class="clearfix visible-xs"></div>
+				<%= event.name %>
+				<p><%= event.event_date.strftime("%a, %B %e, %Y") %></p>
+			<% end %>
+		</div>
+		<% end %>
+		<hr>
+	</div>
+	<div class="row row-centered">
 
 		<% images = @past_events.first.event_images %>
 		<% first = true %>
@@ -113,21 +123,21 @@
 			<%= link_to "/", class: "gallery-arrow-left", id: "mobile-left" do %>
 
 			<% end %>
-			<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
-			<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+			<%= image_tag "events/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
+			<%= image_tag "events/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
 			<%= link_to "/", class: "gallery-arrow-right", id: "mobile-right" do %>
 
 			<% end %>
 		</div>
 
 		<!-- Main Gallery Image -->
-		<div class="col-md-9 col-centered">
+		<div class="col-md-9">
 			<div class="gallery_container">
 				<%= link_to "/", class: "gallery-arrow-left" do %>
 					<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
 				<% end %>
-					<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
-					<%= image_tag "cars/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+					<%= image_tag "events/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
+					<%= image_tag "events/" + images[0].image_path, alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
 				<%= link_to "/", class: "gallery-arrow-right" do %>
 					<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
 				<% end %>
@@ -139,7 +149,7 @@
 			<% images.each do |image| %>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
 					<a href= <%= "#{asset_path('cars/' + image.image_path)}" %> >
-						<%= image_tag "thumbs/cars/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("cars/" + image.image_path)}" } %>
+						<%= image_tag "events/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("events/" + image.image_path)}" } %>
 					</a>
 					<% if first %>
 						<% first = false %>
@@ -148,6 +158,11 @@
 			<% end %>	
 			</span>	
 		</div><!-- Column -->
+		<div id="info" class="col-md-3">
+			<h3 id="name"><%= @past_events.first.name %></h3>
+			<h4 id="date"><%= @past_events.first.event_date.strftime("%a, %B %e, %Y") %></h4>
+			<p id="description"><%= @past_events.first.description %></p>
+		</div>
 	</div><!-- Row -->
 </div>
 
