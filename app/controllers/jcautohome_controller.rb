@@ -60,4 +60,9 @@ class JcautohomeController < ApplicationController
 
 
 	end
+
+	def contact
+		@page = "contact"
+
+	end
 end

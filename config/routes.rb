@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get 'community' => 'jcautohome#community'
   get 'gallery' => 'jcautohome#gallery'
   get 'parts' => 'jcautohome#parts'
+  get 'contact' => 'jcautohome#contact'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

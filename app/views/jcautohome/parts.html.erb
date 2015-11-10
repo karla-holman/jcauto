@@ -112,6 +112,9 @@
 <div class="container">
 	<div class="row text-center">
 		<h1>Features and Deals</h1>
+		<p class="intro">
+			We've got plenty of parts we'd love to sell. Check back regularly for new deals!
+		</p>
 		<% if @featured_taxon_children.length == 0 %>
 			<p>There are no featured products at this time. Please check back soon!</p>
 		<% else %>
@@ -147,5 +150,62 @@
 		</div>
 	</div>
 </div>
+
+<div class="image-background" id="the_parts">
+	<%= image_tag "The Parts.jpg", style: "width: 100%; visibility: hidden;" %>
+</div>
+
+<!-- Sell to Us -->
+<a name="sell">
+<div class="container">
+	<div class="row text-center">
+		<h1>Sell to Us</h1>
+		<p class="intro">
+			Have some extra parts? Let us know what you have and we'll be in touch.
+		</p>
+		<form>
+		<div class="col-md-6">
+			<div class="form-group">
+				<!-- <label for="customerName">Full name</label> -->
+				<input type="name" class="form-control" id="customerName" placeholder="Name">
+			</div>
+			<div class="form-group">
+				<!-- <label for="customerName">Full name</label> -->
+				<input type="phone" class="form-control" id="customerPhone" placeholder="Phone Number" style="width: 47%; float: left; margin-right: 6%">
+				<!-- <label for="customerEmail">Email address</label> -->
+				<input type="email" class="form-control" id="customerEmail" placeholder="Email" style="width: 47%">
+			</div>
+			<div class="form-group">
+				<!-- <label for="customerEmail">Email address</label> -->
+				<input type="text" class="form-control" id="partNumber" placeholder="Part Number or Cast Number">
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<!-- <label for="partDescription">Tell us about the part</label> -->
+				<input type="textarea" class="form-control" id="partDescription" placeholder="Tell us about the part (condition, application, description)" style="height: 150px;">
+			</div>
+		</div>
+		<div class="col-md-12">
+			<button type="submit" class="btn btn-default">Submit Form</button>
+		</div>
+		</form>
+
+	</div>
+</div>
+
+<!-- Contact -->
+<a name="contact">
+<div class="container-yellow">
+	<div class="container">
+		<div class="row text-center">
+			<h3>Can't find the part you need?</h3>
+			<%= link_to "Contact Us", "/contact", class: "button-link" %>
+		</div>
+	</div>
+</div>
+
+
+
 
 <!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->

@@ -1,0 +1,90 @@
+<div class="container-yellow" id="tertiaryNav">
+	<div class="container text-center">
+      	<div class="container">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#message">Send a Message</a></li>
+				<li role="presentation"><a href="#visit">Get in Touch</a></li>
+				<li role="presentation"><a href="#who">Who We Are</a></li>
+				<li role="presentation"><a href="#cars">Our Cars</a></li>
+				<li role="presentation"><a href="#connect">Connect</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<a name="message">
+<div class="container">
+	<div class="row text-center">
+		<h1>Send us a Message</h1>
+		<p class="intro">
+			Use the form below to get in touch for questions, comments, or part requests. We'll reach out to you as soon as we can.
+		</p>
+		<form>
+		<div class="col-md-6">
+			<div class="form-group">
+				<!-- <label for="customerName">Full name</label> -->
+				<input type="name" class="form-control" id="customerName" placeholder="Name">
+			</div>
+			<div class="form-group">
+				<!-- <label for="customerName">Full name</label> -->
+				<input type="phone" class="form-control" id="customerPhone" placeholder="Phone Number" >
+			</div>
+			<div class="form-group">
+				<!-- <label for="customerEmail">Email address</label> -->
+				<input type="email" class="form-control" id="customerEmail" placeholder="Email" >
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<!-- <label for="partDescription">Tell us about the part</label> -->
+				<input type="textarea" class="form-control" id="message" placeholder="Message" style="height: 150px;">
+			</div>
+		</div>
+		<div class="col-md-12">
+			<button type="submit" class="btn btn-default">Submit Form</button>
+		</div>
+		</form>
+
+	</div>
+</div>
+
+<!-- Contact -->
+<a name="visit">
+<div class="container-yellow">
+	<div class="container">
+		<div class="row row-centered">
+			<h1>Get in Touch</h1>
+			<p class="intro">Visit or call us any time during our hours, M-F from 8 am to 5pm.</p>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Visit the Shop</h3>
+				<p>
+					20815 52nd Ave W, Suite 2 <br> 
+					Lynnwood, WA 98036
+				</p>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Call Us</h3>
+				<p>
+					<strong>Phone:</strong> 425.672.8324<br>
+					<strong>Fax:</strong> 425.771.2522
+				</p>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Send an Email</h3>
+				<p>
+					<strong>General:</strong> jcauto@jcauto.com<br>
+					<strong>Fax:</strong> parts@jcauto.com
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<iframe frameborder="0" style="border:5px solid #fff; width: 100%; height: 40vh" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJp40E4lEFkFQRzhK7FUUmIq0&key=AIzaSyDN618q7ZmxIUknKx8nDTcv4xDYEVi0YVs" allowfullscreen></iframe> 
+			</div>
+		</div>
+	</div>
+</div>
+<!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->
