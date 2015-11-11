@@ -47,7 +47,7 @@ PATH
       spree_core (= 3.0.4)
       versioncake (~> 2.3.1)
     spree_backend (3.0.4)
-      bootstrap-sass (~> 3.3.1)
+      bootstrap-sass
       jquery-rails (~> 4.0.3)
       jquery-ui-rails (~> 5.0.0)
       select2-rails (= 3.5.9.1)
@@ -81,7 +81,7 @@ PATH
       truncate_html (= 0.9.2)
       twitter_cldr (~> 3.0)
     spree_frontend (3.0.4)
-      bootstrap-sass (~> 3.3.1)
+      bootstrap-sass
       canonical-rails (~> 0.0.4)
       jquery-rails (~> 4.0.3)
       spree_api (= 3.0.4)

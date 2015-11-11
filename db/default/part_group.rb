@@ -9,11 +9,11 @@ t2 = Spree::Taxon.create :name => "Front Suspension", :parent_id => t_part_group
 
 t3 = Spree::Taxon.create :name => "Rear Axle", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/rear_axle.png", :icon_content_type => "image/png", :icon_file_size => 6889
 
-t4 = Spree::Taxon.create :name => "Parking Brake", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id
+t4 = Spree::Taxon.create :name => "Parking Brake", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/body.png", :icon_content_type => "image/png", :icon_file_size => 2914
 
 t5 = Spree::Taxon.create :name => "Service Brakes", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/service_brakes.png", :icon_content_type => "image/png", :icon_file_size => 6606
 
-t6 = Spree::Taxon.create :name => "Clutch", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id
+t6 = Spree::Taxon.create :name => "Clutch", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/body.png", :icon_content_type => "image/png", :icon_file_size => 2914
 
 t7 = Spree::Taxon.create :name => "Cooling", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/cooling.png", :icon_content_type => "image/png", :icon_file_size => 4470
 
@@ -37,7 +37,7 @@ t16 = Spree::Taxon.create :name => "Drive Shaft", :parent_id => t_part_group_tax
 
 t17 = Spree::Taxon.create :name => "Springs", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/springs.png", :icon_content_type => "image/png", :icon_file_size => 3616
 
-t18 = Spree::Taxon.create :name => "Standard Parts", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id
+t18 = Spree::Taxon.create :name => "Standard Parts", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/body.png", :icon_content_type => "image/png", :icon_file_size => 2914
 
 t19 = Spree::Taxon.create :name => "Steering", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/steering.png", :icon_content_type => "image/png", :icon_file_size => 9855
 
@@ -47,9 +47,9 @@ t22 = Spree::Taxon.create :name => "Wheels", :parent_id => t_part_group_tax.firs
 
 t23 = Spree::Taxon.create :name => "Body", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/body.png", :icon_content_type => "image/png", :icon_file_size => 2914
 
-t24 = Spree::Taxon.create :name => "Air Conditioning", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id
+t24 = Spree::Taxon.create :name => "Air Conditioning", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/body.png", :icon_content_type => "image/png", :icon_file_size => 2914
 
-t25 = Spree::Taxon.create :name => "Emission Controls", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id
+t25 = Spree::Taxon.create :name => "Emission", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/body.png", :icon_content_type => "image/png", :icon_file_size => 2914
 
 t30 = Spree::Taxon.create :name => "Literature", :parent_id => t_part_group_tax.first.id, :taxonomy_id => t_part_group_tax.first.taxonomy_id, :icon_file_name => "taxons/literature.png", :icon_content_type => "image/png", :icon_file_size => 2397
 

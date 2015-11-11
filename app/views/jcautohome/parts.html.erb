@@ -55,7 +55,7 @@
 			<% @part_groups_taxon_children.each do |group| %>
 				
 				<div class= "col-sm-3 col-md-2 col-centered" style="margin-bottom: 20px;" >
-					<%= link_to group.name, class: "button-link" do %><%= image_tag group.icon_file_name, class:"icon" %><% end %>
+					<%= link_to spree.nested_taxons_path(group.permalink), class: "button-link" do %><%= image_tag group.icon_file_name, class:"icon" %><% end %>
 					<p><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></p>
 				</div>
 
