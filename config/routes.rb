@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root :to => 'jcautohome#home'
 
+  # redirect admin
+  get "/admin" => redirect("/store/admin")
+
   # get '/' => 'jcautohome#home', as: 'home'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
