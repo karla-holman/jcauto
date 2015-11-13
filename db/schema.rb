@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109175329) do
+ActiveRecord::Schema.define(version: 20151113003152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,15 @@ ActiveRecord::Schema.define(version: 20151109175329) do
   add_index "spree_adjustments", ["order_id"], name: "index_spree_adjustments_on_order_id", using: :btree
   add_index "spree_adjustments", ["source_id", "source_type"], name: "index_spree_adjustments_on_source_id_and_source_type", using: :btree
 
+  create_table "spree_applications", force: :cascade do |t|
+    t.integer  "brand_id"
+    t.integer  "model_id"
+    t.integer  "start_year"
+    t.integer  "end_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spree_assets", force: :cascade do |t|
     t.integer  "viewable_id"
     t.string   "viewable_type"
@@ -134,6 +143,12 @@ ActiveRecord::Schema.define(version: 20151109175329) do
 
   add_index "spree_assets", ["viewable_id"], name: "index_assets_on_viewable_id", using: :btree
   add_index "spree_assets", ["viewable_type", "type"], name: "index_assets_on_viewable_type_and_type", using: :btree
+
+  create_table "spree_brands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spree_calculators", force: :cascade do |t|
     t.string   "type"
@@ -248,6 +263,13 @@ ActiveRecord::Schema.define(version: 20151109175329) do
   end
 
   add_index "spree_log_entries", ["source_id", "source_type"], name: "index_spree_log_entries_on_source_id_and_source_type", using: :btree
+
+  create_table "spree_models", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spree_option_types", force: :cascade do |t|
     t.string   "name",         limit: 100
@@ -404,6 +426,13 @@ ActiveRecord::Schema.define(version: 20151109175329) do
 
   add_index "spree_prices", ["deleted_at"], name: "index_spree_prices_on_deleted_at", using: :btree
   add_index "spree_prices", ["variant_id", "currency"], name: "index_spree_prices_on_variant_id_and_currency", using: :btree
+
+  create_table "spree_product_applications", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "application_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "spree_product_option_types", force: :cascade do |t|
     t.integer  "position"
