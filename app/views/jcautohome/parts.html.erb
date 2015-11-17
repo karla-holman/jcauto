@@ -109,7 +109,9 @@
 					  <select id="model_id" name="model_id">
 					  	<option value="">Select the Model</option>
 					  	<% Spree::Model.all.each do |model| %>
-					  	<option value="<%= model.id %>" data-make="<%= model.make_id ? model.make_id : 'none' %>"><%= model.name %></option>
+					  	<% model_start = model.start_year ? model.start_year : (Date.today.year-100) %>
+					  	<% model_end = model.end_year ? model.end_year : (Date.today.year) %>
+					  	<option value="<%= model.id %>" data-make="<%= model.make_id ? model.make_id : 'none' %>" data-start="<%= model_start %>" data-end="<%= model_end %>"><%= model.name %></option>
 					  	<% end %>
 					  </select>
 					</div>
@@ -229,36 +231,62 @@
 </div>
 
 <script type="text/javascript">
-  $( "select#make_id" ).change(function () {
-    var str = "";
-    var value = "";
 
-    // Get id of Make selected
-    $( "select#make_id option:selected" ).each(function() {
-      str += $( this ).text() + " ";
-      value = $( this ).val();
-    });
+	// Change models based on make selection
+	$( "select#make_id" ).change(function () {
+		var value = "";
 
-    // Log value of make_id
-    console.log(str + " Value: " + value);
+	    // Get id of Make selected
+	    $( "select#make_id option:selected" ).each(function() {
+	    	// Value is Make's id
+	      	value = $( this ).val();
+	    });
 
-    // Hide all except selected
-    $( "#model_id > option" ).each(function(){
-    	if($(this).attr('data-make')) {
-    		console.log("This: " + $(this).attr('data-make').toString() + " value: " + value.toString());
-			if($(this).attr('data-make').toString() === value.toString()) {
-				console.log("Showing: " + $(this).text());
+	    // Hide all models except those that belong to selected brand
+	    $( "#model_id > option" ).each(function(){
+	    	if($(this).attr('data-make')) {
+				if($(this).attr('data-make').toString() === value.toString()) {
+					$( this ).show();
+				}
+				else {
+					$( this ).hide();
+				}
+			}
+	    });
+	  })
+	.change();
+
+	// Change years based on model selection
+	$( "select#model_id" ).change(function () {
+		var start = "";
+		var end = "";
+
+		// Get selected model start and end date
+		$( "select#model_id option:selected" ).each(function() {
+	      start = $(this).attr('data-start');
+	      end = $(this).attr('data-end');
+	    });
+
+		console.log("Start: " + start + " End: " + end);
+
+		// Hide all years except those that belong to selected brand
+	    $( "#year > option" ).each(function(){
+	    	year = parseInt($(this).text(), 10);
+	    	if(year >= start && year <= end) {
 				$( this ).show();
 			}
 			else {
-				console.log("Hiding: " + $(this).text());
-				$( this ).hide();
+				if($(this).text()==="Select the Year"){
+					// do nothing if this is Select the Year option
+				}
+				else {
+					$( this ).hide();
+				}
 			}
-		}
-    });
-    //$( "div" ).text( str );
-  })
-  .change();
+	    });
+	})
+	.change();
+
 </script>
 
 
