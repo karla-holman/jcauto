@@ -1,3 +1,7 @@
+#---------------------------------------------------------------------------
+# Create events (car shows, etc)
+#---------------------------------------------------------------------------
+
 # Create Events
 event1 = Event.create(:name => "San Antonio Mopar Show", 
 					  :description => "33rd Annual San Antonio Mopar Muscle & Classic Car Show, presented by the Mopar Muscle Club of San Antonio.  Location - Ancira Chrysler Jeep Dodge  Ram, 10807 IH-10 West, San Antonio, TX 78230.  Entry fee $20 preregistration, $25 day of show.  Info: Paul 830-914-2415 or Doug 210-288-8303", 

@@ -17,18 +17,36 @@ ups_two_day = Spree::ShippingMethod.create :name => "UPS Two-Day", :tracking_url
 # Create Body Type Taxonomies
 part_number = Spree::Property.create :name => "Part Number", :presentation => "Part Number"
 cast_number = Spree::Property.create :name => "Cast Number", :presentation => "Cast Number"
+cross_reference = Spree::Property.create :name => "Cross Reference", :presentation => "Cross Reference"
 
 # Create Test Part
 water_pump = Spree::Product.create :name => "1957-58 392 Hemi, 354 Poly Water Pump", 
 								   :description => "Water pump for all 1957 Chrysler New Yorker - Saratoga - Town/Country - Windsor - 300C - 300D and all 1957-58 Imperial.",
 								   :available_on => DateTime.new(2015,1,1),
 								   :slug => "1957-58-392-hemi-354-poly-water-pump",
-								   :meta_description => "",
-								   :meta_keywords => "1957, 1958, Chrysler,  Imperial",
 								   :tax_category_id => auto_tax_category.id, 
 								   :shipping_category_id => default.id,
 								   :promotionable => true
 
+tie_rod = Spree::Product.create :name => "Outer Tie Rod End - Long Wheel Base", 
+								 :description => "Fits right and left",
+								 :available_on => DateTime.new(2015, 1, 1),
+								 :slug => "outer-tie-rod-end-lwb",
+								 :tax_category_id => auto_tax_category.id, 
+								 :shipping_category_id => default.id,
+								 :promotionable => true
 
+# Create Product Properties
+# Part numbers
+water_part_num = Spree::ProductProperty.create :value => "1692799",
+											   :product_id => water_pump.id,
+											   :property_id => part_number.id
 
+tie_rod_part_num = Spree::ProductProperty.create :value => "1692688",
+												 :product_id => tie_rod.id,
+												 :property_id => part_number.id
 
+# Cross References
+tie_rod_cross_ref = Spree::ProductProperty.create :value => "2279992, 2084353",
+												  :product_id => tie_rod.id,
+												  :property_id => cross_reference.id

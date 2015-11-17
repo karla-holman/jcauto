@@ -1,3 +1,7 @@
+#---------------------------------------------------------------------------
+# Create our cars for "About Us" page
+#---------------------------------------------------------------------------
+
 # Create Our Cars
 car1 = Car.create(:name => "1931 Chrysler CD Deluxe Roadster", :description => "Our favorite car", :thumb => "thumbs/31CD-main.jpg", :our_car => true)
 image1 = car1.car_images.create(:image_path => "31CD-1.jpg", :description => "")

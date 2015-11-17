@@ -1,3 +1,7 @@
+#---------------------------------------------------------------------------
+# Create body type taxonomies
+#---------------------------------------------------------------------------
+
 # Create Body Type Taxonomies
 b_body_type = Spree::Taxonomy.create :name => "Body Types"
 b_body_type_taxon = Spree::Taxonomy.where(name: b_body_type.name).first

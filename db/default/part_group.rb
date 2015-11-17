@@ -1,3 +1,7 @@
+#---------------------------------------------------------------------------
+# Create Part Group Taxonomies for searching
+#---------------------------------------------------------------------------
+
 # Create Part Group Taxonomies
 t_part_group = Spree::Taxonomy.create :name => "Part Groups"
 t_part_group_taxon = Spree::Taxonomy.where(name: t_part_group.name).first

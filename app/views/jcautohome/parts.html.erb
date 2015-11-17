@@ -94,19 +94,20 @@
 	<div class="container">
 		<div class="row text-center row-centered">
 			<h1>Browse by Application</h1>
-			<%= form_tag spree.products_path, style: "padding: 0px;", :method => :get, class: "navbar-form" do %>
+			<p class="intro">Find parts that fit your current car or project here.</p>
+			<%= form_tag spree.products_path, style: "padding: 0px;", :method => :get, class: "form-inline" do %>
 			  <fieldset>
 			    <div class="row">
 			    	<!-- Build Make Dropdown -->
-					<div class="col-md-4">
-					  <%= label_tag "make_id", Spree.t(:make) %>
-					  <%= select_tag "make_id", options_from_collection_for_select(Spree::Make.all, "id", "name", params[:search]), :prompt => "Select the Make" %>
+					<div class="form-group">
+					  <%= label_tag "make_id", Spree.t(:make), class: "sr-only" %>
+					  <%= select_tag "make_id", options_from_collection_for_select(Spree::Make.all, "id", "name", params[:search]), :prompt => "Select the Make", class: "form-control" %>
 					  <!--%= f.text_field :make, :class => 'form-control' %-->
 					</div>
 					<!-- Build Model Dropdown -->
-					<div class="col-md-4" id = "application_model_field">
-					  <%= label_tag "model_id", Spree.t(:model) %>
-					  <select id="model_id" name="model_id">
+					<div class="form-group" id = "application_model_field">
+					  <%= label_tag "model_id", Spree.t(:model), class: "sr-only" %>
+					  <select id="model_id" name="model_id" class="form-control">
 					  	<option value="">Select the Model</option>
 					  	<% Spree::Model.all.each do |model| %>
 					  	<% model_start = model.start_year ? model.start_year : (Date.today.year-100) %>
@@ -116,12 +117,14 @@
 					  </select>
 					</div>
 					<!-- Build Year Dropdown -->
-					<div class="col-md-4" id = "application_year_field">
-					  <%= label_tag "year", Spree.t(:year) %>
-					  <%= select_tag "year", ((Date.today.year-100)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year" %>
+					<div class="form-group" id = "application_year_field">
+					  <%= label_tag "year", Spree.t(:year), class: "sr-only" %>
+					  <%= select_tag "year", ((Date.today.year-100)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year", class: "form-control" %>
+					</div>
+					<div class="form-group">
+						<%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-primary", style: "width: 100%; margin-top: 0px" %>
 					</div>
 				</div>
-				<%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-primary", style: "width: 100%; margin-top: 5px" %>
 			  </fieldset>
 			<% end %>
 		</div>
@@ -253,6 +256,12 @@
 				}
 			}
 	    });
+
+	   	// Change model to select
+	    $("#model_id").val("");
+
+	    // Change year to select
+	    $("#year").val("");
 	  })
 	.change();
 
@@ -284,6 +293,10 @@
 				}
 			}
 	    });
+
+	    // Change year to select
+	    $("#year").val("");
+
 	})
 	.change();
 
