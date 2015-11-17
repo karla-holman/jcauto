@@ -3,7 +3,7 @@
       	<div class="container">
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#part">Browse</a></li>
-				<li role="presentation"><a href="#body">Find Body Type</a></li>
+				<li role="presentation"><a href="#application">Find Application</a></li>
 				<li role="presentation"><a href="#feature">Features</a></li>
 				<li role="presentation"><a href="#new">New Parts</a></li>
 				<li role="presentation"><a href="#sell">Sell Parts</a></li>
@@ -89,16 +89,38 @@
 </div>
 
 <!-- Body Type -->
-<a name="body">
+<a name="application">
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center row-centered">
-			<h1>Browse by Body Type</h1>
-			<% @body_types_taxon_children.each do |body| %>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-centered">
-				<%= image_tag body.image_path, class:"icon" %>
-				<%= link_to body.name, spree.nested_taxons_path(body.permalink), class: "button-link" %>
-			</div>
+			<h1>Browse by Application</h1>
+			<%= form_tag spree.products_path, style: "padding: 0px;", :method => :get, class: "navbar-form" do %>
+			  <fieldset>
+			    <div class="row">
+			    	<!-- Build Make Dropdown -->
+					<div class="col-md-4">
+					  <%= label_tag "make_id", Spree.t(:make) %>
+					  <%= select_tag "make_id", options_from_collection_for_select(Spree::Make.all, "id", "name", params[:search]), :prompt => "Select the Make" %>
+					  <!--%= f.text_field :make, :class => 'form-control' %-->
+					</div>
+					<!-- Build Model Dropdown -->
+					<div class="col-md-4" id = "application_model_field">
+					  <%= label_tag "model_id", Spree.t(:model) %>
+					  <select id="model_id" name="model_id">
+					  	<option value="">Select the Model</option>
+					  	<% Spree::Model.all.each do |model| %>
+					  	<option value="<%= model.id %>" data-make="<%= model.make_id ? model.make_id : 'none' %>"><%= model.name %></option>
+					  	<% end %>
+					  </select>
+					</div>
+					<!-- Build Year Dropdown -->
+					<div class="col-md-4" id = "application_year_field">
+					  <%= label_tag "year", Spree.t(:year) %>
+					  <%= select_tag "year", ((Date.today.year-100)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year" %>
+					</div>
+				</div>
+				<%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-primary", style: "width: 100%; margin-top: 5px" %>
+			  </fieldset>
 			<% end %>
 		</div>
 	</div>
@@ -206,7 +228,38 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+  $( "select#make_id" ).change(function () {
+    var str = "";
+    var value = "";
 
+    // Get id of Make selected
+    $( "select#make_id option:selected" ).each(function() {
+      str += $( this ).text() + " ";
+      value = $( this ).val();
+    });
+
+    // Log value of make_id
+    console.log(str + " Value: " + value);
+
+    // Hide all except selected
+    $( "#model_id > option" ).each(function(){
+    	if($(this).attr('data-make')) {
+    		console.log("This: " + $(this).attr('data-make').toString() + " value: " + value.toString());
+			if($(this).attr('data-make').toString() === value.toString()) {
+				console.log("Showing: " + $(this).text());
+				$( this ).show();
+			}
+			else {
+				console.log("Hiding: " + $(this).text());
+				$( this ).hide();
+			}
+		}
+    });
+    //$( "div" ).text( str );
+  })
+  .change();
+</script>
 
 
 <!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->

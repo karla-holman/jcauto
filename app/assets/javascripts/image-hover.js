@@ -43,16 +43,25 @@ window.onscroll = function() {
 
 	// Calculate offset for tertiary navigation
 	var header_offset = $('.header-img').offset();
-	var tertiary_offset = header_offset.top + $('.header-img').height() - 150;
+	var tertiary_offset = header_offset.top + $('.header-img').height() - 100;
+	var nav_offset = header_offset.top + $('#nav').height();
 
 	// If screen anywhere but top of document, affix navs
-	if ( $(window).scrollTop() == 0 ) {
+	/* if ( $(window).scrollTop() == 0 ) {
 		$('#secondNav').removeClass("affix");
 		$('#nav').removeClass("affix");
 	}
 	else {
 		$('#secondNav').addClass("affix");
 		$('#nav').addClass("affix");
+	} */
+	if ( $(window).scrollTop() > nav_offset) {
+		$('#secondNav').addClass("affix");
+		$('#nav').addClass("affix");
+	}
+	else {
+		$('#secondNav').removeClass("affix");
+		$('#nav').removeClass("affix");
 	}
 
 	if ( $(window).scrollTop() > tertiary_offset) {
@@ -79,7 +88,7 @@ $("#tertiaryNav a").click(function(event){
 	}
 	else {
 		$('html, body').animate({
-			scrollTop: $(aTag).offset().top - 130
+			scrollTop: $(aTag).offset().top - 80
 		}, 2000);
 	}
 })
