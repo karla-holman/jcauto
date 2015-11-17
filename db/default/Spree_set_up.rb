@@ -36,6 +36,15 @@ tie_rod = Spree::Product.create :name => "Outer Tie Rod End - Long Wheel Base",
 								 :shipping_category_id => default.id,
 								 :promotionable => true
 
+# Create Product Variants
+tie_rod_variant = Spree::Variant.create :sku => "1692688", 
+								 :weight => BigDecimal.new("0"),
+								 :is_master => true,
+								 :product => tie_rod,
+								 :position => 1, 
+								 :cost_currency => "USD",
+								 :track_inventory => true,
+								 :stock_items_count => 0
 # Create Product Properties
 # Part numbers
 water_part_num = Spree::ProductProperty.create :value => "1692799",
