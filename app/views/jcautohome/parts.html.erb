@@ -95,7 +95,7 @@
 		<div class="row text-center row-centered">
 			<h1>Browse by Application</h1>
 			<p class="intro">Find parts that fit your current car or project here.</p>
-			<%= form_tag spree.products_path, style: "padding: 0px;", :method => :get, class: "form-inline" do %>
+			<%= form_tag spree.products_path, :onSubmit => "return validateForm()", style: "padding: 0px;", :method => :get, class: "form-inline" do %>
 			  <fieldset>
 			    <div class="row">
 			    	<!-- Build Make Dropdown -->
@@ -119,7 +119,7 @@
 					<!-- Build Year Dropdown -->
 					<div class="form-group" id = "application_year_field">
 					  <%= label_tag "year", Spree.t(:year), class: "sr-only" %>
-					  <%= select_tag "year", ((Date.today.year-100)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year", class: "form-control" %>
+					  <%= select_tag "year", ((Date.new(1900).year)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year", class: "form-control" %>
 					</div>
 					<div class="form-group">
 						<%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-primary", style: "width: 100%; margin-top: 0px" %>
@@ -235,6 +235,16 @@
 
 <script type="text/javascript">
 
+	// Validate 
+	validateForm = function(){
+		if( $( "select#make_id" ).val() === "" || $("select#year").val() === "") {
+			alert("Please select a make and year (model is optional)");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 	// Change models based on make selection
 	$( "select#make_id" ).change(function () {
 		var value = "";
@@ -271,10 +281,16 @@
 		var end = "";
 
 		// Get selected model start and end date
-		$( "select#model_id option:selected" ).each(function() {
-	      start = $(this).attr('data-start');
-	      end = $(this).attr('data-end');
-	    });
+		if ($("select#model_id").val() === "") {
+			start = 1900;
+			end = (new Date).getFullYear();
+		}
+		else {
+			$( "select#model_id option:selected" ).each(function() {
+		      start = $(this).attr('data-start');
+		      end = $(this).attr('data-end');
+		    });
+		}
 
 		console.log("Start: " + start + " End: " + end);
 
