@@ -76,6 +76,39 @@ part_number = Spree::Property.create :name => "Part Number", :presentation => "P
 cast_number = Spree::Property.create :name => "Cast Number", :presentation => "Cast Number"
 cross_reference = Spree::Property.create :name => "Cross Reference", :presentation => "Cross Reference"
 
+# OPTION TYPES
+condition = Spree::OptionType.create :name => "Condition",
+									 :presentation => "Condition"
+
+# OPTION VALUES
+value_nos = Spree::OptionValue.create :name => "NOS",
+									 :presentation => "NOS",
+									 :option_type => condition
+
+value_nors = Spree::OptionValue.create :name => "NORS",
+									 :presentation => "NORS",
+									 :option_type => condition									 
+
+value_new = Spree::OptionValue.create :name => "new",
+									 :presentation => "new",
+									 :option_type => condition
+
+value_used = Spree::OptionValue.create :name => "used",
+									 :presentation => "used",
+									 :option_type => condition
+
+value_rebuilt = Spree::OptionValue.create :name => "rebuilt",
+									 :presentation => "rebuilt",
+									 :option_type => condition
+
+value_repro = Spree::OptionValue.create :name => "repro",
+									 :presentation => "repro",
+									 :option_type => condition
+
+value_remolded = Spree::OptionValue.create :name => "remolded",
+									 :presentation => "remolded",
+									 :option_type => condition
+
 # Create Test Part
 water_pump = Spree::Product.create :name => "1957-58 392 Hemi, 354 Poly Water Pump", 
 								   :description => "Water pump for all 1957 Chrysler New Yorker - Saratoga - Town/Country - Windsor - 300C - 300D and all 1957-58 Imperial.",
@@ -84,7 +117,7 @@ water_pump = Spree::Product.create :name => "1957-58 392 Hemi, 354 Poly Water Pu
 								   :tax_category_id => auto_tax_category.id, 
 								   :shipping_category_id => default.id,
 								   :promotionable => true,
-								   :price => 120.00
+								   :price => 120.00 # Defines master price
 
 tie_rod = Spree::Product.create :name => "Outer Tie Rod End - Long Wheel Base", 
 								 :description => "Fits right and left",
@@ -93,34 +126,24 @@ tie_rod = Spree::Product.create :name => "Outer Tie Rod End - Long Wheel Base",
 								 :tax_category_id => auto_tax_category.id, 
 								 :shipping_category_id => default.id,
 								 :promotionable => true,
-								 :price => 125.00
+								 :price => 125.00 # Defines master price
 
-# Create Product Variants
-tie_rod_variant = Spree::Variant.create :sku => "1692688", 
-								 :weight => BigDecimal.new("0"),
-								 :is_master => true,
-								 :product => tie_rod,
-								 :position => 1, 
-								 :cost_currency => "USD",
-								 :track_inventory => true,
-								 :stock_items_count => 0
+# Update created Product Variants
+tie_rod_variant = Spree::Variant.where("product_id=?", tie_rod.id).first
+tie_rod_variant.sku = 1692688
+								 
+water_pump_variant = Spree::Variant.where("product_id=?", water_pump.id).first
+water_pump_variant.sku = 1692799
 
-water_pump_variant = Spree::Variant.create :sku => "1692799", 
-								 :weight => BigDecimal.new("0"),
-								 :is_master => true,
-								 :product => water_pump,
-								 :position => 1, 
-								 :cost_currency => "USD",
-								 :track_inventory => true,
-								 :stock_items_count => 0
-
-# Create prices
+# Create prices for international market
+=begin
 tie_price = Spree::Price.create :variant => tie_rod_variant,
 							:amount => 125.00,
 							:currency => "USD"
 pump_price = Spree::Price.create :variant => water_pump_variant,
 							:amount => 120.00,
 							:currency => "USD"
+=end
 
 # Create Product Properties
 # Part numbers
@@ -135,6 +158,10 @@ tie_rod_part_num = Spree::ProductProperty.create :value => "1692688",
 # Cross References
 tie_rod_cross_ref = Spree::ProductProperty.create :value => "2279992, 2084353",
 												  :product_id => tie_rod.id,
+												  :property_id => cross_reference.id
+
+water_pump_cross_ref = Spree::ProductProperty.create :value => "1692688, 2084354",
+												  :product_id => water_pump.id,
 												  :property_id => cross_reference.id
 
 # Create applications
@@ -160,3 +187,41 @@ app4 = Spree::ProductApplication.create :product => water_pump,
 										:application_id => 4,
 										:start_year => 1959,
 										:end_year => 1959
+
+# Create Product Option Type
+tie_rod_option_type = Spree::ProductOptionType.create :product => tie_rod,
+													  :option_type => condition
+
+tie_rod_option_type = Spree::ProductOptionType.create :product => water_pump,
+													  :option_type => condition
+
+# Create option type Variants
+tie_rod_nos = Spree::Variant.create :sku => 1692688,
+									:weight => BigDecimal.new("0.0"),
+									:is_master => false,
+									:product => tie_rod,
+									:cost_price => BigDecimal.new("300.00"),
+									:cost_currency => "USD",
+									:track_inventory => true,
+									:tax_category_id => 1,
+									:stock_items_count => 0
+
+tie_price_nos = Spree::Price.where("variant_id = ?", tie_rod_nos.id)
+tie_price_nos.first.update_attribute("amount", 400.00)
+
+tie_rod_nos.option_values << value_nos
+
+tie_rod_used = Spree::Variant.create :sku => 1692688,
+									:weight => BigDecimal.new("0.0"),
+									:is_master => false,
+									:product => tie_rod,
+									:cost_price => BigDecimal.new("256.00"),
+									:cost_currency => "USD",
+									:track_inventory => true,
+									:tax_category_id => 1,
+									:stock_items_count => 0
+
+tie_price_used = Spree::Price.where("variant_id = ?", tie_rod_used.id)
+tie_price_used.first.update_attribute("amount", 350.00)
+
+tie_rod_used.option_values << value_used
