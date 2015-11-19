@@ -160,18 +160,18 @@
 <a name="new">
 <div class="container-yellow">
 	<div class="container">
-		<div class="row text-center">
+		<div class="row text-center row-centered">
 			<h1>New Parts</h1>
 			<p class="intro">
 				Couldn't find something before? Check back here to see if we've picked up any parts you need!
 			</p>
-			<% if @new_taxon_children.length == 0 %>
+			<% if @new.length == 0 %>
 				<p>There are no new products at this time. Please check back soon!</p>
 			<% else %>
-				<% @new_taxon_children.each do |new_prod| %>
-				<div class="col-md-3">
+				<% @new.each do |new_prod| %>
+				<div class="col-md-3 col-centered">
 					<%= image_tag "cars/Car-20.png", class:"icon" %>
-					<%= link_to new_prod.name, spree.nested_taxons_path(new_prod.permalink), class: "button-link" %>
+					<%= link_to new_prod.name, spree.product_path(new_prod), class: "button-link" %>
 				</div>
 				<% end %>
 			<% end %>

@@ -48,11 +48,12 @@ class JcautohomeController < ApplicationController
 
 
 		# Get Featured Taxonomy
-		@new = @taxonomies.where("name=?", "New Products").first
+		# @new = @taxonomies.where("name=?", "New Products").first
 
 		# Get matching part groups taxon
-		@new_taxon = @new.taxons.first
-		@new_taxon_children = @new_taxon.children
+		# @new_taxon = @new.taxons.first
+		# @new_taxon_children = @new_taxon.children
+		@new = Spree::Product.where("created_at > ?", Date.today.prev_month)
 
 
 	end

@@ -20,9 +20,9 @@ t_featured_taxon = Spree::Taxonomy.where(name: t_featured.name).first
 t_featured_tax = t_featured_taxon.taxons
 
 # New Products
-t_new = Spree::Taxonomy.create :name => "New Products"
-t_new_taxon = Spree::Taxonomy.where(name: t_new.name).first
-t_new_tax = t_new_taxon.taxons
+# t_new = Spree::Taxonomy.create :name => "New Products"
+# t_new_taxon = Spree::Taxonomy.where(name: t_new.name).first
+# t_new_tax = t_new_taxon.taxons
 
 # Add a test product
-Spree::Product.create :name => "Test Product", :description => "This is the best product.", :available_on => "2015-10-02 00:00:00"
+# Spree::Product.create :name => "Test Product", :description => "This is the best product.", :available_on => "2015-10-02 00:00:00"
