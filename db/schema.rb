@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119210340) do
+ActiveRecord::Schema.define(version: 20151120191033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -462,6 +462,13 @@ ActiveRecord::Schema.define(version: 20151119210340) do
   add_index "spree_product_properties", ["position"], name: "index_spree_product_properties_on_position", using: :btree
   add_index "spree_product_properties", ["product_id"], name: "index_product_properties_on_product_id", using: :btree
   add_index "spree_product_properties", ["property_id"], name: "index_spree_product_properties_on_property_id", using: :btree
+
+  create_table "spree_product_vendors", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "vendor_id"
+    t.string  "vendor_part_number"
+    t.string  "vendor_price"
+  end
 
   create_table "spree_products", force: :cascade do |t|
     t.string   "name",                 default: "",   null: false
@@ -1047,6 +1054,22 @@ ActiveRecord::Schema.define(version: 20151119210340) do
   add_index "spree_variants", ["sku"], name: "index_spree_variants_on_sku", using: :btree
   add_index "spree_variants", ["tax_category_id"], name: "index_spree_variants_on_tax_category_id", using: :btree
   add_index "spree_variants", ["track_inventory"], name: "index_spree_variants_on_track_inventory", using: :btree
+
+  create_table "spree_vendors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "line_1"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at"
+    t.string   "contact_name"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "line_2"
+    t.text     "notes"
+    t.string   "country"
+  end
 
   create_table "spree_wished_products", force: :cascade do |t|
     t.integer  "variant_id"
