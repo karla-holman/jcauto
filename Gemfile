@@ -30,6 +30,12 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
 # gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 
+# Track user activity
+gem 'paper_trail', '~> 4.0.0'
+
+# Track local time
+gem 'local_time'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
