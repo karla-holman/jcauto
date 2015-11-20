@@ -130,10 +130,10 @@ tie_rod = Spree::Product.create :name => "Outer Tie Rod End - Long Wheel Base",
 
 # Update created Product Variants
 tie_rod_variant = Spree::Variant.where("product_id=?", tie_rod.id).first
-tie_rod_variant.sku = 1692688
+tie_rod_variant.update_column("sku", 1692688)
 								 
 water_pump_variant = Spree::Variant.where("product_id=?", water_pump.id).first
-water_pump_variant.sku = 1692799
+water_pump_variant.update_column("sku", 1692799)
 
 # Create prices for international market
 =begin

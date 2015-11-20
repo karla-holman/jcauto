@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 
-gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
-# gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
+# gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
+gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 
 # Track user activity
 gem 'paper_trail', '~> 4.0.0'
@@ -48,6 +48,8 @@ gem 'local_time'
 # For use on Windows
 gem 'tzinfo-data'
 
+# require 'spreadsheet' # for importing database data
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -62,8 +64,8 @@ end
 
 
 # gem 'spree', '3.0.4'
-gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
-# gem 'spree', github: 'karla-holman/spree_jcauto'
+# gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
+gem 'spree', github: 'karla-holman/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
