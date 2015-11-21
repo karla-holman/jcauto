@@ -208,6 +208,7 @@ tie_rod_nos = Spree::Variant.create :sku => 1692688,
 
 tie_price_nos = Spree::Price.where("variant_id = ?", tie_rod_nos.id)
 tie_price_nos.first.update_attribute("amount", 400.00)
+tie_price_nos.first.update_attribute("core", 20.00)
 
 tie_rod_nos.option_values << value_nos
 
@@ -223,5 +224,6 @@ tie_rod_used = Spree::Variant.create :sku => 1692688,
 
 tie_price_used = Spree::Price.where("variant_id = ?", tie_rod_used.id)
 tie_price_used.first.update_attribute("amount", 350.00)
+tie_price_used.first.update_attribute("core", 15.00)
 
 tie_rod_used.option_values << value_used
