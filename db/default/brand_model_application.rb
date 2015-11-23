@@ -250,10 +250,26 @@ location2 = Spree::StockLocation.create :name => "JC Home",
                                         :active => false,
                                         :backorderable_default => false,
                                         :propagate_all_variants => true,
+                                        :address1 => "13303 20th Ave NE",
                                         :city => "Seattle",
                                         :state_id => 3577, 
                                         :state_name => "Washington",
                                         :country_id => 232,
-                                        :zipcode => "98105",
+                                        :zipcode => "98125",
                                         :phone => "206-234-5678",
                                         :admin_name => "home"
+
+# STOCK ITEM
+#stock1 = Spree::StockItem.create :stock_location => location1,
+						#:variant => tie_rod_nos,
+						#:backorderable => false
+
+#stock2 = Spree::StockItem.create :stock_location => location1,
+						#:variant => tie_rod_used,
+						#:backorderable => false
+
+stock1 = Spree::StockItem.where("variant_id = ? AND stock_location_id = ?", tie_rod_used.id, location1.id).first
+stock2 = Spree::StockItem.where("variant_id = ? AND stock_location_id = ?", tie_rod_nos.id, location1.id).first
+
+stock1.set_count_on_hand(5)
+stock2.set_count_on_hand(7)
