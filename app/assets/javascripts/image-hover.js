@@ -39,12 +39,19 @@ function toggleNeon(button_hovered, path) {
 }
 
 // Add checkered background to affixed nav
-window.onscroll = function() {
+window.onscroll = function(){
+	handle_window_location();
+};
 
+window.onload = function() {
+	handle_window_location();
+};
+
+function handle_window_location() {
 	// Calculate offset for tertiary navigation
 	var header_offset = $('.header-img').offset();
 	var tertiary_offset = header_offset.top + $('.header-img').height() - 100;
-	var nav_offset = header_offset.top + $('#nav').height();
+	var nav_offset = 100;//header_offset.top + $('#nav').height();
 
 	// If screen anywhere but top of document, affix navs
 	/* if ( $(window).scrollTop() == 0 ) {
@@ -70,7 +77,7 @@ window.onscroll = function() {
 	else {
 		$('#tertiaryNav').removeClass("affix");
 	}
-};
+}
 
 /* Handle tertiary nav scroll */
 $("#tertiaryNav a").click(function(event){

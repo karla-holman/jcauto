@@ -224,6 +224,36 @@ tie_rod_used = Spree::Variant.create :sku => 1692688,
 
 tie_price_used = Spree::Price.where("variant_id = ?", tie_rod_used.id)
 tie_price_used.first.update_attribute("amount", 350.00)
-tie_price_used.first.update_attribute("core", 15.00)
+# tie_price_used.first.update_attribute("core", 15.00)
 
 tie_rod_used.option_values << value_used
+
+
+# STOCK LOCATIONS
+location1 = Spree::StockLocation.create :name => "JC Auto Shop",
+                                        :default => true,
+                                        :active => true,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :address1 => "20815 52nd Ave W",
+                                        :address2 => "Suite 2",
+                                        :city => "Lynnwood",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98036",
+                                        :phone => "206-123-4567",
+                                        :admin_name => "shop"
+
+location2 = Spree::StockLocation.create :name => "JC Home",
+                                        :default => false,
+                                        :active => false,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :city => "Seattle",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98105",
+                                        :phone => "206-234-5678",
+                                        :admin_name => "home"
