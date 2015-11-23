@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123192804) do
+ActiveRecord::Schema.define(version: 20151123214021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1060,19 +1060,23 @@ ActiveRecord::Schema.define(version: 20151123192804) do
 
   create_table "spree_vendors", force: :cascade do |t|
     t.string   "name"
-    t.string   "line_1"
+    t.string   "address1"
     t.string   "phone"
     t.string   "email"
     t.string   "website"
     t.datetime "created_at"
     t.string   "contact_name"
     t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "line_2"
+    t.string   "state_name"
+    t.string   "zipcode"
+    t.string   "address2"
     t.text     "notes"
-    t.string   "country"
+    t.integer  "country_id"
+    t.integer  "state_id"
   end
+
+  add_index "spree_vendors", ["country_id"], name: "index_spree_vendors_on_country_id", using: :btree
+  add_index "spree_vendors", ["state_id"], name: "index_spree_vendors_on_state_id", using: :btree
 
   create_table "spree_wished_products", force: :cascade do |t|
     t.integer  "variant_id"
