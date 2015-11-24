@@ -49,6 +49,7 @@ gem 'local_time'
 gem 'tzinfo-data'
 
 require 'spreadsheet' # for importing database data
+require 'rubyXL' # Assuming rubygems is already required
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
