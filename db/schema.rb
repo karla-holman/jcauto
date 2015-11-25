@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123214021) do
+ActiveRecord::Schema.define(version: 20151124203641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -486,7 +486,6 @@ ActiveRecord::Schema.define(version: 20151123214021) do
     t.boolean  "promotionable",        default: true
     t.string   "meta_title"
     t.text     "notes"
-    t.string   "location"
   end
 
   add_index "spree_products", ["available_on"], name: "index_spree_products_on_available_on", using: :btree
@@ -827,6 +826,7 @@ ActiveRecord::Schema.define(version: 20151123214021) do
     t.datetime "updated_at",                        null: false
     t.boolean  "backorderable",     default: false
     t.datetime "deleted_at"
+    t.string   "sub_location"
   end
 
   add_index "spree_stock_items", ["backorderable"], name: "index_spree_stock_items_on_backorderable", using: :btree
@@ -1048,6 +1048,7 @@ ActiveRecord::Schema.define(version: 20151123214021) do
     t.integer  "tax_category_id"
     t.datetime "updated_at"
     t.integer  "stock_items_count",                          default: 0,     null: false
+    t.text     "notes"
   end
 
   add_index "spree_variants", ["deleted_at"], name: "index_spree_variants_on_deleted_at", using: :btree

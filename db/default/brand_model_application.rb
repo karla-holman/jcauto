@@ -109,7 +109,24 @@ value_remolded = Spree::OptionValue.create :name => "remolded",
 									 :presentation => "remolded",
 									 :option_type => condition
 
+value_rechromed = Spree::OptionValue.create :name => "rechromed",
+									 :presentation => "rechromed",
+									 :option_type => condition
+
+value_resleeved = Spree::OptionValue.create :name => "resleeved",
+									 :presentation => "resleeved",
+									 :option_type => condition
+
+value_core = Spree::OptionValue.create :name => "core",
+									 :presentation => "core",
+									 :option_type => condition
+
+value_restored = Spree::OptionValue.create :name => "restored",
+									 :presentation => "restored",
+									 :option_type => condition
+
 # Create Test Part
+=begin
 water_pump = Spree::Product.create :name => "1957-58 392 Hemi, 354 Poly Water Pump", 
 								   :description => "Water pump for all 1957 Chrysler New Yorker - Saratoga - Town/Country - Windsor - 300C - 300D and all 1957-58 Imperial.",
 								   :available_on => DateTime.new(2015,1,1),
@@ -134,16 +151,6 @@ tie_rod_variant.update_column("sku", 1692688)
 								 
 water_pump_variant = Spree::Variant.where("product_id=?", water_pump.id).first
 water_pump_variant.update_column("sku", 1692799)
-
-# Create prices for international market
-=begin
-tie_price = Spree::Price.create :variant => tie_rod_variant,
-							:amount => 125.00,
-							:currency => "USD"
-pump_price = Spree::Price.create :variant => water_pump_variant,
-							:amount => 120.00,
-							:currency => "USD"
-=end
 
 # Create Product Properties
 # Part numbers
@@ -228,9 +235,9 @@ tie_price_used.first.update_attribute("amount", 350.00)
 
 tie_rod_used.option_values << value_used
 
-
+=end
 # STOCK LOCATIONS
-location1 = Spree::StockLocation.create :name => "JC Auto Shop",
+location1 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 2)",
                                         :default => true,
                                         :active => true,
                                         :backorderable_default => false,
@@ -243,9 +250,23 @@ location1 = Spree::StockLocation.create :name => "JC Auto Shop",
                                         :country_id => 232,
                                         :zipcode => "98036",
                                         :phone => "206-123-4567",
-                                        :admin_name => "shop"
+                                        :admin_name => "Suite 2"
 
-location2 = Spree::StockLocation.create :name => "JC Home",
+location2 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 3)",
+                                        :default => false,
+                                        :active => true,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :address1 => "20815 52nd Ave W",
+                                        :city => "Lynnwood",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98036",
+                                        :phone => "206-123-4567",
+                                        :admin_name => "Suite 3"
+
+location3 = Spree::StockLocation.create :name => "JC Home",
                                         :default => false,
                                         :active => false,
                                         :backorderable_default => false,
@@ -259,6 +280,47 @@ location2 = Spree::StockLocation.create :name => "JC Home",
                                         :phone => "206-234-5678",
                                         :admin_name => "home"
 
+location4 = Spree::StockLocation.create :name => "Warehouse",
+                                        :default => false,
+                                        :active => true,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :address1 => "20815 52nd Ave W",
+                                        :city => "Lynnwood",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98036",
+                                        :phone => "206-234-5678",
+                                        :admin_name => "Warehouse"
+
+location5 = Spree::StockLocation.create :name => "East Racks",
+                                        :default => false,
+                                        :active => true,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :address1 => "20815 52nd Ave W",
+                                        :city => "Lynnwood",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98036",
+                                        :phone => "206-234-5678",
+                                        :admin_name => "East Racks"
+
+location6 = Spree::StockLocation.create :name => "George's Attic",
+                                        :default => false,
+                                        :active => false,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :city => "Seattle",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98103",
+                                        :phone => "206-234-5678",
+                                        :admin_name => "George's Attic"
+
 # STOCK ITEM
 #stock1 = Spree::StockItem.create :stock_location => location1,
 						#:variant => tie_rod_nos,
@@ -268,8 +330,11 @@ location2 = Spree::StockLocation.create :name => "JC Home",
 						#:variant => tie_rod_used,
 						#:backorderable => false
 
+=begin
 stock1 = Spree::StockItem.where("variant_id = ? AND stock_location_id = ?", tie_rod_used.id, location1.id).first
 stock2 = Spree::StockItem.where("variant_id = ? AND stock_location_id = ?", tie_rod_nos.id, location1.id).first
 
 stock1.set_count_on_hand(5)
 stock2.set_count_on_hand(7)
+
+=end
