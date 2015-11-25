@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124203641) do
+ActiveRecord::Schema.define(version: 20151125211433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -259,17 +259,19 @@ ActiveRecord::Schema.define(version: 20151124203641) do
 
   create_table "spree_makes", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "abbreviation"
   end
 
   create_table "spree_models", force: :cascade do |t|
     t.string   "name"
     t.integer  "make_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "start_year"
     t.integer  "end_year"
+    t.string   "abbreviation"
   end
 
   create_table "spree_option_types", force: :cascade do |t|
@@ -437,6 +439,7 @@ ActiveRecord::Schema.define(version: 20151124203641) do
     t.integer  "start_year"
     t.integer  "end_year"
     t.string   "name"
+    t.text     "notes"
   end
 
   create_table "spree_product_option_types", force: :cascade do |t|

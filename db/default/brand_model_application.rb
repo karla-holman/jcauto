@@ -3,11 +3,12 @@
 #---------------------------------------------------------------------------
 
 # Create Body Type Taxonomies
-make1 = Spree::Make.create :name => "Chrysler"
-make2 = Spree::Make.create :name => "Dodge"
-make3 = Spree::Make.create :name => "Plymouth"
-make4 = Spree::Make.create :name => "Desoto"
-make5 = Spree::Make.create :name => "Imperial"
+make1 = Spree::Make.create :name => "Chrysler", :abbreviation => "C"
+make2 = Spree::Make.create :name => "Dodge", :abbreviation => "D"
+make3 = Spree::Make.create :name => "Plymouth", :abbreviation => "P"
+make4 = Spree::Make.create :name => "Desoto", :abbreviation => "DeS"
+make5 = Spree::Make.create :name => "Imperial", :abbreviation => "Imp"
+make6 = Spree::Make.create :name => "Ford", :abbreviation => "Ford"
 
 # Chrysler Models
 model1 = make1.models.create :name => "300B", :start_year => "1956", :end_year => "1956" 
@@ -20,30 +21,59 @@ make1.models.create :name => "300H", :start_year => "1962", :end_year => "1962"
 make1.models.create :name => "300J", :start_year => "1963", :end_year => "1963"
 make1.models.create :name => "300K", :start_year => "1964", :end_year => "1964"
 make1.models.create :name => "300L", :start_year => "1965", :end_year => "1965"
+make1.models.create :name => "300", :start_year => "1962", :end_year => "1979"
+make1.models.create :name => "Saratoga", :start_year => "1939", :end_year => "1995"
+make1.models.create :name => "Newport", :start_year => "1940", :end_year => "1981"
+make1.models.create :name => "Windsor", :start_year => "1939", :end_year => "1961"
+make1.models.create :name => "New Yorker", :start_year => "1940", :end_year => "1997"
+make1.models.create :name => "426 Hemi", :start_year => "1964", :end_year => "1971"
+make1.models.create :name => "Hemi", :start_year => "1951", :end_year => "1971"
 
 # Dodge Models
 make2.models.create :name => "Deluxe", :start_year => "1946", :end_year => "1949"
-make2.models.create :name => "Coronet", :start_year => "1949", :end_year => "1976"
+make2.models.create :name => "Coronet", :start_year => "1949", :end_year => "1976", :abbreviation => "Cor"
 make2.models.create :name => "Meadowbrook", :start_year => "1949", :end_year => "1954"
 make2.models.create :name => "Wayfarer", :start_year => "1949", :end_year => "1952"
+make2.models.create :name => "Dart", :start_year => "1960", :end_year => "1976"
+make2.models.create :name => "Polara", :start_year => "1960", :end_year => "1973"
+make2.models.create :name => "Lancer", :start_year => "1955", :end_year => "1989"
+make2.models.create :name => "Challenger", :start_year => "1970", :end_year => "1983"
+make2.models.create :name => "Charger", :start_year => "1966", :end_year => "1987"
+make2.models.create :name => "Monaco", :start_year => "1965", :end_year => "1992"
+make2.models.create :name => "241 Hemi", :start_year => "1953", :end_year => "1955", :abbreviation => "241"
+make2.models.create :name => "Swinger 340", :start_year => "1968", :end_year => "1972"
 
 # Plymouth Models
-make3.models.create :name => "Belvedere", :start_year => "1952", :end_year => "1970"
+make3.models.create :name => "Belvedere", :start_year => "1952", :end_year => "1970", :abbreviation => "Belv"
 make3.models.create :name => "Plaza", :start_year => "1954", :end_year => "1958"
 make3.models.create :name => "Fury", :start_year => "1956", :end_year => "1978"
-make3.models.create :name => "Sport Fury", :start_year => "1959", :end_year => "1969"
+make3.models.create :name => "Fury I", :start_year => "1965", :end_year => "1974"
+make3.models.create :name => "Fury II", :start_year => "1965", :end_year => "1974"
+make3.models.create :name => "Fury III", :start_year => "1965", :end_year => "1974"
+make3.models.create :name => "Sport Fury", :start_year => "1959", :end_year => "1973"
+make3.models.create :name => "Valiant", :start_year => "1960", :end_year => "1969", :abbreviation => "Val"
+make3.models.create :name => "Valiant 200", :start_year => "1960", :end_year => "1969"
+make3.models.create :name => "Savoy", :start_year => "1954", :end_year => "1964"
+make3.models.create :name => "Barracuda", :start_year => "1964", :end_year => "1974"
+make3.models.create :name => "Road Runner", :start_year => "1968", :end_year => "1980", :abbreviation => "RR"
+make3.models.create :name => "Signet", :start_year => "1962", :end_year => "1973"
 
 # Desoto Models
 make4.models.create :name => "Firedome", :start_year => "1952", :end_year => "1959"
 make4.models.create :name => "Powermaster", :start_year => "1952", :end_year => "1954"
 make4.models.create :name => "Fireflite", :start_year => "1955", :end_year => "1960"
 make4.models.create :name => "Deluxe", :start_year => "1939", :end_year => "1952"
+make4.models.create :name => "Firesweep", :start_year => "1957", :end_year => "1959"
 
 # Imperial Models
 make5.models.create :name => "Southampton", :start_year => "1952", :end_year => "1959"
 make5.models.create :name => "Newport", :start_year => "1952", :end_year => "1954"
-make5.models.create :name => "Crown", :start_year => "1946", :end_year => "1948"
+make5.models.create :name => "Crown", :start_year => "1955", :end_year => "1965"
 make5.models.create :name => "LeBaron", :start_year => "1957", :end_year => "1975"
+
+# Ford Models
+make6.models.create :name => "Falcon", :start_year => "1952", :end_year => "1959"
+make6.models.create :name => "Mustang", :start_year => "1952", :end_year => "1954"
 
 # application1 = Spree::Application.create
 # application1.make = make1
