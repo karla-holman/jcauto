@@ -48,7 +48,7 @@ gem 'local_time'
 # For use on Windows
 gem 'tzinfo-data'
 
-require 'spreadsheet' # for importing database data
+# require 'spreadsheet' # for importing database data
 require 'rubyXL' # Assuming rubygems is already required
 
 group :development, :test do
