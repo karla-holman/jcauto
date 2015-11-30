@@ -308,7 +308,21 @@ location3 = Spree::StockLocation.create :name => "JC Home",
                                         :country_id => 232,
                                         :zipcode => "98125",
                                         :phone => "206-234-5678",
-                                        :admin_name => "home"
+                                        :admin_name => "Home"
+
+location3 = Spree::StockLocation.create :name => "JC Home (Not For Sale)",
+                                        :default => false,
+                                        :active => true,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :address1 => "13303 20th Ave NE",
+                                        :city => "Seattle",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98125",
+                                        :phone => "206-234-5678",
+                                        :admin_name => "Home (nfs)"
 
 location4 = Spree::StockLocation.create :name => "Warehouse",
                                         :default => false,
