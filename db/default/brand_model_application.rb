@@ -54,7 +54,7 @@ make3.models.create :name => "Sport Fury", :start_year => "1959", :end_year => "
 make3.models.create :name => "Valiant", :start_year => "1960", :end_year => "1969", :abbreviation => "Val"
 make3.models.create :name => "Valiant 200", :start_year => "1960", :end_year => "1969"
 make3.models.create :name => "Savoy", :start_year => "1954", :end_year => "1964"
-make3.models.create :name => "Barracuda", :start_year => "1964", :end_year => "1974"
+make3.models.create :name => "Barracuda", :start_year => "1964", :end_year => "1974", :abbreviation => "Cuda"
 make3.models.create :name => "Road Runner", :start_year => "1968", :end_year => "1980", :abbreviation => "RR"
 make3.models.create :name => "Signet", :start_year => "1962", :end_year => "1973"
 
