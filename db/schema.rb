@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203233123) do
+ActiveRecord::Schema.define(version: 20151204172755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1078,6 +1078,7 @@ ActiveRecord::Schema.define(version: 20151203233123) do
     t.integer  "country_id"
     t.integer  "state_id"
     t.string   "currency"
+    t.string   "fax"
   end
 
   add_index "spree_vendors", ["country_id"], name: "index_spree_vendors_on_country_id", using: :btree
