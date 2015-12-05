@@ -8,7 +8,7 @@ make2 = Spree::Make.create :name => "Dodge", :abbreviation => "D"
 make3 = Spree::Make.create :name => "Plymouth", :abbreviation => "P"
 make4 = Spree::Make.create :name => "Desoto", :abbreviation => "DeS"
 make5 = Spree::Make.create :name => "Imperial", :abbreviation => "Imp"
-make6 = Spree::Make.create :name => "Ford", :abbreviation => "Ford"
+make6 = Spree::Make.create :name => "Ford", :abbreviation => "F"
 
 # Chrysler Models
 model1 = make1.models.create :name => "300B", :start_year => "1956", :end_year => "1956" 
