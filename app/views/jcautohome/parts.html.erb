@@ -12,6 +12,24 @@
 	</div>
 </div>
 
+<!-- Store link -->
+<div class="image-background" id="the_inventory" style="max-height: 100vh">
+	<div class="container">
+		<div class="row row-centered text-center">
+			<h1 class="inverse">View our database of parts</h1>
+			<p class="intro inverse">Trusted for over 35 years in the automotive industry, we at JC Auto Restoration take as much care in delivering the quality parts you need as we do when restoring your car. Explore our inventory of over 9,000 parts and kickstart your project with quality American made componets.</p>
+			<%= link_to spree.products_path, class: "btn btn-primary btn-lg" do %><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shop Now<% end %>
+		</div>
+		<div class="row row-centered text-center">
+			<div class="col-md-6 col-centered">
+				<h3 class="inverse">Explore</h3>
+				<h3 class="inverse"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></h3>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Search bar -->
 <div class="container-yellow">
 	<div class="container">
 		<div class="row" style="margin: 0">
@@ -97,33 +115,32 @@
 			<p class="intro">Find parts that fit your current car or project here.</p>
 			<%= form_tag spree.products_path, :onSubmit => "return validateForm()", style: "padding: 0px;", :method => :get, class: "form-inline" do %>
 			  <fieldset>
-			    <div class="row">
+		    	<div class="col-md-3">
 			    	<!-- Build Make Dropdown -->
-					<div class="form-group">
-					  <%= label_tag "make_id", Spree.t(:make), class: "sr-only" %>
-					  <%= select_tag "make_id", options_from_collection_for_select(Spree::Make.all, "id", "name", params[:search]), :prompt => "Select the Make", class: "form-control" %>
-					  <!--%= f.text_field :make, :class => 'form-control' %-->
-					</div>
+					<%= label_tag "make_id", Spree.t(:make), class: "sr-only" %>
+					<%= select_tag "make_id", options_from_collection_for_select(Spree::Make.all, "id", "name", params[:search]), :prompt => "Select the Make", class: "form-control" %>
+					<!--%= f.text_field :make, :class => 'form-control' %-->
+				</div>
+				<div class="col-md-3" id = "application_model_field">
 					<!-- Build Model Dropdown -->
-					<div class="form-group" id = "application_model_field">
-					  <%= label_tag "model_id", Spree.t(:model), class: "sr-only" %>
-					  <select id="model_id" name="model_id" class="form-control">
-					  	<option value="">Select the Model</option>
-					  	<% Spree::Model.all.each do |model| %>
-					  	<% model_start = model.start_year ? model.start_year : (Date.today.year-100) %>
-					  	<% model_end = model.end_year ? model.end_year : (Date.today.year) %>
-					  	<option value="<%= model.id %>" data-make="<%= model.make_id ? model.make_id : 'none' %>" data-start="<%= model_start %>" data-end="<%= model_end %>"><%= model.name %></option>
-					  	<% end %>
-					  </select>
-					</div>
+					<%= label_tag "model_id", Spree.t(:model), class: "sr-only" %>
+					<select id="model_id" name="model_id" class="form-control">
+						<option value="">Select the Model</option>
+						<% Spree::Model.all.each do |model| %>
+						<% model_start = model.start_year ? model.start_year : (Date.today.year-100) %>
+						<% model_end = model.end_year ? model.end_year : (Date.today.year) %>
+						<option value="<%= model.id %>" data-make="<%= model.make_id ? model.make_id : 'none' %>" data-start="<%= model_start %>" data-end="<%= model_end %>"><%= model.name %></option>
+						<% end %>
+					</select>
+				</div>
+				<div class="col-md-3" id = "application_year_field">
 					<!-- Build Year Dropdown -->
-					<div class="form-group" id = "application_year_field">
-					  <%= label_tag "year", Spree.t(:year), class: "sr-only" %>
-					  <%= select_tag "year", ((Date.new(1900).year)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year", class: "form-control" %>
-					</div>
-					<div class="form-group">
-						<%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-primary", style: "width: 100%; margin-top: 0px" %>
-					</div>
+
+					<%= label_tag "year", Spree.t(:year), class: "sr-only" %>
+					<%= select_tag "year", ((Date.new(1900).year)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :prompt => "Select the Year", class: "form-control" %>
+				</div>
+				<div class="col-md-3">
+				<%= submit_tag Spree.t(:search), :name => nil, class: "btn btn-primary", style: "width: 100%; margin-top: 0px" %>
 				</div>
 			  </fieldset>
 			<% end %>
