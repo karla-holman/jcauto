@@ -282,7 +282,22 @@ location1 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 2)",
                                         :phone => "206-123-4567",
                                         :admin_name => "Suite 2"
 
-location2 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 3)",
+location2 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 2) (Not For Sale)",
+                                        :default => false,
+                                        :active => false,
+                                        :backorderable_default => false,
+                                        :propagate_all_variants => true,
+                                        :address1 => "20815 52nd Ave W",
+                                        :address2 => "Suite 2",
+                                        :city => "Lynnwood",
+                                        :state_id => 3577, 
+                                        :state_name => "Washington",
+                                        :country_id => 232,
+                                        :zipcode => "98036",
+                                        :phone => "206-123-4567",
+                                        :admin_name => "Suite 2 (nfs)"
+
+location3 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 3)",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -296,7 +311,7 @@ location2 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 3)",
                                         :phone => "206-123-4567",
                                         :admin_name => "Suite 3"
 
-location3 = Spree::StockLocation.create :name => "JC Home",
+location4 = Spree::StockLocation.create :name => "JC Home",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -310,7 +325,7 @@ location3 = Spree::StockLocation.create :name => "JC Home",
                                         :phone => "206-234-5678",
                                         :admin_name => "Home"
 
-location3 = Spree::StockLocation.create :name => "JC Home (Not For Sale)",
+location5 = Spree::StockLocation.create :name => "JC Home (Not For Sale)",
                                         :default => false,
                                         :active => false,
                                         :backorderable_default => false,
@@ -324,7 +339,7 @@ location3 = Spree::StockLocation.create :name => "JC Home (Not For Sale)",
                                         :phone => "206-234-5678",
                                         :admin_name => "Home (nfs)"
 
-location4 = Spree::StockLocation.create :name => "Warehouse",
+location6 = Spree::StockLocation.create :name => "Warehouse",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -338,7 +353,7 @@ location4 = Spree::StockLocation.create :name => "Warehouse",
                                         :phone => "206-234-5678",
                                         :admin_name => "Warehouse"
 
-location5 = Spree::StockLocation.create :name => "East Racks",
+location7 = Spree::StockLocation.create :name => "East Racks",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -352,7 +367,7 @@ location5 = Spree::StockLocation.create :name => "East Racks",
                                         :phone => "206-234-5678",
                                         :admin_name => "East Racks"
 
-location6 = Spree::StockLocation.create :name => "George's Attic",
+location8 = Spree::StockLocation.create :name => "George's Attic",
                                         :default => false,
                                         :active => false,
                                         :backorderable_default => false,
