@@ -42,6 +42,7 @@ make2.models.create :name => "Charger", :start_year => "1966", :end_year => "198
 make2.models.create :name => "Monaco", :start_year => "1965", :end_year => "1992"
 make2.models.create :name => "241 Hemi", :start_year => "1953", :end_year => "1955", :abbreviation => "241"
 make2.models.create :name => "Swinger 340", :start_year => "1968", :end_year => "1972"
+make2.models.create :name => "Dodge Truck", :start_year => "1914", :end_year => "2015", :abbreviation => "DT"
 
 # Plymouth Models
 make3.models.create :name => "Belvedere", :start_year => "1952", :end_year => "1970", :abbreviation => "Belv"
