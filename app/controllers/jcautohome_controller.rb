@@ -53,7 +53,7 @@ class JcautohomeController < ApplicationController
 		# Get matching part groups taxon
 		# @new_taxon = @new.taxons.first
 		# @new_taxon_children = @new_taxon.children
-		@new = Spree::Product.where("created_at > ?", Date.today.prev_month)
+		@new = Spree::Product.where("created_at > ?", Date.today.prev_month).limit(24)
 
 
 	end
