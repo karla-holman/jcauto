@@ -34,7 +34,7 @@ gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 gem 'paper_trail', '~> 4.0.0'
 
 # manage images
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # Track local time
 gem 'local_time'
