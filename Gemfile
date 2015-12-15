@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_12factor', group: :production
 
-# gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
-gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
+gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
+# gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 
 # Track user activity
 gem 'paper_trail', '~> 4.0.0'
@@ -38,6 +38,9 @@ gem 'aws-sdk', '< 2.0'
 
 # Track local time
 gem 'local_time'
+
+# handle paypal payments
+gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -67,9 +70,9 @@ end
 
 
 
-# gem 'spree', '3.0.4' update
-# gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
-gem 'spree', github: 'karla-holman/spree_jcauto'
+# gem 'spree', '3.0.4'
+gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
+# gem 'spree', github: 'karla-holman/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
