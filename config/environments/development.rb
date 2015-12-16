@@ -41,4 +41,8 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.assets.initialize_on_precompile = false
+
+  ENV['PAYPAL_USER_NAME'] = "parts-facilitator_api1.jcauto.com" 
+  ENV['PAYPAL_PASSWORD'] = "VRKXJQVL853AHKWD" 
+  ENV['PAYPAL_SIGNATURE'] = "APt61RFLHgZiIn1qjvAE0Z59-N-wA7.L7CCeM8LubNCN7gOsqvXjWDnk" 
 end

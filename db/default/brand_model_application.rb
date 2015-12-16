@@ -100,7 +100,12 @@ default = Spree::ShippingCategory.create :name => "Default"
 over_size = Spree::ShippingCategory.create :name => "Over-sized"
 
 # Create Shipping Methods (options when customer reaches checkout)
-ups_two_day = Spree::ShippingMethod.create :name => "UPS Two-Day", :tracking_url => "http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=:tracking", :admin_name => "UPS-2-DAY", :tax_category_id => auto_tax_category.id, :code => "UPS2DAY"
+# ups_two_day = Spree::ShippingMethod.create :name => "UPS Two-Day", :tracking_url => "http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=:tracking", :admin_name => "UPS-2-DAY", :tax_category_id => auto_tax_category.id, :code => "UPS2DAY"
+usps_priority = Spree::ShippingMethod.create :name => "USPS Priority", display_on: "", :admin_name => "USPS Priority", :tax_category_id => auto_tax_category.id, :code => "UPS2DAY"
+calc = Spree::Calculator::Shipping::FlatPercentItemTotal.create :type => "Spree::Calculator::Shipping::FlatPercentItemTotal", :preferences => {:flat_percent => BigDecimal.new("1.0")}
+
+# Create Payment methods
+paypal = Spree::Gateway::PayPalExpress.create :type => "Spree::Gateway::PayPalExpress", :name => "PayPal", :description => "", :active => true, :display_on => "", :preferences => {:login => ENV["PAYPAL_USER_NAME"], :password => ENV["PAYPAL_PASSWORD"], :signature => ENV["PAYPAL_SIGNATURE"], :server => "sandbox", :solution => "Sole", :landing_page => "Billing", :logourl => "", :test_mode => true}
 
 # Create Body Type Taxonomies
 part_number = Spree::Property.create :name => "Part Number", :presentation => "Part Number"
