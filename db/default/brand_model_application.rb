@@ -273,7 +273,7 @@ tie_rod_used.option_values << value_used
 
 =end
 # STOCK LOCATIONS
-location1 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 2)",
+location1 = Spree::StockLocation.create :name => "JC Auto Shop",
                                         :default => true,
                                         :active => true,
                                         :backorderable_default => false,
@@ -303,7 +303,7 @@ location2 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 2) (Not Fo
                                         :phone => "206-123-4567",
                                         :admin_name => "Suite 2 (nfs)"
 
-location3 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 3)",
+location3 = Spree::StockLocation.create :name => "JC Auto Shop",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -317,7 +317,7 @@ location3 = Spree::StockLocation.create :name => "JC Auto Shop (Suite 3)",
                                         :phone => "206-123-4567",
                                         :admin_name => "Suite 3"
 
-location4 = Spree::StockLocation.create :name => "JC Home",
+location4 = Spree::StockLocation.create :name => "JC Seattle Storage",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -359,7 +359,7 @@ location6 = Spree::StockLocation.create :name => "Warehouse",
                                         :phone => "206-234-5678",
                                         :admin_name => "Warehouse"
 
-location7 = Spree::StockLocation.create :name => "East Racks",
+location7 = Spree::StockLocation.create :name => "JC Auto Shop",
                                         :default => false,
                                         :active => true,
                                         :backorderable_default => false,
@@ -373,7 +373,7 @@ location7 = Spree::StockLocation.create :name => "East Racks",
                                         :phone => "206-234-5678",
                                         :admin_name => "East Racks"
 
-location8 = Spree::StockLocation.create :name => "George's Attic",
+location8 = Spree::StockLocation.create :name => "Seattle Storage",
                                         :default => false,
                                         :active => false,
                                         :backorderable_default => false,

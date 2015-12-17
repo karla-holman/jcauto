@@ -41,4 +41,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.assets.initialize_on_precompile = false
+
+  # ActionMailer settings
+  # config.action_mailer.delivery_method = :smtp
 end
