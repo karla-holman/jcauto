@@ -70,4 +70,12 @@ class JcautohomeController < ApplicationController
 		@page = "contact"
 
 	end
+
+	# Allow contact form to generate email
+	def submit_contact
+		Spree::ContactMailer.contact_email(params[:user], params[:message]).deliver_later
+        flash[:success] = "Your message has been sent. Thank you!"
+
+        redirect_to :back
+    end
 end
