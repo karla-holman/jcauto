@@ -40,7 +40,9 @@ gem 'aws-sdk', '< 2.0'
 gem 'local_time'
 
 # handle paypal payments
-gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
+# gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
+# gem 'spree_paypal_express', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_paypal_express"
+gem 'spree_paypal_express', github: 'karla-holman/spree_paypal_express'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -6,15 +6,6 @@ GIT
       spree_core (~> 3.0.4)
 
 GIT
-  remote: git://github.com/spree-contrib/better_spree_paypal_express.git
-  revision: 526d7f4f5bb9074b41b8d6ff38c47d01612ededf
-  branch: 3-0-stable
-  specs:
-    spree_paypal_express (3.0.0)
-      paypal-sdk-merchant (= 1.106.1)
-      spree_core (~> 3.0.0)
-
-GIT
   remote: git://github.com/spree-contrib/spree_mail_settings.git
   revision: 99af7e4a137ac76fe4e93b1c8e5a38d81583904c
   branch: 3-0-stable
@@ -106,6 +97,13 @@ PATH
       sprockets-rails (~> 2.2)
     spree_sample (3.0.4)
       spree_core (= 3.0.4)
+
+PATH
+  remote: C:/Users/JC Auto 1/Desktop/Karla/spree_paypal_express
+  specs:
+    spree_paypal_express (3.0.0)
+      paypal-sdk-merchant (= 1.106.1)
+      spree_core (~> 3.0.0)
 
 GEM
   remote: https://rubygems.org/
