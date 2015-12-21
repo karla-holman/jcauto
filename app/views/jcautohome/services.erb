@@ -2,89 +2,90 @@
 	<div class="container text-center">
       	<div class="container">
 			<ul class="nav navbar-nav">
-				<li role="presentation"><a href="#browse">Browse Services</a></li>
 				<li role="presentation"><a href="#quote">Get a Quote</a></li>
+				<li role="presentation"><a href="#browse">Browse Services</a></li>
 				<li role="presentation"><a href="#how">How to Guide</a></li>
 			</ul>
 		</div>
 	</div>
 </div>
 
-<a name="browse">
-<div class="container">
-	<div class="row text-center">
-		<h1>Browse Services</h1>
-		<p class="intro">
-			We offer a variety of services. Click on a link below to find pricing options.
-		</p>
-		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Instrument Cluster Restoration</h3>
-			<p>Including A, B, and E-body</p>
-			<%= link_to "See Prices", "/", class: "button-link" %>
-		</div>
-		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Instrument Cluster Restoration</h3>
-			<p>Including A, B, and E-body</p>
-			<%= link_to "See Prices", "/", class: "button-link" %>
-		</div>
-		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Instrument Cluster Restoration</h3>
-			<p>Including A, B, and E-body</p>
-			<%= link_to "See Prices", "/", class: "button-link" %>
-		</div>
-		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Instrument Cluster Restoration</h3>
-			<p>Including A, B, and E-body</p>
-			<%= link_to "See Prices", "/", class: "button-link" %>
-		</div>
-	</div>
-</div>
-
 <!-- Contact -->
 <a name="quote">
+<div class="container">
+	<div class="row row-centered">
+		<h1>Get a Quote</h1>
+		<p class="intro">Tell us about your project and the work you'd like done. We'll be in touch soon to discuss pricing.</p>
+		<%= form_tag submit_contact_jcautohome_index_path, multipart: true do %>
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= search_field(:user, :name, placeholder: "Name", class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= telephone_field(:user, :phone, placeholder: "Phone", class: "form-control", style: "width: 47%; float: left; margin-right: 6%") %>
+				</div>
+				<div class="form-group">
+					<%= email_field(:user, :address, placeholder: "Email", class: "form-control", style: "width: 47%") %>
+				</div>
+				<div class="form-group">
+					<%= search_field(:user, :quote_car, placeholder: "Motorcar Make and Model", class: "form-control") %>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= text_area_tag(:message, "", size: "25x5", style:"height: 95px;", placeholder: "Services Requested", class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= label_tag("images", "Upload images (max 5, 2MB each): ", style: "display: inline; margin-right: 10px") %>
+					<%= file_field_tag("images[]", accept: 'image/png,image/gif,image/jpeg', multiple: true, style: "display: inline") %>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<%= submit_tag("Submit Form", class: "btn btn-default") %>
+				<!-- button type="submit" class="btn btn-default">Submit Form</button -->
+			</div>
+		<% end %>
+		<div id="content" class="col-md-12" style="margin-top: 25px">
+			<%= flash_messages %>
+		</div>
+	</div><!-- Row -->
+</div><!-- Container -->
+
+<!-- Contact -->
+<a name="browse">
 <div class="container-yellow">
 	<div class="container">
-		<div class="row row-centered">
-			<h1>Get a Quote</h1>
-			<p class="intro">Tell us about your project and the work you'd like done. We'll be in touch soon to discuss pricing.</p>
-			<form>
-				<div class="col-md-6">
-					<div class="form-group">
-						<!-- <label for="customerName">Full name</label> -->
-						<input type="name" class="form-control" id="customerName" placeholder="Name">
-					</div>
-					<div class="form-group">
-						<!-- <label for="customerName">Full name</label> -->
-						<input type="phone" class="form-control" id="customerPhone" placeholder="Phone Number" >
-					</div>
-					<div class="form-group">
-						<!-- <label for="customerEmail">Email address</label> -->
-						<input type="email" class="form-control" id="customerEmail" placeholder="Email" >
-					</div>
-					<div class="form-group">
-						<!-- <label for="customerEmail">Email address</label> -->
-						<input type="text" class="form-control" id="customerCar" placeholder="Motorcar Make and Model" >
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="form-group">
-						<!-- <label for="partDescription">Tell us about the part</label> -->
-						<textarea class="form-control" id="message" placeholder="Services Requested" rows="5" style="height: 150px;"></textarea>
-					</div>
-					<div class="form-group">
-						<button type="button" class="btn btn-default">Add Images</button>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<button type="submit" class="btn btn-default">Submit Form</button>
-				</div>
-			</form>
-		</div><!-- Row -->
-	</div><!-- Container -->
+		<div class="row text-center">
+			<h1>Browse Services</h1>
+			<p class="intro">
+				We offer a variety of services. Click on a link below to find pricing options.
+			</p>
+			<div class="col-md-3">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Instrument Cluster Restoration</h3>
+				<p>Including A, B, and E-body</p>
+				<%= link_to "See Prices", "/", class: "button-link" %>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Instrument Cluster Restoration</h3>
+				<p>Including A, B, and E-body</p>
+				<%= link_to "See Prices", "/", class: "button-link" %>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Instrument Cluster Restoration</h3>
+				<p>Including A, B, and E-body</p>
+				<%= link_to "See Prices", "/", class: "button-link" %>
+			</div>
+			<div class="col-md-3">
+				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<h3>Instrument Cluster Restoration</h3>
+				<p>Including A, B, and E-body</p>
+				<%= link_to "See Prices", "/", class: "button-link" %>
+			</div>
+		</div>
+	</div>
 </div><!-- Yellow -->
 
 <a name="how">

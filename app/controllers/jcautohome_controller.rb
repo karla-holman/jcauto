@@ -73,9 +73,50 @@ class JcautohomeController < ApplicationController
 
 	# Allow contact form to generate email
 	def submit_contact
-		Spree::ContactMailer.contact_email(params[:user], params[:message]).deliver_later
+		images = []
+		if(params["images"])
+			# validate less than 5
+			if params["images"].length > 5 
+				flash[:warning] = "Number of images limited to 5. Only first 5 images will be used."
+			end
+
+			# Make an object in your bucket for your upload
+	      	s3 = AWS::S3.new
+	      	bucket = s3.buckets['jcauto']
+
+			params["images"].each_with_index do |image, index|
+				break if index >= 5
+
+				if image.size > 5.megabytes
+					flash[:warning] = "#{image.original_filename} is greater than 5MB. Please upload a smaller version."
+		      		next
+		      	end
+
+		      	filename = image.original_filename
+
+		      	# sanitize filename (security)
+		      	filename.strip.tap do |name|
+					# NOTE: File.basename doesn't work right with Windows paths on Unix
+					# get only the filename, not the whole path
+					name.sub! /\A.*(\\|\/)/, ''
+					# Finally, replace all non alphanumeric, underscore
+					# or periods with underscore
+					name.gsub! /[^\w\.\-]/, '_'
+				end
+
+				obj = bucket.objects.create("customer/" + filename, image)
+				images << obj.read
+			end
+	    end
+
+		message = Spree::ContactMailer.contact_email(params[:user], params[:message], images)
+        message.deliver_later
         flash[:success] = "Your message has been sent. Thank you!"
 
-        redirect_to :back
+        if(params[:user][:part_numbers])
+        	redirect_to parts_path + "#sell"
+       	else
+       		redirect_to :back
+       	end
     end
 end
