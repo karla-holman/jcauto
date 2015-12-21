@@ -44,5 +44,10 @@ module JCAuto
         ENV[key.to_s] = value
       end if File.exists?(env_file)
     end
+
+    # handle 404
+    require Rails.root.join("lib/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
+
   end
 end

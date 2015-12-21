@@ -58,6 +58,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # handle 404
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
