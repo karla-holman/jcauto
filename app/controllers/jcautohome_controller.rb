@@ -87,8 +87,8 @@ class JcautohomeController < ApplicationController
 			params["images"].each_with_index do |image, index|
 				break if index >= 5
 
-				if image.size > 5.megabytes
-					flash[:warning] = "#{image.original_filename} is greater than 5MB. Please upload a smaller version."
+				if image.size > 2.megabytes
+					flash[:warning] = "#{image.original_filename} is greater than 2MB and was not attached."
 		      		next
 		      	end
 
