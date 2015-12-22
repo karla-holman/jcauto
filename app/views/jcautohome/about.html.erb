@@ -174,6 +174,18 @@
 		<div class="col-sm-6 col-md-3">
 			<h3>Send us a Message</h3>
 			<p>Have a question or comment? Let us know!</p>
+			<%= form_tag submit_contact_jcautohome_index_path do %>
+				<div class="form-group">
+					<%= search_field(:user, :name, placeholder: "Name (required)", :required => true, class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= email_field(:user, :address, placeholder: "Email (required)", :required => true, class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= text_area_tag(:message, "", size: "25x5", style:"height: 50px;", placeholder: "Message", class: "form-control") %>
+				</div>
+				<%= submit_tag("Submit Form", class: "btn btn-default") %>
+			<% end %>
 			<form>
 				<div class="form-group">
 					<label for="customerName">Full name</label>

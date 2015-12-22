@@ -20,7 +20,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<!-- <label for="customerName">Full name</label> -->
-					<%= search_field(:user, :name, placeholder: "Name", class: "form-control") %>
+					<%= search_field(:user, :name, placeholder: "Name (required)", :required => true, class: "form-control") %>
 					<!-- input type="name" class="form-control" id="customerName" placeholder="Name" -->
 				</div>
 				<div class="form-group">
