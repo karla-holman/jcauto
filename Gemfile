@@ -79,5 +79,6 @@ gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
-gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
+# gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
+gem 'spree_wishlist', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/spree_wishlist-2.2.0"
 gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings', branch: '3-0-stable'
