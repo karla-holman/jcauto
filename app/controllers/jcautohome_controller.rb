@@ -46,6 +46,16 @@ class JcautohomeController < ApplicationController
 		@featured_taxon = @featured.taxons.first
 		@featured_taxon_children = @featured_taxon.children
 
+		# Get promotions
+		@promotions = Spree::Promotion.all
+
+		# Get Package Taxonomy
+		@package = @taxonomies.where("name=?", "Packages and Assemblies").first
+
+		# Get matching part groups taxon
+		@package_taxon = @package.taxons.first
+		@package_taxon_children = @package_taxon.products
+
 
 		# Get Featured Taxonomy
 		# @new = @taxonomies.where("name=?", "New Products").first

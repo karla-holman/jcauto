@@ -3,8 +3,8 @@
       	<div class="container">
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#part">Browse</a></li>
-				<li role="presentation"><a href="#application">Find Application</a></li>
-				<li role="presentation"><a href="#feature">Features</a></li>
+				<li role="presentation"><a href="#promo">Promotions</a></li>
+				<li role="presentation"><a href="#feature">Packages</a></li>
 				<li role="presentation"><a href="#new">New Parts</a></li>
 				<li role="presentation"><a href="#sell">Sell Parts</a></li>
 			</ul>
@@ -62,7 +62,7 @@
 </div>
 
 <!-- Part Group -->
-<a name="part">
+<a name="browse">
 <div class="container">
 	<div class="row text-center row-centered">
 		<h1>Browse by Part Category</h1>
@@ -107,7 +107,6 @@
 </div>
 
 <!-- Body Type -->
-<a name="application">
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center row-centered">
@@ -148,6 +147,112 @@
 	</div>
 </div>
 
+<!-- Promotions -->
+<a name="promo">
+<div class="container">
+	<div class="row text-center" style="margin-bottom: 0; padding-bottom: 0">
+		<h1>Promotions and Deals</h1>
+		<p class="intro">
+			With parts always coming in and out of our shop, there are plenty of opportunitites for deals and discounts to make sure we have the space we need! Check here often for new promotions to make sure you can complete your project for a bargain!
+		</p>
+	</div>
+	<div class="row text-center">
+		<% if @promotions.length == 0 %>
+			<p>There are no discounts or promotions available at this time. Please check back soon!</p>
+		<% else %>
+			<div id="carousel-promotions" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner mobile-center" role="listbox">
+					<% first = true %>
+					<% @promotions.each_with_index do |promotion, i| %>
+						<% next if promotion.expired? %> 
+						<% 		
+							taxon_rules = promotion.rules.where("type ILIKE ?", "%taxon%")
+							product_rules = promotion.rules.where("type ILIKE ?", "%product%")
+
+							product_rules_match = []
+							product_rules.each do |rule|
+								next if rule.preferences[:match_policy] == "none"
+								product_rules_match << rule
+							end
+						%>
+
+				    <div class="item <%= i+1 == 1 ? "active" : "" %>">
+				      <div class="col-md-12">
+				        <h3 style="color: #bf210a; margin-top: 0px;"><%= promotion.name %></h3>
+				        <% if promotion.description %>
+				        	<p style="font-weight: 700; margin-bottom: 0px; color: #200099"><%= promotion.description %></p>
+					      <% else %>
+					        N/A
+					      <% end %>
+
+						    <!-- Valid dates -->  
+					      <% if promotion.expires_at && promotion.starts_at %>
+						      <p style="margin-bottom: 0px">
+						      	Valid from <%= promotion.starts_at.strftime("%m/%d/%Y") %> to <%= promotion.expires_at.strftime("%m/%d/%Y") %>
+						      </p>
+					      <% end %>
+
+					      <!-- Taxons -->
+					      <p style="margin-bottom: 0px">
+					      	<% if taxon_rules.length > 0 %>
+					      		<% has_taxons = true %>
+						      	Applicable Part Categories:
+						      	<% taxon_rules.each_with_index do |taxon, i| %>
+						      		<%= link_to taxon.taxons.first.name, spree.nested_taxons_path(taxon.taxons.first.permalink) %><%= i + 1 == taxon_rules.length ? "" : "," %> 
+					      		<% end %>
+
+					      		<!-- If products also specified -->
+					      		<% if product_rules_match.length > 0 %>
+					      			&#149;
+					      			Applicable Parts:
+					      			<% product_rules_match.each_with_index do |product, i| %>
+							      	<%= link_to product.products.first.name, spree.product_path(product.products.first) %><%= i + 1 == product_rules_match.length ? "" : "," %>
+							      	<% end %>
+							      <% end %>
+
+					      	<!-- Products (no taxons) -->
+					      	<% elsif product_rules_match.length > 0 %>
+							      Applicable Parts:
+							      <% product_rules_match.each_with_index do |product, i| %>
+							      	<% next if product.preferences[:match_policy] == "none" %>
+							      	<% no_part = false %>
+							      	<%= link_to product.products.first.name, spree.product_path(product.products.first) %><%= i + 1 == product_rules_match.length ? "" : "," %>
+							      <% end %>
+
+							    <!-- Applies to all products -->  
+							    <% else %>
+							    	Applicable Parts: 
+							    	<%= link_to "All", spree.products_path %>
+							    <% end %>
+						    </p>
+
+						    <!-- Coupon code -->
+					      <p style="font-size: 1.5em; margin-top: 30px">Use code <span style="font-weight: 700; margin-bottom: 0px; color: #bf210a;"><%= promotion.code %></span></p>
+
+					      <!-- Store button -->
+					      <%= link_to spree.products_path, class: "btn btn-primary btn-lg", style: "margin-top: 20px" do %><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shop Now<% end %>
+				      </div><!-- Col -->      
+				    </div><!-- item -->
+					<% end %>
+				</div><!-- Carousel inner -->
+
+				<!-- Controls -->
+				<% if @promotions.length > 1 %>
+					<a class="left carousel-control" href="#carousel-promotions" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-promotions" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>
+
 <div class="image-background" id="the_parts">
 	<%= image_tag "The-Parts-1.jpg", style: "width: 100%; visibility: hidden;" %>
 </div>
@@ -155,20 +260,81 @@
 <!-- Featured Products -->
 <a name="feature">
 <div class="container">
-	<div class="row text-center">
-		<h1>Features and Deals</h1>
+	<div class="row text-center" style="margin-bottom: 0; padding-bottom: 0">
+		<h1>Packages and Assemblies</h1>
 		<p class="intro">
-			We've got plenty of parts we'd love to sell. Check back regularly for new deals!
+			If you don't want to spend the time finding each individual part, check here for some great packages and assemblies that we have put together.
 		</p>
-		<% if @featured_taxon_children.length == 0 %>
-			<p>There are no featured products at this time. Please check back soon!</p>
+	</div>
+	<div class="row">
+		<% if @package_taxon_children.length == 0 %>
+			<p>There are no packages or assemblies available at this time. Please check back soon!</p>
 		<% else %>
-			<% @featured_taxon_children.each do |featured| %>
-			<div class="col-md-3">
-				<%= image_tag "cars/Car-20.png", class:"icon" %>
-				<%= link_to featured.name, spree.nested_taxons_path(featured.permalink), class: "button-link" %>
+			<div id="carousel-packages" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner mobile-center" role="listbox">
+					<% first = true %>
+					<% @package_taxon_children.each_with_index do |package, i| %>
+				    <div class="item <%= i+1 == 1 ? "active" : "" %>">
+				    	<div class="col-md-5" style="text-align:center">
+								<% url = spree.product_url(package) %>
+				      	<!-- Image -->
+				      	<% 
+				      		if package.variant_images.empty?
+				      			image = "noimage/product.png"
+				      		else 
+				      			image = package.variant_images.first.attachment.url("product")
+				      		end
+				      	%>
+				      	<%= link_to url do %><%= image_tag image %><% end %>
+				      </div>
+				      <div class="col-md-7">
+				        <h3><%= link_to truncate(package.property("Part Number"), length: 50), url, class: 'info', itemprop: "name", title: package.property("Part Number") %></h3>
+				        <% if package.description %>
+				        <p style="font-weight: 700; margin-bottom: 0px; color: #bf210a"><%= link_to url, class: 'info' do %><%= package.description %><% end %></p>
+				      <% else %>
+				        N/A
+				      <% end %>
+				      <strong>Cross References:</strong> 
+				      <!-- Only show chrysler numbers -->
+				      <% cross_found = false %>
+				      <% if !package.product_properties.where("property_id=?", 3).empty? %>
+				        <% package.property("Cross Reference").split(",").each_with_index do |cross, index| %>
+				          <% if matches = cross.strip.match(/(\d{7})/) %>
+				              <%= ((index != 0 && cross_found) ? ", " : "") + matches[1] %> 
+				              <% cross_found = true %>
+				          <% end %>
+				        <% end %>
+				      <% end %>
+				      <% if !cross_found %>
+				        N/A
+				      <% end %><br>
+				      <strong>Applications:</strong> 
+				      <% if package.product_applications.empty? %> 
+				        N/A
+				      <% else %>
+				          <% len = package.product_applications.length %>
+				          <% package.product_applications.order('start_year asc').each_with_index do |product_application, index| %>
+				              <%= product_application.name.strip %><%= index+1 == len ? "" : ", " %>
+				          <% end %>
+				      <% end %>
+				      </div>      
+				    </div><!-- item -->
+					<% end %>
+				</div><!-- Carousel inner -->
+
+				<!-- Controls -->
+				<% if @package_taxon_children.length > 1 %>
+					<a class="left carousel-control" href="#carousel-packages" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-packages" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				<% end %>
 			</div>
-			<% end %>
 		<% end %>
 	</div>
 </div>
@@ -187,7 +353,7 @@
 			<% if @new.length == 0 %>
 				<p>There are no new products at this time. Please check back soon!</p>
 			<% else %>
-				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<div id="carousel-new" class="carousel slide" data-ride="carousel">
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner mobile-center" role="listbox">
 				  	<% first = true %>
@@ -241,11 +407,11 @@
 					</div><!-- Carousel inner -->
 
 				  <!-- Controls -->
-				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				  <a class="left carousel-control" href="#carousel-new" role="button" data-slide="prev">
 				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 				    <span class="sr-only">Previous</span>
 				  </a>
-				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				  <a class="right carousel-control" href="#carousel-new" role="button" data-slide="next">
 				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				    <span class="sr-only">Next</span>
 				  </a>
