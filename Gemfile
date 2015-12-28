@@ -35,6 +35,7 @@ gem 'paper_trail', '~> 4.0.0'
 
 # manage images
 gem 'aws-sdk', '< 2.0'
+gem 'paperclip'
 gem 'paperclip-watermark'
 
 # Track local time
