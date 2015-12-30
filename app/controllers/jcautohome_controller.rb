@@ -70,6 +70,8 @@ class JcautohomeController < ApplicationController
 
 	def services
 		@page = "services"
+
+		@services = Service.all
 	end
 
 	def community

@@ -60,30 +60,26 @@
 			<p class="intro">
 				We offer a variety of services. Click on a link below to find pricing options.
 			</p>
-			<div class="col-md-3">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-				<h3>Instrument Cluster Restoration</h3>
-				<p>Including A, B, and E-body</p>
-				<%= link_to "See Prices", "/", class: "button-link" %>
-			</div>
-			<div class="col-md-3">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-				<h3>Instrument Cluster Restoration</h3>
-				<p>Including A, B, and E-body</p>
-				<%= link_to "See Prices", "/", class: "button-link" %>
-			</div>
-			<div class="col-md-3">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-				<h3>Instrument Cluster Restoration</h3>
-				<p>Including A, B, and E-body</p>
-				<%= link_to "See Prices", "/", class: "button-link" %>
-			</div>
-			<div class="col-md-3">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-				<h3>Instrument Cluster Restoration</h3>
-				<p>Including A, B, and E-body</p>
-				<%= link_to "See Prices", "/", class: "button-link" %>
-			</div>
+			<% @services.each_with_index do |service, i| %>
+				<div class="col-sm-6 col-md-4 col-lg-3">
+					<%= image_tag service.service_images.where("thumb_image = ?", true).first, class:"icon", id:"tech1" %>
+					<h3 class="service-header"><%= service.name %></h3>
+					<p><%= service.description %></p>
+					<%= link_to "See Prices", service, class: "button-link" %>
+				</div>
+				<% if (i+1)%4 == 0 %>
+					<div class="clearfix visible-lg-block"></div>
+					<div style="min-height: 50px" class="visible-lg-block"></div>
+				<% end %>
+				<% if (i+1)%3 == 0 %>
+					<div class="clearfix visible-md-block"></div>
+					<div style="min-height: 50px" class="visible-md-block"></div>
+				<% end %>
+				<% if (i+1)%2 == 0 %> 
+					<div class="clearfix visible-sm-block"></div>
+					<div style="min-height: 50px" class="visible-sm-block"></div>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div><!-- Yellow -->

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Services</h1>
+
+    <table id="price-list" class="table table-striped" data-hook>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @services.each do |service| %>
+             <% css_class = cycle('even', 'odd', :name => "services") %>
+              <tr class="<%= css_class %>">
+              <td><%= service.name %></td>
+              <td><%= service.description %></td>
+              <td>
+                <%= link_to 'Show', service %>
+                <%= link_to 'Edit', edit_service_path(service) %>
+                <%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
+            </tr>
+          <% end %>
+          <% reset_cycle('services') %>
+        </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Service', new_service_path %>
+  </div>
+</div>

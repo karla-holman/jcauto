@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215204640) do
+ActiveRecord::Schema.define(version: 20151229224001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,45 @@ ActiveRecord::Schema.define(version: 20151215204640) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "service_applications", force: :cascade do |t|
+    t.integer "application_id"
+    t.integer "start_year"
+    t.integer "end_year"
+    t.string  "name"
+    t.text    "notes"
+  end
+
+  create_table "service_images", force: :cascade do |t|
+    t.integer  "service_id"
+    t.text     "image_path"
+    t.text     "description"
+    t.boolean  "main_image"
+    t.boolean  "thumb_image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "service_images", ["service_id"], name: "index_service_images_on_service_id", using: :btree
+
+  create_table "service_items", force: :cascade do |t|
+    t.string  "name"
+    t.text    "description"
+    t.decimal "price"
+    t.integer "service_price_list_id"
+    t.integer "service_application_id"
+  end
+
+  create_table "service_price_lists", force: :cascade do |t|
+    t.string  "name"
+    t.integer "service_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.text   "description_long"
+  end
 
   create_table "spree_addresses", force: :cascade do |t|
     t.string   "firstname"

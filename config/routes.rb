@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :cars
   resources :our_cars
     root to: "products#index"
-  end      
+  end   
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -48,10 +48,11 @@ Rails.application.routes.draw do
   get 'about' => 'jcautohome#about'
   get 'gallery' => 'jcautohome#gallery'
   get 'parts' => 'jcautohome#parts'
-  get 'services' => 'jcautohome#services'
+  get 'our-services' => 'jcautohome#services'
   get 'community' => 'jcautohome#community'
   get 'contact' => 'jcautohome#contact'
 
+  resources :services   
   resources :jcautohome do
     collection do
       post :submit_contact

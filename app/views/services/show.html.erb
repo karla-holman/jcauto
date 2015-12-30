@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row row-centered">
+		<div class="col-md-12 text-center">
+			<h1><%= @service.name %></h1>
+			<p class="intro"><%= @service.description %></p>
+		</div>
+
+		<% images = @service.service_images %>
+		<% first = true %>
+
+	</div><!-- row -->
+
+<hr>
+
+	<div class="row">
+		<h3>Prices for <%= @service.name %></h3>
+		<%= form_for :my_service_application, :url => { :action => "show" }, method: "get", html: { class: "form-inline" } do |f| %>
+			<div class="form-group">
+			<%= f.label :my_service_application_id, "Select application for more specific pricing" %>
+			<%= f.collection_select(:my_service_application_id, @service_applications, :id, :name, {:prompt => "Select an Application"}, {:class=>'form-control' }) %>
+			</div>
+			<%= f.submit "Go", class: "btn btn-default" %>
+		<% end %>
+
+		<% @service.service_price_lists.each do |price_list| %>
+			<h5><%= price_list.name %></h5>
+			<table id="price-list" class="table table-striped" data-hook>
+			    <tbody>
+			      <% price_list.service_items.each do |item| %>
+			      	<% if @service_app_id && item.service_application %>
+			      		<!-- If filter applied, make sure this item fits or does not pertain to app -->
+			      		<% next unless (item.service_application.id == @service_app_id) %>
+			      	<% end %>
+			        <% css_class = cycle('even', 'odd', :name => "price-list") %>
+			        <tr class="<%= css_class %>">
+			          <td style="width: 90%"><%= item.name %></td>
+			          <td style="width: 10%"><%= item.my_price %></td>
+			        </tr>
+			      <% end %>
+			      <% reset_cycle('price-list') %>
+			    </tbody>
+			</table>
+		<% end %>
+	</div>
+</div>
+
+
+<!-- 
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_service_path(@service) %> |
+<%= link_to 'Back', services_path %>
+-->
