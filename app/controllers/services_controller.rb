@@ -10,18 +10,28 @@ class ServicesController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+    # params[:q] = {} if params[:q].blank?
+
   	@service_applications = []
   	@price_lists = @service.service_price_lists
   	@price_lists.each do |price_list|
   		price_list.service_items.each do |item|
-  			if !@service_applications.include? item.service_application
+  			if item.service_application && (!@service_applications.include? item.service_application)
   				@service_applications << item.service_application
   			end
   		end
   	end
 
+    # @search = @service_applications.ransack(params[:q])
+    # @activities = @search.result.order('created_at desc').page(params[:page]).per(Spree::Config[:admin_products_per_page])
+
   	if params[:my_service_application]
-  		@service_app_id = params[:my_service_application][:my_service_application_id].to_i
+      if params[:my_service_application][:my_service_application_id]
+  		  @service_app_id = params[:my_service_application][:my_service_application_id].to_i
+      end
+      if params[:my_service_application][:my_service_price_list_id]
+        @service_price_list_id = params[:my_service_application][:my_service_price_list_id].to_i
+      end
   	end
 
   end

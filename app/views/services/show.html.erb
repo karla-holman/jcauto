@@ -1,50 +1,163 @@
+<div class="container-yellow" id="tertiaryNav">
+	<div class="container text-center">
+      	<div class="container">
+			<ul class="nav navbar-nav">
+				<li role="presentation"><a href="#info">Service Information</a></li>
+				<li role="presentation"><a href="#prices">Prices</a></li>
+				<li role="presentation"><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- Store link -->
+<% main_image = @service.service_images.where('main_image=?', true).first %>
+
+<a name="info"></a>
+<% if main_image %>
+<div class="image-background" id="the_inventory" style="background-image: url(<%= asset_path(main_image.image_path) %>);">
+	<div class="container">
+		<div class="row row-centered text-center" style="margin-bottom: 0">
+				<h1 class="inverse"><%= @service.name %></h1>
+				<p class="intro inverse"><%= @service.description %></p>
+		</div>
+	</div>
+</div>
+<% end %>
+
 <div class="container">
 	<div class="row row-centered">
-		<div class="col-md-12 text-center">
-			<h1><%= @service.name %></h1>
-			<p class="intro"><%= @service.description %></p>
-		</div>
-
 		<% images = @service.service_images %>
-		<% first = true %>
-
+		<% if !main_image %>
+			<h1 class="inverse"><%= @service.name %></h1>
+			<p class="intro inverse"><%= @service.description %></p>
+		<% end %>
+		<% if @service.description_long %>
+			<div class="col-md-8" style="text-align: left">
+				<h3>Service Information</h3>
+				<%= @service.description_long.html_safe %>
+			</div>
+		<% end %>
+		<div class="col-md-4">
+			<% images.each do |image| %>
+				<% next if image.main_image || image.thumb_image %>
+				<%= image_tag image.image_path, class:"icon" %>
+			<% end %>
+		</div>
 	</div><!-- row -->
-
+</div>
 <hr>
-
-	<div class="row">
+<a name="prices"></a>
+<div class="container">
+	<div class="row text-center">
 		<h3>Prices for <%= @service.name %></h3>
-		<%= form_for :my_service_application, :url => { :action => "show" }, method: "get", html: { class: "form-inline" } do |f| %>
+
+		<%= form_for :my_service_application, :url => { :action => "show" }, method: "get", html: {class: "form-inline"} do |f| %>
 			<div class="form-group">
-			<%= f.label :my_service_application_id, "Select application for more specific pricing" %>
-			<%= f.collection_select(:my_service_application_id, @service_applications, :id, :name, {:prompt => "Select an Application"}, {:class=>'form-control' }) %>
+				<%= f.collection_select(:my_service_application_id, @service_applications.sort!, :id, :name, {:include_blank => 'Select Application', :selected => @service_app_id}, {:class=>'form-control' }) %>
+			</div>
+			<!-- Select price list to show -->
+			<div class="form-group">
+				<%= f.collection_select(:my_service_price_list_id, @service.service_price_lists, :id, :name, {:include_blank => 'Select Service Category', :selected => @service_price_list_id}, {:class=>'form-control' }) %>
 			</div>
 			<%= f.submit "Go", class: "btn btn-default" %>
 		<% end %>
+	</div>
+	<div class="row">
+		<!-- Spacing for mobile -->
+		<div style="min-height: 50px" class="visible-xs-block"></div>
 
 		<% @service.service_price_lists.each do |price_list| %>
-			<h5><%= price_list.name %></h5>
-			<table id="price-list" class="table table-striped" data-hook>
-			    <tbody>
-			      <% price_list.service_items.each do |item| %>
-			      	<% if @service_app_id && item.service_application %>
-			      		<!-- If filter applied, make sure this item fits or does not pertain to app -->
-			      		<% next unless (item.service_application.id == @service_app_id) %>
-			      	<% end %>
-			        <% css_class = cycle('even', 'odd', :name => "price-list") %>
-			        <tr class="<%= css_class %>">
-			          <td style="width: 90%"><%= item.name %></td>
-			          <td style="width: 10%"><%= item.my_price %></td>
-			        </tr>
-			      <% end %>
-			      <% reset_cycle('price-list') %>
-			    </tbody>
-			</table>
+			<% next if (@service_price_list_id && @service_price_list_id != 0) && price_list.id != @service_price_list_id %>
+			<% next if price_list.service_items.length == 0 %>
+			<h5 class="col-md-12"><%= price_list.name %></h5>
+			<div class="col-md-12 mobile-left">
+				<% items = [] %>
+				<% price_list.service_items.order("name asc").each do |item| %>
+	      	<% if (@service_app_id && @service_app_id != 0) && item.service_application %>
+	      		<!-- If filter applied, make sure this item fits or does not pertain to app -->
+	      		<% next unless (item.service_application.id == @service_app_id) %>
+	      	<% end %>
+	      	<% items << item %>
+	      <% end %>
+	      <% if items.length == 0 %>
+	      	<p>No services found in this category for your selected make and model.</p>
+	      <% else %>
+					<table id="price-list" class="table table-striped" data-hook>
+					    <tbody>
+					      <% items.each do |item| %>
+					        <% css_class = cycle('even', 'odd', :name => "price-list") %>
+					        <tr class="<%= css_class %>">
+					          <td style="width: 20%"><%= item.service_application ? item.service_application.name : "All" %></td>
+					          <td style="width: 70%">
+					          	<%= item.name %>
+					          	<% if item.core_name && item.core_name != "" %>
+					          		<br><span style="color: #200099"><%= item.core_name %></span>
+					          	<% end %>
+					          </td>
+					          <td style="width: 10%">
+					          	<% if item.alternate_price %>
+					          		<%= item.alternate_price.html_safe %><!-- Handle prices in text form -->
+					          	<% else %>
+					          		<%= item.my_price %>
+					          	<% end %>
+					          	<% if item.core_price && item.core_price != 0 %>
+					          		<br><span style="color: #200099"><%= item.my_core_price %></span>
+					          	<% end %>
+					          </td>
+					        </tr>
+					      <% end %>
+					      <% reset_cycle('price-list') %>
+					    </tbody>
+					</table>
+				<% end %>
+			</div>
 		<% end %>
 	</div>
 </div>
 
-
+<!-- Contact -->
+<a name="contact"></a>
+	<div class="container-yellow">
+	<div class="container">
+		<div class="row row-centered">
+			<h1>Get a Quote</h1>
+			<p class="intro">Tell us about your project and the work you'd like done. We'll be in touch soon to discuss pricing.</p>
+			<%= form_tag submit_contact_jcautohome_index_path, multipart: true do %>
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= search_field(:user, :name, placeholder: "Name (required)", :required => true, class: "form-control") %>
+					</div>
+					<div class="form-group">
+						<%= telephone_field(:user, :phone, placeholder: "Phone (required)", :required => true, class: "form-control", style: "width: 47%; float: left; margin-right: 6%") %>
+					</div>
+					<div class="form-group">
+						<%= email_field(:user, :address, placeholder: "Email", class: "form-control", style: "width: 47%") %>
+					</div>
+					<div class="form-group">
+						<%= search_field(:user, :quote_car, placeholder: "Motorcar Make and Model", class: "form-control") %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= text_area_tag(:message, "", size: "25x5", style:"height: 95px;", placeholder: "Services Requested", class: "form-control") %>
+					</div>
+					<div class="form-group">
+						<%= label_tag("images", "Upload images (max 5, 2MB each): ", style: "display: inline; margin-right: 10px") %>
+						<%= file_field_tag("images[]", accept: 'image/png,image/gif,image/jpeg', multiple: true, style: "display: inline") %>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<%= submit_tag("Submit Form", class: "btn btn-default") %>
+					<!-- button type="submit" class="btn btn-default">Submit Form</button -->
+				</div>
+			<% end %>
+			<div id="content" class="col-md-12" style="margin-top: 25px">
+				<%= flash_messages %>
+			</div>
+		</div><!-- Row -->
+	</div><!-- Container -->
+</div><!-- Yellow -->
 <!-- 
 <p id="notice"><%= notice %></p>
 <%= link_to 'Edit', edit_service_path(@service) %> |

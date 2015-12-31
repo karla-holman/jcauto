@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229224001) do
+ActiveRecord::Schema.define(version: 20151230180208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,11 +93,13 @@ ActiveRecord::Schema.define(version: 20151229224001) do
   add_index "service_images", ["service_id"], name: "index_service_images_on_service_id", using: :btree
 
   create_table "service_items", force: :cascade do |t|
-    t.string  "name"
-    t.text    "description"
+    t.text    "name"
+    t.text    "core_name"
     t.decimal "price"
     t.integer "service_price_list_id"
     t.integer "service_application_id"
+    t.decimal "core_price"
+    t.text    "alternate_price"
   end
 
   create_table "service_price_lists", force: :cascade do |t|
