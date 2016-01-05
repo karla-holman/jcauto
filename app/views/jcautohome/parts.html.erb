@@ -157,6 +157,7 @@
 		</p>
 	</div>
 	<div class="row text-center">
+		<% found_promotion = false %>
 		<% if @promotions.length == 0 %>
 			<p>There are no discounts or promotions available at this time. Please check back soon!</p>
 		<% else %>
@@ -167,6 +168,7 @@
 					<% @promotions.each_with_index do |promotion, i| %>
 						<% next if promotion.expired? %> 
 						<% 		
+							found_promotion = true
 							taxon_rules = promotion.rules.where("type ILIKE ?", "%taxon%")
 							product_rules = promotion.rules.where("type ILIKE ?", "%product%")
 
@@ -237,8 +239,12 @@
 					<% end %>
 				</div><!-- Carousel inner -->
 
+				<% if !found_promotion %>
+					<p>There are no discounts or promotions available at this time. Please check back soon!</p>
+				<% end %>
+
 				<!-- Controls -->
-				<% if @promotions.length > 1 %>
+				<% if @promotions.length > 1 && found_promotion %>
 					<a class="left carousel-control" href="#carousel-promotions" role="button" data-slide="prev">
 						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 						<span class="sr-only">Previous</span>

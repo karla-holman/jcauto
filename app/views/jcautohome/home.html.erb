@@ -3,26 +3,26 @@
 		<div class="row text-center">
 			<h1 style="font-family: 'Cookie';">Welcome to JC Auto Restoration</h1>
 			<div class= "col-md-4" >
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<%= image_tag "master/parts.png", class:"icon", id:"tech1" %>
 				<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
 				<h3>Parts Retail</h3>
 				<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. Check out our online inventory for a vast supply of parts and memorabilia.</p>
 				<!-- Change Tech image on hover -->
-				<%= button_tag "Find Parts >", class: "btn btn-text", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/Tech.png')}'" %>
+				<%= link_to "Get Parts >", "/parts", class:"button-link", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/parts-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/parts.png')}'" %>
 				
 			</div>
 			<div class="col-md-4">
-				<%= image_tag "master/Tech2.png", class:"icon", id:"tech2" %>
+				<%= image_tag "master/services.png", class:"icon", id:"tech2" %>
 				<h3>Restoration Services</h3>
 				<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. Check out our online inventory for a vast supply of parts and memorabilia.</p>
 				<!-- Change Tech image on hover -->
-				<%= button_tag "Services >", class:"btn btn-text", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/Tech2-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/Tech2.png')}'" %>
+				<%= link_to "Get Started >", "/our-services", class:"button-link", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/services-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/services.png')}'" %>
 			</div>
 			<div class="col-md-4">
-				<%= image_tag "master/Tech3.png", class:"icon", id:"tech3" %>
+				<%= image_tag "master/community.png", class:"icon", id:"tech3" %>
 				<h3>MoPar Community</h3>
 				<p>We are one of the largest suppliers of MoPar parts with an inventory holding hundreds of thousands of parts. CHeck out our online inventory for a vast supply of parts and memorabilia.</p>
-				<%= button_tag "Learn More >", class:"btn btn-text", onmouseover: "document.getElementById('tech3').src='#{asset_path('master/Tech3-hover.png')}'", onmouseout: "document.getElementById('tech3').src='#{asset_path('master/Tech3.png')}'" %>
+				<%= link_to "Get Connected >", "/community", class:"button-link", onmouseover: "document.getElementById('tech3').src='#{asset_path('master/community-hover.png')}'", onmouseout: "document.getElementById('tech3').src='#{asset_path('master/community.png')}'" %>
 			</div>
 		</div>
 	</div>
