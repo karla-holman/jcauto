@@ -214,12 +214,20 @@
 		<div class="col-sm-6 col-md-3">
 			<h3>Start a Project</h3>
 			<p>Have a project in mind? Need help getting started? Let us get you on your way!</p>
-			<ul class="mopar-list" style="font-family: 'Open Sans'">
-				<li><%= link_to "Find Parts", root_path %></li>
-				<li><%= link_to "Learn About Services", root_path %></li>
-				<li><%= link_to "Get a Gift Card", root_path %></li>
-				<li><%= link_to "Start a Wish List", root_path %></li>
-			</ul>
+			<p>
+				<ul class="mopar-list">
+					<li><%= link_to "Find Parts", "/parts" %></li>
+					<li><%= link_to "Learn About Services", "/our-services" %></li>
+					<li><%= link_to "Get a Gift Card (coming soon!)", "/about#connect", class: "disabled" %></li>
+					<li>
+						<% if spree_current_user %>
+							<%= link_to "Start a Wishlist", spree.new_wishlist_path %>
+						<% else %>
+							<%= link_to "Start a Wishlist (create an account)", spree.signup_path %>
+						<% end %>
+					</li>
+				</ul>
+			</p>
 		</div>
 	</div>
 </div>
