@@ -64,7 +64,10 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 col-centered">
 					<% image_path = service.service_images.where("thumb_image = ?", true).first.image_path %>
 					<% image_type = (image_path.slice ".png") ? (image_path.slice! ".png") : (image_path.slice! ".jpg") %>
-					<%= image_tag (image_path + image_type), class:"icon", id:"service#{i}" %>
+					<%= link_to service, onmouseover: "document.getElementById('service#{i}').src='#{asset_path(image_path + "-hover" + image_type)}'", onmouseout: "document.getElementById('service#{i}').src='#{asset_path(image_path + image_type)}'" do %>
+						<%= image_tag (image_path + image_type), class:"icon", id:"service#{i}" %>
+					<% end %>
+
 					<h3 class="service-header"><%= service.name %></h3>
 					<p class="service-description"><%= service.description %></p>
 					<%= link_to "See Prices", service, class: "button-link", onmouseover: "document.getElementById('service#{i}').src='#{asset_path(image_path + "-hover" + image_type)}'", onmouseout: "document.getElementById('service#{i}').src='#{asset_path(image_path + image_type)}'" %>
@@ -94,22 +97,28 @@
 			We can make sure your gauges and parts are restored to their original beauty, but sometimes you need to get hands-on to take it from there. Here is all the information you'll need to keep your project moving forward.
 		</p>
 		<div class="col-md-3">
-			<h3 class="icon-retro">Electroluminescent Gauges</h3>
+			<%= link_to "/", onmouseover: "document.getElementById('e-gauge').src='#{asset_path("services/e-gauge-thumb-hover.png")}'", onmouseout: "document.getElementById('e-gauge').src='#{asset_path("services/e-gauge-thumb.png")}'" do %>
+				<%= image_tag "services/e-gauge-thumb.png", class:"icon", id:"e-gauge" %>
+			<% end %>
+			<h3>Removing Your Instrument Cluster</h3>
 			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
-			<%= link_to "Learn More", "/gauges", class: "button-link" %>
+			<%= link_to "Learn More", "/gauges", class: "button-link", onmouseover: "document.getElementById('e-gauge').src='#{asset_path("services/e-gauge-thumb-hover.png")}'", onmouseout: "document.getElementById('e-gauge').src='#{asset_path("services/e-gauge-thumb.png")}'" %>
 		</div>
 		<div class="col-md-3">
-			<h3 class="icon-retro">Working With Instrument Clusters</h3>
-			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
-			<%= link_to "Learn More", "/", class: "button-link" %>
+			<h3>Working With EM Gauges</h3>
+			<p>What is electroluminescence? How do these gauges light without bulbs, filaments, or gases? Learn more about this technology popular in the early 60s and how to work with it.</p>
+			<%= link_to "Learn More", "/em", class: "button-link" %>
 		</div>
 		<div class="col-md-3">
-			<h3 class="icon-retro">Packaging and Shipping Parts</h3>
+			<%= link_to "/", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping.png")}'" do %>
+				<%= image_tag "services/shipping.png", class:"icon", id:"shipping" %>
+			<% end %>
+			<h3>Packaging and Shipping Parts</h3>
 			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
-			<%= link_to "Learn More", "/", class: "button-link" %>
+			<%= link_to "Learn More", "/", class: "button-link", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping.png")}'" %>
 		</div>
 		<div class="col-md-3">
-			<h3 class="icon-retro">Electrical and Wiring</h3>
+			<h3>Electrical and Wiring</h3>
 			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
 			<%= link_to "Learn More", "/", class: "button-link" %>
 		</div>

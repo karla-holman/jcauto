@@ -79,6 +79,11 @@ class JcautohomeController < ApplicationController
 		render "tutorials/gauges"
 	end
 
+	def em
+		@page = "services"
+		render "tutorials/em"
+	end
+
 	def community
 		@page = "community"
 	end

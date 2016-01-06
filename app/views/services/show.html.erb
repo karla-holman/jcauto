@@ -4,7 +4,7 @@
 			<ul class="nav navbar-nav">
 				<li role="presentation"><a href="#info">Service Information</a></li>
 				<li role="presentation"><a href="#prices">Prices</a></li>
-				<li role="presentation"><a href="#contact">Contact</a></li>
+				<li role="presentation"><a href="#contact">Quote</a></li>
 			</ul>
 		</div>
 	</div>
@@ -27,6 +27,11 @@
 
 <div class="container">
 	<div class="row row-centered">
+		<ol class="breadcrumb" style="text-align: left">
+		  <li><a href="/our-services">Services</a></li>
+		  <li><a href="/our-services#browse">Browse Services</a></li>
+		  <li class="active"><%= @service.name %></li>
+		</ol>
 		<% images = @service.service_images %>
 		<% if !main_image %>
 			<h1 class="inverse"><%= @service.name %></h1>

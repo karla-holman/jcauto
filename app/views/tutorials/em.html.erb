@@ -1,0 +1,195 @@
+<div class="modal fade image-previews" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">View Image</h4>
+      </div>
+      <div class="modal-body">
+        <%= image_tag "tutorials/60C-1.jpg", id: "lightbox-image", style: "width: 100%" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+		  <li><a href="/our-services">Services</a></li>
+		  <li><a href="/our-services#how">Tutorials</a></li>
+		  <li class="active">Electroluminescent Gauges</li>
+		</ol>
+		<h1 style="text-align: center">Electroluminescent Gauges</h1>
+		<p class="intro" style="text-align: center">Click on a section below to learn more about working with your electroluminescent gauges.</p>
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+		          Introduction
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		        <div class="col-sm-6 col-md-3">
+							<!-- Button trigger modal -->
+							<div data-toggle="modal" data-target=".image-previews" data-path="<%= asset_path("tutorials/large/60C-1.jpg") %>" style="padding: 0">
+								<div id="click-text"><h5>Click to enlarge</h5></div>
+							 	<%= image_tag "tutorials/60C-1.jpg", class: "icon-retro" %>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-9">
+							<h3>What is Electroluminescence?</h3>
+							<p>What is electroluminescence? How do these gauges light without bulbs, filaments, or gases? The answer lies in ceramic engineering. The gauges and pointers are composed of laminated layers of material which glow when a high-voltage alternating current is applied. As a result, the pointers are a light source in themselves, as are the gauges. A typical gauge or pointer is composed of several layers:</p>
+							<ul>
+								<li>A sheet of vitreous enameling steel forms the instrument back.</li>
+							    <li>A layer of solid ceramic is applied to the steel sheet.</li>
+							    <li>Another layer is added which has electroluminescent phosphor suspended in ceramic.</li>
+							    <li>A transparent, electrically conducting layer is then added.</li>
+							    <li>A finish layer of transparent glass coating is sprayed on.</li>
+							</ul>
+						</div>
+						<div class="clearfix"></div>
+						<hr>
+						<div class="col-sm-6 col-md-3">
+							<!-- Button trigger modal -->
+							<div data-toggle="modal" data-target=".image-previews" data-path="<%= asset_path("tutorials/large/powerpack.png") %>" style="padding: 0">
+								<div id="click-text"><h5>Click to enlarge</h5></div>
+							 	<%= image_tag "tutorials/powerpack.png", class: "icon-retro" %>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-9">
+							<h3>The Power Pack</h3>
+							<p> The gauges and pointers are powered by a power pack, which converts the 12 volt D/C to 200 volts A/C at 250 cycles per second. The power pack on a 1960-2 Chrysler or 1960-3 Imperial is mounted on the cowl side panel underneath the instrument panel. On the 1966-67 Chargers, it is mounted to the lower lip of the instrument panel, behind the glove box.</p>
+						</div>
+					</div><!-- Panel Body -->
+				</div><!-- Collapse -->
+		  </div><!-- Panel -->
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		          What can go wrong?
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		      <div class="panel-body">
+		        <div class="col-sm-6 col-md-3">
+					<div data-toggle="modal" data-target=".image-previews" data-path="<%= asset_path("tutorials/large/60I-1.jpg") %>" style="padding: 0">
+						<div id="click-text"><h5>Click to enlarge</h5></div>
+						<%= image_tag "tutorials/60I-1.jpg", class: "icon-retro" %>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-9">
+					<h3>Fragile Technology</h3>
+					<p>These instrument clusters were state-of-the-art when new, but time, moisture, and exposure to the elements can wear on the fragile pieces. If nothing will light in your cluster, or if all the instruments light and then fade out, the problem is likely the power supply. You can simply pull the power supply and mail it to us for rebuilding or exchange. Frequently, the problems are more complex, and you can send the entire cluster to us for free testing, inspection, and a price quote on service. Go <%= link_to "/gauges" do %>here<% end %> for instructions on pulling the complete cluster.</p>
+				</div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		          Voltage Limiter Conversion
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		      <div class="panel-body">
+		        <div class="col-sm-6 col-md-3">
+							<div data-toggle="modal" data-target=".image-previews" data-path="<%= asset_path("tutorials/large/60C-1.jpg") %>" style="padding: 0">
+								<div id="click-text"><h5>Click to enlarge</h5></div>
+								<%= image_tag "tutorials/60C-1.jpg", class: "icon-retro" %>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-9">
+							<h3>Converting Your Voltage Limiter</h3>
+							<p>When your Charger instrument cluster is being serviced, we strongly recommend converting the voltage limiter in the fuel gauge. We can replace it with a new, more reliable unit that is more easily serviced, and is less likely to cause damage to your gauge elements.</p>
+						</div>
+					</div>
+				</div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		          Shipping and Packaging
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		      <div class="panel-body">
+			      <div class="col-sm-6 col-md-3">
+							<%= image_tag "tutorials/fill.png", class: "icon" %>
+						</div>
+						<div class="col-sm-6 col-md-9">
+							<h3>Instruction:</h3>
+							<p>Please take great care in packing your instrument cluster for shipment. We have found that the gauges themselves survive better if shipped as a whole cluster. Insurance is highly recommended.</p>
+						</div>
+						<div class="clearfix"></div>
+						<hr>
+						<div class="col-sm-6 col-md-3">
+							<%= image_tag "tutorials/fill.png", class: "icon" %>
+						</div>
+						<div class="col-sm-6 col-md-9">
+							<h3>Policies:</h3>
+							<p>We have put certain policies in place to ensure that your parts travel safely to and from our shop. If you have any questions, please check <%= link_to "/" do %>here<% end %> to review these policies for shipping, warranty, and otherwise.</p>
+						</div>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+		          Services and Charges
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		      <div class="panel-body">
+		        <div class="col-sm-6 col-md-3">
+							<div data-toggle="modal" data-target=".image-previews" data-path="<%= asset_path("tutorials/large/66D-1.png") %>" style="padding: 0">
+								<div id="click-text"><h5>Click to enlarge</h5></div>
+								<%= image_tag "tutorials/66D-1.jpg", class: "icon-retro" %>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-9">
+							<h3>Our Services</h3>
+							<% em_price = Service.where("name=?", "Gauge Services").first %>
+							<p>We offer a variety of services for your electroluminescent gauge cluster. Please go <%= link_to em_price do %>here<% end %> for a chart that shows the services we offer on electroluminescent instruments, and the associated charges.</p>
+						</div>
+		  		</div>
+		  	</div>
+			</div>
+		</div><!-- Panel group -->
+	</div><!-- Row -->
+</div><!-- Container -->
+
+<script>
+	$('[data-toggle="modal"]').click( function(event) {
+		$('#lightbox-image').attr("src", $(this).data("path"));
+	});
+
+  $('[data-toggle="modal"]').hover( 
+  	function(event) {
+	 		$( this ).children("img").first().fadeTo( "fast", 0.2, 
+	 			function(event) {
+	 				$( this ).siblings("#click-text").first().show();
+	 			}
+	 		);
+	 	}, function(event) {
+	 		$( this ).children("img").first().fadeTo( "fast", 1.0, 
+	 			function(event) {
+	 				$( this ).siblings("#click-text").first().hide();
+	 			}
+	 		);
+	 	}
+ );
+ </script>
