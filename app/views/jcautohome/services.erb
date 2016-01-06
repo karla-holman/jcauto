@@ -62,10 +62,12 @@
 			</p>
 			<% @services.each_with_index do |service, i| %>
 				<div class="col-sm-6 col-md-4 col-lg-3 col-centered">
-					<%= image_tag service.service_images.where("thumb_image = ?", true).first.image_path, class:"icon", id:"tech1" %>
+					<% image_path = service.service_images.where("thumb_image = ?", true).first.image_path %>
+					<% image_type = (image_path.slice ".png") ? (image_path.slice! ".png") : (image_path.slice! ".jpg") %>
+					<%= image_tag (image_path + image_type), class:"icon", id:"service#{i}" %>
 					<h3 class="service-header"><%= service.name %></h3>
 					<p class="service-description"><%= service.description %></p>
-					<%= link_to "See Prices", service, class: "button-link" %>
+					<%= link_to "See Prices", service, class: "button-link", onmouseover: "document.getElementById('service#{i}').src='#{asset_path(image_path + "-hover" + image_type)}'", onmouseout: "document.getElementById('service#{i}').src='#{asset_path(image_path + image_type)}'" %>
 				</div>
 				<% if (i+1)%4 == 0 %>
 					<div class="clearfix visible-lg-block"></div>
@@ -92,23 +94,23 @@
 			We can make sure your gauges and parts are restored to their original beauty, but sometimes you need to get hands-on to take it from there. Here is all the information you'll need to keep your project moving forward.
 		</p>
 		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Electroluminescent Gauges</h3>
+			<h3 class="icon-retro">Electroluminescent Gauges</h3>
+			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
+			<%= link_to "Learn More", "/gauges", class: "button-link" %>
+		</div>
+		<div class="col-md-3">
+			<h3 class="icon-retro">Working With Instrument Clusters</h3>
+			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
 			<%= link_to "Learn More", "/", class: "button-link" %>
 		</div>
 		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Working With Instrument Clusters</h3>
+			<h3 class="icon-retro">Packaging and Shipping Parts</h3>
+			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
 			<%= link_to "Learn More", "/", class: "button-link" %>
 		</div>
 		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Packaging and Shipping Parts</h3>
-			<%= link_to "Learn More", "/", class: "button-link" %>
-		</div>
-		<div class="col-md-3">
-			<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
-			<h3>Electrical and Wiring</h3>
+			<h3 class="icon-retro">Electrical and Wiring</h3>
+			<p>Learn how to safely remove your electroluminescent gauges and ship them to us safely for restoration.</p>
 			<%= link_to "Learn More", "/", class: "button-link" %>
 		</div>
 	</div>

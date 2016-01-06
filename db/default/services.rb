@@ -36,25 +36,25 @@ image3 = service6.service_images.create(:image_path => "services/e-gauge-third.j
 =end
 
 service1 = Service.create(:name => "Gauge Services", :description => "Restoration, repair and calibration of electroluminescent and regular gauges", :description_long => " What is electroluminescence? How do these gauges light without bulbs, filaments, or gases? The answer lies in ceramic engineering. The gauges and pointers are composed of laminated layers of material which glow when a high-voltage alternating current is applied. As a result, the pointers are a light source in themselves, as are the gauges. A typical gauge or pointer is composed of several layers:<ul><li>A sheet of vitreous enameling steel forms the instrument back.</li><li>A layer of solid ceramic is applied to the steel sheet.</li><li>Another layer is added which has electroluminescent phosphor suspended in ceramic.</li><li>A transparent, electrically conducting layer is then added.</li><li>A finish layer of transparent glass coating is sprayed on.</li></ul><strong>The Power Pack</strong>. The gauges and pointers are powered by a power pack, which converts the 12 volt D/C to 200 volts A/C at 250 cycles per second. The power pack on a 1960-2 Chrysler or 1960-3 Imperial is mounted on the cowl side panel underneath the instrument panel. On the 1966-67 Chargers, it is mounted to the lower lip of the instrument panel, behind the glove box.")
-thumb = service1.service_images.create(:image_path => "services/service-thumb.png", :description => "", :main_image => false, :thumb_image => true)
+thumb = service1.service_images.create(:image_path => "services/e-gauge-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service1.service_images.create(:image_path => "services/e-gauge-main.png", :description => "", :main_image => true, :thumb_image => false)
 image2 = service1.service_images.create(:image_path => "services/e-gauge-second.png", :description => "", :main_image => false, :thumb_image => false)
-image3 = service1.service_images.create(:image_path => "services/e-gauge-third.png", :description => "", :main_image => false, :thumb_image => false)
+# image3 = service1.service_images.create(:image_path => "services/e-gauge-third.png", :description => "", :main_image => false, :thumb_image => false)
 
 service2 = Service.create(:name => "Control and Switch Services", :description => "Switches of all types rebuilt", :description_long => "")
-thumb = service2.service_images.create(:image_path => "services/service-thumb.png", :description => "", :main_image => false, :thumb_image => true)
+thumb = service2.service_images.create(:image_path => "services/switch-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service2.service_images.create(:image_path => "services/switch-main.png", :description => "", :main_image => true, :thumb_image => false)
 image2 = service2.service_images.create(:image_path => "services/switch-second.png", :description => "", :main_image => false, :thumb_image => false)
 image3 = service2.service_images.create(:image_path => "services/switch-third.png", :description => "", :main_image => false, :thumb_image => false)
 
 service3 = Service.create(:name => "Other Rebuilt Parts", :description => "Mirror-matics, Auto-pilot servos and electric motors rebuilt", :description_long => "")
-thumb = service3.service_images.create(:image_path => "services/service-thumb.png", :description => "", :main_image => false, :thumb_image => true)
+thumb = service3.service_images.create(:image_path => "services/other-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service3.service_images.create(:image_path => "services/other-main.png", :description => "", :main_image => true, :thumb_image => false)
-image2 = service3.service_images.create(:image_path => "services/other-second.png", :description => "", :main_image => false, :thumb_image => false)
-image3 = service3.service_images.create(:image_path => "services/other-third.png", :description => "", :main_image => false, :thumb_image => false)
+# image2 = service3.service_images.create(:image_path => "services/other-second.png", :description => "", :main_image => false, :thumb_image => false)
+# image3 = service3.service_images.create(:image_path => "services/other-third.png", :description => "", :main_image => false, :thumb_image => false)
 
 service4 = Service.create(:name => "Highway Hi-Fi Restoration", :description => "Restoration and parts", :description_long => "Replace your crumbling, deteriorated shock mount cushions with our high quality, reproduction cushions. Made of a superior material to ensure long life, and die-cut for accurate fit. Restores proper support to motorboard assembly while maintaining essential vibration dampening. Replaces part numbers 84 000 411 and 84 000 401. Use 3M Black weatherstrip adhesive (#08011) or equivalent for installation. Set of three is $90, plus $12 for US shipping/insurance.")
-thumb = service4.service_images.create(:image_path => "services/service-thumb.png", :description => "", :main_image => false, :thumb_image => true)
+thumb = service4.service_images.create(:image_path => "services/hifi-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service4.service_images.create(:image_path => "services/hifi-main.jpg", :description => "", :main_image => true)
 image2 = service4.service_images.create(:image_path => "services/hifi-second.jpg", :description => "", :main_image => false)
 image3 = service4.service_images.create(:image_path => "services/hifi-third.jpg", :description => "", :main_image => false)

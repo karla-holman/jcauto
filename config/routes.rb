@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'our-services' => 'jcautohome#services'
   get 'community' => 'jcautohome#community'
   get 'contact' => 'jcautohome#contact'
+  get 'gauges' => 'jcautohome#gauges'
 
   resources :services   
   resources :jcautohome do
