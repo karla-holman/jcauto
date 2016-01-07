@@ -72,18 +72,27 @@
 			<% counter = 1 %>
 			<% @part_groups_taxon_children.each do |group| %>
 				
-				<div class= "col-sm-3 col-md-2 col-centered" style="margin-bottom: 20px;" >
-					<%= link_to spree.nested_taxons_path(group.permalink), class: "button-link" do %><%= image_tag group.icon_file_name, class:"icon" %><% end %>
-					<p><%= link_to group.name, spree.nested_taxons_path(group.permalink), class: "button-link" %></p>
+				<div class= "col-sm-6 col-md-4 col-centered" style="padding: 0 3px;">
+					<%= link_to spree.nested_taxons_path(group.permalink) do %>
+					<div class="part-tiles">
+						<div class="col-sm-6 col-md-4">
+							<%= image_tag group.icon_file_name, class:"icon" %>
+						</div>
+						<div class="col-sm-6 col-md-8">
+							<h5 style="color: #fff; padding: 12% 0;"><%= group.name %></h5>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<% end %>
 				</div>
 
 				<!-- Add row breaks -->
 
-				<% if counter % 6 == 0 && counter % 4 == 0 %>
+				<% if counter % 3 == 0 && counter % 2 == 0 %>
 					<div class="clearfix hidden-xs-block"></div>
-				<% elsif counter % 4 == 0 %>
+				<% elsif counter % 2 == 0 %>
 					<div class="clearfix visible-sm-block"></div>
-				<% elsif counter % 6 == 0 %>
+				<% elsif counter % 3 == 0 %>
 					<div class="clearfix visible-md-block visible-lg-block"></div>
 				<% end %>
 				<% counter += 1 %>
@@ -295,7 +304,7 @@
 				      	<%= link_to url do %><%= image_tag image %><% end %>
 				      </div>
 				      <div class="col-md-7">
-				        <h3><%= link_to truncate(package.property("Part Number"), length: 50), url, class: 'info', itemprop: "name", title: package.property("Part Number") %></h3>
+				        <h3><%= link_to truncate(package.property("Part Number"), length: 50), url, itemprop: "name", title: package.property("Part Number") %></h3>
 				        <% if package.description %>
 				        <p style="font-weight: 700; margin-bottom: 0px; color: #bf210a"><%= link_to url, class: 'info' do %><%= package.description %><% end %></p>
 				      <% else %>
@@ -378,7 +387,7 @@
 					      	<%= link_to url do %><%= image_tag image %><% end %>
 					      </div>
 					      <div class="col-md-7">
-					        <h3><%= link_to truncate(new_prod.property("Part Number"), length: 50), url, class: 'info', itemprop: "name", title: new_prod.property("Part Number") %></h3>
+					        <h3><%= link_to truncate(new_prod.property("Part Number"), length: 50), url, itemprop: "name", title: new_prod.property("Part Number") %></h3>
 					        <% if new_prod.description %>
 				            <p style="font-weight: 700; margin-bottom: 0px; color: #bf210a"><%= link_to url, class: 'info' do %><%= new_prod.description %><% end %></p>
 				          <% else %>
