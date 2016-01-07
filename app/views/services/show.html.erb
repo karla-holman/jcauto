@@ -55,18 +55,20 @@
 <a name="prices"></a>
 <div class="container">
 	<div class="row text-center">
-		<h3>Prices for <%= @service.name %></h3>
+		<div class="col-md-12">
+			<h3>Prices for <%= @service.name %></h3>
 
-		<%= form_for :my_service_application, :url => { :action => "show" }, method: "get", html: {class: "form-inline"} do |f| %>
-			<div class="form-group">
-				<%= f.collection_select(:my_service_application_id, @service_applications.sort!, :id, :name, {:include_blank => 'Select Application', :selected => @service_app_id}, {:class=>'form-control' }) %>
-			</div>
-			<!-- Select price list to show -->
-			<div class="form-group">
-				<%= f.collection_select(:my_service_price_list_id, @service.service_price_lists, :id, :name, {:include_blank => 'Select Service Category', :selected => @service_price_list_id}, {:class=>'form-control' }) %>
-			</div>
-			<%= f.submit "Go", class: "btn btn-default" %>
-		<% end %>
+			<%= form_for :my_service_application, :url => { :action => "show" }, method: "get", html: {class: "form-inline"} do |f| %>
+				<div class="form-group">
+					<%= f.collection_select(:my_service_application_id, @service_applications.sort!, :id, :name, {:include_blank => 'Select Application', :selected => @service_app_id}, {:class=>'form-control' }) %>
+				</div>
+				<!-- Select price list to show -->
+				<div class="form-group">
+					<%= f.collection_select(:my_service_price_list_id, @service.service_price_lists, :id, :name, {:include_blank => 'Select Service Category', :selected => @service_price_list_id}, {:class=>'form-control' }) %>
+				</div>
+				<%= f.submit "Go", class: "btn btn-default" %>
+			<% end %>
+		</div>
 	</div>
 	<div class="row">
 		<!-- Spacing for mobile -->
@@ -88,34 +90,36 @@
 	      <% if items.length == 0 %>
 	      	<p>No services found in this category for your selected make and model.</p>
 	      <% else %>
-					<table id="price-list" class="table table-striped" data-hook>
-					    <tbody>
-					      <% items.each do |item| %>
-					        <% css_class = cycle('even', 'odd', :name => "price-list") %>
-					        <tr class="<%= css_class %>">
-					          <td style="width: 20%"><%= item.service_application ? item.service_application.name : "All" %></td>
-					          <td style="width: 70%">
-					          	<%= item.name %>
-					          	<% if item.core_name && item.core_name != "" %>
-					          		<br><span style="color: #200099"><%= item.core_name %></span>
-					          	<% end %>
-					          </td>
-					          <td style="width: 10%">
-					          	<% if item.alternate_price %>
-					          		<%= item.alternate_price.html_safe %><!-- Handle prices in text form -->
-					          	<% else %>
-					          		<%= item.my_price %>
-					          	<% end %>
-					          	<% if item.core_price && item.core_price != 0 %>
-					          		<br><span style="color: #200099"><%= item.my_core_price %></span>
-					          	<% end %>
-					          </td>
-					        </tr>
-					      <% end %>
-					      <% reset_cycle('price-list') %>
-					    </tbody>
-					</table>
-				<% end %>
+	      	<div class="table-responsive">
+				<table id="price-list" class="table table-striped" data-hook>
+				    <tbody>
+				      <% items.each do |item| %>
+				        <% css_class = cycle('even', 'odd', :name => "price-list") %>
+				        <tr class="<%= css_class %>">
+				          <td style="width: 20%"><%= item.service_application ? item.service_application.name : "All" %></td>
+				          <td style="width: 70%">
+				          	<%= item.name %>
+				          	<% if item.core_name && item.core_name != "" %>
+				          		<br><span style="color: #200099"><%= item.core_name %></span>
+				          	<% end %>
+				          </td>
+				          <td style="width: 10%">
+				          	<% if item.alternate_price %>
+				          		<%= item.alternate_price.html_safe %><!-- Handle prices in text form -->
+				          	<% else %>
+				          		<%= item.my_price %>
+				          	<% end %>
+				          	<% if item.core_price && item.core_price != 0 %>
+				          		<br><span style="color: #200099"><%= item.my_core_price %></span>
+				          	<% end %>
+				          </td>
+				        </tr>
+				      <% end %>
+				      <% reset_cycle('price-list') %>
+				    </tbody>
+				</table>
+			</div>
+			<% end %>	
 			</div>
 		<% end %>
 	</div>
