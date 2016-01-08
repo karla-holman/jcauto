@@ -19,7 +19,7 @@
 		<%= form_tag submit_contact_jcautohome_index_path do %>
 			<div class="col-md-6">
 				<div class="form-group">
-					<!-- <label for="customerName">Full name</label> -->
+					<!-- <label for= "customerName">Full name</label> -->
 					<%= search_field(:user, :name, placeholder: "Name (required)", :required => true, class: "form-control") %>
 					<!-- input type="name" class="form-control" id="customerName" placeholder="Name" -->
 				</div>
@@ -68,7 +68,7 @@
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<%= image_tag "services/call.png", onmouseover: "document.getElementById('call').src='#{asset_path("services/call-hover.png")}'", onmouseout: "document.getElementById('call').src='#{asset_path("services/call.png")}'", class:"icon", id:"call" %>
 				<h3>Call Us</h3>
 				<p>
 					<strong>Phone:</strong> 425.672.8324<br>
