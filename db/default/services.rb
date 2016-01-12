@@ -95,7 +95,7 @@ dodge_app = Spree::Application.where("make_id=? AND model_id IS ?", dodge_make.i
 plymouth_make = Spree::Make.where("name=?", "Plymouth").first
 plymouth_app = Spree::Application.where("make_id=? AND model_id IS ?", plymouth_make.id, nil).first
 
-desoto_make = Spree::Make.where("name=?", "Desoto").first
+desoto_make = Spree::Make.where("name=?", "DeSoto").first
 desoto_app = Spree::Application.where("make_id=? AND model_id IS ?", desoto_make.id, nil).first
 
 # Imperial

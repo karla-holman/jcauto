@@ -98,13 +98,17 @@
 		<% @past_events.each do |event| %>
 		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-centered" id="events">
 			<% image_array = "[" %>
+			<% caption_array = "[" %>
 			<% event.event_images.each do |image| %>
-				<% image_array += '"' + "#{asset_path("cars/" + image.image_path)}" + '",' %>
+				<% image_array += '"' + "#{asset_path("events/" + image.image_path)}" + '",' %>
+				<% caption_array += '"' + "#{image.description}" + '",' %>
 			<% end %>
 			<% image_array.chomp!(",") %>
+			<% caption_array.chomp!(",") %>
 			<% image_array += "]" %>
-			<%= link_to event, :data => { :images => image_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link", style: "font-size: 0.8em" do %><br>
-				<%= image_tag event.thumb, class:"icon" %>
+			<% caption_array += "]" %>
+			<%= link_to event, :data => { :images => image_array, :captions => caption_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link", style: "font-size: 0.8em" do %><br>
+				<%= image_tag "thumbs/" + event.thumb, class:"icon" %>
 				<div class="clearfix visible-xs"></div>
 				<%= event.name %>
 				<p><%= event.event_date.strftime("%a, %B %e, %Y") %></p>
@@ -142,13 +146,15 @@
 					<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
 				<% end %>
 			</div><!-- Gallery -->
-			<p><%= images[0].description %></p>
+			<div id="caption">
+				<p><%= images[0].description %></p>
+			</div>
 
 
 			<span id="thumbs">
 			<% images.each do |image| %>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
-					<a href= <%= "#{asset_path('cars/' + image.image_path)}" %> >
+					<a href= <%= "#{asset_path('events/' + image.image_path)}" %> >
 						<%= image_tag "events/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("events/" + image.image_path)}" } %>
 					</a>
 					<% if first %>
@@ -161,7 +167,7 @@
 		<div id="info" class="col-md-3">
 			<h3 id="name"><%= @past_events.first.name %></h3>
 			<h4 id="date"><%= @past_events.first.event_date.strftime("%a, %B %e, %Y") %></h4>
-			<p id="description"><%= @past_events.first.description %></p>
+			<p id="description"><%= @past_events.first.description.html_safe %></p>
 		</div>
 	</div><!-- Row -->
 </div>

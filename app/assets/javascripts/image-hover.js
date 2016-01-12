@@ -279,12 +279,14 @@ $("#events a").click(function(event) {
 
 	// Get new array of thumbs from event object
 	var string_images = $(this).attr("data-images").toString();
+	var string_captions = $(this).attr("data-captions").toString();
 	var name = $(this).attr("data-name").toString();
 	var date = $(this).attr("data-date").toString();
 	var description = $(this).attr("data-description").toString();
 	console.log(string_images);
 
 	var image_array = JSON.parse(string_images);
+	var caption_array = JSON.parse(string_captions);
 
 	// Loop through each thumbnail and add to span
 	for(var i = 0; i < image_array.length; i++){
@@ -300,6 +302,7 @@ $("#events a").click(function(event) {
 		$new_link.attr("href", image_array[i]);
 		$new_image = $('<img class="icon">');
 		$new_image.attr("src", image_array[i]);
+		$new_image.attr("alt", caption_array[i]);
 		$new_image.attr("data-path", image_array[i]);
 		$new_link.append($new_image);
 		$new_link.on("click", function(event){
