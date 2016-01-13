@@ -183,7 +183,7 @@ function advanceNext(mobile){
 		$next = $current.parent().children("div:first-child");
 	} else {
 		console.log("Not Last");
-		$next = $current.next();
+		$next = $current.nextAll("div").first();
 	}
 	// Advance main image for non-mobile
 	advanceGallery($current, $next, mobile);
@@ -201,7 +201,7 @@ function advancePrev(mobile){
 	} else {
 		// otherwise get previous image
 		console.log("Not first");
-		$previous = $current.prev();
+		$previous = $current.prevAll("div").first();
 	}
 
 	advanceGallery($current, $previous, mobile);
