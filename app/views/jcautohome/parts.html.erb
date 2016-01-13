@@ -16,12 +16,38 @@
 <div class="image-background" id="the_inventory">
 	<div class="container">
 		<div class="row row-centered text-center">
-			<h1 class="inverse">View our database of parts</h1>
-			<p class="intro inverse">Trusted for over 35 years in the automotive industry, we at JC Auto Restoration take as much care in delivering the quality parts you need as we do when restoring your car. Explore our inventory of over 9,000 parts and kickstart your project with quality American made componets.</p>
-			<%= link_to spree.products_path, class: "btn btn-primary btn-lg" do %><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shop Now<% end %>
-		</div>
-		<div class="row row-centered text-center">
-			<div class="col-md-6 col-centered">
+			<h1 class="inverse">Part Requests</h1>
+			<p class="intro inverse">Due to the overwhelming number of parts in stock, we are updating our online catalog daily. If you don’t find the part you’re looking for online, please fill out the form below indicating the part you need. Most likely we have what you are looking for!</p>
+
+			<%= form_tag submit_contact_jcautohome_index_path, multipart: true do %>
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= search_field(:user, :name, placeholder: "Name (required)", :required => true, class: "form-control") %>
+				</div>
+				<div class="form-group">
+					<%= telephone_field(:user, :phone, placeholder: "Phone (required)", :required => true, class: "form-control", style: "width: 47%; float: left; margin-right: 6%") %>
+				</div>
+				<div class="form-group">
+					<%= email_field(:user, :address, placeholder: "Email", class: "form-control", style: "width: 47%") %>
+				</div>
+				<div class="form-group">
+					<%= search_field(:user, :part_numbers, placeholder: "Requested Part Number or Cast Number", class: "form-control") %>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= text_area_tag(:message, "", size: "25x5", style:"height: 150px;", placeholder: "Additional information (desired condition and/or application)", class: "form-control") %>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<%= submit_tag("Submit Form", class: "btn btn-default") %>
+				<!-- button type="submit" class="btn btn-default">Submit Form</button -->
+			</div>
+			<% end %>
+			<div id="content" class="col-md-12" style="margin-top: 25px">
+				<%= flash_messages %>
+			</div>
+			<div class="col-md-12">
 				<h3 class="inverse">Explore</h3>
 				<h3 class="inverse"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></h3>
 			</div>
@@ -282,7 +308,7 @@
 	<div class="row text-center" style="margin-bottom: 0; padding-bottom: 0">
 		<h1>Packages and Assemblies</h1>
 		<p class="intro">
-			If you don't want to spend the time finding each individual part, check here for some great packages and assemblies that we have put together.
+			We often take the time to rebuild and assemble components we have, check here for some great packages and assemblies that we have put together.
 		</p>
 	</div>
 	<div class="row">
@@ -450,7 +476,7 @@
 	<div class="row text-center">
 		<h1>Sell to Us</h1>
 		<p class="intro">
-			Have some extra parts? Let us know what you have and we'll be in touch.
+			Have some extra parts? We are always interested in purchasing inventories of NOS MoPar parts, any quantity. Let us know what you have and we'll be in touch.
 		</p>
 		<%= form_tag submit_contact_jcautohome_index_path, multipart: true do %>
 			<div class="col-md-6">

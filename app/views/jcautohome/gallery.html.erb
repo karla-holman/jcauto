@@ -51,7 +51,7 @@
 			<div class="col-md-12">
 				<h1>Past Projects</h1>
 				<p class="intro">
-					There is always a lot going on at the shop! Check back regulary to see how these projects are going.
+					Get an up close look at some of our previous projects. Although we specialize in MoPar restoration, you will occasionally find other brands such as Honda, Ford, and Oldsmobile in our shop. No matter what the project or make, we will deliver quality results that come from over 35 years of expereince.
 				</p>
 			</div>
 			<% @past_projects.each_with_index do |car, index| %>
@@ -107,12 +107,12 @@
 			<% caption_array.chomp!(",") %>
 			<% image_array += "]" %>
 			<% caption_array += "]" %>
-			<%= link_to event, :data => { :images => image_array, :captions => caption_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link", style: "font-size: 0.8em" do %><br>
+			<%= link_to event, :data => { :images => image_array, :captions => caption_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link" do %><br>
 				<%= image_tag "thumbs/" + event.thumb, class:"icon" %>
 				<div class="clearfix visible-xs"></div>
 				<%= event.name %>
-				<p><%= event.event_date.strftime("%a, %B %e, %Y") %></p>
 			<% end %>
+			<p><%= event.event_date.strftime("%a, %B %e, %Y") %></p>
 		</div>
 		<% end %>
 		<hr>

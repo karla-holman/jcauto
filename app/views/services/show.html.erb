@@ -37,25 +37,29 @@
 			<h1 class="inverse"><%= @service.name %></h1>
 			<p class="intro inverse"><%= @service.description %></p>
 		<% end %>
-		<% if @service.description_long %>
+		<% add_hr = false %>
+		<% if @service.description_long && @service.description_long != "" %>
+			<% add_hr = true %>
 			<div class="col-md-8" style="text-align: left">
 				<h3>Service Information</h3>
 				<%= @service.description_long.html_safe %>
 			</div>
+			<div class="col-md-4">
+				<% images.each do |image| %>
+					<% next if image.main_image || image.thumb_image %>
+					<%= image_tag image.image_path, class:"icon" %>
+				<% end %>
+			</div>
 		<% end %>
-		<div class="col-md-4">
-			<% images.each do |image| %>
-				<% next if image.main_image || image.thumb_image %>
-				<%= image_tag image.image_path, class:"icon" %>
-			<% end %>
-		</div>
+<% if add_hr %>
 	</div><!-- row -->
-</div>
-<hr>
-<a name="prices"></a>
+</div><!-- Container -->
+	<hr>
 <div class="container">
 	<div class="row text-center">
+<% end %>
 		<div class="col-md-12">
+			<a name="prices"></a>
 			<h3>Prices for <%= @service.name %></h3>
 
 			<%= form_for :my_service_application, :url => { :action => "show" }, method: "get", html: {class: "form-inline"} do |f| %>

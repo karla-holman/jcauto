@@ -253,7 +253,7 @@ function updateGallery(new_src, new_caption, gallery_main){
 
 	gallery_main.attr("src", new_src);
 
-	$("#caption p").text(new_caption);
+	$("#caption").html(new_caption);
 }
 
 // Handle automatic slide shows
@@ -326,7 +326,7 @@ $("#events a").click(function(event) {
 	// Handle description
 	$("#name").text(name);
 	$("#date").text(date);
-	$("#description").text(description);
+	$("#description").html(description);
 
 	if($('.gallery_container').css("display") === "none") {
 		$('html, body').animate({

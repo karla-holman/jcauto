@@ -4,7 +4,7 @@
 
 # Create Events
 event1 = Event.create(:name => "SunBust All Mopar Show", 
-					  :description => "23rd Annual SunBust All Mopar Show and Swap Meet. One of the biggest 1 day shows on the West Coast! Everything from 1912 to 2008 models Dodge, Plymouth, Chrysler cars and trucks including AMC. Website: <a href='http://moparsunlimited.org/sunbust/'>http://moparsunlimited.org/sunbust/</a>", 
+					  :description => "23rd Annual SunBust All Mopar Show and Swap Meet. One of the biggest 1 day shows on the West Coast! Everything from 1912 to 2008 models Dodge, Plymouth, Chrysler cars and trucks including AMC. Website: <a target='_blank' href='http://moparsunlimited.org/sunbust/'>http://moparsunlimited.org/sunbust/</a>", 
 					  :thumb => "graham-thumb.jpg", 
 					  :location => "Frontier Park, Graham Wa",
 					  :event_link => "http://moparsunlimited.org/sunbust/",
@@ -20,8 +20,8 @@ image1 = event1.event_images.create(:image_path => "graham-8.jpg", :description 
 image1 = event1.event_images.create(:image_path => "graham-9.jpg", :description => "At the car show")
 image1 = event1.event_images.create(:image_path => "graham-10.jpg", :description => "At the car show")
 
-event2 = Event.create(:name => "W.P.C. Pacific Northwest Regional Meet", 
-					  :description => "A fun event located just a short ferry ride away from Seattle in the semi-rural community of Poulsbo. More information can be found at <a href='https://www.chryslerclub.org/Pugetsound.html'>https://www.chryslerclub.org/Pugetsound.html</a>.", 
+event2 = Event.create(:name => "W.P.C. PNW Regional Meet", 
+					  :description => "A fun event located just a short ferry ride away from Seattle in the semi-rural community of Poulsbo. More information can be found at <a target='_blank' href='https://www.chryslerclub.org/Pugetsound.html'>https://www.chryslerclub.org/Pugetsound.html</a>.", 
 					  :thumb => "wpc-thumb.jpg", 
 					  :location => "Poulsbo, Washington",
 					  :event_link => "https://www.chryslerclub.org/Pugetsound.html",
@@ -38,7 +38,7 @@ image1 = event2.event_images.create(:image_path => "wpc-9.jpg", :description => 
 image1 = event2.event_images.create(:image_path => "wpc-10.jpg", :description => "Jeff in front of the State Champion Camperdown Elm in Port Gamble, WA")
 
 event3 = Event.create(:name => "2008 Hydroplane Races at Chelan", 
-					  :description => "Vintage Unlimited Hydroplanes from the Hydroplane And Raceboat Museum in Seattle showcased alongside the races.", 
+					  :description => "We always love a trip to Lake Chelan, especially when our friend Tim promises to take us out in his hydroplane for a ride. Vintage Unlimited Hydroplanes from the Hydroplane And Raceboat Museum in Seattle showcased alongside the races.", 
 					  :thumb => "chelan-thumb.jpg", 
 					  :location => "Chelan, Washington",
 					  :event_link => "http://www.lakechelan.com/mahogany-merlot-hydroplane-races/",
@@ -55,7 +55,7 @@ image1 = event3.event_images.create(:image_path => "chelan-9.jpg", :description 
 image1 = event3.event_images.create(:image_path => "chelan-10.jpg", :description => "Crews prepping the hydroplanes")
 
 event4 = Event.create(:name => "Motorsports 2008 Northwest Auto Show", 
-					  :description => "Motor sports show at the Tacoma Dome with a display of 300 rare and classic vehicles including NASCAR and Indy cars, dragsters, hot rods, plus a variety of vintage and modern hydroplanes, meet drivers from all parts of the motor sports world.", 
+					  :description => "Motor sports show at the Tacoma Dome with a display of 300 rare and classic vehicles including NASCAR and Indy cars, dragsters, hot rods, plus a variety of vintage and modern hydroplanes. We enjoyed meeting other motor sports enthusiasts from all over the world. Here is a selection of some of the beautiful cars and hydroplanes we saw.", 
 					  :thumb => "tacoma-thumb.jpg", 
 					  :location => "Tacoma, Washington",
 					  :event_link => "www.motorsports2008.com",

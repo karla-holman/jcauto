@@ -41,19 +41,19 @@ image1 = service1.service_images.create(:image_path => "services/e-gauge-main.pn
 image2 = service1.service_images.create(:image_path => "services/e-gauge-second.png", :description => "", :main_image => false, :thumb_image => false)
 # image3 = service1.service_images.create(:image_path => "services/e-gauge-third.png", :description => "", :main_image => false, :thumb_image => false)
 
-service2 = Service.create(:name => "Control and Switch Services", :description => "Switches of all types rebuilt", :description_long => "")
+service2 = Service.create(:name => "Control and Switch Services rebuilt and restored", :description => "Switches of all types rebuilt", :description_long => "")
 thumb = service2.service_images.create(:image_path => "services/switch-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service2.service_images.create(:image_path => "services/switch-main.png", :description => "", :main_image => true, :thumb_image => false)
 image2 = service2.service_images.create(:image_path => "services/switch-second.png", :description => "", :main_image => false, :thumb_image => false)
 image3 = service2.service_images.create(:image_path => "services/switch-third.png", :description => "", :main_image => false, :thumb_image => false)
 
-service3 = Service.create(:name => "Other Rebuilt Parts", :description => "Mirror-matics, Auto-pilot servos and electric motors rebuilt", :description_long => "")
+service3 = Service.create(:name => "Other Rebuilt Parts", :description => "Heater, A/C, power windows, and seats", :description_long => "")
 thumb = service3.service_images.create(:image_path => "services/other-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service3.service_images.create(:image_path => "services/other-main.png", :description => "", :main_image => true, :thumb_image => false)
 # image2 = service3.service_images.create(:image_path => "services/other-second.png", :description => "", :main_image => false, :thumb_image => false)
 # image3 = service3.service_images.create(:image_path => "services/other-third.png", :description => "", :main_image => false, :thumb_image => false)
 
-service4 = Service.create(:name => "Highway Hi-Fi Restoration", :description => "Restoration and parts", :description_long => "Replace your crumbling, deteriorated shock mount cushions with our high quality, reproduction cushions. Made of a superior material to ensure long life, and die-cut for accurate fit. Restores proper support to motorboard assembly while maintaining essential vibration dampening. Replaces part numbers 84 000 411 and 84 000 401. Use 3M Black weatherstrip adhesive (#08011) or equivalent for installation. Set of three is $90, plus $12 for US shipping/insurance.")
+service4 = Service.create(:name => "Highway Hi-Fi Restoration", :description => "Highway Hi-Fi and 45-rpm record changer restoration and service and parts", :description_long => "Replace your crumbling, deteriorated shock mount cushions with our high quality, reproduction cushions. Made of a superior material to ensure long life, and die-cut for accurate fit. Restores proper support to motorboard assembly while maintaining essential vibration dampening. Replaces part numbers 84 000 411 and 84 000 401. Use 3M Black weatherstrip adhesive (#08011) or equivalent for installation. Set of three is $90, plus $12 for US shipping/insurance.")
 thumb = service4.service_images.create(:image_path => "services/hifi-thumb.png", :description => "", :main_image => false, :thumb_image => true)
 image1 = service4.service_images.create(:image_path => "services/hifi-main.jpg", :description => "", :main_image => true)
 image2 = service4.service_images.create(:image_path => "services/hifi-second.jpg", :description => "", :main_image => false)
