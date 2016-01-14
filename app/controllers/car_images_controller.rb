@@ -8,13 +8,25 @@ class CarImagesController < ApplicationController
 	def create
     @image = @car.car_images.new(car_image_params)
     if @image.save
-      redirect_to @car
+    	flash[:success] = "Image added successfully!"
+      render "index"
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
       render "new"
     end
   end
+
+  def edit
+  	@image = CarImage.find(params[:car_image_id])
+  end
+
+  def destroy
+  	CarImage.find(params[:car_image_id]).destroy
+    flash[:success] = "Image deleted"
+    render "index"
+  end
+
 
 	private
 
