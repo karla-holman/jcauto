@@ -6,7 +6,7 @@ class CarImagesController < ApplicationController
 	end
 
 	def create
-    @image = CarImage.new(car_image_params)
+    @image = @car.car_images.new(car_image_params)
     if @image.save
       redirect_to @car
     else
