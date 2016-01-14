@@ -86,6 +86,20 @@ Rails.application.configure do
       :bucket => ENV['S3_BUCKET_NAME'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    },
+    s3_headers:     { "Cache-Control" => "max-age=31557600" },
+    s3_protocol:    "https",
+    bucket:         ENV['S3_BUCKET_NAME'],
+    url:            ":s3_domain_url",
+
+    styles: {
+        thumb:     "165x120>",
+        large:    "1100x700>"
+    },
+
+    path:           "/:class/:id/:style/:basename.:extension",
+    default_url:    "/:class/:id/:style/:basename.:extension",
+    default_style:  "large"
   }
+
 end
