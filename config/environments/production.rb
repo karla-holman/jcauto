@@ -81,12 +81,12 @@ Rails.application.configure do
 
   # config/environments/production.rb
   config.paperclip_defaults = {
-    :storage => :s3,
     :s3_credentials => {
       :bucket => ENV['S3_BUCKET_NAME'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
+    storage: :s3,
     s3_headers:     { "Cache-Control" => "max-age=31557600" },
     s3_protocol:    "https",
     bucket:         ENV['S3_BUCKET_NAME'],
@@ -101,5 +101,9 @@ Rails.application.configure do
     default_url:    "/:class/:id/:style/:basename.:extension",
     default_style:  "large"
   }
+
+  config.paperclip_defaults.each do |key, value|
+    CarImage.attachment_definitions[:attachment][key.to_sym] = value
+  end
 
 end
