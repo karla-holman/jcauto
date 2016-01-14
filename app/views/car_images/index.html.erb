@@ -29,7 +29,7 @@
             </td>
             <td><%= image.description %></td>
             <td class="actions actions-2 text-right">
-              <%= link_to(Spree.t(:edit), edit_car_car_image_path(@car, image), :method => :edit, class: 'btn btn-primary btn-sm') %>
+              <%= link_to(Spree.t(:edit), edit_car_car_image_path(@car, image), :method => :get, class: 'btn btn-primary btn-sm') %>
               <%= link_to('delete', car_car_image_path(@car, image),  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-warning btn-sm') %>
             </td>
           </tr>

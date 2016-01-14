@@ -18,11 +18,11 @@ class CarImagesController < ApplicationController
   end
 
   def edit
-  	@image = CarImage.find(params[:car_image_id])
+  	@image = CarImage.find(params[:id])
   end
 
   def destroy
-  	CarImage.find(params[:car_image_id]).destroy
+  	CarImage.find(params[:id]).destroy
     flash[:success] = "Image deleted"
     render "index"
   end
@@ -35,6 +35,6 @@ class CarImagesController < ApplicationController
   end
 
   def car_image_params
-	  params.require(:car_image).permit(:attachment, :attachment_file_name, :attachment_content_type, :attachment_file_size, :attachment_updated_at, :description)
+	  params.require(:car_image).permit(:attachment, :attachment_file_name, :attachment_content_type, :attachment_file_size, :attachment_updated_at, :description, :state)
 	end
 end
