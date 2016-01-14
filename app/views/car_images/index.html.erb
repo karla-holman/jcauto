@@ -27,7 +27,7 @@
             <td><%= image.description %></td>
             <td class="actions actions-2 text-right">
               <%= link_to(Spree.t(:edit), edit_car_car_image_path(@car, image), class: 'btn btn-primary btn-sm', data: { action: 'edit' }) %>
-              <%= link_to('delete', car_car_image_path(@car, image), class: 'btn btn-warning btn-sm', data: { action: 'delete' }) %>
+              <%= link_to('delete', car_car_image_path(@car, image), :method => :delete, class: 'btn btn-warning btn-sm') %>
             </td>
           </tr>
         <% end %>
