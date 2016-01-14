@@ -180,7 +180,7 @@ function advanceNext(mobile){
 	// Check to see if this is the last image
 	if ($current.find("img").attr("src") === $current.parent().children("div:last-child").find("img").attr("src")) {
 		console.log("Last");
-		$next = $current.parent().children("div:first-child");
+		$next = $current.parent().children("div").first();
 	} else {
 		console.log("Not Last");
 		$next = $current.nextAll("div").first();
@@ -194,10 +194,10 @@ function advancePrev(mobile){
 	$current = $(".thumb_selected"); // div
 
 	// Check to see if this is the first image
-	if ($current.find("img").attr("src") === $current.parent().children("div:first-child").find("img").attr("src")) {
+	if ($current.find("img").attr("src") === $current.parent().children("div").first().find("img").attr("src")) {
 		console.log("First");
 		// If first image, previous loops to last image
-		$previous = $current.parent().children("div:last-child");
+		$previous = $current.parent().children("div").last();
 	} else {
 		// otherwise get previous image
 		console.log("Not first");
@@ -213,6 +213,7 @@ function advanceGallery(current, next, mobile) {
 
 	// Get image link
 	imgHref = next.find("img").attr("data-path");
+	var imgHeader = next.find("img").attr("data-state");
 
 	// Get image caption from alt text
 	var imgCaption = next.find("img").attr("alt");
@@ -233,7 +234,7 @@ function advanceGallery(current, next, mobile) {
 	$gallery_main.fadeToggle(400, function(){
 
 		current.removeClass("thumb_selected");
-		updateGallery(imgHref, imgCaption, $gallery_main);
+		updateGallery(imgHref, imgCaption, $gallery_main, imgHeader);
 
 		// Display placeholder to prevent div collapse
 		$gallery_placeholder.css("display", "inline");
@@ -247,13 +248,20 @@ function advanceGallery(current, next, mobile) {
 }
 
 // Update main gallery image and caption
-function updateGallery(new_src, new_caption, gallery_main){
+function updateGallery(new_src, new_caption, gallery_main, new_header){
 	console.log("Setting new src to " + new_src);
 	console.log("Setting new caption to " + new_caption);
+	console.log("Setting new header to " + new_header)
 
 	gallery_main.attr("src", new_src);
 
-	$("#caption").html(new_caption);
+	if(new_header != "Images"){
+		$("#caption-header").text(new_header);
+		$("#caption-header").show();
+	} else {
+		$("#caption-header").hide();
+	}
+	$("#caption-text").text(new_caption);
 }
 
 // Handle automatic slide shows

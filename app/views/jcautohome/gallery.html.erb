@@ -147,7 +147,7 @@
 				<% end %>
 			</div><!-- Gallery -->
 			<div id="caption">
-				<p><%= images[0].description %></p>
+				<p id="caption-text"><%= images[0].description.html_safe %></p>
 			</div>
 
 
@@ -155,7 +155,7 @@
 			<% images.each do |image| %>
 				<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
 					<a href= <%= "#{asset_path('events/' + image.image_path)}" %> >
-						<%= image_tag "events/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("events/" + image.image_path)}" } %>
+						<%= image_tag "events/" + image.image_path, alt: image.description, class: "icon", :data => { :path => "#{asset_path("events/" + image.image_path)}", :state => "Images" } %>
 					</a>
 					<% if first %>
 						<% first = false %>
