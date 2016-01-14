@@ -91,6 +91,7 @@ Rails.application.configure do
     s3_protocol:    "https",
     bucket:         ENV['S3_BUCKET_NAME'],
     url:            ":s3_domain_url",
+    s3_host_name:   's3-us-west-2.amazonaws.com',
 
     styles: {
         thumb:     "165x120>",
@@ -101,9 +102,5 @@ Rails.application.configure do
     default_url:    "/:class/:id/:style/:basename.:extension",
     default_style:  "large"
   }
-
-  config.paperclip_defaults.each do |key, value|
-    CarImage.attachment_definitions[:attachment][key.to_sym] = value
-  end
 
 end
