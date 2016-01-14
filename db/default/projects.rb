@@ -54,6 +54,7 @@ image15 = project1.car_images.create(:image_path => "projects/darla-15.jpg", :de
 image16 = project1.car_images.create(:image_path => "projects/darla-16.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
 
 image17 = project1.car_images.create(:image_path => "projects/darla-17.jpg", :description => "The powerful 392 hemi engine gives Darla all the horsepower she needs.", :state => 3)
+=begin
 image18 = project1.car_images.create(:image_path => "projects/darla-18.jpg", :description => "The powerful 392 hemi engine gives Darla all the horsepower she needs.", :state => 3)
 image19 = project1.car_images.create(:image_path => "projects/darla-19.jpg", :description => "The powerful 392 hemi engine gives Darla all the horsepower she needs.", :state => 3)
 
@@ -61,6 +62,7 @@ image25 = project1.car_images.create(:image_path => "projects/darla-20.jpg", :de
 image26 = project1.car_images.create(:image_path => "projects/darla-21.jpg", :description => "Her exterior gleams and she looks powerful and graceful whether standing still or flying down the highway.", :state => 3)
 image27 = project1.car_images.create(:image_path => "projects/darla-22.jpg", :description => "Her exterior gleams and she looks powerful and graceful whether standing still or flying down the highway.", :state => 3)
 image28 = project1.car_images.create(:image_path => "projects/darla-23.jpg", :description => "Her exterior gleams and she looks powerful and graceful whether standing still or flying down the highway.", :state => 3)
+=end
 
 project2 = Car.create(:name => "1958 Chrysler 300D", 
 						  :description => "", 

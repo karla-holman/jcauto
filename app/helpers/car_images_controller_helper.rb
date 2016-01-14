@@ -1,0 +1,2 @@
+module CarImagesControllerHelper
+end

@@ -23,6 +23,7 @@ class CarsController < ApplicationController
   # GET /cars/new
   def new
     @car = Car.new
+    # @car_image = @car.car_images.new
   end
 
   # GET /cars/1/edit

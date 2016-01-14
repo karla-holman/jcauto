@@ -5,6 +5,10 @@
 			<p class="intro"><%= @car.description %></p>
 		</div>
 
+		<div>
+			<h3>Testing AWS:</h3>
+			<%= image_tag @car.car_images.first.attachment.url(:large) %>
+		</div>
 		<% images = @car.car_images %>
 		<% first = true %>
 

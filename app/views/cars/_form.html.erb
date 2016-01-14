@@ -11,7 +11,28 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :name, Spree.t(:name) %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, Spree.t(:alt_text) %>
+      <%= f.text_area :description, :rows => 4, :class => 'form-control' %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.check_box :our_car %>
+      <%= f.label :our_car, Spree.t(:our_car) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.check_box :current %>
+      <%= f.label :current, Spree.t(:current) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-default"%>
+    </div>
 <% end %>
