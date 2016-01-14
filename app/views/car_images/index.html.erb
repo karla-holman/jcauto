@@ -17,6 +17,7 @@
           <th>
             <%= Spree.t(:alt_text) %>
           </th>
+          <th>State</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -28,6 +29,7 @@
               <%= link_to image_tag(image.attachment.url(:thumb)), image.attachment.url(:large) %>
             </td>
             <td><%= image.description %></td>
+            <td><%= image.state %></td>
             <td class="actions actions-2 text-right">
               <%= link_to(Spree.t(:edit), edit_car_car_image_path(@car, image), :method => :get, class: 'btn btn-primary btn-sm') %>
               <%= link_to('delete', car_car_image_path(@car, image),  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-warning btn-sm') %>

@@ -14,7 +14,7 @@
   <div data-hook="alt_text" class="col-md-4">
     <div class="form-group">
       <%= f.label :state, Spree.t(:state) %>
-      <%= f.collection_select(:state, CarImage.states, :last, :first, {:prompt => "Select a State"}, {:class=>'form-control'} ) %>
+      <%= f.collection_select(:state, CarImage.states, :first, :first, {:prompt => "Select a State"}, {:class=>'form-control'} ) %>
     </div>
   </div>
 </div>
