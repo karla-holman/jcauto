@@ -33,23 +33,23 @@ project1 = Car.create(:name => '1958 Chrysler 300-D, "Darla"',
 						  :thumb => "thumbs/darla-main.jpg",
 						  :our_car => false,
 						  :current => false)
-image1 = project1.car_images.create(:image_path => "projects/darla-1.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
-image2 = project1.car_images.create(:image_path => "projects/darla-2.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
-image3 = project1.car_images.create(:image_path => "projects/darla-3.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
+#image1 = project1.car_images.create(:image_path => "projects/darla-1.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
+#image2 = project1.car_images.create(:image_path => "projects/darla-2.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
+#image3 = project1.car_images.create(:image_path => "projects/darla-3.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
 image4 = project1.car_images.create(:image_path => "projects/darla-4.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
 image5 = project1.car_images.create(:image_path => "projects/darla-5.jpg", :description => "When Darla first arrived at JC Auto Restoration, she was a painted, rolling, empty shell that needed everything, including major disassembly to properly align the body panels.", :state => 1)
 
 image6 = project1.car_images.create(:image_path => "projects/darla-6.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
 image7 = project1.car_images.create(:image_path => "projects/darla-7.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
-image8 = project1.car_images.create(:image_path => "projects/darla-8.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
-image9 = project1.car_images.create(:image_path => "projects/darla-9.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
+#image8 = project1.car_images.create(:image_path => "projects/darla-8.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
+#image9 = project1.car_images.create(:image_path => "projects/darla-9.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
 image10 = project1.car_images.create(:image_path => "projects/darla-10.jpg", :description => "Jeff Carter and Michael Jenkins at JC Auto Restoration rebuilt her engine and transmission.", :state => 2)
 
 image11 = project1.car_images.create(:image_path => "projects/darla-11.jpg", :description => "They restored the complete instrument panel, including the wiring harness, all of the gauges and switches, radio, power window switches, etc. They restored the steering wheel and installed the dash and pad.", :state => 3)
 image12 = project1.car_images.create(:image_path => "projects/darla-12.jpg", :description => "They restored the complete instrument panel, including the wiring harness, all of the gauges and switches, radio, power window switches, etc. They restored the steering wheel and installed the dash and pad.", :state => 3)
 
-image13 = project1.car_images.create(:image_path => "projects/darla-13.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
-image14 = project1.car_images.create(:image_path => "projects/darla-14.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
+#image13 = project1.car_images.create(:image_path => "projects/darla-13.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
+#image14 = project1.car_images.create(:image_path => "projects/darla-14.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
 image15 = project1.car_images.create(:image_path => "projects/darla-15.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
 image16 = project1.car_images.create(:image_path => "projects/darla-16.jpg", :description => "They restored the complete interior, including installing a new headliner, seats, door panels, trunk kit, and carpets by Gary Goers and reproduction door sills.", :state => 3)
 

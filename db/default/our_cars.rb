@@ -48,6 +48,7 @@ image1 = car5.car_images.create(:image_path => "cars/56300B-1.jpg", :description
 image2 = car5.car_images.create(:image_path => "cars/56300B-2.jpg", :description => "<p>August 2008, Walter P Chrysler Club Regional Meet, McMinnville, Oregon</p>")
 image3 = car5.car_images.create(:image_path => "cars/56300B-3.jpg", :description => "<p>August 2008, Walter P Chrysler Club Regional Meet, McMinnville, Oregon</p>")
 image4 = car5.car_images.create(:image_path => "cars/56300B-4.jpg", :description => "<p>July 2008, Montana</p>")
+=begin
 image5 = car5.car_images.create(:image_path => "cars/56300B-5.jpg", :description => "<p>July 2008, Montana</p>")
 image6 = car5.car_images.create(:image_path => "cars/56300B-6.jpg", :description => "")
 image7 = car5.car_images.create(:image_path => "cars/56300B-7.jpg", :description => "<p>July 2008, Montana</p>")
@@ -58,3 +59,4 @@ image11 = car5.car_images.create(:image_path => "cars/56300B-11.jpg", :descripti
 image12 = car5.car_images.create(:image_path => "cars/56300B-12.jpg", :description => "<p>March 2006 - at JC Auto Restoration</p>")
 image13 = car5.car_images.create(:image_path => "cars/56300B-13.jpg", :description => "<p>July 2008, Wallace, Idaho</p>")
 image14 = car5.car_images.create(:image_path => "cars/56300B-14.jpg", :description => "<p>March 2006 - at JC Auto Restoration</p>")
+=end
