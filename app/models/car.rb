@@ -13,6 +13,7 @@ class Car < ActiveRecord::Base
                       url: '/cars/:id/:style/:basename.:extension',
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
     validates_attachment :attachment,
+      :presence => true,
       :content_type => { :content_type => %w(image/jpeg image/jpg image/png image/gif) }
 
     # Get image path or string if nil

@@ -60,7 +60,7 @@
 			<h1>Get in Touch</h1>
 			<p class="intro">Visit or call us any time during our hours, M-F from 8 am to 5pm.</p>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<%= image_tag "master/parts.png", onmouseover: "document.getElementById('visit').src='#{asset_path("master/parts-hover.png")}'", onmouseout: "document.getElementById('visit').src='#{asset_path("master/parts.png")}'", class:"icon", id:"visit" %>
 				<h3>Visit the Shop</h3>
 				<p>
 					20815 52nd Ave W, Suite 2 <br> 
@@ -76,7 +76,7 @@
 				</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
-				<%= image_tag "master/Tech.png", class:"icon", id:"tech1" %>
+				<%= image_tag "master/discussion.png", onmouseover: "document.getElementById('mail').src='#{asset_path("master/discussion-hover.png")}'", onmouseout: "document.getElementById('mail').src='#{asset_path("master/discussion.png")}'", class:"icon", id:"mail" %>
 				<h3>Send an Email</h3>
 				<p>
 					<strong>General:</strong> jcauto@jcauto.com<br>

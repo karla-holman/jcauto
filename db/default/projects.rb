@@ -2,6 +2,7 @@
 # Create Projects for "Gallery"
 #---------------------------------------------------------------------------
 # 1956 Chrysler 300B Black
+=begin
 project5 = Car.create(:name => "1956 Chrysler 300B Black", 
 						  :description => "This 300B came to us in need of interior and exterior restoration. With some new paint, chrome, gauge, and engine work we had her looking like new.", 
 						  :thumb => "thumbs/56-300B-black-main.jpg",
@@ -64,6 +65,8 @@ image27 = project1.car_images.create(:image_path => "projects/darla-22.jpg", :de
 image28 = project1.car_images.create(:image_path => "projects/darla-23.jpg", :description => "Her exterior gleams and she looks powerful and graceful whether standing still or flying down the highway.", :state => 3)
 =end
 
+=begin
+
 project2 = Car.create(:name => "1958 Chrysler 300D", 
 						  :description => "", 
 						  :thumb => "thumbs/58-300D-main.jpg",
@@ -115,3 +118,4 @@ image4 = project4.car_images.create(:image_path => "projects/60-300F-convert-12.
 image4 = project4.car_images.create(:image_path => "projects/60-300F-convert-13.jpg", :description => "The restored interior ready to drive", :state => 3)
 image4 = project4.car_images.create(:image_path => "projects/60-300F-convert-14.jpg", :description => "")
 
+=end

@@ -53,7 +53,8 @@ class Admin::CarsController < AdminController
   def destroy
     @car.destroy
     respond_to do |format|
-      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
+      flash[:success] = 'Car was successfully destroyed.'
+      format.html { redirect_to admin_cars_path }
       format.json { head :no_content }
     end
   end

@@ -35,7 +35,7 @@
               <td><%= car.car_images.length %></td>
               <td><%= link_to 'Gallery', car %></td>
               <td><%= link_to 'Edit', edit_admin_car_path(car) %></td>
-              <td><%= link_to 'Remove', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Remove', admin_car_path(car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>

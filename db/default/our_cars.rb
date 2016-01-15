@@ -3,6 +3,7 @@
 #---------------------------------------------------------------------------
 
 # Create Our Cars
+=begin
 car1 = Car.create(:name => "1931 Chrysler CD Deluxe Roadster", :description => "Our favorite car", :thumb => "thumbs/31CD-main.jpg", :our_car => true)
 image1 = car1.car_images.create(:image_path => "cars/31CD-1.jpg", :description => "")
 image2 = car1.car_images.create(:image_path => "cars/31CD-2.jpg", :description => "")
