@@ -23,7 +23,7 @@ class Admin::CarsController < AdminController
 
     respond_to do |format|
       if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
+        format.html { render :edit, notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class Admin::CarsController < AdminController
   def update
     respond_to do |format|
       if @car.update(car_params)
-        format.html { redirect_to @car, notice: 'Car was successfully updated.' }
+        format.html { redirect_to admin_cars_path, notice: 'Car was successfully updated.' }
         format.json { render :show, status: :ok, location: @car }
       else
         format.html { render :edit }
@@ -64,6 +64,6 @@ class Admin::CarsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params[:car]
+      params.require(:car).permit(:name, :attachment, :description, :our_car, :current)
     end
 end
