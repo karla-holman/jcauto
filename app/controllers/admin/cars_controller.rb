@@ -23,7 +23,8 @@ class Admin::CarsController < AdminController
 
     respond_to do |format|
       if @car.save
-        format.html { render :edit, notice: 'Car was successfully created.' }
+        flash[:success] = "Car was successfully created."
+        format.html { render :edit }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new }
@@ -37,7 +38,8 @@ class Admin::CarsController < AdminController
   def update
     respond_to do |format|
       if @car.update(car_params)
-        format.html { redirect_to admin_cars_path, notice: 'Car was successfully updated.' }
+        flash[:success] = "Car was successfully updated."
+        format.html { redirect_to admin_cars_path }
         format.json { render :show, status: :ok, location: @car }
       else
         format.html { render :edit }

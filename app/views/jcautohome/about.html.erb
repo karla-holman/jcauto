@@ -137,7 +137,7 @@
 
 			<% @our_cars.each_with_index do |car, index| %>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
-				<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+				<%= image_tag car.attachment.url(:thumb), class: "icon-retro", style: "margin-bottom: 20px" %>
 				<div class="clearfix visible-xs"></div>
 				<%= link_to car.name, car, class: "button-link" %>
 
