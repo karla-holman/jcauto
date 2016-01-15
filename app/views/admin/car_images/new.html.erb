@@ -1,0 +1,23 @@
+ <div class="container">
+  <div class="row">
+  	<ol class="breadcrumb" style="text-align: left">
+      <li><%=link_to edit_admin_car_path(@car) do %><%= @car.name %><% end %></li>
+      <li><%=link_to admin_car_car_images_path(@car) do %>Images<% end %></li>
+      <li class="active">New Image</li>
+    </ol>
+  	<h2><%= @car.name %></h2>
+    <h3><%= Spree.t(:new_image) %></h3>
+    <p id="error"><%= flash[:error] %></p>
+		<p id="notice"><%= flash[:notice] %></p>
+
+		<%= form_for [:admin, @car, @image], html: { multipart: true } do |f| %>
+	    <%= render partial: 'form', locals: { f: f } %>
+
+	    <div class="form-actions" data-hook="buttons">
+	      <%= button Spree.t('actions.update'), 'save' %>
+	      <span class="or"><%= Spree.t(:or) %></span>
+	      <%= button_link_to Spree.t('actions.cancel'), admin_car_car_images_path(@car), icon: 'delete', id: 'cancel_link' %>
+	    </div>
+		<% end %>
+	</div>
+</div>

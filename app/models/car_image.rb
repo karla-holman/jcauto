@@ -5,7 +5,7 @@ class CarImage < ActiveRecord::Base
 
 	has_attached_file :attachment,
                       processors: [:watermark],
-                      watermark_path: "#{Rails.root}/public/Logo-new.png",
+                      watermark_path: "#{Rails.root}/public/Watermark-images.png",
                       styles: { thumb: '165x120>',
                         large: {
                           geometry: '1100x700>'

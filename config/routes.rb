@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
   resources :events
-  resources :cars
-  resources :our_cars
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -21,9 +19,6 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   Spree::Core::Engine.routes.draw do
-  resources :events
-  resources :cars
-  resources :our_cars
     root to: "products#index"
   end   
   # This line mounts Spree's routes at the root of your application.
@@ -61,12 +56,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cars do
-    resources :car_images
-  end
+  resources :cars, only: :show
+
   # handle 404
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
+  namespace :admin do
+    resources :cars do
+      resources :car_images
+    end
+  end
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
