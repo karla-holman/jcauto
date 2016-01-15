@@ -28,7 +28,7 @@
         <tbody>
           <% @cars.each do |car| %>
             <tr>
-              <td><%= image_tag car.attachment.url(:thumb), width: 100 %></td>
+              <td><%= image_tag car.thumb_image_path, width: 100 %></td>
               <td><%= car.name %></td>
               <td><%= car.our_car ? "Our Car" : "Project Car" %></td>
               <td><%= car.our_car ? "N/A" : (car.current ? "Current" : "Past") %></td>
