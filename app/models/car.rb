@@ -14,4 +14,9 @@ class Car < ActiveRecord::Base
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
     validates_attachment :attachment,
       :content_type => { :content_type => %w(image/jpeg image/jpg image/png image/gif) }
+
+    # Get image path or string if nil
+    def thumb_image_path 
+      self.attachment ? self.attachment.url(:thumb) : "/public/no-image.png"
+    end
 end

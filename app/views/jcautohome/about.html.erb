@@ -130,6 +130,9 @@
 		<div class="row text-center row-centered">
 			<div class="col-md-12">
 				<h1>Our Cars</h1>
+				<% if spree_current_user && spree_current_user.spree_roles.first.name == "admin" %>
+					<%= link_to "Edit Cars", admin_cars_path, class: "btn btn-success admin-button" %>
+				<% end %>
 				<p class="intro">
 					Perhaps we take so much pride in our work because, as car owners ourselves, we would expect nothing less on our own projects. We are just like you! The world of MoPar is exciting, from the cars to the community, and we are happy to be a part of that in both our personal and professional lives. When not busy in the shop, we love working on and touring the country in some of our own cars. 
 				</p>
@@ -137,7 +140,7 @@
 
 			<% @our_cars.each_with_index do |car, index| %>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
-				<%= image_tag car.attachment.url(:thumb), class: "icon-retro", style: "margin-bottom: 20px" %>
+				<%= image_tag car.thumb_image_path, class: "icon-retro", style: "margin-bottom: 20px", alt: car.name %>
 				<div class="clearfix visible-xs"></div>
 				<%= link_to car.name, car, class: "button-link" %>
 

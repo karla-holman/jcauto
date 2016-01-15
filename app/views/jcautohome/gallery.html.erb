@@ -15,13 +15,16 @@
 	<div class="row text-center">
 		<div class="col-md-12">
 			<h1>Current Projects</h1>
+			<% if spree_current_user && spree_current_user.spree_roles.first.name == "admin" %>
+				<%= link_to "Edit Projects", admin_cars_path, class: "btn btn-success admin-button" %>
+			<% end %>
 			<p class="intro">
 				There is always a lot going on at the shop! Check back regulary to see how these projects are going.
 			</p>
 		</div>
 		<% @current_projects.each_with_index do |car, index| %>
 		<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
-			<%= image_tag car.attachment.url(:thumb), class: "icon-retro", style: "margin-bottom: 20px" %>
+			<%= image_tag car.thumb_image_path, alt: car.name, class: "icon-retro", style: "margin-bottom: 20px" %>
 			<div class="clearfix visible-xs"></div>
 			<%= link_to car.name, car, class: "button-link" %>
 
@@ -50,13 +53,16 @@
 		<div class="row text-center">
 			<div class="col-md-12">
 				<h1>Past Projects</h1>
+				<% if spree_current_user && spree_current_user.spree_roles.first.name == "admin" %>
+					<%= link_to "Edit Projects", admin_cars_path, class: "btn btn-success admin-button" %>
+				<% end %>
 				<p class="intro">
 					Get an up close look at some of our previous projects. Although we specialize in MoPar restoration, you will occasionally find other brands such as Honda, Ford, and Oldsmobile in our shop. No matter what the project or make, we will deliver quality results that come from over 35 years of expereince.
 				</p>
 			</div>
 			<% @past_projects.each_with_index do |car, index| %>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
-				<%= image_tag car.attachment.url(:thumb), class: "icon-retro", style: "margin-bottom: 20px" %>
+				<%= image_tag car.thumb_image_path, alt: car.name, class: "icon-retro", style: "margin-bottom: 20px" %>
 				<div class="clearfix visible-xs"></div>
 				<%= link_to car.name, car, class: "button-link" %>
 

@@ -7,6 +7,9 @@
     </ol>
     <h2><%= @car.name %></h2>
     <h3><%= Spree.t(:edit_image) %></h3>
+    <div id="content" class="col-md-12" style="margin-top: 25px">
+      <%= flash_messages %>
+    </div>
 
     <%= form_for [:admin, @car, @image], html: { multipart: true } do |f| %>
       <div data-hook="edit_image" class="panel panel-default">

@@ -2,6 +2,9 @@
 	<div class="row row-centered">
 		<div class="col-md-12 text-center">
 			<h1><%= @car.name %></h1>
+			<% if spree_current_user && spree_current_user.spree_roles.first.name == "admin" %>
+				<%= link_to "Edit Car", edit_admin_car_path(@car), class: "btn btn-success admin-button" %>
+			<% end %>
 			<p class="intro"><%= @car.description %></p>
 		</div>
 
@@ -79,7 +82,7 @@
 					<!-- Do not list car on its own page -->
 				<% else %>
 					<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
-						<%= image_tag car.thumb, class: "icon-retro", style: "margin-bottom: 20px" %>
+						<%= image_tag car.attachment.url(:thumb), class: "icon-retro", style: "margin-bottom: 20px" %>
 						<div class="clearfix visible-xs"></div>
 						<%= link_to car.name, car, class: "button-link" %>
 						<!-- Add break to right location -->

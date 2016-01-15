@@ -24,7 +24,7 @@ class Admin::CarsController < AdminController
     respond_to do |format|
       if @car.save
         flash[:success] = "Car was successfully created."
-        format.html { render :edit }
+        format.html { redirect_to admin_cars_path }
         format.json { render :show, status: :created, location: @car }
       else
         format.html { render :new }
