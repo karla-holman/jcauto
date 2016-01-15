@@ -17,6 +17,6 @@ class Car < ActiveRecord::Base
 
     # Get image path or string if nil
     def thumb_image_path 
-      self.attachment ? self.attachment.url(:thumb) : "/public/no-image.png"
+      self.attachment.url(:thumb) ? self.attachment.url(:thumb) : "/public/no-image.png"
     end
 end
