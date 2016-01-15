@@ -241,10 +241,10 @@ function advanceGallery(current, next, mobile) {
 
 	}).load( function() { }).delay(200);
 
-	$gallery_main.fadeToggle( 400, function() {
-		// Hide placeholder when image starts fading in
-		$gallery_placeholder.css("display", "none");
+	// Hide placeholder when image starts fading in
+	$gallery_placeholder.css("display", "none");
 
+	$gallery_main.fadeToggle( 400, function() {
 		next.closest("div").addClass("thumb_selected");
 	});
 }
