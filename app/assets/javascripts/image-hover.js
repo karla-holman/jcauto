@@ -239,12 +239,11 @@ function advanceGallery(current, next, mobile) {
 		// Display placeholder to prevent div collapse
 		$gallery_placeholder.css("display", "inline");
 
-	}).load( function() { }).delay(200);
+	}).load( function() { }).delay(100);
 
-	// Hide placeholder when image starts fading in
-	$gallery_placeholder.css("display", "none");
-
-	$gallery_main.fadeToggle( 400, function() {
+	$gallery_main.delay(200).fadeToggle( 400, function() {
+		// Hide placeholder when image starts fading in
+		$gallery_placeholder.css("display", "none");
 		next.closest("div").addClass("thumb_selected");
 	});
 }
