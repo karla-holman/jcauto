@@ -33,7 +33,6 @@ class ServicesController < ApplicationController
         @service_price_list_id = params[:my_service_application][:my_service_price_list_id].to_i
       end
   	end
-
   end
 
   # GET /cars/new

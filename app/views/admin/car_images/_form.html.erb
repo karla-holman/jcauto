@@ -1,3 +1,5 @@
+<%= render partial: 'spree/shared/error_messages', locals: { target: @image } %>
+
 <div data-hook="file" class="form-group">
   <%= f.label :attachment, Spree.t(:filename) %>
   <%= f.file_field :attachment %>

@@ -52,7 +52,7 @@
 					<% state[:array].each do |image| %>
 						<div class="col-xs-2 col-sm-2 col-md-3 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
 							<a href=<%= "#{asset_path(image.attachment.url(:large))}" %>>
-								<%= image_tag image.attachment.url(:thumb), alt: image.description, class: "icon", :data => { :path => "#{asset_path(image.attachment.url(:large))}", :state => state[:title] } %>
+								<%= image_tag image.attachment.url(:large), alt: image.description, class: "icon", :data => { :path => "#{asset_path(image.attachment.url(:large))}", :state => state[:title] } %>
 							</a>
 							<% if first %>
 								<% first = false %>

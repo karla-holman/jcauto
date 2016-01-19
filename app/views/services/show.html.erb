@@ -176,3 +176,25 @@
 <%= link_to 'Edit', edit_service_path(@service) %> |
 <%= link_to 'Back', services_path %>
 -->
+
+<script type="text/javascript">
+	$( document ).ready( function(){
+		var $dropdown1 = $('#my_service_application_my_service_application_id');
+		var $dropdown2 = $('#my_service_application_my_service_price_list_id');
+		if(($dropdown1.val() != "") || ($dropdown2.val() != "")) {
+			aTag = $("a[name='prices']");
+			console.log("link: " + aTag.attr("name"));
+
+			if (window.innerWidth < 830) {
+				$('html, body').animate({
+					scrollTop: $(aTag).offset().top + 20
+				}, 2000);
+			}
+			else {
+				$('html, body').animate({
+					scrollTop: $(aTag).offset().top - 80
+				}, 2000);
+			}
+		}
+	});
+</script>

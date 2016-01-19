@@ -13,6 +13,8 @@ class Admin::CarImagesController < AdminController
     else
       # This line overrides the default rendering behavior, which
       # would have been to render the "create" view.
+      flash[:error] = "Image unable to be saved.\n"
+      flash[:error] += @image.errors.full_messages.join("\n")
       render "new"
     end
   end

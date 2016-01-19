@@ -261,7 +261,7 @@ function updateGallery(new_src, new_caption, gallery_main, new_header){
 	} else {
 		$("#caption-header").hide();
 	}
-	$("#caption-text").text(new_caption);
+	$("#caption-text").html(new_caption);
 }
 
 // Handle automatic slide shows

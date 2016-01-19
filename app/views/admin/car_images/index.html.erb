@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <ol class="breadcrumb" style="text-align: left">
+      <li><%=link_to admin_cars_path do %>Cars<% end %></li>
       <li><%=link_to edit_admin_car_path(@car) do %><%= @car.name %><% end %></li>
       <li class="active">Images</li>
     </ol>
