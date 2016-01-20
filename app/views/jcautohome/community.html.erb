@@ -140,11 +140,7 @@
 		<div class="spacer visible-sm"></div>
 		<div class="col-sm-4 col-md-2">
 			<%= image_tag "master/wishlist.png", class:"icon" %>
-			<% if spree_current_user %>
-				<%= link_to "Create Wishlist >", spree.new_wishlist_path, class:"btn btn-text" %>
-			<% else %>
-				<%= link_to "Sign In >", spree.signup_path, class:"btn btn-text" %>
-			<% end %>
+			<%= link_to "Create Wishlist >", spree.new_wishlist_path, class:"btn btn-text" %>
 		</div>
 		<div class="col-sm-8 col-md-4">
 			<h3>Make a Wish List</h3>

@@ -97,12 +97,12 @@
 			We can make sure your gauges and parts are restored to their original beauty, but sometimes you need to get hands-on to take it from there. Here is all the information you'll need to keep your project moving forward.
 		</p>
 		<div class="col-md-4 col-lg-4 col-centered">
-			<%= link_to "/", onmouseover: "document.getElementById('e-gauge').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('e-gauge').src='#{asset_path("services/gauge-large.png")}'" do %>
-				<%= image_tag "services/gauge-large.png", class:"icon", id:"e-gauge" %>
+			<%= link_to "/", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" do %>
+				<%= image_tag "services/cluster.png", class:"icon", id:"cluster" %>
 			<% end %>
 			<h3>Removing Your Instrument Cluster</h3>
 			<p>How to safely remove your gauge clusters.</p>
-			<%= link_to "Learn More", "/gauges", class: "button-link", onmouseover: "document.getElementById('e-gauge').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('e-gauge').src='#{asset_path("services/gauge-large.png")}'" %>
+			<%= link_to "Learn More", "/gauges", class: "button-link", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" %>
 		</div>
 		<div class="col-md-4 col-lg-4 col-centered">
 			<%= link_to "/", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-large-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping-large.png")}'" do %>
@@ -114,7 +114,7 @@
 		</div>
 		<div class="col-md-4 col-lg-4 col-centered">
 			<%= link_to "/em", onmouseover: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large.png")}'" do %>
-				<%= image_tag "services/shipping-large.png", class:"icon", id:"em-tutorial" %>
+				<%= image_tag "services/gauge-large.png", class:"icon", id:"em-tutorial" %>
 			<% end %>
 			<h3>Electroluminescent Gauges</h3>
 			<p>What is electroluminescence?</p>
