@@ -7,6 +7,13 @@ GIT
       spree_core (~> 3.0.0.rc2)
 
 GIT
+  remote: git://github.com/karla-holman/my_spree_wishlist.git
+  revision: 8457721c734aa223d0148e4c5861a8283dfc42f2
+  specs:
+    spree_wishlist (2.2.0)
+      spree_core (~> 3.0.4)
+
+GIT
   remote: git://github.com/karla-holman/spree_paypal_express.git
   revision: b32fb42a3a96e04878cadd3cbad7322644396237
   specs:
@@ -48,12 +55,6 @@ PATH
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
-
-PATH
-  remote: C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/spree_wishlist-2.2.0
-  specs:
-    spree_wishlist (2.2.0)
-      spree_core (~> 3.0.4)
 
 PATH
   remote: C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto
