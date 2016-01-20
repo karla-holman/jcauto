@@ -223,11 +223,7 @@
 					<li><%= link_to "Learn About Services", "/our-services" %></li>
 					<li><%= link_to "Get a Gift Card (coming soon!)", "/about#connect", class: "disabled" %></li>
 					<li>
-						<% if spree_current_user %>
-							<%= link_to "Start a Wishlist", spree.new_wishlist_path %>
-						<% else %>
-							<%= link_to "Start a Wishlist (create an account)", spree.signup_path %>
-						<% end %>
+						<%= link_to "Start a Wishlist", spree.new_wishlist_path %>
 					</li>
 				</ul>
 			</p>
