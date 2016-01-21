@@ -84,3 +84,5 @@ gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
 gem 'spree_email_to_friend', github: 'karla-holman/jc_spree_email_to_friend'
 gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings', branch: '3-0-stable'
 gem 'spree_tax_cloud', github: 'spree-contrib/spree_tax_cloud', branch: 'master'
+
+gem 'spree_wombat', github: 'spree/spree_wombat', branch: '3-0-stable'
