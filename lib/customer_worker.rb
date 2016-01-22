@@ -4,6 +4,7 @@ require 'qbwc'
   class CustomerWorker < QBWC::Worker
 
     def requests(job, session, data)
+      byebug
       requests = []
       Spree::User.all.each do |user|
         requests << 
