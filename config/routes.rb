@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'qbwc/action' => 'qbwc#_generate_wsdl'
+  get 'qbwc/qwc' => 'qbwc#qwc'
+  wash_out :qbwc
   resources :events
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -19,6 +22,9 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   Spree::Core::Engine.routes.draw do
+  get 'qbwc/action' => 'qbwc#_generate_wsdl'
+  get 'qbwc/qwc' => 'qbwc#qwc'
+  wash_out :qbwc
     root to: "products#index"
   end   
   # This line mounts Spree's routes at the root of your application.

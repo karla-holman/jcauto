@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120202955) do
+ActiveRecord::Schema.define(version: 20160122171002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,32 @@ ActiveRecord::Schema.define(version: 20160120202955) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "qbwc_jobs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "company",                          limit: 1000
+    t.string   "worker_class",                     limit: 100
+    t.boolean  "enabled",                                       default: false, null: false
+    t.integer  "request_index",                                 default: 0,     null: false
+    t.text     "requests"
+    t.boolean  "requests_provided_when_job_added",              default: false, null: false
+    t.text     "data"
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+  end
+
+  create_table "qbwc_sessions", force: :cascade do |t|
+    t.string   "ticket"
+    t.string   "user"
+    t.string   "company",      limit: 1000
+    t.integer  "progress",                  default: 0,  null: false
+    t.string   "current_job"
+    t.string   "iterator_id"
+    t.string   "error",        limit: 1000
+    t.string   "pending_jobs", limit: 1000, default: "", null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
 
   create_table "service_applications", force: :cascade do |t|
     t.integer "application_id"
