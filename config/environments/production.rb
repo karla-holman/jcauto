@@ -79,6 +79,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # use SSL and the HTTPS protocol
+  config.force_ssl = true
+
   # config/environments/production.rb
   config.paperclip_defaults = {
     :s3_credentials => {
