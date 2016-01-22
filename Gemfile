@@ -87,3 +87,5 @@ gem 'spree_tax_cloud', github: 'spree-contrib/spree_tax_cloud', branch: 'master'
 
 gem 'spree_wombat', github: 'spree/spree_wombat', branch: '3-0-stable'
 gem 'qbwc'
+
+gem 'rack-ssl', :require => 'rack/ssl'
