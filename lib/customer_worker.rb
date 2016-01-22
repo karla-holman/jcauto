@@ -5,7 +5,7 @@ require 'qbwc'
 
     def requests(job, session, data)
       requests = []
-      Spree::User.each do |user|
+      Spree::User.all.each do |user|
         requests << 
         { 
           :customer_add_rq => {
