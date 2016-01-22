@@ -32,9 +32,6 @@ require 'qbwc'
               :desc => "Test product order",
               :quantity => "5",
               :amount => "20.02",
-              :inventory_site_reference => {
-                :full_name => "Shop"
-              },
               :sales_tax_code_ref => {
                 :full_name => "Washington Sales Tax"
               }
@@ -55,7 +52,7 @@ require 'qbwc'
         Rails.logger.info("#{qb_id} #{qb_name}")
       end
 =end
-      Rails.logger.info("Finished adding invoice for #{r['invoice_ret']['customer_ref']['full_name']}")
+      Rails.logger.info("Finished adding invoice")
     end
 
   end
