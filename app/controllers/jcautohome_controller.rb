@@ -88,6 +88,10 @@ class JcautohomeController < ApplicationController
 		@page = "community"
 	end
 
+	def sale_cars
+		@page = "sale-cars"
+	end
+
 	def contact
 		@page = "contact"
 
