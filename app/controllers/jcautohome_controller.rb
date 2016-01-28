@@ -97,6 +97,14 @@ class JcautohomeController < ApplicationController
 
 	end
 
+	def privacy_policy
+		@page = "privacy-policy"
+	end
+
+	def policies
+		@page = "policies"
+	end
+
 	# Allow contact form to generate email
 	def submit_contact
 		images = []

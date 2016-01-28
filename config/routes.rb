@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   get 'gauges' => 'jcautohome#gauges'
   get 'em' => 'jcautohome#em'
   get 'sale-cars' => 'jcautohome#sale_cars'
+  get 'policies' => 'jcautohome#policies'
+  get 'privacy-policy' => 'jcautohome#privacy_policy'
 
   resources :services   
   resources :jcautohome do
