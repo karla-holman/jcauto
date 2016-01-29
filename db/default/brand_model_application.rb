@@ -51,7 +51,7 @@ make2.models.create :name => "Royal Lancer", :start_year => "1955", :end_year =>
 make2.models.create :name => "Aspen", :start_year => "1976", :end_year => "1980"
 
 # Dodge Truck Models
-make7.models.create :name => "Power Wagon", :start_year => "1945", :end_year => "1981", :abbreviation => "Cor"
+make7.models.create :name => "Power Wagon", :start_year => "1945", :end_year => "1981"
 
 # Plymouth Models
 make3.models.create :name => "Belvedere", :start_year => "1952", :end_year => "1970", :abbreviation => "Belv"
