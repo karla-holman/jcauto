@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/karla-holman/bootstrap-sass-jcauto.git
+  revision: c4c2103b0bfac77962b88ff44601c281867dca15
+  specs:
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
+
+GIT
   remote: git://github.com/karla-holman/jc_spree_email_to_friend.git
   revision: 36ac226411c7be4358874b07c0235fc66d372e58
   specs:
@@ -68,13 +76,6 @@ GIT
       active_model_serializers (= 0.9.0.alpha1)
       httparty
       spree_core (~> 3.0.0)
-
-PATH
-  remote: C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1
-  specs:
-    bootstrap-sass (3.3.5.1)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.3.0)
 
 PATH
   remote: C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto
@@ -419,7 +420,7 @@ GEM
     state_machines-activerecord (0.3.0)
       activerecord (~> 4.1)
       state_machines-activemodel (>= 0.3.0)
-    stringex (2.5.2)
+    stringex (2.6.0)
     systemu (2.6.5)
     tax_cloud (0.3.0)
       activesupport (>= 3.0)
