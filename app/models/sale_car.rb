@@ -10,7 +10,7 @@ class SaleCar < ActiveRecord::Base
                         }
                       },
                       default_style: :thumb,
-                      url: '/cars/:id/:style/:basename.:extension',
+                      url: '/sale_cars/:id/:style/:basename.:extension',
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
     validates_attachment :attachment,
       :presence => true,
