@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125165910) do
+ActiveRecord::Schema.define(version: 20160203194216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,31 @@ ActiveRecord::Schema.define(version: 20160125165910) do
     t.string   "pending_jobs", limit: 1000, default: "", null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+  end
+
+  create_table "sale_car_images", force: :cascade do |t|
+    t.integer  "sale_car_id"
+    t.text     "description"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  create_table "sale_cars", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.boolean  "current"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.decimal  "price"
+    t.decimal  "sale_price"
   end
 
   create_table "service_applications", force: :cascade do |t|

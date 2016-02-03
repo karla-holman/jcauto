@@ -1,5 +1,5 @@
-<%= form_for [:admin, @car], html: { multipart: true } do |f| %>
-  <%= render partial: 'spree/shared/error_messages', locals: { target: @car } %>
+<%= form_for [:admin, @sale_car], html: { multipart: true } do |f| %>
+  <%= render partial: 'spree/shared/error_messages', locals: { target: @sale_car } %>
 
     <div class="form-group">
       <%= f.label :name, Spree.t(:name) %>
@@ -11,10 +11,20 @@
       <%= f.text_area :description, :rows => 4, :class => 'form-control' %>
     </div>
 
-    <% if @car.thumb_image_path %>
+    <div class="form-group">
+      <%= f.label :price, Spree.t(:price) %>
+      <%= f.number_field :price, :step => 'any', :class => 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :sale_price, Spree.t(:sale_price) %>
+      <%= f.number_field :sale_price, :step => 'any', :class => 'form-control' %>
+    </div>
+
+    <% if @sale_car.thumb_image_path %>
       <div data-hook="thumbnail">
         <%= f.label Spree.t(:thumbnail) %>
-        <%= link_to image_tag(@car.thumb_image_path), @car.thumb_image_path %>
+        <%= link_to image_tag(@sale_car.thumb_image_path), @sale_car.thumb_image_path %>
       </div>
     <% end %>
 
@@ -24,17 +34,12 @@
     </div>
 
     <div class="form-group">
-      <%= f.check_box :our_car %>
-      <%= f.label :our_car, Spree.t(:our_car) %>
-    </div>
-
-    <div class="form-group">
       <%= f.check_box :current %>
       <%= f.label :current, Spree.t(:current) %>
     </div>
 
     <div class="actions">
       <%= f.submit class: "btn btn-success"%>
-      <%= link_to 'Back', admin_cars_path, class: "btn btn-default" %> 
+      <%= link_to 'Back', admin_sale_cars_path, class: "btn btn-default" %> 
     </div>
 <% end %>

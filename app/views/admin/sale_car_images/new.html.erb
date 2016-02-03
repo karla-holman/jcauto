@@ -1,0 +1,22 @@
+ <div class="container">
+  <div class="row">
+  	<ol class="breadcrumb" style="text-align: left">
+      <li><%=link_to admin_sale_cars_path do %>Sale Cars<% end %></li>
+      <li><%=link_to edit_admin_sale_car_path(@sale_car) do %><%= @sale_car.name %><% end %></li>
+      <li><%=link_to admin_sale_car_sale_car_images_path(@sale_car) do %>Images<% end %></li>
+      <li class="active">New Image</li>
+    </ol>
+  	<h2><%= @sale_car.name %></h2>
+    <h3><%= Spree.t(:new_image) %></h3>
+
+		<%= form_for [:admin, @sale_car, @image], html: { multipart: true } do |f| %>
+	    <%= render partial: 'form', locals: { f: f } %>
+
+	    <div class="form-actions" data-hook="buttons">
+	      <%= button Spree.t('actions.update'), 'save' %>
+	      <span class="or"><%= Spree.t(:or) %></span>
+	      <%= button_link_to Spree.t('actions.cancel'), admin_sale_car_sale_car_images_path(@sale_car), icon: 'delete', id: 'cancel_link' %>
+	    </div>
+		<% end %>
+	</div>
+</div>

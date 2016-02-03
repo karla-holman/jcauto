@@ -1,0 +1,39 @@
+ <div class="container">
+  <div class="row">
+    <ol class="breadcrumb" style="text-align: left">
+      <li><%=link_to admin_sale_cars_path do %>Cars<% end %></li>
+      <li><%=link_to edit_admin_sale_car_path(@sale_car) do %><%= @sale_car.name %><% end %></li>
+      <li><%=link_to admin_sale_car_sale_car_images_path(@sale_car) do %>Images<% end %></li>
+      <li class="active">New Image</li>
+    </ol>
+    <h2><%= @sale_car.name %></h2>
+    <h3><%= Spree.t(:edit_image) %></h3>
+
+    <%= form_for [:admin, @sale_car, @image], html: { multipart: true } do |f| %>
+      <div data-hook="edit_image" class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">
+            <%= @image.attachment_file_name%>
+          </h2>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <div data-hook="thumbnail" class="col-md-3 text-center">
+              <%= f.label Spree.t(:thumbnail) %>
+              <%= link_to image_tag(@image.attachment.url(:thumb)), @image.attachment.url(:large) %>
+            </div>
+            <div class="col-md-9">
+              <%= render partial: 'form', locals: { f: f } %>
+            </div>
+
+            <div class="form-actions" data-hook="buttons">
+              <%= button Spree.t('actions.update'), 'save' %>
+              <span class="or"><%= Spree.t(:or) %></span>
+              <%= button_link_to Spree.t('actions.cancel'), admin_sale_car_sale_car_images_path(@sale_car), id: 'cancel_link', icon: 'delete' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

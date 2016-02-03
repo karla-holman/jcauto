@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <ol class="breadcrumb" style="text-align: left">
+      <li><%=link_to admin_sale_cars_path do %>Cars<% end %></li>
+      <li><%=link_to edit_admin_sale_car_path(@sale_car) do %><%= @sale_car.name %><% end %></li>
+      <li class="active">Images</li>
+    </ol>
+    <div class="col-md-6">
+      <h2><%= @sale_car.name %></h2>
+    </div>
+    <div class="col-md-6" style="padding-top: 26px">
+      <%= button_link_to("New Image", new_admin_sale_car_sale_car_image_path(@sale_car), { class: "btn-success", icon: 'add', id: 'new_image_link' }) %>
+      <%= button_link_to("Back to Car", edit_admin_sale_car_path(@sale_car), { class: "btn-info", icon: 'add' }) %>
+    </div>
+    <div id="content" class="col-md-12" style="margin-top: 25px">
+      <%= flash_messages %>
+    </div>
+    <table class="table sortable" data-hook="images_table">
+      <thead>
+        <tr data-hook="images_header">
+          <th colspan="2">
+            <%= Spree.t(:thumbnail) %>
+          </th>
+          <th>
+            <%= Spree.t(:alt_text) %>
+          </th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% (@sale_car.sale_car_images).each do |image| %>
+          <tr id="<%= spree_dom_id image %>" data-hook="images_row">
+            <td class="image" colspan="2">
+              <%= link_to image_tag(image.attachment.url(:thumb)), image.attachment.url(:large) %>
+            </td>
+            <td><%= image.description %></td>
+            <td><%= image.state %></td>
+            <td class="actions actions-2 text-right">
+              <%= link_to(Spree.t(:edit), edit_admin_sale_car_sale_car_image_path(@sale_car, image), :method => :get, class: 'btn btn-primary btn-sm') %>
+              <%= link_to('delete', admin_sale_car_sale_car_image_path(@sale_car, image),  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-warning btn-sm') %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div><!-- Container -->
+</div><!-- Container -->
+

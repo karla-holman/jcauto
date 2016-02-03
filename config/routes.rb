@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   end
 
   resources :cars, only: :show
+  resources :sale_cars, only: :show
 
   # handle 404
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
@@ -73,6 +74,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :cars do
       resources :car_images
+    end
+    resources :sale_cars do
+      resources :sale_car_images
     end
   end
   # Example of named route that can be invoked with purchase_url(id: product.id)

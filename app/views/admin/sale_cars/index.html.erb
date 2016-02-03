@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>All Sale Cars</h2>
+      <p class="intro" style="margin-left: 0; margin-right: 0">List of all sale cars</p>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'New Sale Car', new_admin_sale_car_path, class: "btn btn-primary", style: "margin-top: 26px" %>
+    </div>
+
+    <div id="content" class="col-md-12" style="margin-top: 25px">
+      <%= flash_messages %>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Current or Sold?</th>
+            <th>Asking Price</th>
+            <th>Sale Price</th>
+            <th># of Images</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @sale_cars.each do |sale_car| %>
+            <tr>
+              <td><%= image_tag sale_car.thumb_image_path, width: 100 %></td>
+              <td><%= sale_car.name %></td>
+              <td><%= sale_car.current ? "For Sale" : "Sold" %></td>
+              <td><%= sale_car.price ? "$" + sale_car.price : "" %></td>
+              <td><%= sale_car.current ? "N/A" : sale_car.sale_price %></td>
+              <td><%= sale_car.sale_car_images.length %></td>
+              <td><%= link_to 'Gallery', sale_car %></td>
+              <td><%= link_to 'Edit', edit_admin_sale_car_path(sale_car) %></td>
+              <td><%= link_to 'Remove', admin_sale_car_path(sale_car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

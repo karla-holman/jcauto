@@ -90,6 +90,7 @@ class JcautohomeController < ApplicationController
 
 	def sale_cars
 		@page = "sale-cars"
+		@sale_cars = SaleCar.all
 	end
 
 	def contact
