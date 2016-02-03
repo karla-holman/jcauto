@@ -31,7 +31,7 @@ class SaleCarImagesController < ApplicationController
 	private
 
 	def load_edit_data
-    @car = SaleCar.find(params[:sale_car_id])
+    @sale_car = SaleCar.find(params[:sale_car_id])
   end
 
   def sale_car_image_params
