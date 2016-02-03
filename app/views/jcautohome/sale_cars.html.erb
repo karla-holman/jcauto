@@ -35,7 +35,7 @@
 							<td><%= image_tag sale_car.thumb_image_path, width: 100 %></td>
 							<td><%= link_to sale_car.name, sale_car_path(sale_car) %></td>
 							<td><%= sale_car.description %></td>
-							<td><%= sale_car.price %></td>
+							<td><%= sprintf('%.2f', sale_car.price) %></td>
 						</tr>
 					<% end %>
 				</tbody>
