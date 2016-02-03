@@ -33,7 +33,7 @@
               <td><%= sale_car.name %></td>
               <td><%= sale_car.current ? "For Sale" : "Sold" %></td>
               <td><%= sale_car.price ? "$" + sprintf('%.2f', sale_car.price) : "" %></td>
-              <td><%= sale_car.current ? "N/A" : sprintf('%.2f', sale_car.sale_price) %></td>
+              <td><%= sale_car.current ? "N/A" : "$" + sprintf('%.2f', sale_car.sale_price) %></td>
               <td><%= sale_car.sale_car_images.length %></td>
               <td><%= link_to 'Gallery', sale_car %></td>
               <td><%= link_to 'Edit', edit_admin_sale_car_path(sale_car) %></td>
