@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <ol class="breadcrumb" style="text-align: left">
-      <li><%=link_to admin_sale_cars_path do %>Cars<% end %></li>
+      <li><%=link_to admin_sale_cars_path do %>Sale Cars<% end %></li>
       <li><%=link_to edit_admin_sale_car_path(@sale_car) do %><%= @sale_car.name %><% end %></li>
       <li class="active">Images</li>
     </ol>
@@ -24,7 +24,6 @@
           <th>
             <%= Spree.t(:alt_text) %>
           </th>
-          <th>State</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -36,7 +35,6 @@
               <%= link_to image_tag(image.attachment.url(:thumb)), image.attachment.url(:large) %>
             </td>
             <td><%= image.description %></td>
-            <td><%= image.state %></td>
             <td class="actions actions-2 text-right">
               <%= link_to(Spree.t(:edit), edit_admin_sale_car_sale_car_image_path(@sale_car, image), :method => :get, class: 'btn btn-primary btn-sm') %>
               <%= link_to('delete', admin_sale_car_sale_car_image_path(@sale_car, image),  data: { confirm: 'Are you sure?' }, :method => :delete, class: 'btn btn-warning btn-sm') %>
