@@ -40,6 +40,6 @@ class Admin::SaleCarImagesController < AdminController
   end
 
   def sale_car_image_params
-	  params.require(:car_image).permit(:attachment, :attachment_file_name, :attachment_content_type, :attachment_file_size, :attachment_updated_at, :description)
+	  params.require(:sale_car_image).permit(:attachment, :attachment_file_name, :attachment_content_type, :attachment_file_size, :attachment_updated_at, :description)
 	end
 end

@@ -38,7 +38,7 @@ class Admin::SaleCarsController < AdminController
   def update
     respond_to do |format|
       if @sale_car.update(sale_car_params)
-        flash[:success] = "Car was successfully updated."
+        flash[:success] = "Sale car was successfully updated."
         format.html { redirect_to admin_sale_cars_path }
         format.json { render :show, status: :ok, location: @sale_car }
       else
