@@ -119,7 +119,7 @@
 					<%= link_to spree.nested_taxons_path(group.permalink) do %>
 					<div class="part-tiles">
 						<!--div class="col-sm-6 col-md-6"-->
-							<%= image_tag group.icon_file_name, class:"icon", style: "margin-bottom: 50px; width: 80%" %>
+							<%= image_tag group.icon.url(:large), class:"icon", style: "margin-bottom: 50px; width: 80%" %>
 						<!--/div-->
 						<div style="position: absolute; bottom: 0; width: 100%; background-color: #7966c2; margin-top: 20px">
 							<h5 style="color: #fff;"><%= group.name %></h5>
