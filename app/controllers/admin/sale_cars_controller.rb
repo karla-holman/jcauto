@@ -67,6 +67,6 @@ class Admin::SaleCarsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_car_params
-      params.require(:sale_car).permit(:name, :attachment, :description, :current)
+      params.require(:sale_car).permit(:name, :attachment, :description, :current, :price, :sale_price)
     end
 end
