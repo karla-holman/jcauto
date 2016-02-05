@@ -7,7 +7,7 @@
 			<% end %>
 			<p class="intro">
 				<%= @sale_car.description %><br>
-				<strong>Price: </strong>$<%= @sale_car.price %><br>
+				<strong>Price: </strong>$<%= sprintf('%.2f', @sale_car.price) %><br>
 				<% if !spree_current_user || spree_current_user.spree_roles.first.name != "admin" %>
 					<%= link_to "Contact Us About This Car", "#quote", class: "btn btn-success", style: "margin-top: 20px" %>
 				<% end %>
