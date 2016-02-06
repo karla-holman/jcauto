@@ -21,33 +21,33 @@
 			<h1>Welcome to Our MoPar Community</h1>
 		</div>
 		<div class="col-sm-6 col-md-4 col-lg-4">
-			<%= image_tag "master/stories.png", class: "icon", id: "tech2" %>
+			<%= image_tag "master/stories.png", onmouseover: "document.getElementById('stories').src='#{asset_path("master/stories-hover.png")}'", onmouseout: "document.getElementById('stories').src='#{asset_path("master/stories.png")}'", class: "icon", id: "stories" %>
 			<h3>Your Stories</h3>
 			<p>
 				Want to learn about projects that other customers are working on? Check out some great stories here, or share your own journey.
 			</p>
 			<p style="color: #200099">Coming Soon!</p>
-			<% link_to "Your Stories >", "/", class: "button-link", onmouseover:"document.getElementById('tech2').src='#{asset_path('master/stories-hover.png')}'", onmouseout:"document.getElementById('tech2').src='#{asset_path('master/stories.png')}'" %>
+			<% link_to "Your Stories >", "/", class: "button-link", onmouseover:"document.getElementById('stories').src='#{asset_path('master/stories-hover.png')}'", onmouseout:"document.getElementById('stories').src='#{asset_path('master/stories.png')}'" %>
 		</div>
 		<div class="clearfix visible-md visible-sm"></div>
 		<div class="spacer visible-md visible-sm"></div>
 		<div class="col-sm-6 col-md-4 col-lg-4">
-			<%= image_tag "master/blog.png", class: "icon", id: "tech3" %>
+			<%= image_tag "master/blog.png", onmouseover: "document.getElementById('blog').src='#{asset_path("master/blog-hover.png")}'", onmouseout: "document.getElementById('blog').src='#{asset_path("master/blog.png")}'", class: "icon", id: "blog" %>
 			<h3>JC Auto Blog</h3>
 			<p>
 				Every day brings a new project or challenge to the JC Auto team, and we want to share what we learn and see around the shop.
 			</p>
 			<p style="color: #200099">Coming Soon!</p>
-			<% link_to "Blog >", "/", class: "button-link", onmouseover:"document.getElementById('tech3').src='#{asset_path('master/blog-hover.png')}'", onmouseout:"document.getElementById('tech3').src='#{asset_path('master/blog.png')}'" %>
+			<% link_to "Blog >", "/", class: "button-link", onmouseover:"document.getElementById('blog').src='#{asset_path('master/blog-hover.png')}'", onmouseout:"document.getElementById('blog').src='#{asset_path('master/blog.png')}'" %>
 		</div>
 		<div class="col-sm-6 col-md-4 col-lg-4">
-			<%= image_tag "master/stories.png", class: "icon", id: "tech4" %>
+			<%= image_tag "master/parts.png", onmouseover: "document.getElementById('friends').src='#{asset_path("master/parts-hover.png")}'", onmouseout: "document.getElementById('friends').src='#{asset_path("master/parts.png")}'", class: "icon", id: "friends" %>
 			<h3>MoPar Friends</h3>
 			<p>
 				Resources for fashion, trends, and tips for the many ladies, friends, and partners of MoPar fans out there.
 			</p>
 			<p style="color: #200099">Coming Soon!</p>
-			<% link_to "Join the Conversation >", "/", class: "button-link", onmouseover:"document.getElementById('tech4').src='#{asset_path('master/Tech-hover.png')}'", onmouseout:"document.getElementById('tech4').src='#{asset_path('master/Tech.png')}'" %>
+			<% link_to "Join the Conversation >", "/", class: "button-link", onmouseover:"document.getElementById('friends').src='#{asset_path('master/parts-hover.png')}'", onmouseout:"document.getElementById('friends').src='#{asset_path('master/parts.png')}'" %>
 		</div>
 	</div><!-- End Row -->
 </div>
@@ -70,7 +70,7 @@
 						</blockquote>
 					</div>
 				</div>
-				<div class="fb-page" data-href="https://www.facebook.com/jcautorestorationinc/info/?tab=overview" data-tabs="timeline" data-width="100%" data-height="400px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/jcautorestorationinc/info/?tab=overview"><a href="https://www.facebook.com/jcautorestorationinc/info/?tab=overview" target="_blank">JC Auto Restoration, Inc.</a></blockquote></div></div>
+				<div class="fb-page" data-href="https://www.facebook.com/jcautorestorationinc/info/?tab=overview" data-tabs="timeline" data-width="500" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/jcautorestorationinc/info/?tab=overview"><a href="https://www.facebook.com/jcautorestorationinc/info/?tab=overview" target="_blank">JC Auto Restoration, Inc.</a></blockquote></div></div>
 			</div><!-- Col -->
 			<!-- handle sm screen -->
 			<div class="clearfix visible-sm"></div>

@@ -52,23 +52,23 @@
 				</p>
 			</div>
 			<div class= "col-sm-4 col-md-4" >
-				<%= image_tag "master/customer-service.png", class:"icon", id:"tech1" %>
+				<%= link_to "/policies" do %><%= image_tag "master/customer-service.png", onmouseover: "document.getElementById('tech1').src='#{asset_path("master/customer-service-hover.png")}'", onmouseout: "document.getElementById('tech1').src='#{asset_path("master/customer-service.png")}'", class:"icon", id:"tech1" %><% end %>
 				<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
 				<h3>Customer Service</h3>
 				<p>We pride ourselves in ensuring that every customer is served to the best of our abilities. We've put policies in place to guarantee that we work with you in a respectful and friendly way to get your project just how you like it. Restoring your car should be fun and enjoyable. We strive to work with you to make the restoration process as easy as possible, so that you can focus on the joy of working with your automobile.</p>
 				<!-- Change Tech image on hover -->
-				<%= link_to "Our Policies >", "/about", class: "button-link", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/customer-service-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/customer-service.png')}'" %>
+				<%= link_to "Our Policies >", "/policies", class: "button-link", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/customer-service-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/customer-service.png')}'" %>
 				
 			</div>
 			<div class="col-sm-4 col-md-4">
-				<%= image_tag "master/history.png", class:"icon", id:"tech2" %>
+				<%= link_to "/" do %><%= image_tag "master/history.png", onmouseover: "document.getElementById('tech2').src='#{asset_path("master/history-hover.png")}'", onmouseout: "document.getElementById('tech2').src='#{asset_path("master/history.png")}'", class:"icon", id:"tech2" %><% end %>
 				<h3>Our History</h3>
 				<p>We have been serving MoPar fans since 1978 and we are proud of our history here in the Northwest. Learn more about how JC Auto Restoration came to be, along with some facts about our current team and operation.</p>
 				<!-- Change Tech image on hover -->
 				<%= link_to "Services >", "/about", class:"button-link", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/history-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/history.png')}'" %>
 			</div>
 			<div class="col-sm-4 col-md-4">
-				<%= image_tag "master/work.png", class:"icon", id:"tech3" %>
+				<%= link_to "/gallery" do %><%= image_tag "master/work.png", onmouseover: "document.getElementById('tech3').src='#{asset_path("master/work-hover.png")}'", onmouseout: "document.getElementById('tech3').src='#{asset_path("master/work.png")}'", class:"icon", id:"tech3" %><% end %>
 				<h3>Our Experience</h3>
 				<p>Our long list of past projects can speak to our attention to detail and the broad spectrum of work that we have taken on. We take pride in the work we do, in the precision and beauty of a job well done. Browse some of the cars we have worked on in the past, and those in progress, to learn more about what you can expect from JC Auto.</p>
 				<%= link_to "Pictures of Our Work >", "/gallery", class:"button-link", onmouseover: "document.getElementById('tech3').src='#{asset_path('master/work-hover.png')}'", onmouseout: "document.getElementById('tech3').src='#{asset_path('master/work.png')}'" %>

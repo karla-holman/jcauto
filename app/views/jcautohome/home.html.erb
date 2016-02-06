@@ -3,28 +3,28 @@
 		<div class="row text-center">
 			<h1 style="font-family: 'Cookie';">Welcome to JC Auto Restoration</h1>
 			<div class= "col-md-4" >
-				<%= image_tag "master/parts.png", class:"icon", id:"tech1" %>
+				<%= link_to "/parts" do %><%= image_tag "master/parts.png", onmouseover: "document.getElementById('parts').src='#{asset_path("master/parts-hover.png")}'", onmouseout: "document.getElementById('parts').src='#{asset_path("master/parts.png")}'", class:"icon", id:"parts" %><% end %>
 				<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
 				<h3>Parts Department</h3>
 				<p>
 					With more than 35 years in the automotive industry, JC Auto Restoration takes as much care in delivering the first-class parts you need as we do when restoring your car. Our inventory includes over 100,000 quality parts for which we have recently created an easy-to-use online store. Shop now to find the parts you need.
 				</p>
 				<!-- Change Tech image on hover -->
-				<%= link_to "Get Parts >", "/parts", class:"button-link", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/parts-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/parts.png')}'" %>
+				<%= link_to "Get Parts >", "/parts", class:"button-link", onmouseover:"document.getElementById('parts').src='#{asset_path('master/parts-hover.png')}'", onmouseout:"document.getElementById('parts').src='#{asset_path('master/parts.png')}'" %>
 				
 			</div>
 			<div class="col-md-4">
-				<%= image_tag "master/services.png", class:"icon", id:"tech2" %>
+				<%= link_to "/our-services" do %><%= image_tag "master/services.png", onmouseover: "document.getElementById('services').src='#{asset_path("master/services-hover.png")}'", onmouseout: "document.getElementById('services').src='#{asset_path("master/services.png")}'", class:"icon", id:"services" %><% end %>
 				<h3>Restoration Services</h3>
 				<p>We offer a variety of services, from instrument restoration to unusual components of automobiles, such as the Highway Hi-Fi record players. Our experience and knowledge extends far beyond just MoPar automobiles to specialty and even exotic cars. Learn about the services we offer or inquire about your own project.</p>
 				<!-- Change Tech image on hover -->
-				<%= link_to "Get Started >", "/our-services", class:"button-link", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/services-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/services.png')}'" %>
+				<%= link_to "Get Started >", "/our-services", class:"button-link", onmouseover: "document.getElementById('services').src='#{asset_path('master/services-hover.png')}'", onmouseout: "document.getElementById('services').src='#{asset_path('master/services.png')}'" %>
 			</div>
 			<div class="col-md-4">
-				<%= image_tag "master/community.png", class:"icon", id:"tech3" %>
+				<%= link_to "/about" do %><%= image_tag "master/community.png", onmouseover: "document.getElementById('about-us').src='#{asset_path("master/community-hover.png")}'", onmouseout: "document.getElementById('about-us').src='#{asset_path("master/community.png")}'", class:"icon", id:"about-us" %><% end %>
 				<h3>About Us</h3>
 				<p>Based in the city of Lynnwood, just north of Seattle, WA, JC Auto Restoration, Inc. has been serving MoPar fans of the US and internationally since 1978. We are a small team of highly specialized mechanics, electrical engineers, and all around MoPar enthusiasts. Learn more about our team and shop.</p>
-				<%= link_to "About Us >", "/about", class:"button-link", onmouseover: "document.getElementById('tech3').src='#{asset_path('master/community-hover.png')}'", onmouseout: "document.getElementById('tech3').src='#{asset_path('master/community.png')}'" %>
+				<%= link_to "About Us >", "/about", class:"button-link", onmouseover: "document.getElementById('about-us').src='#{asset_path('master/community-hover.png')}'", onmouseout: "document.getElementById('about-us').src='#{asset_path('master/community.png')}'" %>
 			</div>
 		</div>
 	</div>
