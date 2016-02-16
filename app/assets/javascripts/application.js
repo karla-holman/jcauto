@@ -20,3 +20,4 @@
 //= require spree/frontend/checkout
 //= require spree/frontend/product
 //= require local_time
+//= require social-share-button

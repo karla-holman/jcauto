@@ -39,6 +39,10 @@ gem 'aws-sdk', '< 2.0'
 # Track local time
 gem 'local_time'
 
+# Add social media sharing buttons
+# gem 'shareable'
+gem 'social-share-button'
+
 # handle paypal payments
 # gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
 # gem 'spree_paypal_express', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_paypal_express"
