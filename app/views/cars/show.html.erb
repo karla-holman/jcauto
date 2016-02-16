@@ -6,6 +6,9 @@
 				<%= link_to "Edit Car", edit_admin_car_path(@car), class: "btn btn-success admin-button" %>
 			<% end %>
 			<p class="intro"><%= @car.description %></p>
+			<div style="margin-top: -25px; margin-bottom: 50px">
+				<%= social_share_button_tag("Gallery of JC Auto Restoration's work on a " + @car.name) %>
+			</div>
 		</div>
 
 		<% images = @car.car_images %>
