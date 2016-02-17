@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   get 'sale-cars' => 'jcautohome#sale_cars'
   get 'policies' => 'jcautohome#policies'
   get 'privacy-policy' => 'jcautohome#privacy_policy'
+  get 'timeline' => 'jcautohome#timeline'
 
   resources :services   
   resources :jcautohome do

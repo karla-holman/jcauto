@@ -15,4 +15,6 @@ Rails.application.config.assets.precompile += %w( spree/frontend/checkout/shippi
 Rails.application.config.assets.precompile += %w( galleria-1.4.2.min.js )
 Rails.application.config.assets.precompile += %w( galleria.classic.min.js )
 Rails.application.config.assets.precompile += %w( jquery.zoom.min.js )
+Rails.application.config.assets.precompile += %w( main.js )
+Rails.application.config.assets.precompile += %w( modernizr.js )
 # Rails.application.config.assets.precompile += %w( jquery.tmpl.min.js )

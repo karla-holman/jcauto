@@ -8,6 +8,10 @@ class JcautohomeController < ApplicationController
 		@our_cars = Car.where(our_car: true)
 	end
 
+	def timeline
+		@page = "about"
+	end
+
 	def gallery
 		@page = "gallery"
 		@current_projects = Car.where("our_car = ? AND current = ?", false, true)
