@@ -21,24 +21,26 @@
 	</div>
 	<div class="row" style="margin-top: 0">
 		<div class="col-md-12">
-			<table class="table table-striped">
-				<thead>
-					<th>Image</th>
-					<th>Make/Model</th>
-					<th>Details</th>
-					<th>Price</th>
-				</thead>
-				<tbody>
-					<% @sale_cars.each do |sale_car| %>
-						<tr>
-							<td><%= image_tag sale_car.thumb_image_path, width: 100 %></td>
-							<td><%= link_to sale_car.name, sale_car_path(sale_car) %></td>
-							<td><%= sale_car.description %></td>
-							<td>$<%= sprintf('%.2f', sale_car.price) %></td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<th>Image</th>
+						<th>Make/Model</th>
+						<th>Details</th>
+						<th>Price</th>
+					</thead>
+					<tbody>
+						<% @sale_cars.each do |sale_car| %>
+							<tr>
+								<td><%= image_tag sale_car.thumb_image_path, width: 100 %></td>
+								<td><%= link_to sale_car.name, sale_car_path(sale_car) %></td>
+								<td><%= sale_car.description %></td>
+								<td>$<%= sprintf('%.2f', sale_car.price) %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
 		</div><!-- Col -->
 	</div><!-- Row -->
 </div><!-- Container -->

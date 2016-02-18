@@ -20,8 +20,16 @@ window.onload = function() {
 function handle_window_location() {
 	// Calculate offset for tertiary navigation
 	var header_offset = $('.header-img').offset();
-	var tertiary_offset = header_offset.top + $('.header-img').height() - 100;
-	var nav_offset = 100;//header_offset.top + $('#nav').height();
+	var nav_offset;
+	var tertiary_offset;
+
+	if($('.header-img').height() <= 100){
+		nav_offset = 50;
+		tertiary_offset = 100;
+	} else {
+		nav_offset = 100;//header_offset.top + $('#nav').height();
+		tertiary_offset = header_offset.top + $('.header-img').height() - $('#tertiaryNav').height();
+	}
 
 	// If screen anywhere but top of document, affix navs
 	/* if ( $(window).scrollTop() == 0 ) {
