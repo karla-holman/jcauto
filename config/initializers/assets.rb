@@ -9,7 +9,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-
+Rails.application.config.assets.precompile += %w( hammer.js )
 Rails.application.config.assets.precompile += %w( image-hover.js )
 Rails.application.config.assets.precompile += %w( spree/frontend/checkout/shipping_prices.js )
 Rails.application.config.assets.precompile += %w( galleria-1.4.2.min.js )

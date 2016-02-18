@@ -114,11 +114,11 @@
 			<% image_array += "]" %>
 			<% caption_array += "]" %>
 			<%= link_to event, :data => { :images => image_array, :captions => caption_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link" do %><br>
-				<%= image_tag "thumbs/" + event.thumb, class:"icon" %>
+				<%= image_tag "thumbs/" + event.thumb, alt: event.name, class:"icon" %>
 				<div class="clearfix visible-xs"></div>
 				<%= event.name %>
 			<% end %>
-			<p><%= event.event_date.strftime("%a, %B %e, %Y") %></p>
+			<p><%= event.event_date.strftime("%B %e, %Y") %></p>
 		</div>
 		<% end %>
 		<hr>

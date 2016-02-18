@@ -154,22 +154,27 @@ $("#mobile-right").click(function(event) {
 });
 
 // Swipe Left Event
-$( ".gallery_container_mobile" ).on("swipeleft",function(){
-  	console.log("Swipe left");
-	event.preventDefault();
 
-	advanceNext(true);
+$(document).ready(function() {
+	var hammertime = new Hammer($('.gallery_container_mobile').get(0));
+
+	hammertime.on('swipe', function(ev) {
+		ev.srcEvent.preventDefault();
+		console.log(ev);
+		console.log("Direction: " + ev.direction);
+		if(ev.direction == 2) {
+			event.preventDefault();
+			$(this).delay(400);
+			advanceNext(true);
+		} else if (ev.direction == 4) {
+			event.preventDefault();
+			$(this).delay(400);
+			advancePrev(true);
+		}
+	});
 });
 
-// Swipe Right Event
-$( ".gallery_container_mobile" ).on("swiperight",function(){
-  	console.log("Swipe right");
-	event.preventDefault();
-
-	advancePrevious(true);
-});
-
-$( window ).on( "swipe", function( event ) { console.log('other swipe'); } )
+// $( window ).on( "swipe", function( event ) { console.log('other swipe'); } )
 
 /* Helper functions */
 

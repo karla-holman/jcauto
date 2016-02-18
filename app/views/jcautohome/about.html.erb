@@ -29,7 +29,7 @@
 		<% images.each do |image| %>
 		<div class="col-xs-12 col-sm-4 col-md-4">
 			<!-- div class="gallery_auto"-->
-					<%= image_tag image, style: "width: 100%", id:"gallery_main" %>
+					<%= image_tag image, alt: "Shop Picture", style: "width: 100%", id:"gallery_main" %>
 			<!-- /div -->
 		</div>	
 		<% end %>
@@ -52,7 +52,7 @@
 				</p>
 			</div>
 			<div class= "col-sm-4 col-md-4" >
-				<%= link_to "/policies" do %><%= image_tag "master/customer-service.png", onmouseover: "document.getElementById('tech1').src='#{asset_path("master/customer-service-hover.png")}'", onmouseout: "document.getElementById('tech1').src='#{asset_path("master/customer-service.png")}'", class:"icon", id:"tech1" %><% end %>
+				<%= link_to "/policies" do %><%= image_tag "master/customer-service.png", alt: "Customer Service", onmouseover: "document.getElementById('tech1').src='#{asset_path("master/customer-service-hover.png")}'", onmouseout: "document.getElementById('tech1').src='#{asset_path("master/customer-service.png")}'", class:"icon", id:"tech1" %><% end %>
 				<!--%= image_tag "master/Tech.png", onmouseover: "this.src='#{asset_path('master/Tech-hover.png')}'", onmouseout: "this.src='#{asset_path('master/Tech.png')}'", class:"icon" %-->
 				<h3>Customer Service</h3>
 				<p>We've put policies in place to guarantee that we work with you in a respectful and friendly way to get your project just how you like it. Restoring your car should be fun and enjoyable. No matter what your background or level of expertise, we strive to work with you to make the restoration process as easy as possible.</p>
@@ -61,14 +61,14 @@
 				
 			</div>
 			<div class="col-sm-4 col-md-4">
-				<%= link_to "/" do %><%= image_tag "master/history.png", onmouseover: "document.getElementById('tech2').src='#{asset_path("master/history-hover.png")}'", onmouseout: "document.getElementById('tech2').src='#{asset_path("master/history.png")}'", class:"icon", id:"tech2" %><% end %>
+				<%= link_to "/" do %><%= image_tag "master/history.png", alt: "Our History", onmouseover: "document.getElementById('tech2').src='#{asset_path("master/history-hover.png")}'", onmouseout: "document.getElementById('tech2').src='#{asset_path("master/history.png")}'", class:"icon", id:"tech2" %><% end %>
 				<h3>Our History</h3>
 				<p>Jeff started working on cars with his father at a young age. He soon grew independent, taking on projects of his own and learning ever since. Now, he and his wife Lisa are proud owners of multiple project cars, and enjoy running their own shop. We are proud of our rich history and enjoy working with our customers!</p>
 				<!-- Change Tech image on hover -->
 				<%= link_to "JC Auto Timeline >", "/timeline", class:"button-link", onmouseover: "document.getElementById('tech2').src='#{asset_path('master/history-hover.png')}'", onmouseout: "document.getElementById('tech2').src='#{asset_path('master/history.png')}'" %>
 			</div>
 			<div class="col-sm-4 col-md-4">
-				<%= link_to "/gallery" do %><%= image_tag "master/work.png", onmouseover: "document.getElementById('tech3').src='#{asset_path("master/work-hover.png")}'", onmouseout: "document.getElementById('tech3').src='#{asset_path("master/work.png")}'", class:"icon", id:"tech3" %><% end %>
+				<%= link_to "/gallery" do %><%= image_tag "master/work.png", alt: "Our Work", onmouseover: "document.getElementById('tech3').src='#{asset_path("master/work-hover.png")}'", onmouseout: "document.getElementById('tech3').src='#{asset_path("master/work.png")}'", class:"icon", id:"tech3" %><% end %>
 				<h3>Our Experience</h3>
 				<p>Our long list of past projects can speak to our attention to detail and the broad spectrum of work that we have taken on. We take pride in the work we do, in the precision and beauty of a job well done. Browse some of the cars we have worked on in the past, and those in progress.</p>
 				<%= link_to "Pictures of Our Work >", "/gallery", class:"button-link", onmouseover: "document.getElementById('tech3').src='#{asset_path('master/work-hover.png')}'", onmouseout: "document.getElementById('tech3').src='#{asset_path('master/work.png')}'" %>
@@ -84,13 +84,13 @@
 			<h1>Who We Are</h1>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-3">
-			<%= image_tag "people/jeff.png", class:"icon" %>
+			<%= image_tag "people/jeff.png", alt: "Jeff Carter", class:"icon" %>
 			<h3>Jeff Carter</h3>
 			<h4>Owner</h4>
 			<p>Jeff has been in the industry since the young age of 12</p>
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-3">
-			<%= image_tag "people/lisa.png", class:"icon" %>
+			<%= image_tag "people/lisa.png", alt: "Lisa Peterson", class:"icon" %>
 			<h3>Lisa Peterson</h3>
 			<h4>Co-Owner</h4>
 			<p>Jeff has been in the industry since the young age of 12</p>
@@ -98,25 +98,25 @@
 		<div class="clearfix visible-sm visible-md-block visible-lg-block"></div>
 		<div class="spacer visible-sm visible-md visible-lg"></div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
-			<%= image_tag "people/lisa.png", class:"icon" %>
+			<%= image_tag "people/lisa.png", alt: "Lindsey Long", class:"icon" %>
 			<h3>Lindsey Long</h3>
 			<h5>Office Manager</h5>
 			<p>Jeff has been in the industry since the young age of 12</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
-			<%= image_tag "people/lisa.png", class:"icon" %>
+			<%= image_tag "people/lisa.png", alt: "Lyle Smith", class:"icon" %>
 			<h3>Lyle Smith</h3>
 			<h5>Gauge Restoration Specialist</h5>
 			<p>Jeff has been in the industry since the young age of 12</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
-			<%= image_tag "people/lisa.png", class:"icon" %>
+			<%= image_tag "people/lisa.png", alt: "Ryan Lacabanne", class:"icon" %>
 			<h3>Ryan Lacabanne</h3>
 			<h5>Gauge Restoration Assistant</h5>
 			<p>Jeff has been in the industry since the young age of 12</p>
 		</div>
 		<div class="col-xs-12 col-sm-4 col-md-3 col-centered">
-			<%= image_tag "people/karla.png", class:"icon" %>
+			<%= image_tag "people/karla.png", alt: "Karla Holman", class:"icon" %>
 			<h3>Karla Holman</h3>
 			<h5>Web and Database Design</h5>
 			<p>Jeff has been in the industry since the young age of 12</p>
@@ -140,7 +140,7 @@
 
 			<% @our_cars.each_with_index do |car, index| %>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
-				<%= image_tag car.thumb_image_path, class: "icon-retro", style: "margin-bottom: 20px", alt: car.name %>
+				<%= image_tag car.thumb_image_path, alt: car.name, class: "icon-retro", style: "margin-bottom: 20px" %>
 				<div class="clearfix visible-xs"></div>
 				<%= link_to car.name, car, class: "button-link" %>
 
