@@ -1,5 +1,8 @@
 <div class="container">
 	<div class="row row-centered">
+		<% images = @car.car_images %>
+		<% first = true %>
+
 		<div class="col-md-12 text-center">
 			<h1><%= @car.name %></h1>
 			<% if spree_current_user && spree_current_user.spree_roles.first.name == "admin" %>
@@ -7,12 +10,10 @@
 			<% end %>
 			<p class="intro"><%= @car.description %></p>
 			<div style="margin-top: -25px; margin-bottom: 50px">
-				<%= social_share_button_tag("Gallery of JC Auto Restoration's work on a " + @car.name) %>
+				<% social_image = (images.after && (images.after.length > 0)) ? images.after[0] : images[0] %>
+				<%= social_share_button_tag(@car.name, :image => social_image.attachment.url(:large), desc: "Gallery of JC Auto Restoration's work on a " + @car.name) %>
 			</div>
 		</div>
-
-		<% images = @car.car_images %>
-		<% first = true %>
 
 		<% if images.length > 0 %>
 			<div class="gallery_container_mobile" style="position: relative; top: 0; left:0;">
