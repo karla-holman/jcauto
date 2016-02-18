@@ -33,12 +33,12 @@
 			<div class="col-md-9">
 				<div class="gallery_container">
 					<%= link_to "/", class: "gallery-arrow-left" do %>
-						<%= image_tag "arrow-02.png", alt: "previous", id: "previous", style: "display: none" %>
+						<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
 					<% end %>
 						<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
 						<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
 					<%= link_to "/", class: "gallery-arrow-right" do %>
-						<%= image_tag "arrow-01.png", alt: "next", id: "next", style: "display: none" %>
+						<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
 					<% end %>
 				</div>
 				<div id="caption">
