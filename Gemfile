@@ -33,6 +33,8 @@ gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 # Track user activity
 gem 'paper_trail', '~> 4.0.0'
 
+gem 'sprockets'
+
 # manage images
 gem 'aws-sdk', '< 2.0'
 
