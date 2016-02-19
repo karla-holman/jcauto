@@ -67,6 +67,6 @@ class Admin::CarsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:name, :attachment, :description, :our_car, :current)
+      params.require(:car).permit(:name, :attachment, :description, :our_car, :current, :completed_date)
     end
 end

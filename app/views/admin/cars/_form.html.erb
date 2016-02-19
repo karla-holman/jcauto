@@ -25,7 +25,7 @@
 
     <div class="form-group">
       <%= f.label :completed_date, Spree.t(:completed_date) %>
-      <%= select_date Date.today, prefix: :completed_date %>
+      <%= f.date_select :completed_date, :start_year=>1978,:end_year=>Date.today.year %>
     </div>
 
     <div class="form-group">
