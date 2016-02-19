@@ -25,10 +25,10 @@ function handle_window_location() {
 
 	if($('.header-img').height() <= 100){
 		nav_offset = 50;
-		tertiary_offset = 100;
+		tertiary_offset = 100 - $('#primary-nav').height();
 	} else {
 		nav_offset = 100;//header_offset.top + $('#nav').height();
-		tertiary_offset = header_offset.top + $('.header-img').height() - $('#tertiaryNav').height();
+		tertiary_offset = header_offset.top + $('.header-img').height() - $('#primary-nav').height();
 	}
 
 	// If screen anywhere but top of document, affix navs
