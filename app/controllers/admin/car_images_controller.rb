@@ -23,6 +23,22 @@ class Admin::CarImagesController < AdminController
   	@image = CarImage.find(params[:id])
   end
 
+  # PATCH/PUT /cars/1
+  # PATCH/PUT /cars/1.json
+  def update
+    @image = CarImage.find(params[:id])
+    respond_to do |format|
+      if @image.update(car_image_params)
+        flash[:success] = "Car Image was successfully updated."
+        format.html { redirect_to admin_car_car_images_path(@image.car) }
+        format.json { render :show, status: :ok, location: @image }
+      else
+        format.html { render :edit }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
   	CarImage.find(params[:id]).destroy
     flash[:success] = "Image deleted"
