@@ -24,6 +24,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :completed_date, Spree.t(:completed_date) %>
+      <%= select_date Date.today, prefix: :completed_date %>
+    </div>
+
+    <div class="form-group">
       <%= f.check_box :our_car %>
       <%= f.label :our_car, Spree.t(:our_car) %>
     </div>

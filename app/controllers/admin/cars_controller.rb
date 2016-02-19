@@ -4,7 +4,7 @@ class Admin::CarsController < AdminController
   # GET /cars
   # GET /cars.json
   def index
-    @cars = Car.all
+    @cars = Car.all.order(completed_date: :desc)
   end
 
   # GET /cars/new

@@ -8,9 +8,9 @@ class CarsController < ApplicationController
 
     # determine if this is one of our cars or a project
     if @is_our_car
-      @cars = Car.where(our_car: true)
+      @cars = Car.where(our_car: true).order(completed_date: :desc)
     else 
-      @cars = Car.where(our_car: false)
+      @cars = Car.where(our_car: false).order(completed_date: :desc)
     end
   end
 
