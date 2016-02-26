@@ -37,7 +37,7 @@
 
 			<h3 class="inverse">Parts available online:</h3> 
 
-			<h1><span class="odometer inverse"><%= Spree::Product.all.length %></span></h1>
+			<h2><span id="odometer" class="odometer inverse"><%= Spree::Product.all.length %></span></h2>
 		</div>
 	</div>
 </div>
@@ -553,11 +553,24 @@
 
 	$(document).ready(function() {
     check_models();
-    $('.odometer').html(100);
+
+    var el = document.querySelector('.odometer');
+
+		od = new Odometer({
+		  el: el,
+		  value: 100,
+
+		  // Any option (other than auto and selector) can be passed in here
+		  format: '',
+		  theme: 'car'
+		});
+
     setTimeout(function() {
      	console.log("Changing odometer to <%= Spree::Product.all.length %>");
-			$('.odometer').html("<%= Spree::Product.all.length %>");
+			// $('.odometer').html("<%= Spree::Product.all.length %>");
+			od.update(<%= Spree::Product.all.length %>);
     }, 1000);
+
   });
 
   $("#search_product_applications_application_make_id_eq").change( function(){
