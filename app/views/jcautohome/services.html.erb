@@ -51,7 +51,7 @@
 	<div class="container">
 		<div class="row row-centered">
 			<h1>Get a Quote</h1>
-			<p class="intro">Tell us about your project and the work you'd like done. We'll be in touch soon to discuss pricing.</p>
+			<p class="intro">Tell us about your project and the work you'd like done. We'll be in touch soon to discuss options and pricing.</p>
 			<%= form_tag submit_contact_jcautohome_index_path, multipart: true do %>
 				<div class="col-md-6">
 					<div class="form-group">
@@ -96,7 +96,7 @@
 			We can make sure your gauges and parts are restored to their original beauty, but sometimes you need to get hands-on to take it from there. Here is all the information you'll need to keep your project moving forward.
 		</p>
 		<div class="col-md-4 col-lg-4 col-centered">
-			<%= link_to "/", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" do %>
+			<%= link_to "/gauges", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" do %>
 				<%= image_tag "services/cluster.png", class:"icon", id:"cluster" %>
 			<% end %>
 			<h3>Removing Your Instrument Cluster</h3>
