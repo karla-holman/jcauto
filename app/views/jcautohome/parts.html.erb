@@ -21,7 +21,7 @@
 				<li role="presentation"><a href="#browse">Browse</a></li>
 				<li role="presentation"><a href="#promo">Promotions</a></li>
 				<li role="presentation"><a href="#feature">Packages</a></li>
-				<li role="presentation"><a href="#new">New Parts</a></li>
+				<li role="presentation"><a href="#new">Recently Added</a></li>
 				<li role="presentation"><a href="#sell">Sell Parts</a></li>
 			</ul>
 		</div>
@@ -32,12 +32,10 @@
 <div class="image-background" id="the_inventory">
 	<div class="container">
 		<div class="row row-centered text-center">
-			<h1 class="inverse">JC Auto Parts Store</h1>
-			<p class="intro inverse">Use this page to find the parts you need. Due to the overwhelming number of parts in stock, we are updating our online catalog daily. If you don’t find the part you’re looking for online, please fill out the part request form <a href="#form" style="color: #ffe100">here</a> indicating the desired part. Most likely we have what you are looking for!</p>
-
-			<h3 class="inverse">Parts available online:</h3> 
-
-			<h2><span id="odometer" class="odometer inverse"><%= Spree::Product.all.length %></span></h2>
+			<h1 class="inverse">JC Auto Store</h1>
+			<p class="intro inverse">
+				<span id="odometer" class="odometer inverse" style="font-size: 1.5em; margin-bottom: 10px"><%= Spree::Product.all.length %></span>
+				<br> <strong>parts available online</strong></br><br>Use this page to find the parts you need. Due to the overwhelming number of parts in stock, we are updating our online catalog daily. If you don’t find the part you’re looking for online, please fill out the part request form <a href="#form" style="color: #ffe100; font-weight: 500">here</a>.</p>
 		</div>
 	</div>
 </div>
@@ -84,7 +82,9 @@
 		<!-- Use buttons on large devices -->
 		<div class="hidden-xs">
 			<% counter = 1 %>
+			<% # my_array = [] %>
 			<% @part_groups_taxon_children.each do |group| %>
+			<% # my_array.each do |group| %>
 				<div class= "col-sm-4 col-md-3 col-lg-2 col-centered" style="padding: 0">
 					<%= link_to spree.nested_taxons_path(group.permalink) do %>
 					<div class="part-tiles">
@@ -375,7 +375,7 @@
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center row-centered" style="margin-bottom: 0; padding-bottom: 0">
-			<h1>New Parts</h1>
+			<h1>Recently Added Parts</h1>
 			<p class="intro">
 				Couldn't find something before? Check back here to see if we've picked up any parts you need!
 			</p>
@@ -458,7 +458,7 @@
 	<div class="row text-center">
 		<h1>Parts Requests</h1>
 		<p class="intro">
-			Tell us what you are looking for and we'll see if we have it in stock. Chances are we'll be able to help you find the part you need.
+			Tell us what you are looking for and we'll see if we have it in stock. Most likely we'll be able to help you find the part you need!
 		</p>
 		<%= form_tag submit_contact_jcautohome_index_path, multipart: true do %>
 		<div class="col-md-6">

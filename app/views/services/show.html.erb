@@ -57,7 +57,7 @@
 	<hr>
 <div class="container">
 	<div class="row text-center">
-<% end %>
+<% end %> <!-- End add_hr -->
 		<div class="col-md-12">
 			<a name="prices"></a>
 			<h3>Prices for <%= @service.name %></h3>
@@ -81,49 +81,47 @@
 		<% @service.service_price_lists.each do |price_list| %>
 			<% next if (@service_price_list_id && @service_price_list_id != 0) && price_list.id != @service_price_list_id %>
 			<% next if price_list.service_items.length == 0 %>
-			<h5 class="col-md-12"><%= price_list.name %></h5>
+			<% items = [] %>
+			<% price_list.service_items.order("name asc").each do |item| %>
+				<% if (@service_app_id && @service_app_id != 0) && item.service_application %>
+					<!-- If filter applied, make sure this item fits or does not pertain to app -->
+					<% next unless (item.service_application.id == @service_app_id) %>
+				<% end %>
+				<% items << item %>
+    	<% end %>
+    	<% next if items.length == 0 %>
+	  	<!-- <p>No services found in this category for your selected make and model.</p> -->
+	  	<h5 class="col-md-12"><%= price_list.name %></h5>
 			<div class="col-md-12 mobile-left">
-				<% items = [] %>
-				<% price_list.service_items.order("name asc").each do |item| %>
-	      	<% if (@service_app_id && @service_app_id != 0) && item.service_application %>
-	      		<!-- If filter applied, make sure this item fits or does not pertain to app -->
-	      		<% next unless (item.service_application.id == @service_app_id) %>
-	      	<% end %>
-	      	<% items << item %>
-	      <% end %>
-	      <% if items.length == 0 %>
-	      	<p>No services found in this category for your selected make and model.</p>
-	      <% else %>
-	      	<div class="table-responsive">
-				<table id="price-list" class="table table-striped" data-hook>
-				    <tbody>
-				      <% items.each do |item| %>
-				        <% css_class = cycle('even', 'odd', :name => "price-list") %>
-				        <tr class="<%= css_class %>">
-				          <td style="width: 20%"><%= item.service_application ? item.service_application.name : "All" %></td>
-				          <td style="width: 70%">
-				          	<%= item.name %>
-				          	<% if item.core_name && item.core_name != "" %>
-				          		<br><span style="color: #200099"><%= item.core_name %></span>
-				          	<% end %>
-				          </td>
-				          <td style="width: 10%">
-				          	<% if item.alternate_price %>
-				          		<%= item.alternate_price.html_safe %><!-- Handle prices in text form -->
-				          	<% else %>
-				          		<%= item.my_price %>
-				          	<% end %>
-				          	<% if item.core_price && item.core_price != 0 %>
-				          		<br><span style="color: #200099"><%= item.my_core_price %></span>
-				          	<% end %>
-				          </td>
-				        </tr>
-				      <% end %>
-				      <% reset_cycle('price-list') %>
-				    </tbody>
-				</table>
-			</div>
-			<% end %>	
+			  <div class="table-responsive">
+					<table id="price-list" class="table table-striped" data-hook>
+					    <tbody>
+					      <% items.each do |item| %>
+					        <% css_class = cycle('even', 'odd', :name => "price-list") %>
+					        <tr class="<%= css_class %>">
+					          <td style="width: 20%"><%= item.service_application ? item.service_application.name : "All" %></td>
+					          <td style="width: 70%">
+					          	<%= item.name %>
+					          	<% if item.core_name && item.core_name != "" %>
+					          		<br><span style="color: #200099"><%= item.core_name %></span>
+					          	<% end %>
+					          </td>
+					          <td style="width: 10%">
+					          	<% if item.alternate_price %>
+					          		<%= item.alternate_price.html_safe %><!-- Handle prices in text form -->
+					          	<% else %>
+					          		<%= item.my_price %>
+					          	<% end %>
+					          	<% if item.core_price && item.core_price != 0 %>
+					          		<br><span style="color: #200099"><%= item.my_core_price %></span>
+					          	<% end %>
+					          </td>
+					        </tr>
+					      <% end %>
+					      <% reset_cycle('price-list') %>
+					    </tbody>
+					</table>
+				</div>	
 			</div>
 		<% end %>
 	</div>
