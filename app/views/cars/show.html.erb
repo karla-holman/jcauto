@@ -87,18 +87,18 @@
 						<div class="clearfix visible-xs"></div>
 						<%= link_to car.name, car, class: "button-link" %>
 						<!-- Add break to right location -->
-						<% if index === 1 %>
-							<!-- handle sm screen -->
-							<div class="clearfix visible-sm"></div>
-							<div class="spacer visible-sm"></div>
-						<% elsif index === 2 %>
+						<% if (index+1) % 3 === 0 %>
 							<!-- handle md and lg screen -->
 							<div class="clearfix visible-md visible-lg"></div>
 							<div class="spacer visible-md visible-lg"></div>
-						<% elsif index === 3 %>
+						<% elsif (index+1) % 2 === 0 %>
 							<!-- handle sm screen -->
 							<div class="clearfix visible-sm"></div>
 							<div class="spacer visible-sm"></div>
+						<% elsif (index+1) % 1 === 0 %>
+							<!-- handle xs screen -->
+							<div class="clearfix visible-xs"></div>
+							<div class="spacer visible-xs"></div>
 						<% end %>
 					</div>
 				<% end %>
