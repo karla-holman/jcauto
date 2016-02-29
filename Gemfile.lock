@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: git://github.com/karla-holman/spree_jcauto.git
-  revision: d5ad98c5bc414bd4f29ab75c4a690f3274514dc6
+  revision: 88854f8b07dede624cf98852f28eadb6928a74f4
   specs:
     spree (3.0.4)
       spree_api (= 3.0.4)
