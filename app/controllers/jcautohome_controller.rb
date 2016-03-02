@@ -88,6 +88,11 @@ class JcautohomeController < ApplicationController
 		render "tutorials/em"
 	end
 
+	def shipping
+		@page = "services"
+		render "tutorials/shipping"
+	end
+
 	def community
 		@page = "community"
 	end

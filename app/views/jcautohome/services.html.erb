@@ -22,7 +22,7 @@
 				<% image_path = service.service_images.where("thumb_image = ?", true).first.image_path %>
 				<% image_type = (image_path.slice ".png") ? (image_path.slice! ".png") : (image_path.slice! ".jpg") %>
 				<%= link_to service, onmouseover: "document.getElementById('service#{i}').src='#{asset_path(image_path + "-hover" + image_type)}'", onmouseout: "document.getElementById('service#{i}').src='#{asset_path(image_path + image_type)}'" do %>
-					<%= image_tag (image_path + image_type), class:"icon", id:"service#{i}" %>
+					<%= image_tag (image_path + image_type), class:"icon", id:"service#{i}", alt: service.name %>
 				<% end %>
 
 				<h3 class="service-header"><%= service.name %></h3>
@@ -82,7 +82,7 @@
 				</div>
 			<% end %>
 			<div id="content" class="col-md-12" style="margin-top: 25px">
-				<%= flash_messages %>
+				<%= flash_alert(flash) %>
 			</div>
 		</div><!-- Row -->
 	</div><!-- Container -->
@@ -96,28 +96,28 @@
 			We can make sure your gauges and parts are restored to their original beauty, but sometimes you need to get hands-on to take it from there. Here is all the information you'll need to keep your project moving forward.
 		</p>
 		<div class="col-md-4 col-lg-4 col-centered">
-			<%= link_to "/gauges", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" do %>
+			<%= link_to "/our-services/gauges", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" do %>
 				<%= image_tag "services/cluster.png", class:"icon", id:"cluster" %>
 			<% end %>
 			<h3>Removing Your Instrument Cluster</h3>
 			<p>How to safely remove your gauge clusters.</p>
-			<%= link_to "Learn More", "/gauges", class: "button-link", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" %>
+			<%= link_to "Learn More", "/our-services/gauges", class: "button-link", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" %>
 		</div>
 		<div class="col-md-4 col-lg-4 col-centered">
-			<%= link_to "/", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-large-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping-large.png")}'" do %>
+			<%= link_to "/our-services/shipping", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-large-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping-large.png")}'" do %>
 				<%= image_tag "services/shipping-large.png", class:"icon", id:"shipping" %>
 			<% end %>
 			<h3>Packaging and Shipping Parts</h3>
 			<p>How to properly package and ship your parts.</p>
-			<%= link_to "Learn More", "/", class: "button-link", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-large-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping-large.png")}'" %>
+			<%= link_to "Learn More", "/our-services/shipping", class: "button-link", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-large-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping-large.png")}'" %>
 		</div>
 		<div class="col-md-4 col-lg-4 col-centered">
-			<%= link_to "/em", onmouseover: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large.png")}'" do %>
+			<%= link_to "/our-services/em", onmouseover: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large.png")}'" do %>
 				<%= image_tag "services/gauge-large.png", class:"icon", id:"em-tutorial" %>
 			<% end %>
 			<h3>Electroluminescent Gauges</h3>
 			<p>What is electroluminescence?</p>
-			<%= link_to "Learn More", "/em", class: "button-link", onmouseover: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large.png")}'" %>
+			<%= link_to "Learn More", "/our-services/em", class: "button-link", onmouseover: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large.png")}'" %>
 		</div>
 	</div>
 </div>

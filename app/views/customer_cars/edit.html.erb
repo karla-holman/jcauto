@@ -1,0 +1,18 @@
+<div class="container">
+  	<div class="row">
+  		<div class="col-md-12">
+	  		<ol class="breadcrumb" style="text-align: left">
+		      <li><%=link_to customer_cars_path do %>My Cars<% end %></li>
+		      <li class="active"><%= @customer_car.name %></li>
+		    </ol>
+		</div>
+
+		<div class="col-md-12">
+			<h2><%= @customer_car.name %></h2>
+		</div>
+
+
+		<%= render 'form' %>
+	</div>
+</div>
+

@@ -1,0 +1,88 @@
+<%= form_for @customer_car, html: { multipart: true } do |f| %>
+  <%= render partial: 'spree/shared/error_messages', locals: { target: @customer_car } %>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.label :name, Spree.t(:name) %>
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :description, Spree.t(:description) %>
+      <%= f.text_area :description, :rows => 4, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <% if @customer_car.attachment.exists? %>
+      <div data-hook="thumbnail">
+        <%= f.label Spree.t(:thumbnail) %>
+        <%= link_to image_tag(@customer_car.thumb_image_path), @customer_car.thumb_image_path %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :attachment, Spree.t(:filename) %>
+      <%= f.file_field :attachment %>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :make_id, Spree.t(:make) %>
+      <%= f.collection_select(:make_id, Spree::Make.all.order(:name), :id, :name, {:prompt => "Select a Make"}, {:class=>'form-control', :id => "make-select" }) %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :model_id, Spree.t(:model) %>
+
+      <%= f.select :model_id, options_for_select(Spree::Model.all.map{ |m| [m.name, m.id, {'data-make'=>m.make_id}] }), {:prompt => "Select a Model"}, {:class=>'form-control', :id => "model-select" } %>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :year, Spree.t(:year) %>
+      <%= f.text_field :year, :class=>'form-control' %>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="actions">
+      <%= f.submit "Update My Car", class: "btn btn-success"%>
+      <%= link_to 'Back', customer_cars_path, class: "btn btn-default" %> 
+    </div>
+  </div>
+<% end %>
+
+<script>
+  $( document ).ready(function() {
+    console.log("Preparing models");
+    prepare_models();
+  });
+
+  $("#make-select").change( function(){
+    prepare_models();
+  });
+
+  function prepare_models() {
+    make_id = $("#make-select").val();
+    console.log("Make ID: " + make_id);
+
+    // Loop through each option and hide if not for this make
+    $("#model-select").children().each( function() {
+      if($(this).data("make") != make_id) {
+        $(this).hide();
+      } else {
+        $(this).show();
+      }
+    });
+  }
+
+</script>

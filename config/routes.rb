@@ -52,12 +52,14 @@ Rails.application.routes.draw do
   get 'our-services' => 'jcautohome#services'
   get 'community' => 'jcautohome#community'
   get 'contact' => 'jcautohome#contact'
-  get 'gauges' => 'jcautohome#gauges'
-  get 'em' => 'jcautohome#em'
+  get 'our-services/gauges' => 'jcautohome#gauges'
+  get 'our-services/em' => 'jcautohome#em'
+  get 'our-services/shipping' => 'jcautohome#shipping'
   get 'sale-cars' => 'jcautohome#sale_cars'
   get 'policies' => 'jcautohome#policies'
   get 'privacy-policy' => 'jcautohome#privacy_policy'
   get 'timeline' => 'jcautohome#timeline'
+  get 'my-cars' => 'customer_cars#index'
 
   resources :services   
   resources :jcautohome do
@@ -68,6 +70,7 @@ Rails.application.routes.draw do
 
   resources :cars, only: :show
   resources :sale_cars, only: :show
+  resources :customer_cars, except: :show
 
   # handle 404
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
