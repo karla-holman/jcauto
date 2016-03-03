@@ -82,7 +82,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-6 part-tiles col-centered">
 			<%= link_to spree.products_path({:search => {:created_at_gteq => "prev_week"}}) do %>
-				<p class="inverse" style="margin-bottom: 50px;"><span class="badge" style="margin-right: 10px; background-color: #fff; color: #200099"><%= @new.length %></span>parts added to our inventory in the last week.</p>
+				<p class="inverse" style="margin-bottom: 50px;"><span class="badge" style="margin-right: 10px; background-color: #fff; color: #200099"><%= @new.length %></span>parts uploaded to our store last week.</p>
 				<div style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: #7966c2; margin-top: 20px">
 					<h5 class="inverse">View Recently Uploaded</h5>
 				</div>
@@ -392,20 +392,20 @@
 <div class="container-yellow">
 	<div class="container">
 		<div class="row text-center row-centered" style="margin-bottom: 0; padding-bottom: 0">
-			<h1>Recently Added Parts</h1>
+			<h1>Featured Parts</h1>
 			<p class="intro">
-				Couldn't find something before? Check back here to see if we've picked up any parts you need!
+				Sometimes we have a ton of parts we need to get off our hands. Check these parts for great prices.
 			</p>
 		</div>
 		<div class="row">
-			<% if @new.length == 0 %>
-				<p style="text-align: center">There are no new products at this time. Please check back soon!</p>
+			<% if @featured_taxon_children.length == 0 %>
+				<p style="text-align: center">There are no featured products at this time. Please check back soon!</p>
 			<% else %>
 				<div id="carousel-new" class="carousel slide" data-ride="carousel">
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner mobile-center" role="listbox">
 				  	<% first = true %>
-				  	<% @new.each_with_index do |new_prod, i| %>
+				  	<% @featured_taxon_children.each_with_index do |new_prod, i| %>
 					    <div class="item <%= i+1 == 1 ? "active" : "" %>">
 					    	<div class="col-md-5" style="text-align:center">
 									<% url = spree.product_url(new_prod) %>

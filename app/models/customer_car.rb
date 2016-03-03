@@ -39,7 +39,7 @@ class CustomerCar < ActiveRecord::Base
         model_start = self.model.start_year
         model_end = self.model.end_year
         if self.year < model_start || self.year > model_end
-          errors.add(:start_year, "can't be outside of model construction dates")
+          errors.add(:year, "can't be outside of model construction dates")
         end
       end
     end
