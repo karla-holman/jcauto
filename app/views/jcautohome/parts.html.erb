@@ -77,8 +77,25 @@
 <div class="image-background" id="the_inventory">
 <div class="container">
 	<div class="row text-center row-centered">
-		<h1 class="inverse">Browse by Part Category</h1>
-
+		<div class="col-md-12">
+			<h1 class="inverse">Browse by Part Category</h1>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 part-tiles col-centered">
+			<%= link_to spree.products_path({:search => {:created_at_gteq => "prev_week"}}) do %>
+				<p class="inverse" style="margin-bottom: 50px;"><span class="badge" style="margin-right: 10px; background-color: #fff; color: #200099"><%= @new.length %></span>parts added to our inventory in the last week.</p>
+				<div style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: #7966c2; margin-top: 20px">
+					<h5 class="inverse">View Recently Uploaded</h5>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 part-tiles col-centered">
+			<%= link_to(spree.nested_taxons_path(@packages.taxons.first.permalink)) do %>
+				<p class="inverse" style="margin-bottom: 50px;">Packages restored and assembled by our experts.</p>
+				<div style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: #7966c2; margin-top: 20px">
+					<h5 class="inverse">View Packages and Assemblies</h5>
+				</div>
+			<% end %>
+		</div>
 		<!-- Use buttons on large devices -->
 		<div class="hidden-xs">
 			<% counter = 1 %>

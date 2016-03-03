@@ -67,9 +67,9 @@ class JcautohomeController < ApplicationController
 		# Get matching part groups taxon
 		# @new_taxon = @new.taxons.first
 		# @new_taxon_children = @new_taxon.children
-		@new = Spree::Product.where("created_at > ?", Date.today.prev_month).limit(24)
+		@new = Spree::Product.where("created_at > ? AND available_on <= ?", Date.today.prev_month, DateTime.now)
 
-
+		@packages = Spree::Taxonomy.includes(root: :children).where("name=?", "Packages and Assemblies").first
 	end
 
 	def services
