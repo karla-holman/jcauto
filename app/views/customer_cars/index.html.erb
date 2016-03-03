@@ -22,8 +22,8 @@
             <th><%= sort_link(@search, :make_id, 'Make', default_order: :desc) %></th>
             <th><%= sort_link(@search, :model_id, 'Model', default_order: :desc) %></th>
             <th><%= sort_link(@search, :year, 'Year', default_order: :desc) %></th>
-            <th>All Parts</th>
-            <th><span data-toggle="tooltip" data-placement="top" title="Parts added within a week">New Parts</span></th>
+            <th>All Parts <a tabindex="0" data-toggle="popover" role="button" data-trigger="focus" title="All Parts" style="margin-left: 10px" data-content="View all parts applicable to your car."><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></th>
+            <th><span data-toggle="tooltip" data-placement="top" title="Parts added within a week">New Parts</span><a tabindex="0" data-toggle="popover" role="button" data-trigger="focus" title="New Parts" style="margin-left: 10px" data-content="The number of parts uploaded within the last week. Click the applicable number below to view recently added parts for your car."><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></th>
             <th colspan="3">Actions</th>
           </tr>
         </thead>
@@ -64,3 +64,9 @@
     </div>
   </div>
 </div>
+
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>

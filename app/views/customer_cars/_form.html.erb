@@ -42,7 +42,7 @@
     <div class="form-group">
       <%= f.label :model_id, Spree.t(:model) %>
 
-      <%= f.select :model_id, options_for_select(Spree::Model.all.map{ |m| [m.name, m.id, {'data-make'=>m.make_id}] }), {:prompt => "Select a Model"}, {:class=>'form-control', :id => "model-select" } %>
+      <%= f.select :model_id, options_for_select(Spree::Model.all.map{ |m| [m.name, m.id, {'data-make'=>m.make_id}] }, @customer_car.model_id), {:prompt => "Select a Model"}, {:class=>'form-control', :id => "model-select" } %>
     </div>
   </div>
 
@@ -77,7 +77,7 @@
 
     // Loop through each option and hide if not for this make
     $("#model-select").children().each( function() {
-      if($(this).data("make") != make_id) {
+      if($(this).data("make") != make_id && $(this).val() != "") {
         $(this).hide();
       } else {
         $(this).show();
