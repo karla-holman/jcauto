@@ -90,7 +90,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-6 part-tiles col-centered">
 			<%= link_to(spree.nested_taxons_path(@packages.taxons.first.permalink)) do %>
-				<p class="inverse" style="margin-bottom: 50px;">Packages restored and assembled by our experts.</p>
+				<p class="inverse" style="margin-bottom: 50px;">We carry packages restored by our experts.</p>
 				<div style="position: absolute; bottom: 0; left: 0; width: 100%; background-color: #7966c2; margin-top: 20px">
 					<h5 class="inverse">View Packages and Assemblies</h5>
 				</div>
@@ -398,14 +398,14 @@
 			</p>
 		</div>
 		<div class="row">
-			<% if @featured_taxon_children.length == 0 %>
+			<% if @featured_taxon.products.length == 0 %>
 				<p style="text-align: center">There are no featured products at this time. Please check back soon!</p>
 			<% else %>
 				<div id="carousel-new" class="carousel slide" data-ride="carousel">
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner mobile-center" role="listbox">
 				  	<% first = true %>
-				  	<% @featured_taxon_children.each_with_index do |new_prod, i| %>
+				  	<% @featured_taxon.products.each_with_index do |new_prod, i| %>
 					    <div class="item <%= i+1 == 1 ? "active" : "" %>">
 					    	<div class="col-md-5" style="text-align:center">
 									<% url = spree.product_url(new_prod) %>

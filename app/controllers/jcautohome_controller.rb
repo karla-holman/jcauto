@@ -48,7 +48,7 @@ class JcautohomeController < ApplicationController
 
 		# Get matching part groups taxon
 		@featured_taxon = @featured.taxons.first
-		@featured_taxon_children = @featured_taxon.children
+		# @featured_taxon_children = @featured_taxon.children
 
 		# Get promotions
 		@promotions = Spree::Promotion.all
