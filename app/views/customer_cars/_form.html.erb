@@ -19,7 +19,7 @@
     <% if @customer_car.attachment.exists? %>
       <div data-hook="thumbnail">
         <%= f.label Spree.t(:thumbnail) %>
-        <%= link_to image_tag(@customer_car.thumb_image_path), @customer_car.thumb_image_path %>
+        <%= link_to image_tag(@customer_car.attachment.url(:thumb)), @customer_car.thumb_image_path %>
       </div>
     <% end %>
 

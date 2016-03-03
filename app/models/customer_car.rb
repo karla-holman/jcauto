@@ -17,4 +17,30 @@ class CustomerCar < ActiveRecord::Base
 
     validates :name, :presence => :true
     validates :year, :numericality => :true, :presence => :true
+
+    validate :model_must_belong_to_make
+
+    validate :year_must_work_with_model
+
+    private
+
+    # Check if application years fit with model years
+    def model_must_belong_to_make
+      if self.make && self.model
+        if self.model.make_id != self.make.id
+          errors.add(:model, "must belong to selected make")
+        end
+      end
+    end
+
+    # Check if application years fit with model years
+    def year_must_work_with_model
+      if self.model && self.year
+        model_start = self.model.start_year
+        model_end = self.model.end_year
+        if self.year < model_start || self.year > model_end
+          errors.add(:start_year, "can't be outside of model construction dates")
+        end
+      end
+    end
 end
