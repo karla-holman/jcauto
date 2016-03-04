@@ -5,7 +5,7 @@
 
 		<div class="col-md-12 text-center">
 			<h1><%= @car.name %></h1>
-			<% if spree_current_user && spree_current_user.spree_roles.first.name == "admin" %>
+			<% if spree_current_user && spree_current_user.has_spree_role? "admin" %>
 				<%= link_to "Edit Car", edit_admin_car_path(@car), class: "btn btn-success admin-button" %>
 			<% end %>
 			<p class="intro"><%= @car.description %></p>
