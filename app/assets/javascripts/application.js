@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
+//= require bootstrap-sprockets 
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require spree
 //= require spree/frontend/cart
 //= require spree/frontend/checkout
