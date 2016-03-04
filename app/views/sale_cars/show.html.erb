@@ -2,13 +2,13 @@
 	<div class="row row-centered">
 		<div class="col-md-12 text-center">
 			<h1><%= @sale_car.name %></h1>
-			<% if spree_current_user && spree_current_user.has_spree_role? "admin" %>
+			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
 				<%= link_to "Edit Sale Car", edit_admin_sale_car_path(@sale_car), class: "btn btn-success admin-button" %>
 			<% end %>
 			<p class="intro">
 				<%= @sale_car.description %><br>
 				<strong>Price: </strong>$<%= sprintf('%.2f', @sale_car.price) %><br>
-				<% if !spree_current_user || !spree_current_user.has_spree_role? "admin" %>
+				<% if !spree_current_user || (!spree_current_user.has_spree_role? "admin") %>
 					<%= link_to "Contact Us About This Car", "#quote", class: "btn btn-success", style: "margin-top: 20px" %>
 				<% end %>
 			</p>

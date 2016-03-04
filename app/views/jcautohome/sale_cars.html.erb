@@ -14,7 +14,7 @@
 <div class="container">
 	<div class="row row-centered" style="margin-bottom: 0; padding-bottom: 0">
 		<h1>Cars for Sale</h1>
-		<% if spree_current_user && spree_current_user.has_spree_role? "admin" %>
+		<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
 			<%= link_to "Edit Sale Cars", admin_sale_cars_path, class: "btn btn-success admin-button" %>
 		<% end %>
 		<p class="intro">Occasionally we'll get great project cars that make their way through the shop. Check back here to see if we have anything that could be of use to you!</p>

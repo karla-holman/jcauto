@@ -130,7 +130,7 @@
 		<div class="row text-center row-centered">
 			<div class="col-md-12">
 				<h1>Our Cars</h1>
-				<% if spree_current_user && spree_current_user.has_spree_role? "admin" %>
+				<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
 					<%= link_to "Edit Cars", admin_cars_path, class: "btn btn-success admin-button" %>
 				<% end %>
 				<p class="intro">
