@@ -1,7 +1,6 @@
 <div class="container-odd">
 	<div class="container">
 		<div class="row text-center">]
-			<% byebug %>
 			<h1 style="font-family: 'Cookie';">Welcome to JC Auto Restoration</h1>
 			<div class= "col-md-4" >
 				<%= link_to "/parts" do %><%= image_tag "master/parts.png", alt: "Parts", onmouseover: "document.getElementById('parts').src='#{asset_path("master/parts-hover.png")}'", onmouseout: "document.getElementById('parts').src='#{asset_path("master/parts.png")}'", class:"icon", id:"parts" %><% end %>
