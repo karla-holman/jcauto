@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-sm-12 col-md-8">
       <h2>My Cars</h2>
-      <p class="intro" style="margin-left: 0; margin-right: 0">Find the parts you need quickly and easily by adding your cars here. We will notify you when new parts applicable to your project are uploaded.</p>
+      <p class="intro">Find the parts you need quickly and easily by adding your cars here. We will notify you when new parts applicable to your project are uploaded.</p>
     </div>
-    <div class="col-md-4" style="text-align: right">
+    <div class="col-sm-12 col-md-4 mobile-center">
       <%= link_to 'New Car', new_customer_car_path, class: "btn btn-info", style: "margin-top: 26px" %>
     </div>
 
@@ -13,54 +13,56 @@
     </div>
 
     <div class="col-md-12">
-      <table class="table table-striped" data-toggle="table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th><%= sort_link(@search, :name, 'Car Name', default_order: :desc) %></th>
-            <th>Description</th>
-            <th><%= sort_link(@search, :make_id, 'Make', default_order: :desc) %></th>
-            <th><%= sort_link(@search, :model_id, 'Model', default_order: :desc) %></th>
-            <th><%= sort_link(@search, :year, 'Year', default_order: :desc) %></th>
-            <th>All Parts <a tabindex="0" data-toggle="popover" id="popover-2" role="button" data-trigger="focus" title="All Parts" style="margin-left: 10px" data-content="View all parts applicable to your car."><span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top" title="All parts for this car" aria-hidden="true"></span></a></th>
-            <th><span data-toggle="tooltip" data-placement="top" title="Parts added within a week">New Parts</span><a id="popover-1" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" title="New Parts" style="margin-left: 10px" data-content="The number of parts uploaded within the last week. Click the applicable number below to view recently added parts for your car."><span data-toggle="tooltip" data-placement="top" title="Parts added within a week" class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></th>
-            <th colspan="3">Actions</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @customer_cars.each do |car| %>
+      <div class="table-responsive">
+        <table class="table table-striped" data-toggle="table">
+          <thead>
             <tr>
-              <td><%= car.attachment.exists? ? (image_tag car.attachment.url(:thumb), width: 100) : "No Image" %></td>
-              <td><%= car.name %></td>
-              <td><%= car.description %></td>
-              <td><%= car.make ? car.make.name : "" %></td>
-              <td><%= car.model ? car.model.name : "" %></td>
-              <td><%= car.year %></td>
-              <td>
-              <%
-                search_hash = {}
-                if car.make
-                  search_hash[:product_applications_application_make_id_eq] = car.make.id
-                end
-                if car.model
-                  search_hash[:product_applications_application_model_id_eq] = car.model.id
-                end
-                search_hash[:year_range_any] = car.year
-              %>
-              <%= link_to spree.products_path(:search => search_hash), :class => "btn btn-primary" do %>Find Parts<% end %></td>
-
-              <% 
-                search_hash[:created_at_gteq] = "prev_week"
-                number_new = new_products(car.make ? car.make.id : nil, car.model ? car.model.id : nil, car.year, "prev_week")   
-              %>
-              <td><%= link_to spree.products_path(:search => search_hash) do %><span class="badge"><%= number_new %></span><% end %></td>
-              <td><%= link_to 'Edit', edit_customer_car_path(car) %></td>
-              <td><%= link_to 'Remove', customer_car_path(car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>Image</th>
+              <th><%= sort_link(@search, :name, 'Car Name', default_order: :desc) %></th>
+              <th>Description</th>
+              <th><%= sort_link(@search, :make_id, 'Make', default_order: :desc) %></th>
+              <th><%= sort_link(@search, :model_id, 'Model', default_order: :desc) %></th>
+              <th><%= sort_link(@search, :year, 'Year', default_order: :desc) %></th>
+              <th>All Parts <a tabindex="0" data-toggle="popover" id="popover-2" role="button" data-trigger="focus" title="All Parts" style="margin-left: 10px" data-content="View all parts applicable to your car."><span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="top" title="All parts for this car" aria-hidden="true"></span></a></th>
+              <th><span data-toggle="tooltip" data-placement="top" title="Parts added within a week">New Parts</span><a id="popover-1" tabindex="0" data-toggle="popover" role="button" data-trigger="focus" title="New Parts" style="margin-left: 10px" data-content="The number of parts uploaded within the last week. Click the applicable number below to view recently added parts for your car."><span data-toggle="tooltip" data-placement="top" title="Parts added within a week" class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></a></th>
+              <th colspan="3">Actions</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+
+          <tbody>
+            <% @customer_cars.each do |car| %>
+              <tr>
+                <td><%= car.attachment.exists? ? (image_tag car.attachment.url(:thumb), width: 100) : "No Image" %></td>
+                <td><%= car.name %></td>
+                <td><%= car.description %></td>
+                <td><%= car.make ? car.make.name : "" %></td>
+                <td><%= car.model ? car.model.name : "" %></td>
+                <td><%= car.year %></td>
+                <td>
+                <%
+                  search_hash = {}
+                  if car.make
+                    search_hash[:product_applications_application_make_id_eq] = car.make.id
+                  end
+                  if car.model
+                    search_hash[:product_applications_application_model_id_eq] = car.model.id
+                  end
+                  search_hash[:year_range_any] = car.year
+                %>
+                <%= link_to spree.products_path(:search => search_hash), :class => "btn btn-primary" do %>Find Parts<% end %></td>
+
+                <% 
+                  search_hash[:created_at_gteq] = "prev_week"
+                  number_new = new_products(car.make ? car.make.id : nil, car.model ? car.model.id : nil, car.year, "prev_week")   
+                %>
+                <td><%= link_to spree.products_path(:search => search_hash) do %><span class="badge"><%= number_new %></span><% end %></td>
+                <td><%= link_to 'Edit', edit_customer_car_path(car) %></td>
+                <td><%= link_to 'Remove', customer_car_path(car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div><!-- Table responsive -->
     </div>
   </div>
 </div>
