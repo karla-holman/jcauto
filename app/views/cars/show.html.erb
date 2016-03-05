@@ -83,7 +83,9 @@
 					<!-- Do not list car on its own page -->
 				<% else %>
 					<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+						<%= link_to car do %>
 						<%= image_tag car.attachment.url(:thumb), class: "icon-retro", style: "margin-bottom: 20px" %>
+						<% end %>
 						<div class="clearfix visible-xs"></div>
 						<%= link_to car.name, car, class: "button-link" %>
 						<!-- Add break to right location -->

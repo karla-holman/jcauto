@@ -24,7 +24,9 @@
 		</div>
 		<% @current_projects.each_with_index do |car, index| %>
 		<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+			<%= link_to car do %>
 			<%= image_tag car.thumb_image_path, alt: car.name, class: "icon-retro", style: "margin-bottom: 20px" %>
+			<% end %>
 			<div class="clearfix visible-xs"></div>
 			<%= link_to car.name, car, class: "button-link" %>
 
@@ -62,7 +64,9 @@
 			</div>
 			<% @past_projects.each_with_index do |car, index| %>
 			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+				<%= link_to car do %>
 				<%= image_tag car.thumb_image_path, alt: car.name, class: "icon-retro", style: "margin-bottom: 20px" %>
+				<% end %>
 				<div class="clearfix visible-xs"></div>
 				<%= link_to car.name, car, class: "button-link" %>
 
