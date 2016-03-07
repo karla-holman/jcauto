@@ -116,10 +116,8 @@
 
 		// Set proper image to start
 		$current = $(".thumb_selected");
-		advanceGallery($current, $current, true);
-		advanceGallery($current, $current, false);
-		console.log("adding class thumb_selected to " + $current);
-		$current.addClass("thumb_selected");
-		console.log("Current classes: " + $current.attr('class'));
+		$dummy = $(".not_real");
+		advanceGallery($dummy, $current, true);
+		advanceGallery($dummy, $current, false);
 	});
 </script>
