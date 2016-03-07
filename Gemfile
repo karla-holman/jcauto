@@ -78,7 +78,7 @@ end
 
 
 
-# gem 'spree', '3.0.4'
+# gem 'spree', '3.0.4' update
 # gem 'spree', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_jcauto"
 gem 'spree', github: 'karla-holman/spree_jcauto'
 
