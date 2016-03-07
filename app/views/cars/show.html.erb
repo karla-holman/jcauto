@@ -118,6 +118,8 @@
 		$current = $(".thumb_selected");
 		advanceGallery($current, $current, true);
 		advanceGallery($current, $current, false);
+		console.log("adding class thumb_selected to " + $current);
 		$current.addClass("thumb_selected");
+		console.log("Current classes: " + $current.attr('class'));
 	});
 </script>
