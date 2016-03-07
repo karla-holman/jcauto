@@ -113,5 +113,11 @@
 	$(document).ready( function() {
 		$("#next").show();
 		$("#previous").show();
+
+		// Set proper image to start
+		$current = $(".thumb_selected");
+		advanceGallery($current, $current, true);
+		advanceGallery($current, $current, false);
+		$current.addClass("thumb_selected");
 	});
 </script>
