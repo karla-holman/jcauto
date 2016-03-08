@@ -158,6 +158,8 @@ class JcautohomeController < ApplicationController
         flash[:success] = "Your message has been sent. Thank you!"
 
         if(params[:user][:part_numbers])
+        	redirect_to parts_path + "#request"
+        elsif(params[:user][:sell_part_numbers])
         	redirect_to parts_path + "#sell"
        	else
        		redirect_to :back
