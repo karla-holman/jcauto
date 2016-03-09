@@ -17,7 +17,7 @@ class JcautohomeController < ApplicationController
 		@current_projects = Car.where("our_car = ? AND current = ?", false, true).order(completed_date: :desc)
 		@past_projects = Car.where("our_car = ? AND current = ?", false, false).order(completed_date: :desc)
 
-		@past_events = Event.where("event_date < ?", Date.today).order("event_date ASC")
+		@past_events = Event.where("event_date < ?", Date.today).order("event_date DESC")
 	end
 
 	def parts

@@ -105,25 +105,29 @@
 			<h3>Select Event</h3>
 		</div>
 		<!-- List all past events -->
-		<% @past_events.each do |event| %>
-		<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-centered" id="events">
-			<% image_array = "[" %>
-			<% caption_array = "[" %>
-			<% event.event_images.each do |image| %>
-				<% image_array += '"' + "#{image.attachment.url(:large)}" + '",' %>
-				<% caption_array += '"' + "#{image.description}" + '",' %>
+		<% if @past_events.length == 0 %>
+			<h5 style="text-align: center">No past events yet. Check back soon to see where we go!</h5>
+		<% else %>
+			<% @past_events.each do |event| %>
+			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-centered" id="events">
+				<% image_array = "[" %>
+				<% caption_array = "[" %>
+				<% event.event_images.each do |image| %>
+					<% image_array += '"' + "#{image.attachment.url(:large)}" + '",' %>
+					<% caption_array += '"' + "#{image.description}" + '",' %>
+				<% end %>
+				<% image_array.chomp!(",") %>
+				<% caption_array.chomp!(",") %>
+				<% image_array += "]" %>
+				<% caption_array += "]" %>
+				<%= link_to event, :data => { :images => image_array, :captions => caption_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link" do %><br>
+					<%= image_tag event.attachment.url(:thumb), alt: event.name, class:"icon" %>
+					<div class="clearfix visible-xs"></div>
+					<%= event.name %>
+				<% end %>
+				<p><%= event.event_date.strftime("%B %e, %Y") %></p>
+			</div>
 			<% end %>
-			<% image_array.chomp!(",") %>
-			<% caption_array.chomp!(",") %>
-			<% image_array += "]" %>
-			<% caption_array += "]" %>
-			<%= link_to event, :data => { :images => image_array, :captions => caption_array, :name => event.name, :date => event.event_date.strftime("%a, %B %e, %Y"), :description => event.description }, class:"button-link" do %><br>
-				<%= image_tag event.attachment.url(:thumb), alt: event.name, class:"icon" %>
-				<div class="clearfix visible-xs"></div>
-				<%= event.name %>
-			<% end %>
-			<p><%= event.event_date.strftime("%B %e, %Y") %></p>
-		</div>
 		<% end %>
 		<hr>
 	</div>
