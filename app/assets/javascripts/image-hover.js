@@ -134,11 +134,11 @@ $("#mobile-right").click(function(event) {
 // Swipe Left Event
 
 $(document).ready(function() {
-	$('.image-background').each(function(){
+	/* $('.image-background').each(function(){
 		var image_path = $(this).css('background-image').replace(/(url\(|\)|'|")/gi, '');
 		$(this).parallax({imageSrc: image_path, position: "top", bleed: "10"});
 		$(this).css("background-image", "none");
-	});
+	}); */
 
 	var hammertime; 
 
