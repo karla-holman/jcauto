@@ -194,6 +194,7 @@
 					<%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %>
 				<% end %>
 
+				<div class="clearfix"></div>
 				<%= submit_tag("Submit Form", class: "btn btn-default") %>
 			<% end %>
 		</div>

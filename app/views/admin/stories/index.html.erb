@@ -17,9 +17,8 @@
         <thead>
           <tr>
             <th>Image</th>
-            <th>Name</th>
-            <th>User Name</th>
             <th>Title</th>
+            <th>User Name</th>
             <th># of Images</th>
             <th colspan="3">Actions</th>
           </tr>
@@ -31,7 +30,6 @@
               <td><%= image_tag story.thumb_image_path, width: 100 %></td>
               <td><%= story.name %></td>
               <td><%= story.user_name %></td>
-              <td><%= story.title %></td>
               <td><%= story.story_images.length %></td>
               <td><%= link_to 'Gallery', story %></td>
               <td><%= link_to 'Edit', edit_admin_story_path(story) %></td>

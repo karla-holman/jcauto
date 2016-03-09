@@ -8,9 +8,5 @@
   <%= f.label :description, Spree.t(:description) %>
   <%= f.text_area :description, :rows => 4, :class => 'form-control' %>
 </div>
-<div class="form-group">
-  <%= f.label :state, Spree.t(:state) %>
-  <%= f.collection_select(:state, CarImage.states, :first, :first, {:prompt => "Select a State"}, { :class=>'form-control', :data=>{ :toggle=>"tooltip", :placement=>"bottom"}, :title=>'Used for project cars only, choose no state if non-project car' } ) %>
-</div>
 
 

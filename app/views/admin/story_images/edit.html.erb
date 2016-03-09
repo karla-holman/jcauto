@@ -1,15 +1,15 @@
  <div class="container">
   <div class="row">
     <ol class="breadcrumb" style="text-align: left">
-      <li><%=link_to admin_cars_path do %>Cars<% end %></li>
-      <li><%=link_to edit_admin_car_path(@car) do %><%= @car.name %><% end %></li>
-      <li><%=link_to admin_car_car_images_path(@car) do %>Images<% end %></li>
+      <li><%=link_to admin_stories_path do %>Stories<% end %></li>
+      <li><%=link_to edit_admin_story_path(@story) do %><%= @story.name %><% end %></li>
+      <li><%=link_to admin_story_story_images_path(@story) do %>Images<% end %></li>
       <li class="active">New Image</li>
     </ol>
-    <h2><%= @car.name %></h2>
+    <h2><%= @story.name %></h2>
     <h3><%= Spree.t(:edit_image) %></h3>
 
-    <%= form_for [:admin, @car, @image], html: { multipart: true } do |f| %>
+    <%= form_for [:admin, @story, @image], html: { multipart: true } do |f| %>
       <div data-hook="edit_image" class="panel panel-default">
         <div class="panel-heading">
           <h2 class="panel-title">
@@ -29,7 +29,7 @@
             <div class="form-actions" data-hook="buttons">
               <%= button Spree.t('actions.update'), 'save' %>
               <span class="or"><%= Spree.t(:or) %></span>
-              <%= button_link_to Spree.t('actions.cancel'), admin_car_car_images_path(@car), id: 'cancel_link', icon: 'delete' %>
+              <%= button_link_to Spree.t('actions.cancel'), admin_story_story_images_path(@story), id: 'cancel_link', icon: 'delete' %>
             </div>
           </div>
         </div>
