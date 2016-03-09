@@ -16,7 +16,7 @@
 				<% @events.each_with_index do |event, i| %>
 					<div class="well mobile-left" style="background-color: #fff">
 						<div class="col-xs-4 col-sm-4 col-md-3">
-							<%= image_tag event.thumb_image_path, alt: event.name, class: "icon-retro" %>
+							<%= image_tag event.thumb_image_path, alt: event.name, class: "icon" %>
 						</div>
 						<div class="col-xs-8 col-sm-8 col-md-9">
 							<h5 style="margin: 0 0 5px 0"><%= event.name %></h5>
@@ -36,7 +36,7 @@
 									<!-- User already attending -->
 									<p><strong>I'm attending</strong></p>
 								<% else %>
-									<%= form_tag 'event_rsvp' do %>
+									<%= form_tag 'events/event_rsvp' do %>
 										  <%= hidden_field_tag "event_id", event.id %>
 							   			<%= submit_tag "RSVP", class: "btn btn-default" %><span style="margin-left: 20px">
 									<% end %>
