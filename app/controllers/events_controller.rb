@@ -2,17 +2,17 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show]
   before_action :authorized_user?, only: [:user_attending]
 
+  # Upcoming events
   def index
     @events = Event.all.where("event_date > ?", Date.today).order("event_date DESC")
   end
 
-  # GET /events/1
-  # GET /events/1.json
+  # Past events
   def show
+    @events = Event.all.where("event_date < ?", Date.today).order("event_date DESC")
   end
 
   def event_rsvp
-
     @user = spree_current_user
     @event = Event.find(event_params)
 

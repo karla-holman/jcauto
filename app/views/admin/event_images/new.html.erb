@@ -1,7 +1,7 @@
  <div class="container">
   <div class="row">
   	<ol class="breadcrumb" style="text-align: left">
-      <li><%=link_to admin_event_path do %>Events<% end %></li>
+      <li><%=link_to admin_events_path do %>Events<% end %></li>
       <li><%=link_to edit_admin_event_path(@event) do %><%= @event.name %><% end %></li>
       <li><%=link_to admin_event_event_images_path(@event) do %>Images<% end %></li>
       <li class="active">New Image</li>
