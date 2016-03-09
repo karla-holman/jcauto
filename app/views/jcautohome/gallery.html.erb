@@ -137,48 +137,53 @@
 		<% images = @past_events.first.event_images %>
 		<% first = true %>
 
-		<!-- Full Mobile Gallery -->
-		<div class="gallery_container_mobile" style="position: relative; top: 0; left:0;">
-			<%= link_to "/", class: "gallery-arrow-left", id: "mobile-left" do %>
+		<% if images.length == 0 %>
+			<h5 style="text-align: center">No images available for this event.</h5>
+		<% else %>
 
-			<% end %>
-			<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
-			<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
-			<%= link_to "/", class: "gallery-arrow-right", id: "mobile-right" do %>
+			<!-- Full Mobile Gallery -->
+			<div class="gallery_container_mobile" style="position: relative; top: 0; left:0;">
+				<%= link_to "/", class: "gallery-arrow-left", id: "mobile-left" do %>
 
-			<% end %>
-		</div>
-
-		<!-- Main Gallery Image -->
-		<div class="col-md-9">
-			<div class="gallery_container">
-				<%= link_to "/", class: "gallery-arrow-left" do %>
-					<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
 				<% end %>
-					<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
-					<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
-				<%= link_to "/", class: "gallery-arrow-right" do %>
-					<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
+				<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%", class: "gallery_main" %>
+				<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+				<%= link_to "/", class: "gallery-arrow-right", id: "mobile-right" do %>
+
 				<% end %>
-			</div><!-- Gallery -->
-			<div id="caption">
-				<p id="caption-text"><%= images[0].description.html_safe %></p>
 			</div>
 
-
-			<span id="thumbs">
-			<% images.each do |image| %>
-				<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
-					<a href= <%= "#{image.attachment.url(:large)}" %> >
-						<%= image_tag image.attachment.url(:thumb), alt: image.description, class: "icon", :data => { :path => "#{image.attachment.url(:large)}", :state => "Images" } %>
-					</a>
-					<% if first %>
-						<% first = false %>
+			<!-- Main Gallery Image -->
+			<div class="col-md-9">
+				<div class="gallery_container">
+					<%= link_to "/", class: "gallery-arrow-left" do %>
+						<%= image_tag "arrow-02.png", alt: "previous", id: "previous" %>
 					<% end %>
+						<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%", class:"gallery_main" %>
+						<%= image_tag images[0].attachment.url(:large), alt: "#{images[0].description}", style: "width: 100%; visibility: hidden; display: none", class:"placeholder" %>
+					<%= link_to "/", class: "gallery-arrow-right" do %>
+						<%= image_tag "arrow-01.png", alt: "next", id: "next" %>
+					<% end %>
+				</div><!-- Gallery -->
+				<div id="caption">
+					<p id="caption-text"><%= images[0].description.html_safe %></p>
 				</div>
-			<% end %>	
-			</span>	
-		</div><!-- Column -->
+
+
+				<span id="thumbs">
+				<% images.each do |image| %>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
+						<a href= <%= "#{image.attachment.url(:large)}" %> >
+							<%= image_tag image.attachment.url(:thumb), alt: image.description, class: "icon", :data => { :path => "#{image.attachment.url(:large)}", :state => "Images" } %>
+						</a>
+						<% if first %>
+							<% first = false %>
+						<% end %>
+					</div>
+				<% end %>	
+				</span>	
+			</div><!-- Column -->
+		<% end %>
 		<div id="info" class="col-md-3">
 			<h3 id="name"><%= @past_events.first.name %></h3>
 			<h4 id="date"><%= @past_events.first.event_date.strftime("%a, %B %e, %Y") %></h4>
