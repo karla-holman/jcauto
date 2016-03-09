@@ -131,6 +131,7 @@
 		<% end %>
 		<hr>
 	</div>
+	<% if @past_events.length > 0 %>
 	<div class="row row-centered">
 
 		<% images = @past_events.first.event_images %>
@@ -184,6 +185,7 @@
 			<p id="description"><%= @past_events.first.description.html_safe %></p>
 		</div>
 	</div><!-- Row -->
+	<% end %>
 </div>
 
 <!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->
