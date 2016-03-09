@@ -21,7 +21,9 @@
 			<h1>Welcome to Our MoPar Community</h1>
 		</div>
 		<div class="col-sm-6 col-md-4 col-lg-4 col-centered">
+			<%= link_to stories_path do %>
 			<%= image_tag "master/stories.png", alt: "Your Stories", onmouseover: "document.getElementById('stories').src='#{asset_path("master/stories-hover.png")}'", onmouseout: "document.getElementById('stories').src='#{asset_path("master/stories.png")}'", class: "icon", id: "stories" %>
+			<% end %>
 			<h3>Your Stories</h3>
 			<p>
 				Want to learn about projects that other customers are working on? Check out some great stories here, or share your own journey.
