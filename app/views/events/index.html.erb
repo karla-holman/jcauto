@@ -3,7 +3,7 @@
 		<div class="row row-centered" style="margin-bottom: 0; padding-bottom: 0">
 			<h1>Upcoming Events</h1>
 			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
-				<%= link_to "Edit Events", admin_sale_cars_path, class: "btn btn-success admin-button" %>
+				<%= link_to "Edit Events", admin_events_path, class: "btn btn-success admin-button" %>
 			<% end %>
 			<p class="intro">We love to get involved in the MoPar community and meet members like you! Find us at an upcoming event and stop by our booth. Let us know here if you'll be attending so we can make sure to say hi.</p>
 		</div>
@@ -11,7 +11,7 @@
 			<div class="col-md-12">
 			<% my_events = spree_current_user ? spree_current_user.events.where("event_date > ?", Date.today) : [] %>
 			<% if @events.length == 0 %>
-				<h5>No upcoming events at this time. Check back soon!</h5>
+				<h5 style="text-align: center">No upcoming events at this time. Check back soon!</h5>
 			<% else %>
 				<% @events.each_with_index do |event, i| %>
 					<div class="well mobile-left" style="background-color: #fff">

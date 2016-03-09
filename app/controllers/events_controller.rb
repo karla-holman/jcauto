@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authorized_user?, only: [:user_attending]
 
   def index
-    @events = Event.all
+    @events = Event.all.where("event_date > ?", Date.today).order("event_date DESC")
     @user_event = UserEvent.new
   end
 
