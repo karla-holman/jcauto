@@ -189,6 +189,11 @@
 				<div class="form-group">
 					<%= text_area_tag(:message, "", size: "25x5", style:"height: 50px;", placeholder: "Message", class: "form-control") %>
 				</div>
+								
+				<% if Spree::Captcha::Config[:use_captcha] %>
+					<%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %>
+				<% end %>
+
 				<%= submit_tag("Submit Form", class: "btn btn-default") %>
 			<% end %>
 		</div>
@@ -198,7 +203,7 @@
 				We love a good car show, and it gives us a great opportunity to meet other people who are passionate about MoPars.
 			</p>
 			<p>
-				Here is a list of shows we'll be attending over the next couple of months. Drop by our booth and say hello!
+				Drop by our booth and say hello at one of the upcoming shows!
 			</p>
 			<%= link_to "Upcoming Shows >", events_path, class:"button-link" %>
 		</div>

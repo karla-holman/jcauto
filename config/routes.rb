@@ -86,6 +86,10 @@ Rails.application.routes.draw do
     resources :events do
       resources :event_images
     end
+
+    resources :stories do
+      resources :story_images
+    end
   end
 
   resources :events, only: [:index, :show] do
@@ -93,6 +97,8 @@ Rails.application.routes.draw do
       post :event_rsvp
     end
   end
+
+  resources :stories, only: [:index, :show]
 
   resources :user_events, only: [:create, :new]
 

@@ -177,7 +177,7 @@
 				<% images.each do |image| %>
 					<div class="col-xs-2 col-sm-2 col-md-2 col-centered <%= first ? "thumb_selected" : "" %>" id="imageGallery_thumb">
 						<a href= <%= "#{image.attachment.url(:large)}" %> >
-							<%= image_tag image.attachment.url(:thumb), alt: image.description, class: "icon", :data => { :path => "#{image.attachment.url(:large)}", :state => "Images" } %>
+							<%= image_tag image.attachment.url(:large), alt: image.description, class: "icon", :data => { :path => "#{image.attachment.url(:large)}", :state => "Images" } %>
 						</a>
 						<% if first %>
 							<% first = false %>

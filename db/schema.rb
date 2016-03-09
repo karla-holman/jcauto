@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308201832) do
+ActiveRecord::Schema.define(version: 20160309193206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1301,6 +1301,35 @@ ActiveRecord::Schema.define(version: 20160308201832) do
 
   add_index "spree_zones", ["default_tax"], name: "index_spree_zones_on_default_tax", using: :btree
   add_index "spree_zones", ["kind"], name: "index_spree_zones_on_kind", using: :btree
+
+  create_table "stories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "user_name"
+    t.string   "vehicle"
+    t.integer  "make_id"
+    t.integer  "model_id"
+    t.integer  "year"
+    t.text     "story_body"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  create_table "story_images", force: :cascade do |t|
+    t.integer  "story_id"
+    t.text     "description"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  add_index "story_images", ["story_id"], name: "index_story_images_on_story_id", using: :btree
 
   create_table "user_events", id: false, force: :cascade do |t|
     t.integer "user_id"

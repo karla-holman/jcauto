@@ -1,0 +1,88 @@
+<%= form_for [:admin, @story], html: { multipart: true } do |f| %>
+  <%= render partial: 'spree/shared/error_messages', locals: { target: @story } %>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :name, Spree.t(:title) %>
+        <%= f.text_field :name, :class=>'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :user_name, Spree.t(:user_name) %>
+        <%= f.text_field :user_name, :class=>'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :make_id, Spree.t(:make) %>
+        <%= f.collection_select(:make_id, Spree::Make.all.order(:name), :id, :name, {:prompt => "Select a Make"}, {:class=>'form-control', :id => "make-select" }) %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :model_id, Spree.t(:model) %>
+
+        <%= f.select :model_id, options_for_select(Spree::Model.all.map{ |m| [m.name, m.id, {'data-make'=>m.make_id}] }, @story.model_id), {:prompt => "Select a Model"}, {:class=>'form-control', :id => "model-select" } %>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :year, Spree.t(:year) %>
+        <%= f.text_field :year, :class=>'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :story_body, Spree.t(:story_body) %>
+        <%= f.text_area :story_body, :rows => 4, :class => 'form-control' %>
+      </div>
+
+      <% if @story.thumb_image_path %>
+        <div data-hook="thumbnail">
+          <%= f.label Spree.t(:thumbnail) %>
+          <%= link_to image_tag(@story.thumb_image_path), @story.thumb_image_path %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :attachment, Spree.t(:filename) %>
+      <%= f.file_field :attachment %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-success"%>
+      <%= link_to 'Back', admin_stories_path, class: "btn btn-default" %> 
+    </div>
+<% end %>
+
+<script>
+  $( document ).ready(function() {
+    console.log("Preparing models");
+    prepare_models();
+  });
+
+  $("#make-select").change( function(){
+    prepare_models();
+  });
+
+  function prepare_models() {
+    make_id = $("#make-select").val();
+    console.log("Make ID: " + make_id);
+
+    // Loop through each option and hide if not for this make
+    $("#model-select").children().each( function() {
+      if($(this).data("make") != make_id && $(this).val() != "") {
+        $(this).hide();
+      } else {
+        $(this).show();
+      }
+    });
+  }
+
+</script>

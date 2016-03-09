@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>All Stories</h2>
+      <p class="intro" style="margin-left: 0; margin-right: 0">List of all user stories.</p>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'New Story', new_admin_story_path, class: "btn btn-primary", style: "margin-top: 26px" %>
+    </div>
+
+    <div id="content" class="col-md-12" style="margin-top: 25px">
+      <%= flash_messages %>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Title</th>
+            <th># of Images</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @stories.each do |story| %>
+            <tr>
+              <td><%= image_tag story.thumb_image_path, width: 100 %></td>
+              <td><%= story.name %></td>
+              <td><%= story.user_name %></td>
+              <td><%= story.title %></td>
+              <td><%= story.story_images.length %></td>
+              <td><%= link_to 'Gallery', story %></td>
+              <td><%= link_to 'Edit', edit_admin_story_path(story) %></td>
+              <td><%= link_to 'Remove', admin_story_path(story), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -153,9 +153,15 @@ class JcautohomeController < ApplicationController
 			end
 	    end
 
-		message = Spree::ContactMailer.contact_email(params[:user], params[:message], images)
-        message.deliver_later
-        flash[:success] = "Your message has been sent. Thank you!"
+	    captcha_passed = !Spree::Captcha::Config[:use_captcha] || verify_recaptcha(private_key: Spree::Captcha::Config[:private_key])
+	    terms_agreed = !params[:user][:terms] || params[:user][:terms] == "1"
+      	if captcha_passed
+			message = Spree::ContactMailer.contact_email(params[:user], params[:message], images)
+	        message.deliver_later
+	        flash[:success] = "Your message has been sent. Thank you!"
+	    else
+	    	flash[:error] = "We could not verify that you are not a robot. Please try again."
+	    end
 
         if(params[:user][:part_numbers])
         	redirect_to parts_path + "#request"
