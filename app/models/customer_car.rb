@@ -1,5 +1,5 @@
 class CustomerCar < ActiveRecord::Base
-	belongs_to :user, class_name: "Spree::User" 
+	belongs_to :user, class_name: Spree.user_class 
 	belongs_to :make, class_name: "Spree::Make"
 	belongs_to :model, class_name: "Spree::Model"
 

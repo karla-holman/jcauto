@@ -1,25 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="container-odd">
+	<div class="container">
+		<div class="row row-centered" style="margin-bottom: 0; padding-bottom: 0">
+			<h1>Upcoming Events</h1>
+			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
+				<%= link_to "Edit Events", admin_sale_cars_path, class: "btn btn-success admin-button" %>
+			<% end %>
+			<p class="intro">We love to get involved in the MoPar community and meet members like you! Find us at an upcoming event and stop by our booth. Let us know here if you'll be attending so we can make sure to say hi.</p>
+		</div>
+		<div class="row" style="margin-top: 0">
+			<div class="col-md-12">
+			<% my_events = spree_current_user ? spree_current_user.events.where("event_date > ?", Date.today) : [] %>
+			<% if @events.length == 0 %>
+				<h5>No upcoming events at this time. Check back soon!</h5>
+			<% else %>
+				<% @events.each_with_index do |event, i| %>
+					<div class="well mobile-left" style="background-color: #fff">
+						<div class="col-xs-4 col-sm-4 col-md-3">
+							<%= image_tag event.thumb_image_path, alt: event.name, class: "icon-retro" %>
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-9">
+							<h5 style="margin: 0 0 5px 0"><%= event.name %></h5>
+							<p style="line-height: 1.3em"><%= event.location %><br><%= event.event_date.strftime("%A, %B %e, %Y") %></p>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-12">
+							<p><%= event.description.html_safe %></p>
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-8">
+							<p><span class="badge" style="margin-right: 5px"><%= event.users.length %></span> JC Auto Customers Attending</p>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4" style="text-align: right">
+							<% if spree_current_user %>
 
-<h1>Listing Events</h1>
+								<% if my_events.where("id=?", event.id).length > 0 %>
+									<!-- User already attending -->
+									<p><strong>I'm attending</strong></p>
+								<% else %>
+									<%= form_tag 'event_rsvp' do %>
+										  <%= hidden_field_tag "event_id", event.id %>
+							   			<%= submit_tag "RSVP", class: "btn btn-default" %><span style="margin-left: 20px">
+									<% end %>
+								<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+							<% else %>
+								<!-- User not logged in -->
+								<%= link_to "Log in to RSVP", spree.login_path %>
+							<% end %>
+						</div>
+						<div class="clearfix"></div>
+					</div><!-- well -->
+				<% end %><!-- end events loop -->
+			<% end %><!-- end if -->
+			</div><!-- column -->
+		</div><!-- Row -->
+	</div><!-- Container -->
+</div><!-- Container MoPar Triangle -->

@@ -1,7 +1,7 @@
 class CustomerCarsController < ApplicationController
-  before_filter :authorized?
+  before_filter :authorized_user?
   before_action :set_customer_car, :only => [:update, :edit]
-  before_action :set_ransack, :only => [:update, :create, :destroy, :index]
+  before_filter :set_ransack, :only => [:index]
 
   def new
     @customer_car = CustomerCar.new
@@ -67,7 +67,7 @@ class CustomerCarsController < ApplicationController
     end
 
     def set_ransack
-      @search = CustomerCar.ransack(params[:q], :user_id_eq => spree_current_user.id)
+      @search = spree_current_user.customer_cars.ransack(params[:q])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

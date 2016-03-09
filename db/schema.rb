@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301193951) do
+ActiveRecord::Schema.define(version: 20160308201832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20160301193951) do
 
   create_table "event_images", force: :cascade do |t|
     t.integer  "event_id"
-    t.text     "image_path"
     t.text     "description"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -78,12 +77,15 @@ ActiveRecord::Schema.define(version: 20160301193951) do
   create_table "events", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
-    t.text     "thumb"
     t.text     "location"
     t.date     "event_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "event_link"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -1299,6 +1301,11 @@ ActiveRecord::Schema.define(version: 20160301193951) do
 
   add_index "spree_zones", ["default_tax"], name: "index_spree_zones_on_default_tax", using: :btree
   add_index "spree_zones", ["kind"], name: "index_spree_zones_on_kind", using: :btree
+
+  create_table "user_events", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+  end
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false

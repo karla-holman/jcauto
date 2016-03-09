@@ -1,33 +1,6 @@
 class CarImagesController < ApplicationController
 	before_action :load_edit_data
 
-	def new
-		@image = CarImage.new
-	end
-
-	def create
-    @image = @car.car_images.new(car_image_params)
-    if @image.save
-    	flash[:success] = "Image added successfully!"
-      render "index"
-    else
-      # This line overrides the default rendering behavior, which
-      # would have been to render the "create" view.
-      render "new"
-    end
-  end
-
-  def edit
-  	@image = CarImage.find(params[:id])
-  end
-
-  def destroy
-  	CarImage.find(params[:id]).destroy
-    flash[:success] = "Image deleted"
-    render "index"
-  end
-
-
 	private
 
 	def load_edit_data

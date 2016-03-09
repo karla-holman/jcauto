@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>All Events</h2>
+      <p class="intro" style="margin-left: 0; margin-right: 0">List of all events (including past and present)</p>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'New Event', new_admin_event_path, class: "btn btn-primary", style: "margin-top: 26px" %>
+    </div>
+
+    <div id="content" class="col-md-12" style="margin-top: 25px">
+      <%= flash_messages %>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Past?</th>
+            <th>Location</th>
+            <th># of Images</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= image_tag event.thumb_image_path, width: 100 %></td>
+              <td><%= event.name %></td>
+              <td><%= event.event_date.strftime("%m/%d/%y") %></td>
+              <td><%= event.event_date < Date.today ? "Past" : "Upcoming" %></td>
+              <td><%= event.location %></td>
+              <td><%= event.event_images.length %></td>
+              <td><%= link_to 'Gallery', event %></td>
+              <td><%= link_to 'Edit', edit_admin_event_path(event) %></td>
+              <td><%= link_to 'Remove', admin_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require spree
 //= require spree/frontend/cart
 //= require spree/frontend/checkout

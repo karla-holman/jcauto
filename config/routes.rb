@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'qbwc/action' => 'qbwc#_generate_wsdl'
   get 'qbwc/qwc' => 'qbwc#qwc'
   wash_out :qbwc
-  resources :events
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -82,7 +82,20 @@ Rails.application.routes.draw do
     resources :sale_cars do
       resources :sale_car_images
     end
+
+    resources :events do
+      resources :event_images
+    end
   end
+
+  resources :events, only: [:index, :show] do
+    collection do
+      post :event_rsvp
+    end
+  end
+
+  resources :user_events, only: [:create, :new]
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
