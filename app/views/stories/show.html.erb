@@ -5,7 +5,7 @@
 
 		<div class="col-md-12 text-center">
 			<h1><%= @story.name %></h1>
-			<h5 style="margin-top: 10px">A Story by <%= @story.user_name %></br><%= @story.vehicle %></h5>
+			<p class="intro">A Story by <%= @story.user_name %></br><%= @story.vehicle %></p>
 			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
 				<%= link_to "Edit Story", edit_admin_story_path(@story), class: "btn btn-success admin-button" %>
 			<% end %>
@@ -60,17 +60,12 @@
 		<% else %>
 			<h3>No Images Available</h3>
 		<% end %>
-		<div class="col-md-9" style="border-right: 1px solid #363636;">
+		<div class="col-md-9" style="border-right: 1px solid #eee;">
 			<%= @story.story_body.html_safe %>
 		</div>
 		<div class="col-md-3">
-			<h2>Customer: <%= @story.user_name %></h2>
-			<h2>Vehicle: <%= @story.vehicle %></h2>
-			<h5>Links</h5>
-			<ul class="mopar-list">
-				<li><%= link_to "Submit your own story", "/stories#submit" %></li>
-				<li>Other stories like this</li>
-			</ul>
+			<h5>Customer: <%= @story.user_name %></h5>
+			<h5>Vehicle: <%= @story.vehicle %></h5>
 		</div>
 	</div><!-- row -->
 </div>
