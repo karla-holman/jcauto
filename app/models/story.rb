@@ -3,6 +3,10 @@ class Story < ActiveRecord::Base
 	belongs_to :make, class_name: "Spree::Make"
 	belongs_to :model, class_name: "Spree::Model"
 
+  validates :name, presence: true
+  validates :user_name, presence: true
+  validates :vehicle, presence: true
+
 	has_attached_file :attachment,
                       styles: {
                         thumb: {

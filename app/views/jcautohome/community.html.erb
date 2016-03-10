@@ -28,8 +28,7 @@
 			<p>
 				Want to learn about projects that other customers are working on? Check out some great stories here, or share your own journey.
 			</p>
-			<p style="color: #200099">Coming Soon!</p>
-			<% link_to "Your Stories >", "/", class: "button-link", onmouseover:"document.getElementById('stories').src='#{asset_path('master/stories-hover.png')}'", onmouseout:"document.getElementById('stories').src='#{asset_path('master/stories.png')}'" %>
+			<%= link_to "Your Stories >", stories_path, class: "button-link", onmouseover:"document.getElementById('stories').src='#{asset_path('master/stories-hover.png')}'", onmouseout:"document.getElementById('stories').src='#{asset_path('master/stories.png')}'" %>
 		</div>
 		<div class="col-sm-6 col-md-4 col-lg-4 col-centered">
 			<%= image_tag "master/blog.png", alt: "Blog", onmouseover: "document.getElementById('blog').src='#{asset_path("master/blog-hover.png")}'", onmouseout: "document.getElementById('blog').src='#{asset_path("master/blog.png")}'", class: "icon", id: "blog" %>

@@ -87,7 +87,7 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<p><%= check_box :user, :terms, :required => true %>&nbsp;<%= label_tag :term, "I agree to the" %> <%= link_to('terms and conditions', '/', style: "font-weight: bold").html_safe %></p>
+					<p><%= check_box :user, :terms, :required => true %>&nbsp;<%= label_tag :term, "I agree to the" %> <%= link_to('terms and conditions', '/policies', style: "font-weight: bold").html_safe %></p>
 				</div>
 				<div class="col-md-6" style="margin-bottom: 10px;">
 					<% if Spree::Captcha::Config[:use_captcha] %>
