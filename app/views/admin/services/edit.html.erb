@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+  		<div class="col-md-12">
+	  		<ol class="breadcrumb" style="text-align: left">
+		      <li><%=link_to admin_services_path do %>Services<% end %></li>
+		      <li class="active"><%= @service.name %></li>
+		    </ol>
+		</div>
+
+		<div class="col-md-8">
+			<h2><%= @service.name %></h2>
+		</div>
+		<div class="col-md-4" style="padding-top: 25px">
+			<%= link_to 'View Page', @service, class: "btn btn-info" %>
+			<%= link_to 'Images', admin_service_service_images_path(@service), class: "btn btn-info" %>
+		</div>
+		<div class="col-md-12">
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>
+

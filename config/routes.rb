@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   get 'timeline' => 'jcautohome#timeline'
   get 'my-cars' => 'customer_cars#index'
 
-  resources :services   
+  resources :services, only: :show  
   resources :jcautohome do
     collection do
       post :submit_contact
@@ -92,6 +92,7 @@ Rails.application.routes.draw do
     end
 
     resources :services do
+      resources :service_images
       resources :service_price_lists do
         resources :service_items
       end
