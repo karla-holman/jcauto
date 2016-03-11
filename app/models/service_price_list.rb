@@ -4,4 +4,6 @@ class ServicePriceList < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates_uniqueness_of :name, scope: [:service]
+
+	accepts_nested_attributes_for :service_items
 end

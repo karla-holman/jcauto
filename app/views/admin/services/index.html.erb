@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>All Services</h2>
+      <p class="intro" style="margin-left: 0; margin-right: 0">List of all our services.</p>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'New Story', new_admin_service_path, class: "btn btn-primary", style: "margin-top: 26px" %>
+    </div>
+
+    <div id="content" class="col-md-12" style="margin-top: 25px">
+      <%= flash_messages %>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Price Lists</th>
+            <th>Number of Images</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @services.each do |service| %>
+            <tr>
+              <td><%= service.name %></td>
+              <td>
+              	<ul>
+	              	<% service.service_price_lists.each do |list| %>
+	              		<li><%= link_to list.name, admin_service_service_price_list_path(service, list) %></li>
+	              	<% end %>
+              	</ul>
+              </td>
+              <td><%= service.service_images.length %></td>
+              <td><%= link_to 'Page', service %></td>
+              <td><%= link_to 'Edit', edit_admin_service_path(service) %></td>
+              <td><%= link_to 'Remove', admin_service_path(service), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

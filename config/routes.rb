@@ -90,6 +90,12 @@ Rails.application.routes.draw do
     resources :stories do
       resources :story_images
     end
+
+    resources :services do
+      resources :service_price_lists do
+        resources :service_items
+      end
+    end
   end
 
   resources :events, only: [:index, :show] do

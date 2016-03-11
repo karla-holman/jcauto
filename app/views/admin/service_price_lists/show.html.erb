@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row row-centered">
+    <h1>Service Items for <%= @service_price_list.name %></h1>
+    <p class="intro">Add service items for the list of <%= @service_price_list.name %> under <%= @service.name %> services.</p>
+
+    <%= button_link_to(Spree.t(:add_service_item), "javascript:;", { icon: 'add', :'data-target' => "tbody#service_items", class: 'btn-success spree_add_fields' }) %>
+
+    <%= form_for [:admin, @service, @service_price_list], action: :update, :html => {:multipart => true} do |f| %>
+      <fieldset>
+        <div id="prototypes" data-hook></div>
+
+        <table class="table">
+          <thead>
+            <tr data-hook="product_properties_header">
+              <th><%= Spree.t(:name) %></th>
+              <th><%= Spree.t(:price) %></th>
+              <th><%= Spree.t(:core_name) %></th>
+              <th><%= Spree.t(:core_price) %></th>
+              <th><%= Spree.t(:alternate_price) %></th>
+              <th><%= Spree.t(:Application) %></th>
+              <th class="actions"></th>
+            </tr>
+          </thead>
+          <tbody id="service_items" data-hook>
+            <%= f.fields_for :service_items, @service_price_list.service_items do |si_forms| %>
+              <%= render 'service_item_fields', f: si_forms %>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="form-actions" data-hook="buttons">
+          <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success'} %>
+          <span class="or"><%= Spree.t(:or) %></span>
+          <%= button_link_to Spree.t('actions.cancel'), admin_services_path, :icon => 'delete' %>
+        </div>
+
+        <%= hidden_field_tag 'clear_product_properties', 'true' %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  var properties = <%= raw(@properties.to_json) %>;
+  $('#product_properties').on('keydown', 'input.autocomplete', function() {
+    already_auto_completed = $(this).is('ac_input');
+    if (!already_auto_completed) {
+      $(this).autocomplete({source: properties});
+      $(this).focus();
+    }
+  });
+
+  var uniqueId = 1;
+  $('.spree_add_fields').click(function() {
+    var target = $(this).data("target");
+    var new_table_row = $(target + ' tr:visible:last').clone();
+    var new_id = new Date().getTime() + (uniqueId++);
+    new_table_row.find("input, select").each(function () {
+      var el = $(this);
+      el.val("");
+      el.prop("id", el.prop("id").replace(/\d+/, new_id))
+      el.prop("name", el.prop("name").replace(/\d+/, new_id))
+    })
+    // When cloning a new row, set the href of all icons to be an empty "#"
+    // This is so that clicking on them does not perform the actions for the
+    // duplicated row
+    new_table_row.find("a").each(function () {
+      var el = $(this);
+      el.prop('href', '#');
+    })
+    $(target).prepend(new_table_row);
+  })
+<% end %>

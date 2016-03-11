@@ -1,0 +1,26 @@
+<tr class="service_items fields">
+  <td class='property_name'>
+    <%= f.text_field :name, class: 'autocomplete form-control' %>
+  </td>
+  <td class='value'>
+    <%= f.text_field :price, class: 'form-control' %>
+  </td>
+  <td class='value'>
+    <%= f.text_field :core_name, class: 'form-control' %>
+  </td>
+  <td class='value'>
+    <%= f.text_field :core_price, class: 'form-control' %>
+  </td>
+  <td class='value'>
+    <%= f.text_field :alternate_price, class: 'form-control' %>
+  </td>
+  <td class='value'>
+    <%= f.text_field :service_application_id, class: 'form-control' %>
+  </td>
+
+  <td class="actions actions-1">
+    <% if f.object %>
+      <%= link_to 'Remove', admin_service_service_price_list_service_item_path(@service, @service_price_list, f.object), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </td>
+</tr>
