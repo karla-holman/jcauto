@@ -107,7 +107,7 @@
 					          	<% end %>
 					          </td>
 					          <td style="width: 10%">
-					          	<% if item.alternate_price %>
+					          	<% if item.alternate_price && item.alternate_price != "" %>
 					          		<%= item.alternate_price.html_safe %><!-- Handle prices in text form -->
 					          	<% else %>
 					          		<%= item.my_price %>

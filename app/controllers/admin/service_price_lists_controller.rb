@@ -16,13 +16,12 @@ class Admin::ServicePriceListsController < AdminController
 
   def update
     respond_to do |format|
-      if @service_price_list.update(service_price_list_params)
+      if @service_price_list.update_attributes(service_price_list_params)
         flash[:success] = "Service Price List update was successfully updated."
         format.html { redirect_to admin_service_service_price_list_path(@service, @service_price_list) }
         format.json { render :show, status: :ok, location: @service_price_list }
       else
-        byebug
-        format.html { render :show }
+        format.html { render :show, location: @service_price_list }
         format.json { render json: @service_price_list.errors, status: :unprocessable_entity }
       end
     end
@@ -39,6 +38,6 @@ class Admin::ServicePriceListsController < AdminController
   end
 
   def service_price_list_params
-    params.require(:service_price_list).permit(:name, service_items_attributes: [:name, :price, :core_price, :core_name, :service_application_id, :alternate_price])
+    params.require(:service_price_list).permit(:id, :name, service_items_attributes: [:id, :name, :price, :core_price, :core_name, :service_application_id, :alternate_price])
   end
 end

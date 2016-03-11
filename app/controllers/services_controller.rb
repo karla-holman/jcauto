@@ -68,7 +68,7 @@ class ServicesController < ApplicationController
         format.html { redirect_to @service, notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
-        format.html { render :edit }
+        format.html { render :edit, notice: 'Errors uploading the service.' }
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
