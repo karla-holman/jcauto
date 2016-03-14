@@ -19,6 +19,22 @@ class Admin::SaleCarImagesController < AdminController
     end
   end
 
+  # PATCH/PUT /cars/1
+  # PATCH/PUT /cars/1.json
+  def update
+    @image = SaleCarImage.find(params[:id])
+    respond_to do |format|
+      if @image.update(sale_car_image_params)
+        flash[:success] = "Sale Car Image was successfully updated."
+        format.html { redirect_to admin_sale_car_sale_car_images_path(@image.sale_car) }
+        format.json { render :show, status: :ok, location: @image.sale_car }
+      else
+        format.html { render :edit }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def edit
   	@image = SaleCarImage.find(params[:id])
   end

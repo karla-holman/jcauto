@@ -18,7 +18,7 @@
 			<%= link_to "Edit Services", admin_services_path, class: "btn btn-success admin-button" %>
 		<% end %>
 		<p class="intro">
-			We offer a variety of services in restoration and rebuilding. In addition to the pricing options below, we are also capable of work in distributor rebuilding and advance curve modification, rebuilding mirror-matics, auto-pilot servose, and electric motors, and a variety of other electrical and mechanical services. Please inquire <a href="#quote" style="font-weight: 500">here</a> if you have questions about what services are available.
+			We offer a variety of services in restoration and rebuilding. In addition to the pricing options below, we are also capable of work in distributor rebuilding and advance curve modification, rebuilding mirror-matics, auto-pilot servos, and electric motors, and a variety of other electrical and mechanical services. Please inquire <a href="#quote" style="font-weight: 500">here</a> if you have questions about what services are available.
 		</p>
 		<% @services.each_with_index do |service, i| %>
 			<div class="col-sm-6 col-md-4 col-lg-3 col-centered">
@@ -106,7 +106,7 @@
 		</p>
 		<div class="col-md-4 col-lg-4 col-centered">
 			<%= link_to "/our-services/gauges", onmouseover: "document.getElementById('cluster').src='#{asset_path("services/cluster-hover.png")}'", onmouseout: "document.getElementById('cluster').src='#{asset_path("services/cluster.png")}'" do %>
-				<%= image_tag "services/cluster.png", class:"icon", id:"cluster" %>
+				<%= image_tag "services/cluster.png", alt: "Instrument Cluster", class:"icon", id:"cluster" %>
 			<% end %>
 			<h3>Removing Your Instrument Cluster</h3>
 			<p>How to safely remove your gauge clusters.</p>
@@ -114,7 +114,7 @@
 		</div>
 		<div class="col-md-4 col-lg-4 col-centered">
 			<%= link_to "/our-services/shipping", onmouseover: "document.getElementById('shipping').src='#{asset_path("services/shipping-large-hover.png")}'", onmouseout: "document.getElementById('shipping').src='#{asset_path("services/shipping-large.png")}'" do %>
-				<%= image_tag "services/shipping-large.png", class:"icon", id:"shipping" %>
+				<%= image_tag "services/shipping-large.png", alt: "Shipping", class:"icon", id:"shipping" %>
 			<% end %>
 			<h3>Packaging and Shipping Parts</h3>
 			<p>How to properly package and ship your parts.</p>
@@ -122,7 +122,7 @@
 		</div>
 		<div class="col-md-4 col-lg-4 col-centered">
 			<%= link_to "/our-services/em", onmouseover: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large-hover.png")}'", onmouseout: "document.getElementById('em-tutorial').src='#{asset_path("services/gauge-large.png")}'" do %>
-				<%= image_tag "services/gauge-large.png", class:"icon", id:"em-tutorial" %>
+				<%= image_tag "services/gauge-large.png", alt: "Electroluminescent Gauge", class:"icon", id:"em-tutorial" %>
 			<% end %>
 			<h3>Electroluminescent Gauges</h3>
 			<p>What is electroluminescence?</p>

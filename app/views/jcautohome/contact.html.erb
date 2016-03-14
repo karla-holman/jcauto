@@ -63,11 +63,21 @@
 <div class="container-yellow">
 	<div class="container">
 		<div class="row row-centered">
+			<% time_zone = DateTime.now.in_time_zone("Pacific Time (US & Canada)").to_a[9] %>
+			<% if time_zone == "PDT" %>
+				<% time_zone_string = "Pacific Daylight Time" %>
+			<% elsif time_zone == "PST" %>
+				<% time_zone_string = "Pacific Standard Time" %>
+			<% else %>
+				<% time_zone_string = "Pacific Time" %>
+			<% end %>
 			<h1>Get in Touch</h1>
-			<p class="intro">Visit or call us any time during our hours, Monday-Friday from 8 am to 5pm (Pacific Standard Time).</p>
+			<p class="intro">Visit or call us any time during our hours, Monday-Friday from 8 am to 5 pm (<%= time_zone_string %>).</p>
 			<div class="col-xs-12 col-sm-4 col-md-4 col-centered">
+				<%= link_to "http://maps.google.com/?q=JC Auto Restoration, Inc., 52nd Avenue West, Lynnwood, WA 98036", target: "_blank" do %>
 				<%= image_tag "services/visit.png", onmouseover: "document.getElementById('visit').src='#{asset_path("services/visit-hover.png")}'", onmouseout: "document.getElementById('visit').src='#{asset_path("services/visit.png")}'", class:"icon", id:"visit" %>
 				<h3>Visit the Shop</h3>
+				<% end %>
 				<p>
 					20815 52nd Ave W, Suite 2 <br> 
 					Lynnwood, WA 98036
@@ -86,7 +96,7 @@
 				<h3>Send an Email</h3>
 				<p>
 					<strong>General:</strong> jcauto@jcauto.com<br>
-					<strong>Fax:</strong> parts@jcauto.com
+					<strong>Parts Requests:</strong> parts@jcauto.com
 				</p>
 			</div>
 		</div>
