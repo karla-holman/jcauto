@@ -5,39 +5,41 @@
 
     <%= button_link_to(Spree.t(:add_service_item), "javascript:;", { icon: 'add', :'data-target' => "tbody#service_items", class: 'btn-success spree_add_fields' }) %>
 
-    <%= form_for [:admin, @service, @service_price_list], action: :update, :html => {:multipart => true} do |f| %>
-      <fieldset>
-        <div id="prototypes" data-hook></div>
-        <div class="table-responsive">
-          <table class="table sortable" data-hook="images_table" data-sortable-link="<%= update_service_items_positions_admin_service_service_price_lists_path %>">
-            <thead>
-              <tr data-hook="product_properties_header">
-                <th></th>
-                <th><%= Spree.t(:name) %></th>
-                <th><%= Spree.t(:price) %></th>
-                <th><%= Spree.t(:core_name) %></th>
-                <th><%= Spree.t(:core_price) %></th>
-                <th><%= Spree.t(:alternate_price) %></th>
-                <th><%= Spree.t(:Application) %></th>
-                <th class="actions"></th>
-              </tr>
-            </thead>
-            <tbody id="service_items" class="ui-sortable" data-hook>
-              <%= f.fields_for :service_items, @service_price_list.service_items.order("position ASC") do |si_forms| %>
-                <%= render 'service_item_fields', f: si_forms %>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-        <div class="form-actions" data-hook="buttons">
-          <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success'} %>
-          <span class="or"><%= Spree.t(:or) %></span>
-          <%= button_link_to Spree.t('actions.cancel'), admin_services_path, :icon => 'delete' %>
-        </div>
+    <div class="col-md-12">
+      <%= form_for [:admin, @service, @service_price_list], action: :update, :html => {:multipart => true} do |f| %>
+        <fieldset>
+          <div id="prototypes" data-hook></div>
+          <div class="table-responsive">
+            <table class="table sortable" data-hook="images_table" data-sortable-link="<%= update_service_items_positions_admin_service_service_price_lists_path %>">
+              <thead>
+                <tr data-hook="product_properties_header">
+                  <th></th>
+                  <th><%= Spree.t(:name) %></th>
+                  <th><%= Spree.t(:price) %></th>
+                  <th><%= Spree.t(:core_name) %></th>
+                  <th><%= Spree.t(:core_price) %></th>
+                  <th><%= Spree.t(:alternate_price) %></th>
+                  <th><%= Spree.t(:Application) %></th>
+                  <th class="actions"></th>
+                </tr>
+              </thead>
+              <tbody id="service_items" class="ui-sortable" data-hook>
+                <%= f.fields_for :service_items, @service_price_list.service_items.order("position ASC") do |si_forms| %>
+                  <%= render 'service_item_fields', f: si_forms %>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="form-actions" data-hook="buttons">
+            <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success'} %>
+            <span class="or"><%= Spree.t(:or) %></span>
+            <%= button_link_to Spree.t('actions.cancel'), admin_services_path, :icon => 'delete' %>
+          </div>
 
-        <%= hidden_field_tag 'clear_product_properties', 'true' %>
-      </fieldset>
-    <% end %>
+          <%= hidden_field_tag 'clear_product_properties', 'true' %>
+        </fieldset>
+      <% end %>
+    </div>
   </div>
 </div>
 

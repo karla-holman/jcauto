@@ -29,7 +29,6 @@ class Admin::ServicePriceListsController < AdminController
 
   def update_service_items_positions
     ActiveRecord::Base.transaction do
-      byebug
       params[:positions].each do |id, index|
         ServiceItem.where(id: id).update_all(position: index)
       end
