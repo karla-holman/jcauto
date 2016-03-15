@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
   	@service_applications = []
   	@price_lists = @service.service_price_lists
   	@price_lists.each do |price_list|
-  		price_list.service_items.each do |item|
+  		price_list.service_items.order("position ASC").each do |item|
   			if item.service_application && (!@service_applications.include? item.service_application)
   				@service_applications << item.service_application
   			end

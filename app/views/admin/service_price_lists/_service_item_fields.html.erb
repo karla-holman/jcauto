@@ -1,11 +1,15 @@
-<tr class="service_items fields">
-  <td class='property_name'>
+<tr class="service_items fields" id="<%= dom_id(f.object) %>" data-hook="service_item">
+  <td class="move-handle text-center">
+    <span class="glyphicon glyphicon-move handle"></span>
+    <%= f.hidden_field :id %>
+  </td>
+  <td class='property_name' colspan="3">
     <%= f.text_field :name, class: 'autocomplete form-control' %>
   </td>
   <td class='value'>
     <%= f.text_field :price, class: 'form-control' %>
   </td>
-  <td class='value'>
+  <td class='value' colspan="3">
     <%= f.text_field :core_name, class: 'form-control' %>
   </td>
   <td class='value'>

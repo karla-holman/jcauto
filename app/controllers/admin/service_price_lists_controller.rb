@@ -27,6 +27,20 @@ class Admin::ServicePriceListsController < AdminController
     end
   end
 
+  def update_service_items_positions
+    ActiveRecord::Base.transaction do
+      byebug
+      params[:positions].each do |id, index|
+        ServiceItem.where(id: id).update_all(position: index)
+      end
+    end
+
+    respond_to do |format|
+      format.html { redirect_to admin_service_price_list_url(params[:id]) }
+      format.js { render text: 'Ok' }
+    end
+  end
+
   private
 
   def set_service

@@ -77,14 +77,27 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :cars do
-      resources :car_images
+      resources :car_images do 
+        collection do
+          post :update_positions
+        end
+      end
     end
+
     resources :sale_cars do
-      resources :sale_car_images
+      resources :sale_car_images do
+        collection do
+          post :update_positions
+        end
+      end
     end
 
     resources :events do
-      resources :event_images
+      resources :event_images do
+        collection do
+          post :update_positions
+        end
+      end
     end
 
     resources :stories do
@@ -94,7 +107,14 @@ Rails.application.routes.draw do
     resources :services do
       resources :service_images
       resources :service_price_lists do
-        resources :service_items
+        collection do
+          post :update_service_items_positions
+        end
+        resources :service_items do
+          collection do
+            post :update_positions
+          end
+        end
       end
     end
   end

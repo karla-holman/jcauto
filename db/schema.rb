@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160311220103) do
+ActiveRecord::Schema.define(version: 20160315201626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160311220103) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "position"
   end
 
   add_index "car_images", ["car_id"], name: "index_car_images_on_car_id", using: :btree
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160311220103) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "position"
   end
 
   add_index "event_images", ["event_id"], name: "index_event_images_on_event_id", using: :btree
@@ -138,6 +140,7 @@ ActiveRecord::Schema.define(version: 20160311220103) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "position"
   end
 
   create_table "sale_cars", force: :cascade do |t|
@@ -182,6 +185,7 @@ ActiveRecord::Schema.define(version: 20160311220103) do
     t.integer "service_application_id"
     t.decimal "core_price"
     t.text    "alternate_price"
+    t.integer "position"
   end
 
   create_table "service_price_lists", force: :cascade do |t|
