@@ -82,7 +82,7 @@
 			<% next if (@service_price_list_id && @service_price_list_id != 0) && price_list.id != @service_price_list_id %>
 			<% next if price_list.service_items.length == 0 %>
 			<% items = [] %>
-			<% price_list.service_items.order("name asc").each do |item| %>
+			<% price_list.service_items.order("position asc").each do |item| %>
 				<% if (@service_app_id && @service_app_id != 0) && item.service_application %>
 					<!-- If filter applied, make sure this item fits or does not pertain to app -->
 					<% next unless (item.service_application.id == @service_app_id) %>

@@ -8,27 +8,27 @@
     <%= form_for [:admin, @service, @service_price_list], action: :update, :html => {:multipart => true} do |f| %>
       <fieldset>
         <div id="prototypes" data-hook></div>
-
-        <table class="table sortable" data-hook="images_table" data-sortable-link="<%= update_service_items_positions_admin_service_service_price_lists_path %>">
-          <thead>
-            <tr data-hook="product_properties_header">
-              <th></th>
-              <th colspan="3"><%= Spree.t(:name) %></th>
-              <th><%= Spree.t(:price) %></th>
-              <th colspan="3"><%= Spree.t(:core_name) %></th>
-              <th><%= Spree.t(:core_price) %></th>
-              <th><%= Spree.t(:alternate_price) %></th>
-              <th><%= Spree.t(:Application) %></th>
-              <th class="actions"></th>
-            </tr>
-          </thead>
-          <tbody id="service_items" class="ui-sortable" data-hook>
-            <%= f.fields_for :service_items, @service_price_list.service_items.order("position ASC") do |si_forms| %>
-              <%= render 'service_item_fields', f: si_forms %>
-            <% end %>
-          </tbody>
-        </table>
-
+        <div class="table-responsive">
+          <table class="table sortable" data-hook="images_table" data-sortable-link="<%= update_service_items_positions_admin_service_service_price_lists_path %>">
+            <thead>
+              <tr data-hook="product_properties_header">
+                <th></th>
+                <th><%= Spree.t(:name) %></th>
+                <th><%= Spree.t(:price) %></th>
+                <th><%= Spree.t(:core_name) %></th>
+                <th><%= Spree.t(:core_price) %></th>
+                <th><%= Spree.t(:alternate_price) %></th>
+                <th><%= Spree.t(:Application) %></th>
+                <th class="actions"></th>
+              </tr>
+            </thead>
+            <tbody id="service_items" class="ui-sortable" data-hook>
+              <%= f.fields_for :service_items, @service_price_list.service_items.order("position ASC") do |si_forms| %>
+                <%= render 'service_item_fields', f: si_forms %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
         <div class="form-actions" data-hook="buttons">
           <%= button Spree.t('actions.update'), 'refresh', 'submit', {class: 'btn-success'} %>
           <span class="or"><%= Spree.t(:or) %></span>
