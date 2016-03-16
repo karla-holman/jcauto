@@ -24,7 +24,7 @@
 
   <td class="actions actions-1">
     <% if f.object %>
-      <%= link_to 'Remove', admin_service_service_price_list_service_item_path(@service, @service_price_list, f.object), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <td class="actions actions-1 text-center"><%= link_to_icon_remove_fields f %></td>
     <% end %>
   </td>
 </tr>

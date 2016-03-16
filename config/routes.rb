@@ -110,14 +110,12 @@ Rails.application.routes.draw do
         collection do
           post :update_service_items_positions
         end
-        resources :service_items do
-          collection do
-            post :update_positions
-          end
-        end
       end
     end
+
+    delete '/service_items/:id', to: "service_items#destroy", as: :service_item
   end
+
 
   resources :events, only: [:index, :show] do
     collection do

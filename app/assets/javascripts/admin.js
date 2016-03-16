@@ -78,6 +78,32 @@ $(document).ready(function() {
 
 });
 
+$('body').on('click', 'a.spree_remove_fields', function() {
+  el = $(this);
+  el.prev("input[type=hidden]").val("1");
+  el.closest(".fields").hide();
+  if (el.prop("href").substr(-1) == '#') {
+    el.parents("tr").fadeOut('hide');
+  }else if (el.prop("href")) {
+    $.ajax({
+      type: 'POST',
+      url: el.prop("href"),
+      data: {
+        _method: 'delete',
+        authenticity_token: AUTH_TOKEN
+      },
+      success: function(response) {
+        el.parents("tr").fadeOut('hide');
+      },
+      error: function(response, textStatus, errorThrown) {
+        show_flash('error', response.responseText);
+      }
+
+    })
+  }
+  return false;
+});
+
 show_flash = function(type, message) {
   var flash_div = $('.flash.' + type);
   if (flash_div.length == 0) {
