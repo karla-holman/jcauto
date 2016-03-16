@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <%= javascript_tag do %>
+    <%== "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
+    <%== "Spree.api_key = '#{spree_current_user.spree_api_key}';" if spree_current_user %>
+  <% end %>
+
   <link href='https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
