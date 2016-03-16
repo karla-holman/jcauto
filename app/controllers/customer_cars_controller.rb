@@ -4,6 +4,7 @@ class CustomerCarsController < ApplicationController
   before_filter :set_ransack, :only => [:index]
 
   def new
+    @title = "My Cars - JC Auto Restoration, Inc."
     @customer_car = CustomerCar.new
   end
 
@@ -25,6 +26,7 @@ class CustomerCarsController < ApplicationController
   end
 
   def update
+    @title = "My Cars - JC Auto Restoration, Inc."
     respond_to do |format|
       if @customer_car.update(customer_car_params)
         flash[:success] = "Your car was successfully updated."
@@ -45,6 +47,7 @@ class CustomerCarsController < ApplicationController
   end
 
   def index
+    @title = "My Cars - JC Auto Restoration, Inc."
     # lazyoading other models here (via includes) may result in an invalid query
     # e.g. SELECT  DISTINCT DISTINCT "spree_orders".id, "spree_orders"."created_at" AS alias_0 FROM "spree_orders"
     # see https://github.com/spree/spree/pull/3919

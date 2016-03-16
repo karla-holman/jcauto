@@ -17,4 +17,9 @@ module ApplicationHelper
     end
     link_to(text.html_safe, url, options)
   end
+
+  def render_title
+    return @title if defined?(@title)
+    "JC Auto Restoration"
+  end
 end

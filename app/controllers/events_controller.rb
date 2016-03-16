@@ -4,11 +4,13 @@ class EventsController < ApplicationController
 
   # Upcoming events
   def index
+    @title = "Upcoming Events - JC Auto Restoration, Inc."
     @events = Event.all.where("event_date > ?", Date.today).order("event_date DESC")
   end
 
   # Past events
   def show
+    @title = "#{@event.name} - JC Auto Restoration, Inc."
     @events = Event.all.where("event_date < ?", Date.today).order("event_date DESC")
   end
 

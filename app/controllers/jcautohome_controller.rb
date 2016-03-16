@@ -1,18 +1,22 @@
 class JcautohomeController < ApplicationController
 	def home
+		@title = "Home - JC Auto Restoration, Inc."
 		@page = "home"
 	end
 
 	def about
+		@title = "About - JC Auto Restoration, Inc."
 		@page = "about"
 		@our_cars = Car.where(our_car: true)
 	end
 
 	def timeline
+		@title = "Timeline - JC Auto Restoration, Inc."
 		@page = "about"
 	end
 
 	def gallery
+		@title = "Gallery - JC Auto Restoration, Inc."
 		@page = "gallery"
 		@current_projects = Car.where("our_car = ? AND current = ?", false, true).order(completed_date: :desc)
 		@past_projects = Car.where("our_car = ? AND current = ?", false, false).order(completed_date: :desc)
@@ -21,6 +25,7 @@ class JcautohomeController < ApplicationController
 	end
 
 	def parts
+		@title = "Parts - JC Auto Restoration, Inc."
 		@page = "parts"
 		
 		# Get all taxonomies
@@ -73,45 +78,54 @@ class JcautohomeController < ApplicationController
 	end
 
 	def services
+		@title = "Services - JC Auto Restoration, Inc."
 		@page = "services"
 
 		@services = Service.all
 	end
 
 	def gauges
+		@title = "Gauge Services - JC Auto Restoration, Inc."
 		@page = "services"
 		render "tutorials/gauges"
 	end
 
 	def em
+		@title = "Electroluminescence - JC Auto Restoration, Inc."
 		@page = "services"
 		render "tutorials/em"
 	end
 
 	def shipping
+		@title = "Shipping Tips - JC Auto Restoration, Inc."
 		@page = "services"
 		render "tutorials/shipping"
 	end
 
 	def community
+		@title = "Community - JC Auto Restoration, Inc."
 		@page = "community"
 	end
 
 	def sale_cars
+		@title = "Sale Cars - JC Auto Restoration, Inc."
 		@page = "sale-cars"
 		@sale_cars = SaleCar.all
 	end
 
 	def contact
+		@title = "Contact Us - JC Auto Restoration, Inc."
 		@page = "contact"
 
 	end
 
 	def privacy_policy
+		@title = "Privacy Policy - JC Auto Restoration, Inc."
 		@page = "privacy-policy"
 	end
 
 	def policies
+		@title = "Our Policies - JC Auto Restoration, Inc."
 		@page = "policies"
 	end
 

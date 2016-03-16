@@ -4,7 +4,7 @@ class SaleCarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
-
+    @title = "Sale Cars - JC Auto Restoration, Inc."
   end
 
   private

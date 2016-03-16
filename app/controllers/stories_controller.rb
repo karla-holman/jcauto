@@ -4,11 +4,13 @@ class StoriesController < ApplicationController
 
   # Upcoming events
   def index
+    @title = "Your Stories - JC Auto Restoration, Inc."
     @stories = Story.all
   end
 
   # Past events
   def show
+    @title = "#{@story.name} - JC Auto Restoration, Inc."
     @stories = Story.all
   end
 

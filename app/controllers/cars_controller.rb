@@ -4,6 +4,7 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+    @title = "#{@car.name} - JC Auto Restoration, Inc."
     @is_our_car = @car.our_car 
 
     # determine if this is one of our cars or a project

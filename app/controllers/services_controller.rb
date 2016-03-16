@@ -4,6 +4,7 @@ class ServicesController < ApplicationController
   # GET /cars
   # GET /cars.json
   def index
+    @title = "Services - JC Auto Restoration, Inc."
     @services = Service.all
   end
 
@@ -11,7 +12,7 @@ class ServicesController < ApplicationController
   # GET /cars/1.json
   def show
     # params[:q] = {} if params[:q].blank?
-
+    @title = "#{@service.name} - JC Auto Restoration, Inc."
   	@service_applications = []
   	@price_lists = @service.service_price_lists
   	@price_lists.each do |price_list|
