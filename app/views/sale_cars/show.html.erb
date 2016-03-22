@@ -5,7 +5,7 @@
 			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
 				<%= link_to "Edit Sale Car", edit_admin_sale_car_path(@sale_car), class: "btn btn-success admin-button" %>
 			<% end %>
-			<p class="intro">
+			<p class="intro" style="width: 100%">
 				<%= @sale_car.description %><br>
 				<strong>Price: </strong>$<%= sprintf('%.2f', @sale_car.price) %><br>
 				<% if !spree_current_user || (!spree_current_user.has_spree_role? "admin") %>
