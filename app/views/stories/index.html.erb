@@ -16,7 +16,7 @@
 		<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
 			<%= link_to "Edit Stories", admin_stories_path, class: "btn btn-success admin-button" %>
 		<% end %>
-		<p class="intro">Behind every restoration project is a great story. Maybe its about the car's former life, how it came into your possession, or the places its taken you. Here's some of the stories other users like you have shared.</p>
+		<p class="intro">Behind every restoration project is a great story. Maybe it’s about the car's former life, how it came into your possession, or the places it’s taken you. Here's some of the stories other users like you have shared.</p>
 
 		<% if @stories.length == 0 %>
 			<p>No stories available at this time. Contact us below to add your own!<p>
