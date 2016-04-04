@@ -32,7 +32,7 @@
 						<% @sale_cars.each do |sale_car| %>
 							<tr>
 								<td><%= image_tag sale_car.thumb_image_path, width: 100 %></td>
-								<td><%= link_to sale_car.name, sale_car_path(sale_car) %></td>
+								<td><%= link_to (sale_car.name + "#{ sale_car.current ? '' : ' (Sold)'}"), sale_car_path(sale_car) %></td>
 								<td>$<%= sprintf('%.2f', sale_car.price) %></td>
 							</tr>
 						<% end %>
