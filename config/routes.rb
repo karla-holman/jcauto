@@ -76,6 +76,14 @@ Rails.application.routes.draw do
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
 
   namespace :admin do
+    resources :customers do
+      resources :contacts do
+        member do
+          put 'resolved'
+        end
+      end
+    end
+    
     resources :cars do
       resources :car_images do 
         collection do

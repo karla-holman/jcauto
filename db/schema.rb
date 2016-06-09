@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315201626) do
+ActiveRecord::Schema.define(version: 20160609182038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,20 @@ ActiveRecord::Schema.define(version: 20160315201626) do
     t.date     "completed_date"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.datetime "date"
+    t.text     "notes"
+    t.string   "method"
+    t.boolean  "needs_action"
+    t.boolean  "resolved"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "jc_employee"
+  end
+
+  add_index "contacts", ["customer_id"], name: "index_contacts_on_customer_id", using: :btree
+
   create_table "customer_cars", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -60,6 +74,20 @@ ActiveRecord::Schema.define(version: 20160315201626) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "phone"
+    t.string   "email"
+    t.boolean  "in_quickbooks"
+    t.string   "vehicle"
+    t.text     "notes"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "last_name"
+    t.string   "full_name"
+    t.boolean  "needs_action"
   end
 
   create_table "event_images", force: :cascade do |t|
@@ -1353,4 +1381,5 @@ ActiveRecord::Schema.define(version: 20160315201626) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
+  add_foreign_key "contacts", "customers"
 end

@@ -1,0 +1,41 @@
+<%= form_for [:admin, @customer] do |f| %>
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="form-group">
+			<%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="form-group">
+			<%= f.text_field :last_name, class: "form-control", placeholder: "Last Name" %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="form-group">
+			<%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-6">
+		<div class="form-group">
+			<%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<%= f.text_field :vehicle, class: "form-control", placeholder: "Vehicle" %>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<%= f.text_area :notes, class: "form-control", placeholder: "Notes" %>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="form-group">
+			<%= f.check_box :in_quickbooks %>
+			<%= f.label :in_quickbooks %>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<%= f.submit class: "btn btn-default" %>
+	</div>
+<% end %>

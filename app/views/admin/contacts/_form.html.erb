@@ -1,0 +1,31 @@
+<%= form_for [:admin, @customer, @contact] do |f| %>
+	<div class="col-md-4">
+		<div class="form-group">
+			<%= f.text_field :date, data: {:provide => 'datepicker'}, class: "form-control" %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
+			<%= f.text_field :jc_employee, class: "form-control", placeholder: "Employee Name" %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
+			<%= f.text_field :method, class: "form-control", placeholder: "Method (phone, email, etc)" %>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="form-group">
+			<%= f.text_area :notes, class: "form-control", placeholder: "Notes (Parts/Services) Requested" %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
+			<%= f.check_box :needs_action %>
+			<%= f.label :needs_action %>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<%= f.submit %>
+	</div>
+<% end %>

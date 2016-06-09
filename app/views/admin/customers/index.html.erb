@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>Customer Contact Log</h2>
+		</div>
+		<div class="col-md-4">
+			<%= link_to "New", new_admin_customer_path, class: "btn btn-default" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="well">
+			<%= search_form_for [:admin, @search] do |f| %>
+				<div class="col-md-4">
+					<div class="form-group">
+						<%= f.label :full_name_cont, "Customer Name" %>
+						<%= f.text_field :full_name_cont, :size => 15, class: "form-control" %>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<%= f.label :phone_cont, "Customer Phone" %>
+						<%= f.text_field :phone_cont, :size => 15, class: "form-control" %>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<%= f.label :email_cont, "Customer Email" %>
+						<%= f.text_field :email_cont, :size => 15, class: "form-control" %>
+					</div>
+				</div>
+			<% end %>
+			<div class="clearfix"></div>
+		</div>
+	</div><!-- Row -->
+	<div class="row">
+		<div class="col-md-12">
+			<% if @customers.empty? %>
+				<h2>No customers at this time.</h2>
+			<% else %> 
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>In Quickbooks?</th>
+							<th>Needs Action</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @customers.each do |customer| %>
+							<tr class="<%= customer.needs_action ? 'warning' : '' %>">
+								<td><%= link_to admin_customer_path(customer) do %><%= customer.full_name %><% end %></td>
+								<td><%= customer.phone? ? customer.phone : "N/A" %></td>
+								<td><%= customer.email? ? customer.email : "N/A" %></td>
+								<td><%= customer.in_quickbooks ? "Yes" : "No" %></td>
+								<td><%= customer.needs_action ? "<span class='glyphicon glyphicon-ok'></span>".html_safe : "<span class='glyphicon glyphicon-remove'></span>".html_safe %></td>
+								<td>
+									<%= link_to admin_customer_path(customer), action: "delete", class: "btn btn-warning" do %><span class='glyphicon glyphicon-remove'></span><% end %>
+									<%= link_to edit_admin_customer_path(customer), class: "btn btn-primary" do %><span class='glyphicon glyphicon-pencil'></span><% end %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div><!-- Col -->
+	</div><!-- Row -->
+</div>
