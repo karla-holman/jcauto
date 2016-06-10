@@ -6,7 +6,7 @@ module Admin
 		def index
 			# Handle phone characters
 			if params[:q] && params[:q][:phone]
-				params[:q][:phone].gsub!(/D/, "")
+				params[:q][:phone].gsub!(/\D/, "")
 			end
 
 			@search = Customer.ransack(params[:q])
