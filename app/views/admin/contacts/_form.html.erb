@@ -1,7 +1,7 @@
 <%= form_for [:admin, @customer, @contact] do |f| %>
 	<div class="col-md-4">
 		<div class="form-group">
-			<%= f.text_field :date, data: {:provide => 'datepicker'}, class: "form-control" %>
+			<%= f.text_field :date, data: {:provide => 'datepicker'}, placeholder: "Date", class: "form-control" %>
 		</div>
 	</div>
 	<div class="col-md-4">

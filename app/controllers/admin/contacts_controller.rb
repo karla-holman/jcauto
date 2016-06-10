@@ -18,7 +18,25 @@ module Admin
 					format.html { redirect_to admin_customer_path(@customer), :success => "Contact successfully created." }
 					format.json { render action: "show", status: :created, location: @contact }
 				else
-					format.html { render action: "new", error: "Customer could not be created. " + @customer.errors.first[1].to_s }
+					format.html { render action: "new", error: "Contact could not be created. " + @contact.errors.first[1].to_s }
+					format.json { render json: @contact.errors, status: :unprocessable_entity }
+				end
+			end
+		end
+
+		def edit
+			@contact = @customer.contacts.find(params[:id])
+		end
+
+		def update
+			@contact = @customer.contacts.find(params[:id])
+
+			respond_to do |format|
+				if @contact.update(contact_params)
+					format.html { redirect_to admin_customer_path(@customer), :success => "Contact successfully updated." }
+					format.json { render action: "show", status: :created, location: @contact }
+				else
+					format.html { render action: "edit", error: "Contact could not be updated. " + @contact.errors.first[1].to_s }
 					format.json { render json: @contact.errors, status: :unprocessable_entity }
 				end
 			end

@@ -3,8 +3,8 @@
 		<div class="col-md-8">
 			<h2>Customer Contact Log</h2>
 		</div>
-		<div class="col-md-4">
-			<%= link_to "New", new_admin_customer_path, class: "btn btn-default" %>
+		<div class="col-md-4" style="margin-top: 25px">
+			<%= link_to "New Customer", new_admin_customer_path, class: "btn btn-default" %>
 		</div>
 	</div>
 	<div class="row">
@@ -28,6 +28,9 @@
 						<%= f.text_field :email_cont, :size => 15, class: "form-control" %>
 					</div>
 				</div>
+				<div class="col-md-12">
+					<%= f.submit class: "btn btn-default" %>
+				</div>
 			<% end %>
 			<div class="clearfix"></div>
 		</div>
@@ -37,33 +40,35 @@
 			<% if @customers.empty? %>
 				<h2>No customers at this time.</h2>
 			<% else %> 
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Phone</th>
-							<th>Email</th>
-							<th>In Quickbooks?</th>
-							<th>Needs Action</th>
-							<th>Actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @customers.each do |customer| %>
-							<tr class="<%= customer.needs_action ? 'warning' : '' %>">
-								<td><%= link_to admin_customer_path(customer) do %><%= customer.full_name %><% end %></td>
-								<td><%= customer.phone? ? customer.phone : "N/A" %></td>
-								<td><%= customer.email? ? customer.email : "N/A" %></td>
-								<td><%= customer.in_quickbooks ? "Yes" : "No" %></td>
-								<td><%= customer.needs_action ? "<span class='glyphicon glyphicon-ok'></span>".html_safe : "<span class='glyphicon glyphicon-remove'></span>".html_safe %></td>
-								<td>
-									<%= link_to admin_customer_path(customer), action: "delete", class: "btn btn-warning" do %><span class='glyphicon glyphicon-remove'></span><% end %>
-									<%= link_to edit_admin_customer_path(customer), class: "btn btn-primary" do %><span class='glyphicon glyphicon-pencil'></span><% end %>
-								</td>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th><%= sortable "full_name", "customer", "Name" %></th>
+								<th>Phone</th>
+								<th>Email</th>
+								<th>In Quickbooks?</th>
+								<th><%= sortable "needs_action", "customer", "Needs Action" %></th>
+								<th>Actions</th>
 							</tr>
-						<% end %>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<% @customers.each do |customer| %>
+								<tr class="<%= customer.needs_action ? 'warning' : '' %>">
+									<td><%= link_to admin_customer_path(customer) do %><%= customer.full_name %><% end %></td>
+									<td><%= customer.phone? ? number_to_phone(customer.phone) : "N/A" %></td>
+									<td><%= customer.email? ? customer.email : "N/A" %></td>
+									<td><%= customer.in_quickbooks ? "Yes" : "No" %></td>
+									<td><%= customer.needs_action ? "<span class='glyphicon glyphicon-ok'></span>".html_safe : "<span class='glyphicon glyphicon-remove'></span>".html_safe %></td>
+									<td>
+										<%= link_to admin_customer_path(customer), action: "delete", class: "btn btn-warning" do %><span class='glyphicon glyphicon-remove'></span><% end %>
+										<%= link_to edit_admin_customer_path(customer), class: "btn btn-primary" do %><span class='glyphicon glyphicon-pencil'></span><% end %>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
 			<% end %>
 		</div><!-- Col -->
 	</div><!-- Row -->

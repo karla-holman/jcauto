@@ -4,11 +4,10 @@ class Customer < ActiveRecord::Base
 	before_save :generate_name
 	before_save :format_phone
 
-	has_many :contacts
+	has_many :contacts, :dependent => :destroy
 
 	# Remove non-digit characters from phone number
 	def format_phone
-		byebug
 		if self.phone.present?
 			self.phone = self.phone.gsub(/\D/, "")
 		end

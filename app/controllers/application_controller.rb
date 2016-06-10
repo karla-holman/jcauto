@@ -33,4 +33,20 @@ class ApplicationController < ActionController::Base
         session['spree_user_return_to'] = request.fullpath.gsub('//', '/')
       end
     end
+
+    def sort_column(action)
+      case action
+        when "customer"
+          (Customer.column_names.include?(params[:sort]) ? params[:sort] : "full_name")
+        when "contact"
+          (Contact.column_names.include?(params[:sort]) ? params[:sort] : "date")
+        else #default sort by name
+          (action.singularize.classify.constantize.column_names.include?(params[:sort]) ? params[:sort] : "name")
+      end
+    end
+
+    def sort_direction
+      # check that passed params are secure
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+    end
 end

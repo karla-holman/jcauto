@@ -22,4 +22,33 @@ module ApplicationHelper
     return @title if defined?(@title)
     "JC Auto Restoration"
   end
+
+  def sortable(column, action, title = nil)
+    title ||= column.titleize
+
+    # Add class to current sort column with direction
+    arrow = (column == sort_column(action)) ? " <span class='glyphicon " + (sort_direction == "asc" ? "glyphicon-chevron-up" : "glyphicon-chevron-down") + "'></span>" : ""
+
+    # If this column is clicked and current direction is asc, switch direction
+    direction = (column == sort_column(action) && sort_direction == "asc") ? "desc" : "asc"
+
+    # return link to sort
+    link_to (title + arrow).html_safe, :sort => column, :direction => direction 
+  end
+
+  def sort_column(action)
+    case action
+      when "customer"
+        (Customer.column_names.include?(params[:sort]) ? params[:sort] : "full_name")
+      when "contact"
+        (Contact.column_names.include?(params[:sort]) ? params[:sort] : "date")
+      else #default sort by name
+        (action.singularize.classify.constantize.column_names.include?(params[:sort]) ? params[:sort] : "name")
+    end
+  end
+
+  def sort_direction
+    # check that passed params are secure
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
 end
