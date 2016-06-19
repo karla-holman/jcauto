@@ -1,5 +1,7 @@
 class Customer < ActiveRecord::Base
 	validate :first_or_last
+	# validates :phone, uniqueness: true, scope: :first_name
+	# validates :email, uniqueness: true
 
 	before_save :generate_name
 	before_save :format_phone

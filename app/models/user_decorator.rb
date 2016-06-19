@@ -13,6 +13,5 @@ Spree.user_class.class_eval do
                   url: '/user/:id/:style/:basename.:extension',
                   convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
     validates_attachment :profile_pic,
-      :presence => true,
       :content_type => { :content_type => %w(image/jpeg image/jpg image/png image/gif) }
 end
