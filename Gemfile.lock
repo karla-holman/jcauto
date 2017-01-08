@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/karla-holman/bootstrap-sass-jcauto.git
-  revision: e2b7aed35bd10a1d1cbec586c53fde8e550053c5
+  revision: 9a5c951c463a36d985624022734a0b187cc8c549
   specs:
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/karla-holman/jc_spree_email_to_friend.git
-  revision: 36ac226411c7be4358874b07c0235fc66d372e58
+  revision: 75910fabf5096e385a08f8b042c9c409c05b67fc
   specs:
     spree_email_to_friend (1.3.0)
       recaptcha (>= 0.3.1)
@@ -16,14 +16,14 @@ GIT
 
 GIT
   remote: git://github.com/karla-holman/my_spree_wishlist.git
-  revision: 8457721c734aa223d0148e4c5861a8283dfc42f2
+  revision: b5f1107b4e2e0a7f9ab016174551c076acf17159
   specs:
     spree_wishlist (2.2.0)
       spree_core (~> 3.0.4)
 
 GIT
   remote: git://github.com/karla-holman/spree_jcauto.git
-  revision: 075ff8cd293120d18407fa62be363f986a58905b
+  revision: 36e429d0ecab9027a3a9df49098d14c4dae7baa6
   specs:
     spree (3.0.4)
       spree_api (= 3.0.4)
@@ -90,10 +90,10 @@ GIT
 
 GIT
   remote: git://github.com/spree-contrib/spree_mail_settings.git
-  revision: 99af7e4a137ac76fe4e93b1c8e5a38d81583904c
+  revision: d416a1e355893bda625ed5bea187d39526aa52f9
   branch: 3-0-stable
   specs:
-    spree_mail_settings (2.2.0)
+    spree_mail_settings (3.0.0)
       spree_backend (~> 3.0.0)
 
 GIT
@@ -109,11 +109,11 @@ GIT
 
 GIT
   remote: git://github.com/spree/spree_auth_devise.git
-  revision: 2e8e08759c4d51bb94065478aee53546d0f05f98
+  revision: 1ac9dcc33049b185a0dd884c832583feb4b91890
   branch: 3-0-stable
   specs:
-    spree_auth_devise (3.0.0)
-      devise (~> 3.4.1)
+    spree_auth_devise (3.0.6)
+      devise (~> 3.5.4)
       devise-encryptable (= 0.1.2)
       json
       multi_json
@@ -121,10 +121,10 @@ GIT
 
 GIT
   remote: git://github.com/spree/spree_gateway.git
-  revision: 7301dc7c84c05b46427bf5003eda13ca64a48d7c
+  revision: 3cb02b0b3a45be5f4ace9d9295ffb3c11864e605
   branch: 3-0-stable
   specs:
-    spree_gateway (3.0.0.beta)
+    spree_gateway (3.0.0)
       spree_core (~> 3.0.0)
 
 GIT
@@ -182,14 +182,15 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_list (0.7.5)
+    acts_as_list (0.8.2)
       activerecord (>= 3.0)
-    addressable (2.4.0)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     akami (1.2.2)
       gyoku (>= 0.4.0)
       nokogiri
-    arel (6.0.3)
-    autoprefixer-rails (6.3.3.1)
+    arel (6.0.4)
+    autoprefixer-rails (6.6.1)
       execjs
     awesome_nested_set (3.0.3)
       activerecord (>= 4.0.0, < 5)
@@ -198,34 +199,34 @@ GEM
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-    bcrypt (3.1.10)
-    bcrypt (3.1.10-x86-mingw32)
+    bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-datepicker-rails (1.6.0)
+    bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
     builder (3.2.2)
-    byebug (6.0.2)
-    camertron-eprun (1.1.0)
+    byebug (9.0.6)
+    camertron-eprun (1.1.1)
     cancancan (1.10.1)
     canonical-rails (0.0.11)
       rails (>= 3.1, < 5.0)
     carmen (1.0.2)
       activesupport (>= 3.0.0)
     cldr-plurals-runtime-rb (1.0.1)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
+    climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
-    coffee-rails (4.1.0)
+    coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0, < 5.1.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
     colorize (0.8.1)
-    css_parser (1.4.5)
+    concurrent-ruby (1.0.4)
+    css_parser (1.4.7)
       addressable
     debug_inspector (0.0.2)
     deface (1.0.2)
@@ -233,7 +234,7 @@ GEM
       nokogiri (~> 1.6.0)
       polyglot
       rails (>= 3.1)
-    devise (3.4.1)
+    devise (3.5.10)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -243,27 +244,26 @@ GEM
     devise-encryptable (0.1.2)
       devise (>= 2.1.0)
     erubis (2.7.0)
-    execjs (2.6.0)
+    execjs (2.7.0)
     ffaker (2.0.0)
-    font-awesome-rails (4.6.3.1)
+    font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
-    globalid (0.3.6)
+    globalid (0.3.7)
       activesupport (>= 4.1.0)
     gyoku (1.1.1)
       builder (>= 2.1.2)
     highline (1.6.21)
     htmlentities (4.3.4)
-    httparty (0.13.7)
-      json (~> 1.8)
+    httparty (0.14.0)
       multi_xml (>= 0.5.2)
     httpi (2.1.1)
       rack
       rubyntlm (~> 0.3.2)
     i18n (0.7.0)
-    jbuilder (2.3.1)
-      activesupport (>= 3.0.0, < 5)
+    jbuilder (2.6.1)
+      activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
@@ -281,25 +281,27 @@ GEM
       nokogiri (>= 1.5.9)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    mail (2.6.3)
-      mime-types (>= 1.16, < 3)
-    mime-types (2.6.1)
-    mini_portile (0.6.2)
-    minitest (5.8.0)
-    monetize (1.4.0)
-      money (~> 6.7)
-    money (6.7.1)
+    mail (2.6.4)
+      mime-types (>= 1.16, < 4)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    mini_portile2 (2.1.0)
+    minitest (5.10.1)
+    monetize (1.6.0)
+      money (~> 6.8)
+    money (6.8.1)
       i18n (>= 0.6.4, <= 0.7.0)
       sixarm_ruby_unaccent (>= 1.1.1, < 2)
-    multi_json (1.11.2)
-    multi_xml (0.5.5)
-    nokogiri (1.6.6.2)
-      mini_portile (~> 0.6.0)
-    nokogiri (1.6.6.2-x86-mingw32)
-      mini_portile (~> 0.6.0)
+    multi_json (1.12.1)
+    multi_xml (0.6.0)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.6.8.1-x86-mingw32)
+      mini_portile2 (~> 2.1.0)
     nori (2.4.0)
     orm_adapter (0.5.0)
-    paper_trail (4.0.0)
+    paper_trail (4.0.2)
       activerecord (>= 3.0, < 6.0)
       activesupport (>= 3.0, < 6.0)
       request_store (~> 1.1)
@@ -315,18 +317,19 @@ GEM
       xml-simple
     paypal-sdk-merchant (1.106.1)
       paypal-sdk-core (~> 0.2.3)
-    pg (0.18.2)
-    pg (0.18.2-x86-mingw32)
-    polyamorous (1.3.0)
+    pg (0.19.0)
+    pg (0.19.0-x86-mingw32)
+    polyamorous (1.3.1)
       activerecord (>= 3.0)
     polyglot (0.3.5)
     premailer (1.8.7)
       css_parser (>= 1.4.5)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.9.4)
+    premailer-rails (1.9.5)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    qbwc (0.1.0)
+    public_suffix (2.0.5)
+    qbwc (1.0.0)
       qbxml (>= 0.3.0)
       wash_out (>= 0.7.1)
     qbxml (0.3.0)
@@ -335,7 +338,7 @@ GEM
       nokogiri (~> 1.5)
     rabl (0.9.4.pre1)
       activesupport (>= 2.3.14)
-    rack (1.6.4)
+    rack (1.6.5)
     rack-ssl (1.4.1)
       rack
     rack-test (0.6.3)
@@ -353,43 +356,43 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.7)
+    rails-dom-testing (1.0.8)
       activesupport (>= 4.2.0.beta, < 5.0)
-      nokogiri (~> 1.6.0)
+      nokogiri (~> 1.6)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.0.2)
+    rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_serve_static_assets (0.0.4)
-    rails_stdout_logging (0.0.4)
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (4.2.2)
       actionpack (= 4.2.2)
       activesupport (= 4.2.2)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.4.2)
+    rake (12.0.0)
     ransack (1.4.1)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.1)
-    rdoc (4.2.0)
-    recaptcha (1.0.2)
+    rdoc (4.3.0)
+    recaptcha (4.0.1)
       json
-    request_store (1.2.1)
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
-    rubyXL (3.3.15)
+    request_store (1.3.2)
+    responders (2.3.0)
+      railties (>= 4.2.0, < 5.1)
+    rubyXL (3.3.22)
       nokogiri (>= 1.4.4)
       rubyzip (>= 1.1.6)
     rubyntlm (0.3.4)
-    rubyzip (1.1.6)
-    sass (3.4.18)
-    sass-rails (5.0.4)
-      railties (>= 4.0.0, < 5.0)
+    rubyzip (1.2.0)
+    sass (3.4.23)
+    sass-rails (5.0.6)
+      railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
@@ -403,18 +406,19 @@ GEM
       nori (~> 2.4.0)
       uuid (~> 2.3.7)
       wasabi (~> 3.3.0)
-    sdoc (0.4.1)
+    sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     select2-rails (3.5.9.1)
       thor (~> 0.14)
     sixarm_ruby_unaccent (1.1.1)
-    social-share-button (0.1.10)
+    social-share-button (0.8.8)
       coffee-rails
-      sass-rails
-    spring (1.3.6)
-    sprockets (3.3.4)
-      rack (~> 1.0)
+    spring (2.0.0)
+      activesupport (>= 4.2)
+    sprockets (3.7.1)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
     sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -426,29 +430,29 @@ GEM
     state_machines-activerecord (0.4.0)
       activerecord (>= 4.1, < 5.1)
       state_machines-activemodel (>= 0.3.0)
-    stringex (2.6.0)
+    stringex (2.6.1)
     systemu (2.6.5)
     tax_cloud (0.3.0)
       activesupport (>= 3.0)
       i18n
       savon (>= 2.0)
-    thor (0.19.1)
+    thor (0.19.4)
     thread_safe (0.3.5)
-    tilt (2.0.1)
+    tilt (2.0.5)
     truncate_html (0.9.2)
-    turbolinks (2.5.3)
-      coffee-rails
-    twitter_cldr (3.5.0)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.0)
+    twitter_cldr (3.6.0)
       camertron-eprun
-      cldr-plurals-runtime-rb (~> 1.0.0)
+      cldr-plurals-runtime-rb (~> 1.0)
       tzinfo
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2015.6)
+    tzinfo-data (1.2016.10)
       tzinfo (>= 1.0.0)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.0.4)
+      execjs (>= 0.3.0, < 3)
     uuid (2.3.8)
       macaddr (~> 1.0)
     versioncake (2.3.1)
@@ -456,14 +460,14 @@ GEM
       activesupport (>= 3.2)
       railties (>= 3.2)
       tzinfo
-    warden (1.2.3)
+    warden (1.2.6)
       rack (>= 1.0)
     wasabi (3.3.1)
       httpi (~> 2.0)
       nokogiri (>= 1.4.0)
-    wash_out (0.9.2)
+    wash_out (0.11.0)
       nori (>= 2.0.0)
-    web-console (2.2.1)
+    web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
@@ -510,3 +514,9 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+RUBY VERSION
+   ruby 2.3.3p222
+
+BUNDLED WITH
+   1.13.7
