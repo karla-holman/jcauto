@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
-        
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
-        
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -26,7 +26,11 @@ Rails.application.routes.draw do
   get 'qbwc/qwc' => 'qbwc#qwc'
   wash_out :qbwc
     root to: "products#index"
-  end   
+  end
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   # This line mounts Spree's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
   # If you would like to change where this engine is mounted, simply change the :at option to something different.
@@ -61,7 +65,7 @@ Rails.application.routes.draw do
   get 'timeline' => 'jcautohome#timeline'
   get 'my-cars' => 'customer_cars#index'
 
-  resources :services, only: :show  
+  resources :services, only: :show
   resources :jcautohome do
     collection do
       post :submit_contact
@@ -83,9 +87,9 @@ Rails.application.routes.draw do
         end
       end
     end
-    
+
     resources :cars do
-      resources :car_images do 
+      resources :car_images do
         collection do
           post :update_positions
         end
