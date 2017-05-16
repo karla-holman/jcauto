@@ -7,6 +7,9 @@ Spree.user_class.class_eval do
                   styles: {
                     thumb: {
                       geometry: '250x250>'
+                    },
+                    large: {
+                      geometry: '1100x700>'
                     }
                   },
                   default_style: :thumb,

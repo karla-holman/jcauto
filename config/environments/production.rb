@@ -106,12 +106,6 @@ Rails.application.configure do
     bucket:         ENV['S3_BUCKET_NAME'],
     url:            ":s3_domain_url",
     s3_host_name:   's3-us-west-2.amazonaws.com',
-
-    styles: {
-        thumb:     "165x120>",
-        large:    "1100x700>"
-    },
-
     path:           "/:class/:id/:style/:basename.:extension",
     default_url:    "/:class/:id/:style/:basename.:extension",
     default_style:  "large"
