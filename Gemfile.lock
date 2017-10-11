@@ -517,6 +517,7 @@ DEPENDENCIES
   rack-ssl
   rails (= 4.2.2)
   rails_12factor
+  redis
   rubyXL
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

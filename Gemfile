@@ -38,6 +38,7 @@ gem 'paper_trail', '~> 4.0.0'
 
 gem 'sprockets'
 gem 'sidekiq'
+gem 'redis'
 
 # manage images
 gem 'aws-sdk', '< 2.0'
