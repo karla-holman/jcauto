@@ -89,8 +89,8 @@ end
 
 
 # Update gem 'spree', '3.0.4'
-gem 'spree', :path => "/Users/karlaholman/spree_jcauto"
-# gem 'spree', github: 'karla-holman/spree_jcauto'
+# gem 'spree', :path => "/Users/karlaholman/spree_jcauto"
+gem 'spree', github: 'karla-holman/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
