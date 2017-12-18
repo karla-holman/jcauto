@@ -32,7 +32,7 @@ if Rails.env.production?
 
   Sidekiq.configure_server do |config|
     config.redis = { url: ENV['REDIS_URL'] }
-
+=begin
     Rails.application.config.after_initialize do
       Rails.logger.info("DB Connection Pool size for Sidekiq Server before disconnect is: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
       ActiveRecord::Base.connection_pool.disconnect!
@@ -47,6 +47,7 @@ if Rails.env.production?
         Rails.logger.info("DB Connection Pool size for Sidekiq Server is now: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
       end
     end
+=end
   end
 
 end
