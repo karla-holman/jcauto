@@ -39,6 +39,11 @@ gem 'paper_trail', '~> 4.0.0'
 gem 'sprockets'
 gem 'sidekiq'
 gem 'redis'
+gem 'puma'
+# gem 'redis-namespace', '~> 1.0.2'
+# gem 'resque'
+# gem 'resque-loner'
+# gem 'resque-scheduler'
 
 # manage images
 gem 'aws-sdk', '< 2.0'
@@ -84,8 +89,8 @@ end
 
 
 # Update gem 'spree', '3.0.4'
-# gem 'spree', :path => "/Users/karlaholman/spree_jcauto"
-gem 'spree', github: 'karla-holman/spree_jcauto'
+gem 'spree', :path => "/Users/karlaholman/spree_jcauto"
+# gem 'spree', github: 'karla-holman/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
