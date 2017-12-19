@@ -30,5 +30,6 @@ production:
   encoding: utf8
   database: project_production
   pool: 5
-  username: 
+  username:
   password:
+  reaping_frequency: 10
