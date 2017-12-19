@@ -22,64 +22,8 @@ GIT
       spree_core (~> 3.0.4)
 
 GIT
-  remote: git://github.com/karla-holman/spree_paypal_express.git
-  revision: b32fb42a3a96e04878cadd3cbad7322644396237
-  specs:
-    spree_paypal_express (3.0.0)
-      paypal-sdk-merchant (= 1.106.1)
-      spree_core (~> 3.0.0)
-
-GIT
-  remote: git://github.com/spree-contrib/spree_mail_settings.git
-  revision: d416a1e355893bda625ed5bea187d39526aa52f9
-  branch: 3-0-stable
-  specs:
-    spree_mail_settings (3.0.0)
-      spree_backend (~> 3.0.0)
-
-GIT
-  remote: git://github.com/spree-contrib/spree_tax_cloud.git
-  revision: 34f027976ec5014161bdbf0a0900bec5a1c19348
-  branch: 3-0-stable
-  specs:
-    spree_tax_cloud (3.0.0)
-      savon (~> 2.5.1)
-      spree_backend (~> 3.0.0)
-      spree_core (~> 3.0.0)
-      tax_cloud (~> 0.3.0)
-
-GIT
-  remote: git://github.com/spree/spree_auth_devise.git
-  revision: 1ac9dcc33049b185a0dd884c832583feb4b91890
-  branch: 3-0-stable
-  specs:
-    spree_auth_devise (3.0.6)
-      devise (~> 3.5.4)
-      devise-encryptable (= 0.1.2)
-      json
-      multi_json
-      spree_core (~> 3.0.0)
-
-GIT
-  remote: git://github.com/spree/spree_gateway.git
-  revision: 3cb02b0b3a45be5f4ace9d9295ffb3c11864e605
-  branch: 3-0-stable
-  specs:
-    spree_gateway (3.0.0)
-      spree_core (~> 3.0.0)
-
-GIT
-  remote: git://github.com/spree/spree_wombat.git
-  revision: aa010bc4aee21f1aec900cbe32a76d45b2ca2d16
-  branch: 3-0-stable
-  specs:
-    spree_wombat (2.2.0)
-      active_model_serializers (= 0.9.0.alpha1)
-      httparty
-      spree_core (~> 3.0.0)
-
-PATH
-  remote: /Users/karlaholman/spree_jcauto
+  remote: git://github.com/karla-holman/spree_jcauto.git
+  revision: 6d211f5cd574f20cc086cf5c9f3008c84d7b119e
   specs:
     spree (3.0.4)
       spree_api (= 3.0.4)
@@ -136,6 +80,63 @@ PATH
       sprockets-rails (~> 2.2)
     spree_sample (3.0.4)
       spree_core (= 3.0.4)
+
+GIT
+  remote: git://github.com/karla-holman/spree_paypal_express.git
+  revision: b32fb42a3a96e04878cadd3cbad7322644396237
+  specs:
+    spree_paypal_express (3.0.0)
+      paypal-sdk-merchant (= 1.106.1)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_mail_settings.git
+  revision: d416a1e355893bda625ed5bea187d39526aa52f9
+  branch: 3-0-stable
+  specs:
+    spree_mail_settings (3.0.0)
+      spree_backend (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree-contrib/spree_tax_cloud.git
+  revision: 34f027976ec5014161bdbf0a0900bec5a1c19348
+  branch: 3-0-stable
+  specs:
+    spree_tax_cloud (3.0.0)
+      savon (~> 2.5.1)
+      spree_backend (~> 3.0.0)
+      spree_core (~> 3.0.0)
+      tax_cloud (~> 0.3.0)
+
+GIT
+  remote: git://github.com/spree/spree_auth_devise.git
+  revision: 1ac9dcc33049b185a0dd884c832583feb4b91890
+  branch: 3-0-stable
+  specs:
+    spree_auth_devise (3.0.6)
+      devise (~> 3.5.4)
+      devise-encryptable (= 0.1.2)
+      json
+      multi_json
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree/spree_gateway.git
+  revision: 3cb02b0b3a45be5f4ace9d9295ffb3c11864e605
+  branch: 3-0-stable
+  specs:
+    spree_gateway (3.0.0)
+      spree_core (~> 3.0.0)
+
+GIT
+  remote: git://github.com/spree/spree_wombat.git
+  revision: aa010bc4aee21f1aec900cbe32a76d45b2ca2d16
+  branch: 3-0-stable
+  specs:
+    spree_wombat (2.2.0)
+      active_model_serializers (= 0.9.0.alpha1)
+      httparty
+      spree_core (~> 3.0.0)
 
 GEM
   remote: https://rubygems.org/
