@@ -31,7 +31,7 @@
 			<!-- div class="gallery_auto"-->
 					<%= image_tag image, alt: "Shop Picture", style: "width: 100%", id:"gallery_main" %>
 			<!-- /div -->
-		</div>	
+		</div>
 		<% end %>
 
 	</div><!-- End Row -->
@@ -58,7 +58,7 @@
 				<p>We've put policies in place to guarantee that we work with you in a respectful and friendly way to get your project just how you like it. Restoring your car should be fun and enjoyable. No matter what your background or level of expertise, we strive to work with you to make the restoration process as easy as possible.</p>
 				<!-- Change Tech image on hover -->
 				<%= link_to "Our Policies >", "/policies", class: "button-link", onmouseover:"document.getElementById('tech1').src='#{asset_path('master/customer-service-hover.png')}'", onmouseout:"document.getElementById('tech1').src='#{asset_path('master/customer-service.png')}'" %>
-				
+
 			</div>
 			<div class="col-sm-4 col-md-4">
 				<%= link_to "/timeline" do %><%= image_tag "master/history.png", alt: "Our History", onmouseover: "document.getElementById('tech2').src='#{asset_path("master/history-hover.png")}'", onmouseout: "document.getElementById('tech2').src='#{asset_path("master/history.png")}'", class:"icon", id:"tech2" %><% end %>
@@ -120,12 +120,12 @@
 		<div class="spacer visible-md visible-lg"></div>
 		<div class="col-xs-12 col-sm-12 col-md-12">
 			<div class="col-sm-6 col-md-4">
-				<%= image_tag "people/ryan.jpg", alt: "Ryan Lacabanne", class:"icon", id:"ryan", style: "margin-bottom: 10px"  %>
+				<%= image_tag "people/jen.jpg", alt: "Jen Pope", class:"icon", id:"jen", style: "margin-bottom: 10px"  %>
 			</div>
 			<div class="col-sm-6 col-md-8">
-				<h3 style="margin-top: -5px; margin-bottom: 10px">Ryan Lacabanne</h3>
-				<h5 style="margin: 5px 0">Gauge Restoration Technician</h5>
-				<p>Chef in his former life, Ryan now spends his days working at JC Auto Restoration and his nights jamming on his guitar or watching Frozen with his daughter. </p>
+				<h3 style="margin-top: -5px; margin-bottom: 10px">Jen Pope</h3>
+				<h5 style="margin: 5px 0">Office Manager and Customer Service</h5>
+				<p>When Jen isn't working at JC Auto, she is chasing her youngest daughter to her soccer games.  She and her husband are season ticket holders for the Seattle Sounders. She brings a wealth of expertise in customer support, and a marvelous sense of humor.</p>
 			</div>
 		</div>
 		<div class="spacer visible-md visible-lg"></div>
@@ -207,7 +207,7 @@
 				<div class="form-group">
 					<%= text_area_tag(:message, "", size: "25x5", style:"height: 50px;", placeholder: "Message", class: "form-control") %>
 				</div>
-								
+
 				<% if Spree::Captcha::Config[:use_captcha] %>
 					<%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %>
 				<% end %>
