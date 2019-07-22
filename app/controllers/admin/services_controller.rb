@@ -9,6 +9,25 @@ class Admin::ServicesController < AdminController
 
   end
 
+  def new
+    @service = Service.new
+  end
+
+  def create
+      @service = Service.new(service_params)
+
+      respond_to do |format|
+      if @service.save
+        flash[:success] = "Service was successfully created."
+        format.html { redirect_to admin_services_path }
+        format.json { render :show, status: :created, location: @service }
+      else
+        format.html { render :new }
+        format.json { render json: @service.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def index
   	@services = Service.all
   end
@@ -25,6 +44,16 @@ class Admin::ServicesController < AdminController
       end
     end
   end
+
+  def destroy
+    @service.destroy
+    respond_to do |format|
+      flash[:success] = 'Service was successfully destroyed.'
+      format.html { redirect_to admin_services_path }
+      format.json { head :no_content }
+      end
+  end
+
   
   private
 

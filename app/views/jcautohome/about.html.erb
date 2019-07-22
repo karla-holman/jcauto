@@ -17,8 +17,11 @@
 	<div class="row">
 		<div class="col-md-12 text-center">
 			<h1>The Shop</h1>
+			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
+					<%= link_to "Edit Shop Pics", admin_shop_images_path, class: "btn btn-success admin-button" %>
+			<% end %>
 			<p class="intro">
-				Proudly serving MoPar fans since 1978, we have been at our current shop in Lynnwood, WA for nearly 15 years. We work surrounded by memorabilia and old parts that represent the era we love. We are only 15 minutes north of Seattle. Stop by to say hi and roam the aisles...you never know what you'll find!
+				Proudly serving MoPar fans since 1978, we have been at our current shop in Lynnwood, WA for nearly <%=Date.today.year - 2000 %> years. We work surrounded by memorabilia and old parts that represent the era we love. We are only 15 minutes north of Seattle. Stop by to say hi and roam the aisles...you never know what you'll find!
 			</p>
 		</div>
 
@@ -33,7 +36,10 @@
 			<!-- /div -->
 		</div>
 		<% end %>
-
+		<!--I would really like to adjust the spacing of this so that the more photos link is lower and not right up against the base of the three photos. -->
+		<div class="col-md-12 text-center">
+		<h3><center><strong><%= link_to "More Shop Photos here", '/shop_images/index' %></strong></center></h3>
+		</div>
 	</div><!-- End Row -->
 </div>
 
@@ -152,7 +158,8 @@
 					<%= link_to "Edit Cars", admin_cars_path, class: "btn btn-success admin-button" %>
 				<% end %>
 				<p class="intro">
-					Perhaps we take so much pride in our work because, as car owners ourselves, we would expect nothing less on our own projects. The world of MoPar is exciting, from the cars to the community. We are are proud to celebrate our passion in both our personal and professional lives with a fleet of our own cars.
+					Perhaps we take so much pride in our work because, as car owners ourselves, we would expect nothing less on our own projects. The world of MoPar is exciting, from the cars to the community. We are are proud to celebrate our passion in both our personal and professional lives with a fleet of our own cars. 
+					<strong>Note: </strong>Click on car names for more pictures.
 				</p>
 			</div>
 
@@ -208,9 +215,9 @@
 					<%= text_area_tag(:message, "", size: "25x5", style:"height: 50px;", placeholder: "Message", class: "form-control") %>
 				</div>
 
-				<% if Spree::Captcha::Config[:use_captcha] %>
-					<%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %>
-				<% end %>
+				<!--% if Spree::Captcha::Config[:use_captcha] %-->
+					<!--%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
+				<!--% end %-->
 
 				<div class="clearfix"></div>
 				<%= submit_tag("Submit Form", class: "btn btn-default") %>
@@ -230,6 +237,7 @@
 		<div class="col-sm-6 col-md-3">
 			<h3>Visit the Shop</h3>
 			<p>
+				<!--Should this be changed to Monday thru Thursday? -->
 				Drop by any time! We are open from 8am to 5pm PST, Monday through Friday. Come check out some of the projects and get an up close and get a look at our inventory.
 			</p>
 			<p>

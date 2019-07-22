@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502173925) do
+ActiveRecord::Schema.define(version: 20190722182657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(version: 20170502173925) do
   create_table "events", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
-    t.text     "thumb"
     t.text     "location"
     t.date     "event_date"
     t.datetime "created_at",              null: false
@@ -138,6 +137,24 @@ ActiveRecord::Schema.define(version: 20170502173925) do
     t.string   "name"
     t.text     "description"
     t.string   "thumb"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "our_car_images", force: :cascade do |t|
+    t.integer  "our_car_id"
+    t.text     "image_path"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "our_car_images", ["our_car_id"], name: "index_our_car_images_on_our_car_id", using: :btree
+
+  create_table "our_cars", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.text     "thumb"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -234,6 +251,16 @@ ActiveRecord::Schema.define(version: 20170502173925) do
     t.string "name"
     t.string "description"
     t.text   "description_long"
+  end
+
+  create_table "shop_images", force: :cascade do |t|
+    t.string   "description"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "spree_addresses", force: :cascade do |t|

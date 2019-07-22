@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+			<h1 align="center">Shop Images</h1>
+			<% if spree_current_user && (spree_current_user.has_spree_role? "admin") %>
+					<%= link_to "Edit Shop Pics", admin_shop_images_path, class: "btn btn-success admin-button" %>
+			<% end %>
+
+			<div class ="row">
+			<% @shop_image.each do |shop_image| %>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-centered">
+				<%= image_tag shop_image.attachment, width: 200%>
+				<!--%= image_tag(shop_image.attachment, width: 200) %--><br>
+				<%= shop_image.description%>
+			</div>
+			<%end%>	
+		</div>
+
+		</div>
+	</div>
+</div>

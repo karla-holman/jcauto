@@ -50,7 +50,7 @@ class Admin::CarImagesController < AdminController
   end
 
 	private
-
+#Why is load_edit_data private and the index not when they do the exact same thing?
 	def load_edit_data
     @car = Car.find(params[:car_id])
   end

@@ -1,0 +1,2 @@
+module ShopImagesControllerHelper
+end

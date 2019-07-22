@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'shop_images/show'
+
   get 'qbwc/action' => 'qbwc#_generate_wsdl'
   get 'qbwc/qwc' => 'qbwc#qwc'
   wash_out :qbwc
@@ -22,6 +24,8 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Spree relies on it being the default of "spree"
   Spree::Core::Engine.routes.draw do
+  get 'shop_images/show'
+
   get 'qbwc/action' => 'qbwc#_generate_wsdl'
   get 'qbwc/qwc' => 'qbwc#qwc'
   wash_out :qbwc
@@ -75,6 +79,8 @@ Rails.application.routes.draw do
   resources :cars, only: :show
   resources :sale_cars, only: :show
   resources :customer_cars, except: :show
+  resources :shop_images, only: :show
+  
 
   # handle 404
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
@@ -124,6 +130,8 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    resources :shop_images
 
     delete '/service_items/:id', to: "service_items#destroy", as: :service_item
   end

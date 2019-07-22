@@ -93,9 +93,9 @@
 					<p><%= check_box :user, :terms, :required => true %>&nbsp;<%= label_tag :term, "I agree to the" %> <%= link_to('terms and conditions', '/policies', style: "font-weight: bold").html_safe %></p>
 				</div>
 				<div class="col-md-6" style="margin-bottom: 10px;">
-					<% if Spree::Captcha::Config[:use_captcha] %>
-						<%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %>
-					<% end %>
+					<!--% if Spree::Captcha::Config[:use_captcha] %-->
+						<!--%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
+					<!--% end %-->
 					<!-- button type="submit" class="btn btn-default">Submit Form</button -->
 				</div>
 				<div class="col-md-12">

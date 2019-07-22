@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>All Shop Images</h2>
+			<%= link_to 'Add New Pictures', new_admin_shop_image_path, class: "btn btn-primary", style: "margin-top: 26px" %>
+
+
+		    <div id="content" class="col-md-12" style="margin-top: 25px">
+      		<%= flash_messages %>
+    		</div>
+
+			<table class="table sortable">
+			<thead>
+			<tr>
+				<th>Image</th>
+				<th>Description</th>
+				<th colspan="2">Actions</th>
+
+			</tr>
+			</thead>
+			<tbody>
+				<% @shop_images.each do |shop_image| %>
+				<tr>
+					<!-- Need to rethink how to get the image that is saved to the database to show up here. -->
+					<td><%=image_tag(shop_image.attachment, width: 100)%></td>
+					<td><%=shop_image.description%></td>
+					<td><%= link_to 'Edit', edit_admin_shop_image_path(shop_image) %></td>
+
+					<td><%=link_to 'Remove', admin_shop_image_path(shop_image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		</div>
+	</div>
+</div>
