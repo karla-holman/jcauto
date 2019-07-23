@@ -8,7 +8,7 @@ gem 'rails', '4.2.2'
 gem 'pg', '~> 0.21'
 
 #ADDED FOR DATABASE WORK
-gem 'sqlite3'
+#gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
