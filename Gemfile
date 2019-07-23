@@ -34,8 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 
 # gem 'bootstrap-sass', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.3.5.1"
-gem 'bootstrap-sass', :path =>'~/Documents/JCAutowork/bootstrap-sass-jcauto-master'
-#gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
+#gem 'bootstrap-sass', :path =>'~/Documents/JCAutowork/bootstrap-sass-jcauto-master'
+gem 'bootstrap-sass', github: 'karla-holman/bootstrap-sass-jcauto'
 gem 'bootstrap-datepicker-rails'
 
 # Track user activity
@@ -63,9 +63,9 @@ gem 'social-share-button'
 
 # handle paypal payments
 # gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express', branch: '3-0-stable'
-gem 'spree_paypal_express', :path => '~/Documents/JCAutowork/spree_paypal_express-master'
+#gem 'spree_paypal_express', :path => '~/Documents/JCAutowork/spree_paypal_express-master'
 # gem 'spree_paypal_express', :path => "C:/Users/JC Auto 1/Desktop/Karla/spree_paypal_express"
-##gem 'spree_paypal_express', github: 'karla-holman/spree_paypal_express'
+gem 'spree_paypal_express', github: 'karla-holman/spree_paypal_express'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -96,19 +96,22 @@ end
 
 
 # Update gem 'spree', '3.0.4'
-gem 'spree', :path => '~/Documents/JCAutowork/spree_jcauto-master'
+#gem 'spree', :path => '~/Documents/JCAutowork/spree_jcauto-master'
 # gem 'spree', :path => "/Users/karlaholman/spree_jcauto"
 ##gem 'spree', github: 'karla-holman/spree_jcauto'
+gem 'spree', github: 'hisl6802/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 
-gem 'spree_wishlist', :path => '~/Documents/JCAutowork/my_spree_wishlist-master'
-##gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
+#gem 'spree_wishlist', :path => '~/Documents/JCAutowork/my_spree_wishlist-master'
+gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
 # gem 'spree_wishlist', :path => "C:/RailsInstaller/Ruby2.1.0/lib/ruby/gems/2.1.0/gems/spree_wishlist-2.2.0"
-gem 'spree_email_to_friend', :path => '~/Documents/JCAutowork/jc_spree_email_to_friend-master'
+#gem 'spree_email_to_friend', :path => '~/Documents/JCAutowork/jc_spree_email_to_friend-master'
 ##gem 'spree_email_to_friend', github: 'karla-holman/jc_spree_email_to_friend'
+gem 'spree_email_to_friend', github: 'hisl6802/jc_spree_email_to_friend'
+
 gem 'spree_mail_settings', github: 'spree-contrib/spree_mail_settings', branch: '3-0-stable'
 gem 'spree_tax_cloud', github: 'spree-contrib/spree_tax_cloud', branch: '3-0-stable'
 

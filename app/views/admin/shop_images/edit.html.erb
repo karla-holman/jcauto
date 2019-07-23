@@ -1,18 +1,16 @@
 <div class="container">
 
-	<div class="row">
+	<div class="col-md-12 text-center">
 		<h2> Edit Shop Image</h2>
 		<%= form_for [:admin, @shop_image], html: {multipart: true} do |f|%>
 		<div>
+			<%= image_tag(@shop_image.attachment)%><br>
+		</div>
+		<div class="row">
 			<%= f.label :description, Spree.t(:description)%> 
-			<%= f.text_field :description %>
-		</div>
-		<div>
-			<%= image_tag(@shop_image.attachment, width:100)%>
-		</div>
-		<div>
+			<%= f.text_field :description %><br><br>
 			<%= button Spree.t('actions.update'), 'save' %>
-			<%= link_to 'Back', admin_shop_images_path, class: "btn btn-default" %>
+			<%= link_to 'Back', admin_shop_images_path, class: "btn btn-default" %><br>
 		</div>
 	</div>
 	<% end %>
