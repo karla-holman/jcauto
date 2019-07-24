@@ -79,7 +79,7 @@ gem 'spree_paypal_express', github: 'karla-holman/spree_paypal_express'
 # For use on Windows
 gem 'tzinfo-data'
 
-require 'spreadsheet' # for importing database data
+#require 'spreadsheet' # for importing database data
 gem 'rubyXL' # Assuming rubygems is already required
 
 group :development, :test do
