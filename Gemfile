@@ -121,3 +121,8 @@ gem 'spree_wombat', github: 'spree/spree_wombat', branch: '3-0-stable'
 gem 'qbwc'
 
 gem 'rack-ssl', :require => 'rack/ssl'
+
+
+#Looking into the memory leak possibility
+gem 'derailed_benchmarks', group: :development
+gem 'stackprof', group: :development
