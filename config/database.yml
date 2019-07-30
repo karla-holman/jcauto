@@ -32,4 +32,4 @@ production:
   pool: 5
   username:
   password:
-  reaping_frequency: 10
+  reaping_frequency: 5
