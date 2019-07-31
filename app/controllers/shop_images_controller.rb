@@ -1,3 +1,4 @@
+#Controls the images for the users of the website
 class ShopImagesController < ApplicationController
   def show
      @shop_image = ShopImage.all 
