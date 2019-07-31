@@ -1,6 +1,7 @@
 #Controls the images for the users of the website 
 #allowing them to see the shop images that have been added to the webpage.
-#Another comment to allow me to push heroku hopefully. Read.
+#Another comment to allow me to push heroku hopefully. Reading further on how to
+#upload and get the file.
 class ShopImagesController < ApplicationController
   def show
      @shop_image = ShopImage.all 
