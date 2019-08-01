@@ -8,7 +8,7 @@ class ShopImagesController < ApplicationController
   def index
     @shop_images = ShopImage.all
   end
-  
+     
   private
   
   def set_shop_image
