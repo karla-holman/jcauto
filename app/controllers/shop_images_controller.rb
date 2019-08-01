@@ -1,7 +1,8 @@
 #Controls the images for the users of the website 
 #allowing them to see the shop images that have been added to the webpage.
 #Another comment to allow me to push heroku hopefully. Reading further on how to
-#upload and get the file.
+#upload and get the file. Now seeing if I get the TypeError again so I can make
+#adjustments based on that
 
 
 class ShopImagesController < ApplicationController
