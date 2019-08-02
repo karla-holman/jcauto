@@ -16,6 +16,8 @@ class ShopImagesController < ApplicationController
   #Could the saving due to the create function make the saving using the save
   # function a nil point?
   #The find tries to send the website to a new page.
+  #How is the data saved to aws? If that is in fact where it is being sent.
+  
   private
   
   def set_shop_image
