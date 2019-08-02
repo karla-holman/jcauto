@@ -13,6 +13,8 @@ class ShopImagesController < ApplicationController
   #If so how can I call out this file allowing me to open it.
   #What am I missing about the saving process?
   #Was there a parameter set somewhere specifying how to save the excel upload?
+  #Could the saving due to the create function make the saving using the save
+  # function a nil point?
   private
   
   def set_shop_image
