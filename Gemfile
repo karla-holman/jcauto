@@ -7,8 +7,6 @@ gem 'rails', '4.2.2'
 # Use pg as the database for Active Record
 gem 'pg', '~> 0.21'
 
-#ADDED FOR DATABASE WORK
-#gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

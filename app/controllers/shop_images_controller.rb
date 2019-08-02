@@ -20,7 +20,7 @@ class ShopImagesController < ApplicationController
   #I will now try to obtain the object from the AWS bucket
   #The AWS trick might just do it. Another day another learning moment.
 
-  
+  #added the require method.
   private
   
   def set_shop_image
