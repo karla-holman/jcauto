@@ -9,7 +9,7 @@ class ShopImagesController < ApplicationController
     @shop_images = ShopImage.all
   end
   #If I can just locate the location of the saved file I will be able to do what I need to do.
-  
+  #Is the file being sent to AWS?
   private
   
   def set_shop_image
