@@ -8,7 +8,7 @@ class ShopImagesController < ApplicationController
   def index
     @shop_images = ShopImage.all
   end
-  #please work this time.
+  #please work this time. 
   private
   
   def set_shop_image
