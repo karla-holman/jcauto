@@ -8,7 +8,8 @@ class ShopImagesController < ApplicationController
   def index
     @shop_images = ShopImage.all
   end
-  #Lets see what happens.
+  #If I can just locate the location of the saved file I will be able to do what I need to do.
+  
   private
   
   def set_shop_image
