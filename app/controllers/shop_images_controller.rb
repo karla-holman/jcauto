@@ -15,6 +15,7 @@ class ShopImagesController < ApplicationController
   #Was there a parameter set somewhere specifying how to save the excel upload?
   #Could the saving due to the create function make the saving using the save
   # function a nil point?
+  #The find tries to send the website to a new page.
   private
   
   def set_shop_image
