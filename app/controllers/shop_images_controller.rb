@@ -19,6 +19,8 @@ class ShopImagesController < ApplicationController
   #How is the data saved to aws? If that is in fact where it is being sent.
   #I will now try to obtain the object from the AWS bucket
   #The AWS trick might just do it. Another day another learning moment.
+
+  
   private
   
   def set_shop_image
