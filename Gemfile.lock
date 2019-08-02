@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/hisl6802/spree_jcauto.git
-  revision: 837c4c537d6d5051186f00340dd8a5bc51e4a2bd
+  revision: dd0fef51b12b480404cf478600f67625ee308203
   specs:
     spree (3.0.4)
       spree_api (= 3.0.4)
@@ -417,6 +417,9 @@ GEM
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    roo (2.8.2)
+      nokogiri (~> 1)
+      rubyzip (>= 1.2.1, < 2.0.0)
     ruby-ole (1.2.12.2)
     rubyXL (3.4.5)
       nokogiri (>= 1.4.4)
@@ -543,6 +546,7 @@ DEPENDENCIES
   rails (= 4.2.2)
   rails_12factor
   redis
+  roo
   rubyXL
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
