@@ -22,6 +22,7 @@ class ShopImagesController < ApplicationController
 
   #added the require method for aws
   #now trying to read the file into the website
+  #What is the issue with the bucket.
   private
   
   def set_shop_image
