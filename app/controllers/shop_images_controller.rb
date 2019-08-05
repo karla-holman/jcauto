@@ -35,6 +35,8 @@ class ShopImagesController < ApplicationController
   #So I know that when I load the amazon s3 service that it loads the key but the second key doesnt work apperently.
   #Making necessary change to hopefully solve issue.
   #Now trying to see if the name issue has to do with the amazon s3 path or the object not  
+  #I am starting to get a little bit frustrated that this is not working how I was hoping it would.
+  
   private
   
   def set_shop_image
