@@ -28,6 +28,7 @@ class ShopImagesController < ApplicationController
   #I may need to upgrade to version 2 of AWS-SDK and try to not wreck everything else that is going on with the program
   #I have fixed the issue with the callout due to the version of the Ruby gem which is being used.
   #I have added the gets to see how this handles downloads to the app allowing me to open the spreadsheet.
+  #I get the object callout working but I cannot callout the private method, I will need to get passed this in order to get the product.
   private
   
   def set_shop_image
