@@ -29,7 +29,10 @@ class ShopImagesController < ApplicationController
   #I have fixed the issue with the callout due to the version of the Ruby gem which is being used.
   #I have added the gets to see how this handles downloads to the app allowing me to open the spreadsheet.
   #I get the object callout working but I cannot callout the private method, I will need to get passed this in order to get the product.
-  #I would like to load the file from aws I may change it from .xlsx to .txt
+  #I would like to load the file from aws I may change it from .xlsx to .txt,
+  #I can get the object to be recognized now lets work on getting the file to be read.
+  #Now lets work on trying to load in the .xlsx into the function my guess is it will not work because it is a .xlsx file instead of a .txt file.
+  
   private
   
   def set_shop_image
