@@ -34,6 +34,7 @@ class ShopImagesController < ApplicationController
   #Now lets work on trying to load in the .xlsx into the function my guess is it will not work because it is a .xlsx file instead of a .txt file.
   #So I know that when I load the amazon s3 service that it loads the key but the second key doesnt work apperently.
   #Making necessary change to hopefully solve issue.
+  #Now trying to see if the name issue has to do with the amazon s3 path or the object not  
   private
   
   def set_shop_image
