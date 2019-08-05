@@ -26,7 +26,7 @@ class ShopImagesController < ApplicationController
   #Given that I am using aws-sdk version 1 I cannot use the aws callout it is the improper callout.
 
   #I may need to upgrade to version 2 of AWS-SDK and try to not wreck everything else that is going on with the program
-  #I have fixed the issue 
+  #I have fixed the issue with the callout due to the version of the Ruby gem which is being used.
   private
   
   def set_shop_image
