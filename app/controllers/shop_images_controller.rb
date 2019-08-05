@@ -37,6 +37,10 @@ class ShopImagesController < ApplicationController
   #Now trying to see if the name issue has to do with the amazon s3 path or the object not  
   #I am starting to get a little bit frustrated that this is not working how I was hoping it would.
   #The reading of the spreadsheet doesnt seem to be working.
+  #This should read the file as needed.
+
+
+
   private
   
   def set_shop_image
