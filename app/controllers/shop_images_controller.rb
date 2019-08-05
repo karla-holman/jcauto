@@ -38,6 +38,7 @@ class ShopImagesController < ApplicationController
   #I am starting to get a little bit frustrated that this is not working how I was hoping it would.
   #The reading of the spreadsheet doesnt seem to be working.
   #This should read the file as needed I need to get passed the private methods
+  #I think that it would be best to move to a text file.
 
 
 
