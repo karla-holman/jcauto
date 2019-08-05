@@ -32,7 +32,7 @@ class ShopImagesController < ApplicationController
   #I would like to load the file from aws I may change it from .xlsx to .txt,
   #I can get the object to be recognized now lets work on getting the file to be read.
   #Now lets work on trying to load in the .xlsx into the function my guess is it will not work because it is a .xlsx file instead of a .txt file.
-  
+  #So I know that when I load the amazon s3 service that it loads the key but the second key doesnt work apperently.
   private
   
   def set_shop_image
