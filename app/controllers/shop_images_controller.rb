@@ -22,7 +22,8 @@ class ShopImagesController < ApplicationController
 
   #added the require method for aws
   #now trying to read the file into the website
-  #What is the issue with the bucket.
+  #What is the issue with the bucket can I avoid using the bucket or is this what paperclip uses to load the files or can I avoid using AWS
+  
   private
   
   def set_shop_image
