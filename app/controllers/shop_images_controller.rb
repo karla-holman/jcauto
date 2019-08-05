@@ -39,6 +39,7 @@ class ShopImagesController < ApplicationController
   #The reading of the spreadsheet doesnt seem to be working.
   #This should read the file as needed I need to get passed the private methods
   #I think that it would be best to move to a text file.
+  #Finally I may have solved the issue of where the spreadsheet is located.
 
 
 
