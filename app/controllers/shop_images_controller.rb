@@ -41,7 +41,7 @@ class ShopImagesController < ApplicationController
   #I think that it would be best to move to a text file.
   #Finally I may have solved the issue of where the spreadsheet is located. One more change to make sure it works.
 
-
+  #FInally I am finally getting closer to solving this problem.
 
   private
   
