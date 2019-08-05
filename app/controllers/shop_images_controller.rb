@@ -24,6 +24,8 @@ class ShopImagesController < ApplicationController
   #now trying to read the file into the website
   #What is the issue with the bucket can I avoid using the bucket or is this what paperclip uses to load the files or can I avoid using AWS
   #Given that I am using aws-sdk version 1 I cannot use the aws callout it is the improper callout.
+
+  #I may need to upgrade to version 2 of AWS-SDK and try to not wreck everything else that is going on with the program
   private
   
   def set_shop_image
