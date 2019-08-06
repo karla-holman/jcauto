@@ -1,5 +1,5 @@
 #Controls the images for the users of the website
-
+#I have found out how to call out the temp file each time allowing for the opening of the spreadsheet.
 class ShopImagesController < ApplicationController
   def show
      @shop_image = ShopImage.all 
@@ -8,40 +8,6 @@ class ShopImagesController < ApplicationController
   def index
     @shop_images = ShopImage.all
   end
-  #If I can just locate the location of the saved file I will be able to do what I need to do.
-  #Is the file being sent to AWS?
-  #If so how can I call out this file allowing me to open it.
-  #What am I missing about the saving process?
-  #Was there a parameter set somewhere specifying how to save the excel upload?
-  #Could the saving due to the create function make the saving using the save
-  # function a nil point?
-  #The find tries to send the website to a new page.
-  #How is the data saved to aws? If that is in fact where it is being sent.
-  #I will now try to obtain the object from the AWS bucket
-  #The AWS trick might just do it. Another day another learning moment.
-
-  #added the require method for aws
-  #now trying to read the file into the website
-  #What is the issue with the bucket can I avoid using the bucket or is this what paperclip uses to load the files or can I avoid using AWS
-  #Given that I am using aws-sdk version 1 I cannot use the aws callout it is the improper callout.
-
-  #I may need to upgrade to version 2 of AWS-SDK and try to not wreck everything else that is going on with the program
-  #I have fixed the issue with the callout due to the version of the Ruby gem which is being used.
-  #I have added the gets to see how this handles downloads to the app allowing me to open the spreadsheet.
-  #I get the object callout working but I cannot callout the private method, I will need to get passed this in order to get the product.
-  #I would like to load the file from aws I may change it from .xlsx to .txt,
-  #I can get the object to be recognized now lets work on getting the file to be read.
-  #Now lets work on trying to load in the .xlsx into the function my guess is it will not work because it is a .xlsx file instead of a .txt file.
-  #So I know that when I load the amazon s3 service that it loads the key but the second key doesnt work apperently.
-  #Making necessary change to hopefully solve issue.
-  #Now trying to see if the name issue has to do with the amazon s3 path or the object not  
-  #I am starting to get a little bit frustrated that this is not working how I was hoping it would.
-  #The reading of the spreadsheet doesnt seem to be working.
-  #This should read the file as needed I need to get passed the private methods
-  #I think that it would be best to move to a text file.
-  #Finally I may have solved the issue of where the spreadsheet is located. One more change to make sure it works.
-
-  #FInally I am finally getting closer to solving this problem.
 
   private
   
