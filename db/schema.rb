@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190722182657) do
+ActiveRecord::Schema.define(version: 20190808002425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -394,6 +394,26 @@ ActiveRecord::Schema.define(version: 20190722182657) do
     t.string   "spreadsheet_content_type"
     t.integer  "spreadsheet_file_size"
     t.datetime "spreadsheet_updated_at"
+    t.string   "part_num"
+    t.decimal  "price"
+    t.datetime "available_on"
+    t.string   "shipping_category"
+    t.text     "description"
+    t.decimal  "Productlength"
+    t.decimal  "Productwidth"
+    t.decimal  "Productheight"
+    t.decimal  "Productweight"
+    t.decimal  "LastPurchasecost"
+    t.string   "CrossReference"
+    t.string   "Application"
+    t.integer  "CastingNum"
+    t.decimal  "CoreCharge"
+    t.string   "ForSale"
+    t.string   "OnlineStore"
+    t.string   "IsActive"
+    t.string   "Location"
+    t.string   "Sublocation"
+    t.integer  "Quantity"
   end
 
   create_table "spree_gateways", force: :cascade do |t|
