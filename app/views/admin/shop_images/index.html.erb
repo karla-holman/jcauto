@@ -22,7 +22,6 @@
 			<tbody>
 				<% @shop_images.each do |shop_image| %>
 				<tr>
-					<!-- Need to rethink how to get the image that is saved to the database to show up here. -->
 					<td><%=image_tag(shop_image.attachment, width: 100)%></td>
 					<td><%=shop_image.description%></td>
 					<td><%= link_to 'Edit', edit_admin_shop_image_path(shop_image) %></td>
