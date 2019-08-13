@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/hisl6802/spree_jcauto.git
-  revision: cfd0c53b3c026cfc8f342651edabd467747bb3d5
+  revision: 499c24ce94f5eb3f9903a085e504425cf5dbd5a6
   specs:
     spree (3.0.4)
       spree_api (= 3.0.4)
