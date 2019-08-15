@@ -3,6 +3,7 @@
 #Trying to send the data to the new product controller
 #when using the redirect_to do I need the format.html
 #for some reason heroku is not adding the columns to spree excels table.
+#Why are these issues occuring after migrating the database.
 
 
 
