@@ -1,4 +1,4 @@
-#Controls the images for the users of the website
+#Controls the images for the users of the website.
 
 class ShopImagesController < ApplicationController
   def show
