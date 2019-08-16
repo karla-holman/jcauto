@@ -4,6 +4,7 @@
 #when using the redirect_to do I need the format.html
 #for some reason heroku is not adding the columns to spree excels table.
 #Why are these issues occuring after migrating the database.
+#This is an issue.
 
 
 
