@@ -42,9 +42,9 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-					<!--% if Spree::Captcha::Config[:use_captcha] %--> 
-						<!--%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
-					<!--% end %-->
+					<% if Spree::Captcha::Config[:use_captcha] %>
+						<%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %>
+					<% end %>
 					<!-- button type="submit" class="btn btn-default">Submit Form</button -->
 			</div>
 			<div class="col-md-12">
@@ -79,7 +79,7 @@
 				<h3>Visit the Shop</h3>
 				<% end %>
 				<p>
-					20815 52nd Ave W, Suite 2 <br> 
+					20815 52nd Ave W, Suite 2 <br>
 					Lynnwood, WA 98036
 				</p>
 			</div>
@@ -102,7 +102,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				<iframe frameborder="0" style="border:5px solid #fff; width: 100%; height: 40vh" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJp40E4lEFkFQRzhK7FUUmIq0&key=AIzaSyDN618q7ZmxIUknKx8nDTcv4xDYEVi0YVs" allowfullscreen></iframe> 
+				<iframe frameborder="0" style="border:5px solid #fff; width: 100%; height: 40vh" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJp40E4lEFkFQRzhK7FUUmIq0&key=AIzaSyDN618q7ZmxIUknKx8nDTcv4xDYEVi0YVs" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>

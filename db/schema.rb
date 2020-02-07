@@ -142,22 +142,32 @@ ActiveRecord::Schema.define(version: 20190808002425) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "our_car_images", force: :cascade do |t|
-    t.integer  "our_car_id"
-    t.text     "image_path"
+  create_table "project_images", force: :cascade do |t|
+    t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "project_id"
   end
 
-  add_index "our_car_images", ["our_car_id"], name: "index_our_car_images_on_our_car_id", using: :btree
-
-  create_table "our_cars", force: :cascade do |t|
-    t.text     "name"
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
     t.text     "description"
-    t.text     "thumb"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "project_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "header_file_name"
+    t.string   "header_content_type"
+    t.integer  "header_file_size"
+    t.datetime "header_updated_at"
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
   end
 
   create_table "qbwc_jobs", force: :cascade do |t|
@@ -1434,6 +1444,25 @@ ActiveRecord::Schema.define(version: 20190808002425) do
     t.integer "user_id"
     t.integer "event_id"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false
