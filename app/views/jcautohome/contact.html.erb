@@ -42,7 +42,10 @@
 				</div>
 			</div>
 			<div class="col-md-12">
-					
+					<% if Spree::Captcha::Config[:use_captcha] %>
+						<div class="g-recaptcha" data-sitekey="6Lcm09YUAAAAAPCHUH0skedhnnsOAJ37DwduIQ4k"></div>
+						<!-- %= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
+					<% end %>
 					<!-- button type="submit" class="btn btn-default">Submit Form</button -->
 			</div>
 			<div class="col-md-12">
@@ -106,3 +109,9 @@
 	</div>
 </div>
 <!-- %= button_tag "Find Parts", class:"btn btn-neon", onmouseover: "toggleNeon(this, '#{asset_path('buttons/red-button.png')}')", onmouseout: "toggleNeon(this, '#{asset_path('buttons/blue-button.png')}')" % -->
+
+<script type="text/javascript">
+  var onloadCallback = function() {
+    alert("grecaptcha is ready!");
+  };
+</script>
