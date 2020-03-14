@@ -5,7 +5,7 @@ ruby '>= 2.5.7'
 gem "rails"
 
 # Use pg as the database for Active Record
-gem 'pg', '>= 1.2.2'
+gem 'pg', '~> 0.18'
 
 
 # Use SCSS for stylesheets
