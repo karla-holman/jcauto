@@ -109,18 +109,6 @@ GIT
       tax_cloud (~> 0.3.0)
 
 GIT
-  remote: git://github.com/spree/spree_auth_devise.git
-  revision: 1ac9dcc33049b185a0dd884c832583feb4b91890
-  branch: 3-0-stable
-  specs:
-    spree_auth_devise (3.0.6)
-      devise (~> 3.5.4)
-      devise-encryptable (= 0.1.2)
-      json
-      multi_json
-      spree_core (~> 3.0.0)
-
-GIT
   remote: git://github.com/spree/spree_gateway.git
   revision: 3cb02b0b3a45be5f4ace9d9295ffb3c11864e605
   branch: 3-0-stable
@@ -454,6 +442,12 @@ GEM
       coffee-rails
     spreadsheet (1.2.6)
       ruby-ole (>= 1.0)
+    spree_auth_devise (3.0.6)
+      devise (~> 3.5.4)
+      devise-encryptable (= 0.1.2)
+      json
+      multi_json
+      spree_core (~> 3.0.0)
     spring (2.1.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
@@ -545,7 +539,7 @@ DEPENDENCIES
   social-share-button
   spreadsheet
   spree!
-  spree_auth_devise!
+  spree_auth_devise
   spree_email_to_friend!
   spree_gateway!
   spree_mail_settings!

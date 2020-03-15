@@ -104,7 +104,7 @@ gem 'spree', github: 'hisl6802/spree_jcauto'
 
 
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
-gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
+gem 'spree_auth_devise' #, github: 'spree/spree_auth_devise', branch: '3-0-stable'
 
 #gem 'spree_wishlist', :path => '~/Documents/JCAutowork/my_spree_wishlist-master'
 gem 'spree_wishlist', github: 'karla-holman/my_spree_wishlist'
