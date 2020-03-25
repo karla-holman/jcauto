@@ -1,6 +1,16 @@
 <div class="container-odd">
 	<div class="container">
 		<div class="row text-center">
+			<div class="jumbotron" style="background-color: #200099; color: #fff; border-radius: 10px; margin-top: -100px">
+				<h3 style="color: #fff">COVID-19 Updates</h3>
+				<p style="color: #fff">In response to the Governor’s proclamation, JC Auto is on limited hours.</p>
+				<ul>
+					<li>In-person visits will be by pre-arranged appointment only.</li>
+					<li>We are accepting mail order gauge restoration work and parts orders. Please contact us with your tracking number when you ship your gauges so we can arrange with UPS/USPS to receive your package.</li>
+					<li>Phone messages and emails will be answered as time allows.</li>
+				</ul>
+				<p style="color: #fff">Thank you for your understanding.</p>
+			</div>
 			<h1 style="font-family: 'Cookie';">Welcome to JC Auto Restoration</h1>
 			<div class= "col-md-4" >
 				<%= link_to "/parts" do %><%= image_tag "master/parts.png", alt: "Parts", onmouseover: "document.getElementById('parts').src='#{asset_path("master/parts-hover.png")}'", onmouseout: "document.getElementById('parts').src='#{asset_path("master/parts.png")}'", class:"icon", id:"parts" %><% end %>
@@ -11,7 +21,7 @@
 				</p>
 				<!-- Change Tech image on hover -->
 				<%= link_to "Get Parts >", "/parts", class:"button-link", onmouseover:"document.getElementById('parts').src='#{asset_path('master/parts-hover.png')}'", onmouseout:"document.getElementById('parts').src='#{asset_path('master/parts.png')}'" %>
-				
+
 			</div>
 			<div class="col-md-4">
 				<%= link_to "/our-services" do %><%= image_tag "master/services.png", alt: "Services", onmouseover: "document.getElementById('services').src='#{asset_path("master/services-hover.png")}'", onmouseout: "document.getElementById('services').src='#{asset_path("master/services.png")}'", class:"icon", id:"services" %><% end %>
