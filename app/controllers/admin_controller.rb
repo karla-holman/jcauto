@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  before_filter :store_location
-  before_filter :authorized?
+  before_action :store_location
+  before_action :authorized?
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format =~ %r{application/json}  }
   
   def update_positions

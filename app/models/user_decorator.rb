@@ -1,5 +1,5 @@
 Spree.user_class.class_eval do
-  has_many :customer_cars, class_name: CustomerCar
+  has_many :customer_cars, class_name: CustomerCar.name
   has_many :user_events
   has_many :events, :through => :user_events
 

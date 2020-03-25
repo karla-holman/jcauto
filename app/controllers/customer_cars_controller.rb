@@ -1,7 +1,7 @@
 class CustomerCarsController < ApplicationController
-  before_filter :authorized_user?
+  before_action :authorized_user?
   before_action :set_customer_car, :only => [:update, :edit]
-  before_filter :set_ransack, :only => [:index]
+  before_action :set_ransack, :only => [:index]
 
   def new
     @title = "My Cars - JC Auto Restoration, Inc."

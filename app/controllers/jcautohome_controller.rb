@@ -27,7 +27,7 @@ class JcautohomeController < ApplicationController
 	def parts
 		@title = "Parts - JC Auto Restoration, Inc."
 		@page = "parts"
-		
+
 		# Get all taxonomies
 		@taxonomies = Spree::Taxonomy.includes(root: :children)
 
@@ -134,7 +134,7 @@ class JcautohomeController < ApplicationController
 		images = []
 		if(params["images"])
 			# validate less than 5
-			if params["images"].length > 5 
+			if params["images"].length > 5
 				flash[:warning] = "Number of images limited to 5. Only first 5 images will be used."
 			end
 

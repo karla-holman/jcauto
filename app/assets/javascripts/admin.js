@@ -1,4 +1,4 @@
-//= require jquery-ui/sortable
+//= require jquery-ui/widgets/sortable
 //= require_self
 
 /**
@@ -23,7 +23,7 @@ $(document).ready(function() {
     }
   });
 
-  
+
   // Make flash messages dissapear
   setTimeout('$(".alert-auto-dissapear").slideUp()', 5000);
 
@@ -112,11 +112,3 @@ show_flash = function(type, message) {
   }
   flash_div.html(message).show().delay(5000).slideUp();
 }
-
-
-
-
-
-
-
-  

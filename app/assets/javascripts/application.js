@@ -13,8 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-ui/sortable
-//= require jquery-ui/autocomplete
+//= require jquery-ui/widgets/sortable
+//= require jquery-ui/widgets/autocomplete
+//= require jquery-ui/widgets/datepicker
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require spree

@@ -18,3 +18,4 @@ Spree.config do |config|
 end
 
 Spree.user_class = "Spree::User"
+Spree.admin_path = '/admin'

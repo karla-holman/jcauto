@@ -9,6 +9,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+
 Rails.application.config.assets.precompile += %w( hammer.js )
 Rails.application.config.assets.precompile += %w( image-hover.js )
 Rails.application.config.assets.precompile += %w( tooltip.js )
@@ -18,9 +19,11 @@ Rails.application.config.assets.precompile += %w( odometer.min.js )
 Rails.application.config.assets.precompile += %w( parallax.min.js )
 Rails.application.config.assets.precompile += %w( spree/frontend/checkout/shipping_prices.js )
 Rails.application.config.assets.precompile += %w( galleria-1.4.2.min.js )
-Rails.application.config.assets.precompile += %w( galleria.classic.min.js )
+Rails.application.config.assets.precompile += %w( galleria.classi dc.min.js )
 Rails.application.config.assets.precompile += %w( jquery.zoom.min.js )
 Rails.application.config.assets.precompile += %w( main.js )
 Rails.application.config.assets.precompile += %w( modernizr.js )
 Rails.application.config.assets.precompile += %w( jquery-ui/* )
+Rails.application.config.assets.precompile += %w( favicon.ico )
+
 # Rails.application.config.assets.precompile += %w( jquery.tmpl.min.js )
