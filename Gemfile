@@ -97,7 +97,7 @@ end
 # Update gem 'spree', '3.0.4'
 #gem 'spree', :path => '~/Documents/JCAutowork/spree_jcauto-master'
 
-
+# Change to trigger build
 # gem 'spree', :path => "/Users/karlaholman/spree_jcauto"
 gem 'spree', github: 'karla-holman/spree_jcauto'
 # gem 'spree', github: 'hisl6802/spree_jcauto'
