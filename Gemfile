@@ -51,7 +51,7 @@ gem 'puma'
 
 # manage images
 gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '~> 3'
 
 # Track local time
 gem 'local_time'
