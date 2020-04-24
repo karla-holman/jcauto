@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: git://github.com/karla-holman/spree_jcauto.git
-  revision: 52a0317f2a9aab0559d6885955be27bda266f5dc
+  revision: 111677f6d18d08184af2f33439e040de44fb6f02
   specs:
     spree (3.7.10)
       spree_api (= 3.7.10)
@@ -34,7 +34,6 @@ GIT
       spree_frontend (= 3.7.10)
       spree_sample (= 3.7.10)
     spree_api (3.7.10)
-      doorkeeper (~> 5.2, >= 5.2.1)
       fast_jsonapi (~> 1.5)
       rabl (~> 0.14.2)
       spree_core (= 3.7.10)
@@ -160,7 +159,7 @@ GEM
     activejob (5.2.4)
       activesupport (= 5.2.4)
       globalid (>= 0.3.6)
-    activemerchant (1.106.0)
+    activemerchant (1.107.1)
       activesupport (>= 4.2)
       builder (>= 2.1.2, < 4.0.0)
       i18n (>= 0.6.9)
@@ -1137,8 +1136,6 @@ GEM
       warden (~> 1.2.3)
     devise-encryptable (0.2.0)
       devise (>= 2.1.0)
-    doorkeeper (5.3.1)
-      railties (>= 5)
     erubi (1.9.0)
     execjs (2.7.0)
     fast_jsonapi (1.5)
@@ -1255,10 +1252,10 @@ GEM
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.11.0)
+    premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.3)
+    public_suffix (4.0.4)
     puma (4.3.3)
       nio4r (~> 2.0)
     qbwc (1.1.0)
@@ -1269,7 +1266,7 @@ GEM
       activesupport (>= 4.1.0)
       builder (~> 3.0)
       nokogiri (~> 1.5)
-    rabl (0.14.2)
+    rabl (0.14.3)
       activesupport (>= 2.3.14)
     rack (2.2.2)
     rack-protection (2.0.8.1)

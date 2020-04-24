@@ -25,5 +25,7 @@ Rails.application.config.assets.precompile += %w( main.js )
 Rails.application.config.assets.precompile += %w( modernizr.js )
 Rails.application.config.assets.precompile += %w( jquery-ui/* )
 Rails.application.config.assets.precompile += %w( favicon.ico )
+Rails.application.config.assets.precompile += %w( noimage/product.png )
+Rails.application.config.assets.precompile += %w( noimage/small.png )
 
 # Rails.application.config.assets.precompile += %w( jquery.tmpl.min.js )
