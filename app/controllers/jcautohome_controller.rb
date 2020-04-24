@@ -182,7 +182,7 @@ class JcautohomeController < ApplicationController
         elsif(params[:user][:sell_part_numbers])
         	redirect_to parts_path + "#sell"
        	else
-       		redirect_to :back
+       		redirect_back(fallback_location: root_path)
        	end
     end
 

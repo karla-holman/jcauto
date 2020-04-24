@@ -123,7 +123,7 @@ gem 'spree_wombat', github: 'karla-holman/spree_wombat'
 # gem 'spree_wombat', :path => "/Users/karlaholman/spree_wombat"
 gem 'qbwc'
 
-gem 'rack-ssl', :require => 'rack/ssl'
+# gem 'rack-ssl', :require => 'rack/ssl'
 
 
 #Looking into the memory leak possibility
