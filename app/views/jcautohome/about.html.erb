@@ -158,7 +158,7 @@
 					<%= link_to "Edit Cars", admin_cars_path, class: "btn btn-success admin-button" %>
 				<% end %>
 				<p class="intro">
-					Perhaps we take so much pride in our work because, as car owners ourselves, we would expect nothing less on our own projects. The world of MoPar is exciting, from the cars to the community. We are are proud to celebrate our passion in both our personal and professional lives with a fleet of our own cars. 
+					Perhaps we take so much pride in our work because, as car owners ourselves, we would expect nothing less on our own projects. The world of MoPar is exciting, from the cars to the community. We are are proud to celebrate our passion in both our personal and professional lives with a fleet of our own cars.
 					<strong>Note: </strong>Click on car names for more pictures.
 				</p>
 			</div>
@@ -218,6 +218,10 @@
 				<!--% if Spree::Captcha::Config[:use_captcha] %-->
 					<!--%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
 				<!--% end %-->
+				<% if Spree::Captcha::Config[:use_captcha] %>
+					<div class="g-recaptcha" data-sitekey="6Lcm09YUAAAAAPCHUH0skedhnnsOAJ37DwduIQ4k"></div>
+					<!-- %= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
+				<% end %>
 
 				<div class="clearfix"></div>
 				<%= submit_tag("Submit Form", class: "btn btn-default") %>

@@ -73,6 +73,10 @@
 					</div>
 				</div>
 				<div class="col-md-12">
+					<% if Spree::Captcha::Config[:use_captcha] %>
+						<div class="g-recaptcha" data-sitekey="6Lcm09YUAAAAAPCHUH0skedhnnsOAJ37DwduIQ4k"></div>
+						<!-- %= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
+					<% end %>
 					<!--% if Spree::Captcha::Config[:use_captcha] %-->
 						<!--%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
 					<!--% end %-->
