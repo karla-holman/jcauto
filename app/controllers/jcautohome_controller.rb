@@ -167,7 +167,7 @@ class JcautohomeController < ApplicationController
 			end
 	    end
 
-	    captcha_passed = !Spree::Captcha::Config[:use_captcha] || verify_recaptcha(private_key: Spree::Captcha::Config[:private_key]) || params[:user][:part_numbers]
+	    captcha_passed = !Spree::Captcha::Config[:use_captcha] || verify_recaptcha(secret_key: Spree::Captcha::Config[:private_key]) || params[:user][:part_numbers]
 	    terms_agreed = !params[:user][:terms] || params[:user][:terms] == "1"
       	if captcha_passed
 			message = Spree::ContactMailer.contact_email(params[:user], params[:message], images)
