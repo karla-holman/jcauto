@@ -169,8 +169,8 @@ class JcautohomeController < ApplicationController
 
 	    captcha_passed = !Spree::Captcha::Config[:use_captcha] || verify_recaptcha(secret_key: Spree::Captcha::Config[:private_key]) || params[:user][:part_numbers]
 	    terms_agreed = !params[:user][:terms] || params[:user][:terms] == "1"
-      	if captcha_passed
-			message = Spree::ContactMailer.contact_email(params[:user], params[:message], images)
+    	if captcha_passed
+					message = Spree::ContactMailer.contact_email(user_params, params[:message], images)
 	        message.deliver_later
 	        flash[:success] = "Your message has been sent. Thank you!"
 	    else
@@ -185,4 +185,10 @@ class JcautohomeController < ApplicationController
        		redirect_to :back
        	end
     end
+
+		private
+			# Never trust parameters from the scary internet, only allow the white list through.
+			def user_params
+	      params.require(:user).permit(:name, :phone, :address)
+	    end
 end
