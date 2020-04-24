@@ -23,8 +23,45 @@ GIT
       spree_core (>= 3.7.10)
 
 GIT
-  remote: git://github.com/karla-holman/spree_jcauto.git
-  revision: 111677f6d18d08184af2f33439e040de44fb6f02
+  remote: git://github.com/karla-holman/spree_mail_settings.git
+  revision: db622dafe5609956a4d60171714f6d936660f498
+  specs:
+    spree_mail_settings (3.3.0)
+      spree_auth_devise (= 3.5.2)
+      spree_backend (>= 3.7.10)
+
+GIT
+  remote: git://github.com/karla-holman/spree_paypal_express.git
+  revision: a53fc83b12e92d8c2bd40055c32e15f2b0ab531f
+  specs:
+    spree_paypal_express (1.2.0)
+      paypal-sdk-merchant
+      spree_backend
+      spree_core
+      spree_frontend
+
+GIT
+  remote: git://github.com/karla-holman/spree_tax_cloud.git
+  revision: 590f77156a7b531b595e22b2051148bca0e5e81c
+  specs:
+    spree_tax_cloud (3.7.10)
+      savon (~> 2.5.1)
+      spree_backend (>= 3.7.10)
+      spree_core (>= 3.7.10)
+      spree_extension
+      tax_cloud (~> 0.3.0)
+
+GIT
+  remote: git://github.com/karla-holman/spree_wombat.git
+  revision: 040b3b480e2d8a9b01424e4c2685ada687059d38
+  specs:
+    spree_wombat (2.2.0)
+      active_model_serializers
+      httparty
+      spree_core (>= 3.7.10)
+
+PATH
+  remote: /Users/karlaholman/spree_jcauto
   specs:
     spree (3.7.10)
       spree_api (= 3.7.10)
@@ -86,44 +123,6 @@ GIT
       turbolinks (~> 5.2.0)
     spree_sample (3.7.10)
       spree_core (= 3.7.10)
-
-GIT
-  remote: git://github.com/karla-holman/spree_mail_settings.git
-  revision: db622dafe5609956a4d60171714f6d936660f498
-  specs:
-    spree_mail_settings (3.3.0)
-      spree_auth_devise (= 3.5.2)
-      spree_backend (>= 3.7.10)
-
-GIT
-  remote: git://github.com/karla-holman/spree_paypal_express.git
-  revision: a53fc83b12e92d8c2bd40055c32e15f2b0ab531f
-  specs:
-    spree_paypal_express (1.2.0)
-      paypal-sdk-merchant
-      spree_backend
-      spree_core
-      spree_frontend
-
-GIT
-  remote: git://github.com/karla-holman/spree_tax_cloud.git
-  revision: 590f77156a7b531b595e22b2051148bca0e5e81c
-  specs:
-    spree_tax_cloud (3.7.10)
-      savon (~> 2.5.1)
-      spree_backend (>= 3.7.10)
-      spree_core (>= 3.7.10)
-      spree_extension
-      tax_cloud (~> 0.3.0)
-
-GIT
-  remote: git://github.com/karla-holman/spree_wombat.git
-  revision: 040b3b480e2d8a9b01424e4c2685ada687059d38
-  specs:
-    spree_wombat (2.2.0)
-      active_model_serializers
-      httparty
-      spree_core (>= 3.7.10)
 
 GEM
   remote: https://rubygems.org/
