@@ -1,8 +1,8 @@
-<% 
+<%
   filters = []
 
   # filter makes
-  filters << Spree::Core::ProductFilters.by_make if Spree::Core::ProductFilters.respond_to?(:by_make) 
+  filters << Spree::Core::ProductFilters.by_make if Spree::Core::ProductFilters.respond_to?(:by_make)
 
   # filter models (according to make selected)
   Spree::Make.all.each do |make|
@@ -10,7 +10,7 @@
   end
 
   # filter years
-  filters << Spree::Core::ProductFilters.by_year if Spree::Core::ProductFilters.respond_to?(:by_year) 
+  filters << Spree::Core::ProductFilters.by_year if Spree::Core::ProductFilters.respond_to?(:by_year)
 
 %>
 
@@ -159,7 +159,7 @@
             <% labels.each do |nm,val| %>
               <% label = val.to_i %>
               <% component = [nm, label] %>
-              <% 
+              <%
                 if params[:search] && params[:search][filter[:scope]] && params[:search][filter[:scope]].include?(val.to_s)
                   selected = component
                 end
@@ -200,8 +200,8 @@
 				<div class="carousel-inner mobile-center" role="listbox">
 					<% first = true %>
 					<% @promotions.each_with_index do |promotion, i| %>
-						<% next if promotion.expired? %> 
-						<% 		
+						<% next if promotion.expired? %>
+						<%
 							found_promotion = true
 							taxon_rules = promotion.rules.where("type ILIKE ?", "%taxon%")
 							product_rules = promotion.rules.where("type ILIKE ?", "%product%")
@@ -222,7 +222,7 @@
 					        N/A
 					      <% end %>
 
-						    <!-- Valid dates -->  
+						    <!-- Valid dates -->
 					      <% if promotion.expires_at && promotion.starts_at %>
 						      <p style="margin-bottom: 0px">
 						      	Valid from <%= promotion.starts_at.strftime("%m/%d/%Y") %> to <%= promotion.expires_at.strftime("%m/%d/%Y") %>
@@ -235,7 +235,7 @@
 					      		<% has_taxons = true %>
 						      	Applicable Part Categories:
 						      	<% taxon_rules.each_with_index do |taxon, i| %>
-						      		<%= link_to taxon.taxons.first.name, spree.nested_taxons_path(taxon.taxons.first.permalink) %><%= i + 1 == taxon_rules.length ? "" : "," %> 
+						      		<%= link_to taxon.taxons.first.name, spree.nested_taxons_path(taxon.taxons.first.permalink) %><%= i + 1 == taxon_rules.length ? "" : "," %>
 					      		<% end %>
 
 					      		<!-- If products also specified -->
@@ -256,9 +256,9 @@
 							      	<%= link_to product.products.first.name, spree.product_path(product.products.first) %><%= i + 1 == product_rules_match.length ? "" : "," %>
 							      <% end %>
 
-							    <!-- Applies to all products -->  
+							    <!-- Applies to all products -->
 							    <% else %>
-							    	Applicable Parts: 
+							    	Applicable Parts:
 							    	<%= link_to "All", spree.products_path %>
 							    <% end %>
 						    </p>
@@ -268,7 +268,7 @@
 
 					      <!-- Store button -->
 					      <%= link_to spree.products_path, class: "btn btn-primary btn-lg", style: "margin-top: 20px" do %><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Shop Now<% end %>
-				      </div><!-- Col -->      
+				      </div><!-- Col -->
 				    </div><!-- item -->
 					<% end %>
 				</div><!-- Carousel inner -->
@@ -319,10 +319,10 @@
 				    	<div class="col-md-5" style="text-align:center">
 								<% url = spree.product_url(package) %>
 				      	<!-- Image -->
-				      	<% 
+				      	<%
 				      		if package.variant_images.empty?
 				      			image = "noimage/product.png"
-				      		else 
+				      		else
 				      			image = package.variant_images.first.attachment.url("product")
 				      		end
 				      	%>
@@ -335,13 +335,13 @@
 				      <% else %>
 				        N/A
 				      <% end %>
-				      <strong>Cross References:</strong> 
+				      <strong>Cross References:</strong>
 				      <!-- Only show chrysler numbers -->
 				      <% cross_found = false %>
 				      <% if !package.product_properties.where("property_id=?", 3).empty? %>
 				        <% package.property("Cross Reference").split(",").each_with_index do |cross, index| %>
 				          <% if matches = cross.strip.match(/(\d{7})/) %>
-				              <%= ((index != 0 && cross_found) ? ", " : "") + matches[1] %> 
+				              <%= ((index != 0 && cross_found) ? ", " : "") + matches[1] %>
 				              <% cross_found = true %>
 				          <% end %>
 				        <% end %>
@@ -349,8 +349,8 @@
 				      <% if !cross_found %>
 				        N/A
 				      <% end %><br>
-				      <strong>Applications:</strong> 
-				      <% if package.product_applications.empty? %> 
+				      <strong>Applications:</strong>
+				      <% if package.product_applications.empty? %>
 				        N/A
 				      <% else %>
 				          <% len = package.product_applications.length %>
@@ -358,7 +358,7 @@
 				              <%= product_application.name.strip %><%= index+1 == len ? "" : ", " %>
 				          <% end %>
 				      <% end %>
-				      </div>      
+				      </div>
 				    </div><!-- item -->
 					<% end %>
 				</div><!-- Carousel inner -->
@@ -401,10 +401,10 @@
 					    	<div class="col-md-5" style="text-align:center">
 									<% url = spree.product_url(new_prod) %>
 					      	<!-- Image -->
-					      	<% 
+					      	<%
 					      		if new_prod.variant_images.empty?
 					      			image = "noimage/product.png"
-					      		else 
+					      		else
 					      			image = new_prod.variant_images.first.attachment.url("product")
 					      		end
 					      	%>
@@ -417,13 +417,13 @@
 				          <% else %>
 				            N/A
 				          <% end %>
-				          <strong>Cross References:</strong> 
+				          <strong>Cross References:</strong>
 				          <!-- Only show chrysler numbers -->
 				          <% cross_found = false %>
 				          <% if !new_prod.product_properties.where("property_id=?", 3).empty? %>
 				            <% new_prod.property("Cross Reference").split(",").each_with_index do |cross, index| %>
 				              <% if matches = cross.strip.match(/(\d{7})/) %>
-				                  <%= ((index != 0 && cross_found) ? ", " : "") + matches[1] %> 
+				                  <%= ((index != 0 && cross_found) ? ", " : "") + matches[1] %>
 				                  <% cross_found = true %>
 				              <% end %>
 				            <% end %>
@@ -431,8 +431,8 @@
 				          <% if !cross_found %>
 				            N/A
 				          <% end %><br>
-				          <strong>Applications:</strong> 
-				          <% if new_prod.product_applications.empty? %> 
+				          <strong>Applications:</strong>
+				          <% if new_prod.product_applications.empty? %>
 				            N/A
 				          <% else %>
 				              <% len = new_prod.product_applications.length %>
@@ -440,7 +440,7 @@
 				                  <%= product_application.name.strip %><%= index+1 == len ? "" : ", " %>
 				              <% end %>
 				          <% end %>
-					      </div>      
+					      </div>
 					    </div><!-- item -->
 						<% end %>
 					</div><!-- Carousel inner -->
@@ -536,6 +536,10 @@
 				</div>
 			</div>
 			<div class="col-md-12">
+        <% if Spree::Captcha::Config[:use_captcha] %>
+          <div class="g-recaptcha" data-sitekey="6Lcm09YUAAAAAPCHUH0skedhnnsOAJ37DwduIQ4k"></div>
+          <!-- %= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
+        <% end %>
 				<!--% if Spree::Captcha::Config[:use_captcha] %-->
 					<!--%= recaptcha_tags public_key: Spree::Captcha::Config[:public_key], display: { theme: Spree::Captcha::Config[:theme] } %-->
 				<!--% end %-->
